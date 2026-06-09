@@ -1,5 +1,5 @@
 {
-  "installCommand": "cd .. && npm install",
+  "installCommand": "cd .. && pnpm install",
   "buildCommand": "cd .. && node_modules/.bin/vite build --config client/vite.config.ts",
   "outputDirectory": "dist",
   "rewrites": [

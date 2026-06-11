@@ -186,17 +186,75 @@ export default function ChairmanLetterModal({ isOpen, onClose }: Props) {
               {/* Signature */}
               <div
                 className="cl-reveal"
-                style={{ marginTop: "clamp(24px, 4vw, 40px)" }}
+                style={{ marginTop: "clamp(28px, 5vw, 48px)" }}
               >
-                <p style={{ fontFamily: "Quantico, sans-serif", fontWeight: 400, fontSize: "clamp(0.82rem, 1.8vw, 0.92rem)", color: "#1a1a1a", marginBottom: "0.1rem", lineHeight: 1.8 }}>
+                {/* Divider */}
+                <div style={{ height: "1px", background: "linear-gradient(90deg, #02f9ba 0%, rgba(2,249,186,0.1) 100%)", marginBottom: "clamp(20px, 4vw, 32px)" }} />
+
+                <p style={{ fontFamily: "Nunito Sans, sans-serif", fontWeight: 300, fontSize: "0.8rem", color: "#6b7280", marginBottom: "clamp(14px, 3vw, 22px)", letterSpacing: "0.04em" }}>
                   Sincerely,
                 </p>
-                <p style={{ fontFamily: "Quantico, sans-serif", fontWeight: 700, fontSize: "clamp(0.82rem, 1.8vw, 0.92rem)", color: "#02d49e", marginBottom: "0.05rem", lineHeight: 1.8 }}>
-                  N'Gunu Tiny
-                </p>
-                <p style={{ fontFamily: "Quantico, sans-serif", fontWeight: 400, fontSize: "clamp(0.82rem, 1.8vw, 0.92rem)", color: "#02d49e", lineHeight: 1.8 }}>
-                  Chairman and CEO
-                </p>
+
+                {/* Profile card */}
+                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: "16px", flexWrap: "wrap" }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
+                    {/* Photo */}
+                    <div style={{
+                      width: "clamp(64px, 10vw, 84px)",
+                      height: "clamp(64px, 10vw, 84px)",
+                      borderRadius: "50%",
+                      overflow: "hidden",
+                      flexShrink: 0,
+                      border: "2.5px solid #02f9ba",
+                      boxShadow: "0 0 0 4px rgba(2,249,186,0.12)",
+                    }}>
+                      <img
+                        src="/about_members/tiny_400px.png"
+                        alt="N'Gunu Tiny"
+                        style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top" }}
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </div>
+
+                    {/* Name + title */}
+                    <div>
+                      <p style={{ fontFamily: "Quantico, sans-serif", fontWeight: 700, fontSize: "clamp(1rem, 2.5vw, 1.15rem)", color: "#1e1f1f", marginBottom: "2px", lineHeight: 1.2 }}>
+                        N'Gunu Tiny
+                      </p>
+                      <p style={{ fontFamily: "Nunito Sans, sans-serif", fontWeight: 400, fontSize: "clamp(0.75rem, 1.6vw, 0.82rem)", color: "#6b7280", lineHeight: 1.5, margin: 0 }}>
+                        Chairman and CEO of the Emerald Group
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* LinkedIn */}
+                  <a
+                    href="https://www.linkedin.com/in/n-gunu-tiny/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="LinkedIn"
+                    title="View on LinkedIn"
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      width: "36px",
+                      height: "36px",
+                      borderRadius: "8px",
+                      background: "#1e1f1f",
+                      color: "white",
+                      flexShrink: 0,
+                      transition: "background 0.2s ease, transform 0.2s ease",
+                    }}
+                    onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.background = "#02f9ba"; (e.currentTarget as HTMLAnchorElement).style.color = "#1e1f1f"; }}
+                    onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.background = "#1e1f1f"; (e.currentTarget as HTMLAnchorElement).style.color = "white"; }}
+                  >
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    </svg>
+                  </a>
+                </div>
               </div>
             </div>
           </div>

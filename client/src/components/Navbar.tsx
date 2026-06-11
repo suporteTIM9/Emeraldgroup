@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { Link } from "wouter";
-import { Menu, X, ChevronDown, Landmark, HardHat, Layers, Gem, Radio, Building2, ArrowRight } from "lucide-react";
+import { Menu, X, ChevronDown, Landmark, HardHat, Layers, Gem, Radio, Building2, GraduationCap, ArrowRight } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { useAuth } from "@/_core/hooks/useAuth";
 
@@ -19,7 +19,8 @@ const navItems: NavItem[] = [
       { label: "Infrastructure",                  href: "#cluster-infrastructure", icon: Layers,    desc: "Developing essential networks that connect economies." },
       { label: "Natural Resources",               href: "#cluster-resources",      icon: Gem,       desc: "Sustainable extraction and value creation from Africa's wealth." },
       { label: "Telecom, Media & Technology",     href: "#cluster-tmt",            icon: Radio,     desc: "Connecting people and businesses through innovation." },
-      { label: "Urban Development & Real Estate", href: "#cluster-urban",          icon: Building2, desc: "Shaping cities and communities for sustainable living." },
+      { label: "Urban Development & Real Estate", href: "#cluster-urban",          icon: Building2,     desc: "Shaping cities and communities for sustainable living." },
+      { label: "Education & Leadership Development", href: "#cluster-education",   icon: GraduationCap, desc: "Empowering future-ready leaders through knowledge and innovation." },
     ],
   },
   { label: "Journey", href: "#journey" },

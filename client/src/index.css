@@ -130,11 +130,20 @@
   }
   body {
     @apply bg-background text-foreground;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 500;
+    line-height: 1.5;
     -webkit-font-smoothing: antialiased;
   }
-  h1, h2, h3 {
-    font-family: 'Playfair Display', serif;
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Quantico', sans-serif;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+  p {
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 500;
+    line-height: 1.5;
   }
   button:not(:disabled),
   [role="button"]:not([aria-disabled="true"]),

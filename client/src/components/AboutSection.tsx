@@ -48,7 +48,7 @@ const stats = [
   { value: "20+", label: "Portfolio Companies", desc: "Across six strategic sectors" },
   { value: "5+", label: "Countries", desc: "Active presence across Africa and Europe" },
   { value: "30+", label: "Years", desc: "Of business excellence and growth" },
-  { value: "6", label: "Clusters", desc: "Diversified business verticals" },
+  { value: "7", label: "Clusters", desc: "Diversified business verticals" },
 ];
 
 export default function AboutSection() {

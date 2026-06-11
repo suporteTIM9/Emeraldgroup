@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Building2, HardHat, Zap, Leaf, Radio, Landmark } from "lucide-react";
+import { Building2, HardHat, Zap, Leaf, Radio, Landmark, GraduationCap } from "lucide-react";
 
 const clusters = [
   {
@@ -159,6 +159,36 @@ const clusters = [
     color: "oklch(0.52 0.14 55)",
     bgColor: "oklch(0.97 0.04 55)",
   },
+  {
+    id: "education",
+    number: "07",
+    icon: GraduationCap,
+    title: "Education & Leadership Development",
+    anchorId: "cluster-education",
+    tagline: "Empowering minds. Shaping futures.",
+    description:
+      "Emerald Group's Education & Leadership Development cluster reflects the Group's commitment to building human capital as a foundation for long-term economic and social progress. Positioned at the intersection of academia, technology, and global investment, this cluster focuses on developing future-ready leaders, promoting knowledge access, and fostering transformative learning experiences across international markets. Through strategic partnerships with leading academic institutions, executive education programs, and knowledge platforms, Emerald Group bridges theory and practice — equipping decision-makers with the tools, insights, and global perspective required to navigate increasingly complex and fast-evolving environments. The cluster places particular emphasis on leadership, innovation, and the responsible use of emerging technologies such as artificial intelligence in education.",
+    companies: [
+      {
+        name: "Executive Education",
+        desc: "Premium leadership and executive development programs delivered in collaboration with world-class academic institutions. These initiatives combine academic rigor with real-world business insights, preparing senior executives and high-potential leaders to operate effectively in global environments.",
+      },
+      {
+        name: "Academic Partnerships",
+        desc: "Strategic alliances with universities and research institutions to co-create educational programs, certifications, and learning experiences that blend theory, research, and applied business practice.",
+      },
+      {
+        name: "Knowledge & Media Platforms",
+        desc: "Leveraging media assets and publishing platforms to expand access to economic, business, and leadership knowledge. These platforms contribute to informal education by informing, inspiring, and connecting entrepreneurial and professional communities across regions.",
+      },
+      {
+        name: "Digital & Future Learning",
+        desc: "Development of forward-looking education models that integrate technology, digital platforms, and AI-enabled learning systems. This area focuses on democratizing access to knowledge and addressing emerging challenges in global education systems.",
+      },
+    ],
+    color: "oklch(0.42 0.16 155)",
+    bgColor: "oklch(0.97 0.04 155)",
+  },
 ];
 
 export default function ClustersSection() {
@@ -190,12 +220,12 @@ export default function ClustersSection() {
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-16">
           <h2
             className="text-4xl lg:text-5xl font-bold leading-tight max-w-xl"
-            style={{ color: "var(--eg-dark)", fontFamily: "Playfair Display, serif" }}
+            style={{ color: "var(--eg-dark)" }}
           >
-            Six Clusters.<br />One Vision.
+            Seven Clusters.<br />One Vision.
           </h2>
           <p className="text-sm text-gray-500 max-w-sm leading-relaxed">
-            Emerald Group organises its investments and operations into six distinct business clusters — each
+            Emerald Group organises its investments and operations into seven distinct business clusters — each
             strategically positioned to capture long-term value and contribute to Africa's economic transformation.
           </p>
         </div>

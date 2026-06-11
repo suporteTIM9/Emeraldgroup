@@ -32,7 +32,7 @@ function LogoCard({ item }: { item: LogoItem }) {
   return (
     <div className="lm-card">
       {item.src ? (
-        <img src={item.src} alt={item.name} className="lm-img" draggable={false} />
+        <img src={item.src} alt={item.name} loading="lazy" decoding="async" className="lm-img" draggable={false} />
       ) : (
         <span className="lm-name">{item.name}</span>
       )}
@@ -151,7 +151,7 @@ const css = `
 
 export default function LogoMarquee() {
   return (
-    <section className="py-32 lg:py-44" style={{ background: "oklch(0.97 0.003 240)" }}>
+    <section className="py-24 lg:py-32" style={{ background: "oklch(0.97 0.003 240)", contentVisibility: "auto", containIntrinsicSize: "0 400px" }}>
       <style>{css}</style>
 
       <div className="container">

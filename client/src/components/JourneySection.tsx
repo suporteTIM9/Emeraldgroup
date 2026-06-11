@@ -44,39 +44,121 @@ const milestones = [
 ];
 
 export default function JourneySection() {
-  const sectionRef = useRef<HTMLDivElement>(null);
+  const sectionRef  = useRef<HTMLDivElement>(null);
+  const timelineRef = useRef<HTMLDivElement>(null);
+  const progressRef = useRef<HTMLDivElement>(null);
+  const dotRefs     = useRef<(HTMLDivElement | null)[]>([]);
 
+  /* ── Scroll-driven progress line ── */
+  useEffect(() => {
+    const update = () => {
+      const tl   = timelineRef.current;
+      const prog = progressRef.current;
+      if (!tl || !prog) return;
+      const rect = tl.getBoundingClientRect();
+      const vh   = window.innerHeight;
+      const pct  = Math.min(1, Math.max(0, (vh - rect.top) / (rect.height + vh * 0.2)));
+      prog.style.height = `${pct * 100}%`;
+    };
+    window.addEventListener("scroll", update, { passive: true });
+    update();
+    return () => window.removeEventListener("scroll", update);
+  }, []);
+
+  /* ── Dots light up on scroll ── */
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add("js-visible");
+            entry.target.classList.add("dot-lit");
             observer.unobserve(entry.target);
           }
         });
       },
-      { threshold: 0.25, rootMargin: "0px 0px -60px 0px" }
+      { threshold: 0.8 }
     );
+    dotRefs.current.forEach((d) => d && observer.observe(d));
+    return () => observer.disconnect();
+  }, []);
 
-    const elements = sectionRef.current?.querySelectorAll(".js-reveal");
-    elements?.forEach((el) => observer.observe(el));
+  /* ── Milestone blocks cascade in on scroll ── */
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("in-view");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15, rootMargin: "0px 0px -40px 0px" }
+    );
+    sectionRef.current?.querySelectorAll(".milestone-block, .js-reveal").forEach((el) => observer.observe(el));
     return () => observer.disconnect();
   }, []);
 
   return (
     <section id="journey" className="py-24 lg:py-32 bg-white overflow-hidden">
       <style>{`
+        /* Section header reveal */
         .js-reveal {
           opacity: 0;
-          transform: translateY(32px);
-          transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
-                      transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+          transform: translateY(28px);
+          transition: opacity 0.9s cubic-bezier(0.16,1,0.3,1),
+                      transform 0.9s cubic-bezier(0.16,1,0.3,1);
         }
-        .js-visible {
-          opacity: 1;
-          transform: translateY(0);
+        .js-reveal.in-view { opacity: 1; transform: translateY(0); }
+
+        /* Milestone cascade — children start hidden */
+        .milestone-block .r-badge,
+        .milestone-block .r-title,
+        .milestone-block .r-desc {
+          opacity: 0;
+          transform: translateY(22px);
+          transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1),
+                      transform 0.7s cubic-bezier(0.16,1,0.3,1);
         }
+        /* When parent enters view, children cascade */
+        .milestone-block.in-view .r-badge { opacity: 1; transform: translateY(0); transition-delay: 0s; }
+        .milestone-block.in-view .r-title { opacity: 1; transform: translateY(0); transition-delay: 0.13s; }
+        .milestone-block.in-view .r-desc  { opacity: 1; transform: translateY(0); transition-delay: 0.26s; }
+
+        /* Dot states */
+        .timeline-dot {
+          transition: background 0.5s ease,
+                      transform 0.5s cubic-bezier(0.16,1,0.3,1),
+                      box-shadow 0.5s ease;
+        }
+        .dot-lit {
+          background: #02f9ba !important;
+          transform: scale(1.5) !important;
+          box-shadow: 0 0 0 5px rgba(2,249,186,0.18), 0 0 14px rgba(2,249,186,0.45) !important;
+        }
+
+        /* Today — pulsing rings */
+        @keyframes live-ring {
+          0%  { transform: scale(1); opacity: 0.75; }
+          70% { transform: scale(3); opacity: 0; }
+          100%{ transform: scale(1); opacity: 0; }
+        }
+        .live-dot {
+          position: relative;
+          width: 10px; height: 10px;
+          border-radius: 50%;
+          background: #02f9ba;
+          flex-shrink: 0;
+        }
+        .live-dot::before, .live-dot::after {
+          content: '';
+          position: absolute;
+          inset: 0;
+          border-radius: 50%;
+          background: #02f9ba;
+          animation: live-ring 1.8s ease-out infinite;
+        }
+        .live-dot::after { animation-delay: 0.65s; }
       `}</style>
 
       <div className="container" ref={sectionRef}>
@@ -102,11 +184,24 @@ export default function JourneySection() {
         </div>
 
         {/* Timeline */}
-        <div className="relative">
-          {/* Vertical line */}
+        <div className="relative" ref={timelineRef}>
+
+          {/* Track (background line) */}
           <div
-            className="absolute left-4 lg:left-1/2 top-0 bottom-0 w-px"
-            style={{ background: "linear-gradient(180deg, var(--eg-cyan), var(--eg-orange), var(--eg-cyan))", opacity: 0.3 }}
+            className="absolute left-4 lg:left-1/2 top-0 bottom-0 w-px -translate-x-1/2"
+            style={{ background: "oklch(0.92 0.005 240)" }}
+          />
+
+          {/* Progress line — draws itself as you scroll */}
+          <div
+            className="absolute left-4 lg:left-1/2 top-0 w-px -translate-x-1/2 origin-top"
+            ref={progressRef}
+            style={{
+              height: "0%",
+              background: "linear-gradient(180deg, #02f9ba 0%, #02d49e 60%, oklch(0.75 0.12 80) 100%)",
+              boxShadow: "0 0 8px rgba(2,249,186,0.5)",
+              transition: "height 0.1s linear",
+            }}
           />
 
           <div className="flex flex-col gap-0">
@@ -116,42 +211,77 @@ export default function JourneySection() {
               return (
                 <div
                   key={i}
-                  className={`js-reveal relative flex items-start gap-8 pb-10 ${
+                  className={`milestone-block relative flex items-start gap-8 pb-12 ${
                     isEven ? "lg:flex-row" : "lg:flex-row-reverse"
                   }`}
-                  style={{ transitionDelay: "0s" }}
                 >
                   {/* Content */}
                   <div className={`flex-1 pl-12 lg:pl-0 ${isEven ? "lg:pr-16 lg:text-right" : "lg:pl-16"}`}>
-                    <div
-                      className="inline-block text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-sm mb-3"
-                      style={{
-                        background: isLast ? "var(--eg-cyan)" : "oklch(0.95 0.008 200)",
-                        color: isLast ? "white" : "var(--eg-cyan)",
-                      }}
-                    >
-                      {m.year}
+
+                    {/* Year badge */}
+                    <div className="r-badge">
+                      {isLast ? (
+                        <div
+                          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-3"
+                          style={{
+                            background: "rgba(2,249,186,0.12)",
+                            border: "1.5px solid #02f9ba",
+                            boxShadow: "0 0 12px rgba(2,249,186,0.3)",
+                          }}
+                        >
+                          <span className="live-dot" />
+                          <span className="text-xs font-bold tracking-widest uppercase" style={{ color: "#02f9ba" }}>
+                            Today
+                          </span>
+                          <span
+                            className="text-[10px] font-bold tracking-widest uppercase px-1.5 py-0.5 rounded-full"
+                            style={{ background: "#02f9ba", color: "#1e1f1f" }}
+                          >
+                            2026
+                          </span>
+                        </div>
+                      ) : (
+                        <div
+                          className="inline-block text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-sm mb-3"
+                          style={{ background: "oklch(0.95 0.008 200)", color: "var(--eg-cyan)" }}
+                        >
+                          {m.year}
+                        </div>
+                      )}
                     </div>
-                    <h3 className="text-lg font-bold mb-2" style={{ color: "var(--eg-dark)" }}>
+
+                    {/* Title */}
+                    <h3 className="r-title text-lg font-bold mb-2" style={{ color: "var(--eg-dark)" }}>
                       {m.title}
                     </h3>
+
+                    {/* Description */}
                     <p
-                      className="text-sm text-gray-500 leading-relaxed"
-                      style={{ maxWidth: "260px", display: "block", marginLeft: isEven ? "auto" : undefined }}
+                      className="r-desc text-sm text-gray-500 leading-relaxed"
+                      style={{
+                        maxWidth: "260px",
+                        display: "block",
+                        marginLeft: isEven ? "auto" : undefined,
+                      }}
                     >
                       {m.desc}
                     </p>
                   </div>
 
                   {/* Center dot */}
-                  <div className="absolute left-4 lg:left-1/2 top-1 -translate-x-1/2 flex items-center justify-center">
+                  <div className="absolute left-4 lg:left-1/2 top-1.5 -translate-x-1/2 z-10">
                     <div
-                      className="w-3 h-3 rounded-full border-2 border-white"
-                      style={{ background: i % 3 === 0 ? "var(--eg-cyan)" : i % 3 === 1 ? "var(--eg-orange)" : "var(--eg-gray, oklch(0.52 0.02 240))" }}
+                      ref={(el) => { dotRefs.current[i] = el; }}
+                      className="timeline-dot w-4 h-4 rounded-full border-2 border-white"
+                      style={{
+                        background: "oklch(0.85 0.005 240)",
+                        boxShadow: "none",
+                        transform: "scale(1)",
+                      }}
                     />
                   </div>
 
-                  {/* Empty side for desktop alternating layout */}
+                  {/* Empty side on desktop */}
                   <div className="hidden lg:block flex-1" />
                 </div>
               );

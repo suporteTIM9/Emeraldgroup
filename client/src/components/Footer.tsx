@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "wouter";
+import { ArrowUp } from "lucide-react";
 
 const footerLinks = [
   {
@@ -20,6 +21,7 @@ const footerLinks = [
       { label: "Natural Resources", href: "#cluster-resources" },
       { label: "Telecom, Media & Technology", href: "#cluster-tmt" },
       { label: "Urban Development & Real Estate", href: "#cluster-urban" },
+      { label: "Education & Leadership Dev.", href: "#cluster-education" },
     ],
   },
   {
@@ -53,31 +55,29 @@ function IconLinkedIn() {
 }
 
 const socialLinks = [
-  {
-    icon: IconLinkedIn,
-    href: "https://www.linkedin.com/company/emerald-group-inc-com",
-    label: "LinkedIn",
-  },
+  { icon: IconLinkedIn, href: "https://www.linkedin.com/company/emerald-group-inc-com", label: "LinkedIn" },
 ];
 
-const futuristicTagline =
-  "Building tomorrow's global business platforms with purpose, integrity, and a commitment to lasting impact.";
+const tagline = "Building tomorrow's global business platforms with purpose, integrity, and a commitment to lasting impact.";
 
 export default function Footer() {
   const [typedText, setTypedText] = useState("");
+  const [showTop, setShowTop]     = useState(false);
 
   useEffect(() => {
     let index = 0;
     const interval = window.setInterval(() => {
-      setTypedText(futuristicTagline.slice(0, index + 1));
+      setTypedText(tagline.slice(0, index + 1));
       index += 1;
-
-      if (index >= futuristicTagline.length) {
-        window.clearInterval(interval);
-      }
+      if (index >= tagline.length) window.clearInterval(interval);
     }, 25);
-
     return () => window.clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    const onScroll = () => setShowTop(window.scrollY > 400);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   const handleNavClick = (href: string) => {
@@ -86,83 +86,87 @@ export default function Footer() {
       if (el) {
         const top = el.getBoundingClientRect().top + window.scrollY - 88;
         window.scrollTo({ top, behavior: "smooth" });
-        setTimeout(() => (el as HTMLElement).click(), 400);
       } else {
         window.location.href = "/" + href;
       }
     }
   };
 
+  const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
+
   return (
-    <footer style={{ background: "var(--eg-dark)" }}>
-      {/* Top bar */}
-      <div
-        className="border-b"
-        style={{ borderColor: "rgba(255,255,255,0.06)" }}
+    <footer style={{ background: "var(--eg-dark)", borderTop: "3px solid #02f9ba" }}>
+      <style>{`
+        @keyframes btt-pulse {
+          0%, 100% { box-shadow: 0 0 0 0 rgba(2,249,186,0.45); }
+          50%       { box-shadow: 0 0 0 9px rgba(2,249,186,0); }
+        }
+        .btt-btn {
+          position: fixed;
+          bottom: 2rem;
+          right: 2rem;
+          z-index: 999;
+          width: 44px;
+          height: 44px;
+          border-radius: 50%;
+          background: #1e1f1f;
+          border: 2px solid #02f9ba;
+          color: #02f9ba;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          animation: btt-pulse 2.4s ease-in-out infinite;
+          transition: background 0.25s ease, color 0.25s ease,
+                      transform 0.3s ease, opacity 0.3s ease;
+        }
+        .btt-btn:hover {
+          background: #02f9ba;
+          color: #1e1f1f;
+          transform: translateY(-5px) !important;
+          animation: none;
+          box-shadow: 0 8px 24px rgba(2,249,186,0.4);
+        }
+        .btt-btn.btt-hidden { opacity: 0; pointer-events: none; transform: translateY(14px); }
+        .btt-btn.btt-visible { opacity: 1; pointer-events: auto; transform: translateY(0); }
+        @media (max-width: 640px) {
+          .btt-btn { bottom: 1.25rem; right: 1.25rem; width: 40px; height: 40px; }
+        }
+      `}</style>
+
+      {/* Floating back-to-top button */}
+      <button
+        onClick={scrollToTop}
+        aria-label="Back to top"
+        className={`btt-btn ${showTop ? "btt-visible" : "btt-hidden"}`}
       >
-        <div className="container py-10">
-          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
-            {/* Logo */}
-            <div className="flex items-center">
-              <img
-                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663184082639/28Rt9uMprGDPTN4Qw2hwyo/emerald-logo-dark_23cb6a99.png"
-                alt="Emerald Group"
-                className="w-auto object-contain"
-                style={{ height: "clamp(48px, 6vw, 72px)", filter: "brightness(1.15) drop-shadow(0 0 12px rgba(2,212,158,0.25))" }}
-              />
-            </div>
+        <ArrowUp size={18} />
+      </button>
 
-            {/* Tagline */}
-            <p
-              className="text-sm max-w-sm leading-relaxed font-medium"
-              style={{
-                color: "rgba(255,255,255,0.4)",
-                textShadow: "0 0 18px rgba(127, 170, 255, 0.35)",
-              }}
-            >
-              <span>{typedText}</span>
-              <span
-                aria-hidden="true"
-                style={{
-                  display: "inline-block",
-                  width: "0.5rem",
-                  marginLeft: "0.2rem",
-                  color: "rgba(255,255,255,0.4)",
-                  animation: "footer-caret 0.9s steps(1) infinite",
-                }}
-              >
-                |
-              </span>
-            </p>
-
-            {/* Social links */}
+      {/* Top bar — logo + social */}
+      <div className="border-b" style={{ borderColor: "rgba(255,255,255,0.06)" }}>
+        <div className="container py-8">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
+            <img
+              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663184082639/28Rt9uMprGDPTN4Qw2hwyo/emerald-logo-dark_23cb6a99.png"
+              alt="Emerald Group"
+              className="w-auto object-contain"
+              style={{ height: "clamp(40px, 5vw, 60px)", filter: "brightness(1.15) drop-shadow(0 0 12px rgba(2,212,158,0.25))" }}
+            />
             <div className="flex items-center gap-3">
               {socialLinks.map(({ icon: Icon, href, label }) => (
                 <a
                   key={label}
                   href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label={label}
-                  className="w-8 h-8 rounded-sm flex items-center justify-center transition-all hover:opacity-80"
-                  style={{
-                    background: "rgba(255,255,255,0.08)",
-                    ...(label === "LinkedIn"
-                      ? {
-                          transition: "background 0.2s ease, transform 0.2s ease",
-                        }
-                      : {}),
-                  }}
-                  onMouseEnter={(event) => {
-                    if (label === "LinkedIn") {
-                      event.currentTarget.style.background = "#02d49e";
-                    }
-                  }}
-                  onMouseLeave={(event) => {
-                    if (label === "LinkedIn") {
-                      event.currentTarget.style.background = "rgba(255,255,255,0.08)";
-                    }
-                  }}
+                  className="w-8 h-8 rounded-sm flex items-center justify-center"
+                  style={{ background: "rgba(255,255,255,0.08)", transition: "background 0.2s ease" }}
+                  onMouseEnter={e => (e.currentTarget.style.background = "#02d49e")}
+                  onMouseLeave={e => (e.currentTarget.style.background = "rgba(255,255,255,0.08)")}
                 >
-                  <span style={{ color: "#ffffff", display: "flex", width: 14, height: 14 }}>
+                  <span style={{ color: "#ffffff", display: "flex" }}>
                     <Icon />
                   </span>
                 </a>
@@ -172,43 +176,66 @@ export default function Footer() {
         </div>
       </div>
 
+      {/* Tagline strip */}
+      <div className="border-b" style={{ borderColor: "rgba(255,255,255,0.06)" }}>
+        <div className="container py-8">
+          <p
+            className="text-sm max-w-lg leading-relaxed"
+            style={{ color: "rgba(255,255,255,0.4)", fontFamily: "Nunito Sans, sans-serif", fontWeight: 300 }}
+          >
+            <span>{typedText}</span>
+            <span
+              aria-hidden="true"
+              style={{
+                display: "inline-block",
+                width: "0.5rem",
+                marginLeft: "0.2rem",
+                color: "rgba(255,255,255,0.4)",
+                animation: "footer-caret 0.9s steps(1) infinite",
+              }}
+            >|</span>
+          </p>
+        </div>
+      </div>
+
       {/* Links grid */}
       <div className="container py-12">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
           {footerLinks.map((col) => (
             <div key={col.heading}>
-              <h4 className="text-xs font-semibold tracking-widest uppercase text-white/30 mb-5">
+              <h4
+                className="text-xs font-bold tracking-widest uppercase mb-5"
+                style={{ color: "rgba(255,255,255,0.25)", fontFamily: "Nunito Sans, sans-serif" }}
+              >
                 {col.heading}
               </h4>
               <ul className="flex flex-col gap-2.5">
-                {col.links.map((link) => (
-                  <li key={link.label}>
-                    {link.href.startsWith("#") ? (
-                      <button
-                        onClick={() => handleNavClick(link.href)}
-                        className="text-sm text-white/50 hover:text-white/90 transition-colors text-left animated-link"
-                      >
-                        {link.label}
-                      </button>
-                    ) : link.href.startsWith("https") ? (
-                      <a
-                        href={link.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-sm text-white/50 hover:text-white/90 transition-colors animated-link"
-                      >
-                        {link.label}
-                      </a>
-                    ) : (
-                      <Link
-                        href={link.href}
-                        className="text-sm text-white/50 hover:text-white/90 transition-colors animated-link"
-                      >
-                        {link.label}
-                      </Link>
-                    )}
-                  </li>
-                ))}
+                {col.links.map((link) => {
+                  const cls = "text-sm transition-colors";
+                  const sty = { color: "rgba(255,255,255,0.45)", fontFamily: "Nunito Sans, sans-serif" };
+                  const on  = (e: React.MouseEvent<HTMLElement>) => (e.currentTarget.style.color = "#02d49e");
+                  const off = (e: React.MouseEvent<HTMLElement>) => (e.currentTarget.style.color = "rgba(255,255,255,0.45)");
+                  return (
+                    <li key={link.label}>
+                      {link.href.startsWith("#") ? (
+                        <button
+                          onClick={() => handleNavClick(link.href)}
+                          className={cls}
+                          style={{ ...sty, background: "none", border: "none", padding: 0, cursor: "pointer", textAlign: "left" }}
+                          onMouseEnter={on} onMouseLeave={off}
+                        >{link.label}</button>
+                      ) : link.href.startsWith("https") ? (
+                        <a href={link.href} target="_blank" rel="noopener noreferrer"
+                          className={cls} style={sty} onMouseEnter={on} onMouseLeave={off}
+                        >{link.label}</a>
+                      ) : (
+                        <Link href={link.href} className={cls} style={sty} onMouseEnter={on} onMouseLeave={off}>
+                          {link.label}
+                        </Link>
+                      )}
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           ))}
@@ -216,13 +243,10 @@ export default function Footer() {
       </div>
 
       {/* Bottom bar */}
-      <div
-        className="border-t"
-        style={{ borderColor: "rgba(255,255,255,0.06)" }}
-      >
+      <div className="border-t" style={{ borderColor: "rgba(255,255,255,0.06)" }}>
         <div className="container py-5">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-            <p className="text-xs text-white">
+            <p className="text-xs" style={{ color: "rgba(255,255,255,0.3)", fontFamily: "Nunito Sans, sans-serif" }}>
               © {new Date().getFullYear()} Emerald Group International. All rights reserved.
             </p>
             <div className="flex items-center gap-4">
@@ -234,7 +258,10 @@ export default function Footer() {
                 <Link
                   key={item.label}
                   href={item.href}
-                  className="text-xs text-white hover:text-[#02d49e] transition-colors"
+                  className="text-xs transition-colors"
+                  style={{ color: "rgba(255,255,255,0.3)", fontFamily: "Nunito Sans, sans-serif" }}
+                  onMouseEnter={e => (e.currentTarget.style.color = "#02d49e")}
+                  onMouseLeave={e => (e.currentTarget.style.color = "rgba(255,255,255,0.3)")}
                 >
                   {item.label}
                 </Link>

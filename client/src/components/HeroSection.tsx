@@ -36,7 +36,7 @@ const heroContent = [
   },
   {
     label: "02 — Our Reach",
-    heading: "Six Sectors. One Vision. Endless Potential.",
+    heading: "Seven Sectors. One Vision. Endless Potential.",
     sub: "From banking to natural resources, from infrastructure to media — our portfolio spans the industries that shape economies and transform lives.",
     cta1: "Explore Our Business", cta1Href: "#clusters",
     cta2: "Who We Are",           cta2Href: "#about",
@@ -473,7 +473,7 @@ export default function HeroSection() {
 
           <h1
             className="font-bold text-white leading-tight mb-8"
-            style={{ fontFamily: "Playfair Display, serif", fontSize: "6rem" }}
+            style={{ fontSize: "6rem" }}
           >
             <SplitText key={content.heading} text={content.heading} animate={contentVisible} />
           </h1>
@@ -507,7 +507,7 @@ export default function HeroSection() {
         <div className="container">
           <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-white/10">
             {[
-              { value: "6",   label: "Business Clusters" },
+              { value: "7",   label: "Business Clusters" },
               { value: "20+", label: "Portfolio Companies" },
               { value: "5+",  label: "Countries"},
               { value: "30+", label: "Years of Excellence" },

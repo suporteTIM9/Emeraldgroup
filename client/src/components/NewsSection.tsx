@@ -51,8 +51,7 @@ export default function NewsSection() {
                 </div>
                 <h3
                   className="text-2xl lg:text-3xl font-bold text-white mb-4 leading-tight"
-                  style={{ fontFamily: "Playfair Display, serif" }}
-                >
+                                  >
                   Emerald Group Announces Strategic Expansion Across Sub-Saharan Africa
                 </h3>
                 <p className="text-sm text-white/60 leading-relaxed">
@@ -113,8 +112,7 @@ export default function NewsSection() {
               </div>
               <h3
                 className="text-base font-bold text-gray-900 mb-3 leading-snug flex-1"
-                style={{ fontFamily: "Playfair Display, serif" }}
-              >
+                              >
                 {item.title}
               </h3>
               <p className="text-xs text-gray-500 leading-relaxed mb-4">{item.excerpt}</p>

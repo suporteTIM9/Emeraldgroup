@@ -29,7 +29,7 @@ const slides: BackgroundSlide[] = [
 const heroContent = [
   {
     label: "01 — Our Purpose",
-    heading: "Building Tomorrow's Global Business Platforms",
+    heading: "Creating Markets With Purpose",
     sub: "Emerald Group invests in and develops diversified business platforms across Africa and beyond, creating long-term value through purposeful growth.",
     cta1: "Who We Are",     cta1Href: "#about",
     cta2: "Explore Our Business", cta2Href: "#clusters",
@@ -101,7 +101,7 @@ function BorderButton({ onClick, children, primary }: { onClick: () => void; chi
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       className="relative px-6 py-3 text-sm font-semibold overflow-hidden"
-      style={{ background: primary ? "var(--eg-cyan)" : "transparent", color: "white", border: primary ? "none" : "1px solid rgba(255,255,255,0.3)" }}
+      style={{ background: primary ? "var(--eg-cyan)" : "transparent", color: "white", border: primary ? "none" : "1px solid rgba(255,255,255,0.3)", borderRadius: "50px" }}
     >
       <span style={seg(true,  "left",   "right",  0,    { top: 0, left: 0, right: 0,  height: "1.5px" })} />
       <span style={seg(false, "top",    "bottom", 0.08, { top: 0, right: 0, bottom: 0, width: "1.5px" })} />
@@ -441,7 +441,7 @@ export default function HeroSection() {
               {latestItems.map((item, i) => (
                 <span
                   key={i}
-                  className={`absolute inset-0 text-xs text-white whitespace-nowrap transition-opacity duration-700 ${i === tickerIndex ? "opacity-100" : "opacity-0"}`}
+                  className={`absolute inset-0 text-base text-white whitespace-nowrap transition-opacity duration-700 ${i === tickerIndex ? "opacity-100" : "opacity-0"}`}
                 >
                   {item}
                 </span>
@@ -460,24 +460,25 @@ export default function HeroSection() {
       <div className="relative z-10 container pb-20 pt-40">
         <div className="max-w-3xl">
           <p
-            className="section-label text-white/60 mb-6"
+            className="section-label mb-6"
             style={{
               opacity: contentVisible ? 1 : 0,
               transform: contentVisible ? "translateY(0)" : "translateY(10px)",
               transition: "opacity 0.5s ease 0.05s, transform 0.5s ease 0.05s",
+              color: "white",
             }}
           >
             {content.label}
           </p>
 
           <h1
-            className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-tight mb-8"
-            style={{ fontFamily: "Playfair Display, serif" }}
+            className="font-bold text-white leading-tight mb-8"
+            style={{ fontFamily: "Playfair Display, serif", fontSize: "6rem" }}
           >
             <SplitText key={content.heading} text={content.heading} animate={contentVisible} />
           </h1>
 
-          <p className="text-lg text-white/70 max-w-xl leading-relaxed mb-10">
+          <p className="text-lg text-white/70 max-w-xl leading-relaxed mb-10" style={{ fontFamily: "Nunito Sans, sans-serif", fontWeight: 300, lineHeight: "1.5", color: "#02d49e" }}>
             <SplitText key={content.sub} text={content.sub} animate={contentVisible} />
           </p>
 
@@ -513,7 +514,7 @@ export default function HeroSection() {
             ].map((stat, i) => (
               <div key={i} className="px-6 py-5">
                 <CountUp value={stat.value} color="#02f9ba" />
-                <div className="text-xs text-white/50 tracking-wide">{stat.label}</div>
+                <div className="text-xs text-white tracking-wide" style={{ fontFamily: "Nunito Sans, sans-serif", fontWeight: 300, lineHeight: "1.5" }}>{stat.label}</div>
               </div>
             ))}
           </div>

@@ -76,11 +76,7 @@ export default function Navbar({ fixed = true }: NavbarProps) {
       ? "https://d2xsxph8kpxj0f.cloudfront.net/310519663184082639/28Rt9uMprGDPTN4Qw2hwyo/emerald-logo-transparent_aa2bef6f.png"
       : "https://d2xsxph8kpxj0f.cloudfront.net/310519663184082639/28Rt9uMprGDPTN4Qw2hwyo/emerald-logo-dark_23cb6a99.png";
 
-  const navClass = isStatic
-    ? "text-gray-700 hover:text-(--eg-cyan)"
-    : scrolled
-      ? "text-gray-700 hover:text-(--eg-cyan)"
-      : "text-white/90 hover:text-white";
+  const navStyle = { fontFamily: "Nunito Sans, sans-serif", fontWeight: 700, lineHeight: "1.4" };
 
   return (
     <header
@@ -101,7 +97,7 @@ export default function Navbar({ fixed = true }: NavbarProps) {
             <img
               src={logoSrc}
               alt="Emerald Group"
-              className="h-8 lg:h-10 w-auto object-contain transition-all duration-300"
+              className="h-10 lg:h-14 w-auto object-contain transition-all duration-300"
             />
           </Link>
 
@@ -116,7 +112,10 @@ export default function Navbar({ fixed = true }: NavbarProps) {
                 >
                   <button
                     onClick={() => setOpenDropdown(openDropdown === item.label ? null : item.label)}
-                    className={`flex items-center gap-1 px-3 py-2 text-sm font-medium transition-colors rounded-sm ${navClass}`}
+                    className="flex items-center gap-1 px-3 py-2 text-lg transition-colors rounded-sm"
+                    style={{ ...navStyle, color: scrolled || isStatic ? "#1E1F1F" : "white" }}
+                    onMouseEnter={e => (e.currentTarget.style.color = "#02d49e")}
+                    onMouseLeave={e => (e.currentTarget.style.color = scrolled || isStatic ? "#1E1F1F" : "white")}
                   >
                     {item.label}
                     <ChevronDown
@@ -184,7 +183,10 @@ export default function Navbar({ fixed = true }: NavbarProps) {
                 <button
                   key={item.label}
                   onClick={() => handleNavClick(item.href)}
-                  className={`px-3 py-2 text-sm font-medium transition-colors rounded-sm ${navClass}`}
+                  className="px-3 py-2 text-lg transition-colors rounded-sm"
+                  style={{ ...navStyle, color: scrolled || isStatic ? "#1E1F1F" : "white" }}
+                  onMouseEnter={e => (e.currentTarget.style.color = "#02d49e")}
+                  onMouseLeave={e => (e.currentTarget.style.color = scrolled || isStatic ? "#1E1F1F" : "white")}
                 >
                   {item.label}
                 </button>

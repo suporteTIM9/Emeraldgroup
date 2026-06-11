@@ -160,6 +160,65 @@
   line-height: 1.5;
 }
 
+@property --neon-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes neon-rotate {
+  to { --neon-angle: 360deg; }
+}
+
+@keyframes neon-glow {
+  0%, 100% { box-shadow: 0 0 10px #02f9ba, 0 0 25px #02f9ba, 0 0 55px #02f9baaa, 0 0 90px #02f9ba66; }
+  50%       { box-shadow: 0 0 20px #02f9ba, 0 0 50px #02f9ba, 0 0 100px #02f9bacc, 0 0 140px #02f9ba88; }
+}
+
+.neon-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 2.4rem;
+  border-radius: 50px;
+  border: none;
+  background: #02f9ba;
+  color: #1e1f1f;
+  font-family: 'Nunito Sans', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  z-index: 0;
+  animation: neon-glow 1.8s ease-in-out infinite;
+  transition: transform 0.2s;
+}
+
+.neon-btn::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 54px;
+  background: conic-gradient(from var(--neon-angle), #02f9ba 0%, #ffffff 20%, #00ffcc 40%, #02f9ba 60%, #afffee 80%, #02f9ba 100%);
+  animation: neon-rotate 1.8s linear infinite;
+  z-index: -1;
+}
+
+.neon-btn::after {
+  content: '';
+  position: absolute;
+  inset: 3px;
+  border-radius: 47px;
+  background: #02f9ba;
+  z-index: -1;
+}
+
+.neon-btn:hover {
+  transform: scale(1.04);
+}
+
 .stat-number {
   font-family: 'Playfair Display', serif;
   font-size: clamp(2.5rem, 6vw, 4.5rem);

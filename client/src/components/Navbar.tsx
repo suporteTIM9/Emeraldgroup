@@ -1,11 +1,10 @@
 import { useState, useEffect, useRef } from "react";
 import { Link } from "wouter";
-import { Menu, X, ChevronDown, Lock, Landmark, HardHat, Layers, Gem, Radio, Building2 } from "lucide-react";
+import { Menu, X, ChevronDown, Landmark, HardHat, Layers, Gem, Radio, Building2, ArrowRight } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { useAuth } from "@/_core/hooks/useAuth";
-import { getLoginUrl } from "@/const";
 
-type NavChild = { label: string; href: string; icon: LucideIcon };
+type NavChild = { label: string; href: string; icon: LucideIcon; desc: string };
 type NavItem  = { label: string; href: string; children?: NavChild[] };
 type NavbarProps = { fixed?: boolean };
 
@@ -15,24 +14,25 @@ const navItems: NavItem[] = [
     label: "Our Business",
     href: "#clusters",
     children: [
-      { label: "Banking & Financial Services",   href: "#cluster-banking",      icon: Landmark  },
-      { label: "Construction & Engineering",      href: "#cluster-construction", icon: HardHat   },
-      { label: "Infrastructure",                  href: "#cluster-infrastructure",icon: Layers    },
-      { label: "Natural Resources",               href: "#cluster-resources",    icon: Gem       },
-      { label: "Telecom, Media & Technology",     href: "#cluster-tmt",          icon: Radio     },
-      { label: "Urban Development & Real Estate", href: "#cluster-urban",        icon: Building2 },
+      { label: "Banking & Financial Services",   href: "#cluster-banking",        icon: Landmark,  desc: "Financial solutions driving economic growth across Africa." },
+      { label: "Construction & Engineering",      href: "#cluster-construction",   icon: HardHat,   desc: "Building world-class infrastructure for tomorrow." },
+      { label: "Infrastructure",                  href: "#cluster-infrastructure", icon: Layers,    desc: "Developing essential networks that connect economies." },
+      { label: "Natural Resources",               href: "#cluster-resources",      icon: Gem,       desc: "Sustainable extraction and value creation from Africa's wealth." },
+      { label: "Telecom, Media & Technology",     href: "#cluster-tmt",            icon: Radio,     desc: "Connecting people and businesses through innovation." },
+      { label: "Urban Development & Real Estate", href: "#cluster-urban",          icon: Building2, desc: "Shaping cities and communities for sustainable living." },
     ],
   },
-  { label: "Journey",  href: "#journey" },
-  { label: "News",     href: "#news"    },
-  { label: "Contact",  href: "#contact" },
+  { label: "Journey", href: "#journey" },
+  { label: "News",    href: "#news"    },
+  { label: "Contact", href: "#contact" },
 ];
 
 export default function Navbar({ fixed = true }: NavbarProps) {
-  const [scrolled, setScrolled] = useState(false);
-  const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrolled,     setScrolled]     = useState(false);
+  const [mobileOpen,   setMobileOpen]   = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
-  const { isAuthenticated } = useAuth();
+  const [hoveredChild, setHoveredChild] = useState<string | null>(null);
+  useAuth();
   const dropdownRef = useRef<HTMLDivElement>(null);
   const isStatic = !fixed;
 
@@ -48,6 +48,7 @@ export default function Navbar({ fixed = true }: NavbarProps) {
     const handleClickOutside = (e: MouseEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
         setOpenDropdown(null);
+        setHoveredChild(null);
       }
     };
     document.addEventListener("mousedown", handleClickOutside);
@@ -57,12 +58,12 @@ export default function Navbar({ fixed = true }: NavbarProps) {
   const handleNavClick = (href: string) => {
     setMobileOpen(false);
     setOpenDropdown(null);
+    setHoveredChild(null);
     if (href.startsWith("#")) {
       const el = document.querySelector(href);
       if (el) {
         const top = el.getBoundingClientRect().top + window.scrollY - 88;
         window.scrollTo({ top, behavior: "smooth" });
-        /* activate cluster tab if this is a cluster anchor */
         setTimeout(() => (el as HTMLElement).click(), 400);
       } else {
         window.location.href = "/" + href;
@@ -77,6 +78,7 @@ export default function Navbar({ fixed = true }: NavbarProps) {
       : "https://d2xsxph8kpxj0f.cloudfront.net/310519663184082639/28Rt9uMprGDPTN4Qw2hwyo/emerald-logo-dark_23cb6a99.png";
 
   const navStyle = { fontFamily: "Nunito Sans, sans-serif", fontWeight: 700, lineHeight: "1.4" };
+  const textColor = scrolled || isStatic ? "#1E1F1F" : "white";
 
   return (
     <header
@@ -92,6 +94,7 @@ export default function Navbar({ fixed = true }: NavbarProps) {
     >
       <div className="container">
         <div className="flex items-center justify-between h-16 lg:h-20">
+
           {/* Logo */}
           <Link href="/" className="flex items-center group">
             <img
@@ -102,20 +105,19 @@ export default function Navbar({ fixed = true }: NavbarProps) {
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center gap-1">
+          <nav className="hidden lg:flex items-center gap-1" ref={dropdownRef}>
             {navItems.map((item) =>
               item.children ? (
-                <div
-                  key={item.label}
-                  ref={dropdownRef}
-                  className="relative"
-                >
+                <div key={item.label} className="relative">
                   <button
-                    onClick={() => setOpenDropdown(openDropdown === item.label ? null : item.label)}
+                    onClick={() => {
+                      setOpenDropdown(openDropdown === item.label ? null : item.label);
+                      setHoveredChild(null);
+                    }}
                     className="flex items-center gap-1 px-3 py-2 text-lg transition-colors rounded-sm"
-                    style={{ ...navStyle, color: scrolled || isStatic ? "#1E1F1F" : "white" }}
+                    style={{ ...navStyle, color: textColor }}
                     onMouseEnter={e => (e.currentTarget.style.color = "#02d49e")}
-                    onMouseLeave={e => (e.currentTarget.style.color = scrolled || isStatic ? "#1E1F1F" : "white")}
+                    onMouseLeave={e => (e.currentTarget.style.color = textColor)}
                   >
                     {item.label}
                     <ChevronDown
@@ -123,58 +125,121 @@ export default function Navbar({ fixed = true }: NavbarProps) {
                       className={`transition-transform ${openDropdown === item.label ? "rotate-180" : ""}`}
                     />
                   </button>
+
+                  {/* Mega Menu */}
                   {openDropdown === item.label && (
                     <div
-                      className="absolute top-full left-1/2 z-50 shadow-2xl"
+                      className="fixed left-0 right-0 z-50 shadow-2xl"
                       style={{
-                        transform: "translateX(-50%)",
-                        width: "min(500px, 90vw)",
-                        background: "rgb(10, 10, 10)",
-                        borderTop: "2px solid rgb(2, 249, 186)",
-                        marginTop: "22px",
+                        top: "80px",
+                        background: "rgba(255, 255, 255, 0.97)",
+                        backdropFilter: "blur(16px)",
+                        WebkitBackdropFilter: "blur(16px)",
+                        borderTop: "2px solid #02f9ba",
                       }}
                     >
-                      {/* Header row */}
-                      <div
-                        className="flex items-center justify-between px-5 py-3"
-                        style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}
-                      >
-                        <span className="text-xs font-semibold tracking-widest uppercase" style={{ color: "#02f9ba" }}>
-                          Our Business
-                        </span>
-                        <button
-                          onClick={() => handleNavClick("#clusters")}
-                          className="text-xs font-medium transition-colors hover:text-white"
-                          style={{ color: "rgba(255,255,255,0.4)" }}
-                        >
-                          View All →
-                        </button>
-                      </div>
+                      <div className="container py-8">
+                        <div className="flex gap-10">
 
-                      {/* 2-column sector grid */}
-                      <div className="grid grid-cols-2 py-2">
-                        {item.children.map((child) => {
-                          const Icon = child.icon;
-                          return (
-                            <button
-                              key={child.label}
-                              onClick={() => handleNavClick(child.href)}
-                              className="flex items-center gap-3 px-5 py-3 text-left transition-colors"
-                              style={{ color: "rgba(255,255,255,0.65)" }}
-                              onMouseEnter={e => {
-                                e.currentTarget.style.color = "#02f9ba";
-                                e.currentTarget.style.background = "rgba(2,249,186,0.05)";
-                              }}
-                              onMouseLeave={e => {
-                                e.currentTarget.style.color = "rgba(255,255,255,0.65)";
-                                e.currentTarget.style.background = "transparent";
-                              }}
-                            >
-                              <Icon size={15} style={{ flexShrink: 0, opacity: 0.7 }} />
-                              <span className="text-sm font-medium leading-snug">{child.label}</span>
-                            </button>
-                          );
-                        })}
+                          {/* Left: sector grid */}
+                          <div className="flex-1">
+                            <div className="flex items-center justify-between mb-6">
+                              <span
+                                className="text-xs font-semibold tracking-widest uppercase"
+                                style={{ color: "#02f9ba", fontFamily: "Nunito Sans, sans-serif" }}
+                              >
+                                Our Business Clusters
+                              </span>
+                              <button
+                                onClick={() => handleNavClick("#clusters")}
+                                className="flex items-center gap-1 text-xs font-medium transition-colors hover:text-[#02d49e]"
+                                style={{ color: "rgba(0,0,0,0.35)" }}
+                              >
+                                View All <ArrowRight size={12} />
+                              </button>
+                            </div>
+
+                            <div className="grid grid-cols-2 gap-1">
+                              {item.children.map((child) => {
+                                const Icon = child.icon;
+                                const isActive = hoveredChild === child.label;
+                                return (
+                                  <button
+                                    key={child.label}
+                                    onClick={() => handleNavClick(child.href)}
+                                    onMouseEnter={() => setHoveredChild(child.label)}
+                                    onMouseLeave={() => setHoveredChild(null)}
+                                    className="flex items-start gap-4 px-4 py-4 text-left rounded-lg transition-all duration-200"
+                                    style={{
+                                      background: isActive ? "#02f9ba" : "transparent",
+                                      borderLeft: `2px solid ${isActive ? "#02f9ba" : "transparent"}`,
+                                    }}
+                                  >
+                                    <div
+                                      className="mt-0.5 flex-shrink-0 w-8 h-8 rounded-md flex items-center justify-center transition-all duration-200"
+                                      style={{ background: isActive ? "rgba(0,0,0,0.08)" : "rgba(0,0,0,0.05)" }}
+                                    >
+                                      <Icon size={16} style={{ color: isActive ? "#000" : "rgba(0,0,0,0.35)" }} />
+                                    </div>
+                                    <div>
+                                      <div
+                                        className="text-sm font-semibold mb-0.5 transition-colors duration-200"
+                                        style={{ color: isActive ? "#000" : "#1e1f1f", fontFamily: "Nunito Sans, sans-serif" }}
+                                      >
+                                        {child.label}
+                                      </div>
+                                      <div className="text-xs leading-relaxed" style={{ color: isActive ? "rgba(0,0,0,0.6)" : "rgba(0,0,0,0.4)" }}>
+                                        {child.desc}
+                                      </div>
+                                    </div>
+                                  </button>
+                                );
+                              })}
+                            </div>
+                          </div>
+
+                          {/* Right: preview panel — só aparece ao fazer hover */}
+                          {hoveredChild && (() => {
+                            const active = item.children!.find(c => c.label === hoveredChild);
+                            if (!active) return null;
+                            const Icon = active.icon;
+                            return (
+                              <div
+                                className="w-72 flex-shrink-0 rounded-2xl p-6 flex flex-col justify-between transition-all duration-300"
+                                style={{ background: "rgba(2,212,158,0.08)", border: "1.5px solid rgba(2,212,158,0.25)" }}
+                              >
+                                <div>
+                                  <div
+                                    className="w-14 h-14 rounded-xl flex items-center justify-center mb-5"
+                                    style={{ background: "rgba(2,249,186,0.15)" }}
+                                  >
+                                    <Icon size={28} color="#02f9ba" />
+                                  </div>
+                                  <h3
+                                    className="font-bold text-lg mb-3 leading-snug"
+                                    style={{ fontFamily: "Quantico, sans-serif", color: "#1e1f1f" }}
+                                  >
+                                    {active.label}
+                                  </h3>
+                                  <p
+                                    className="text-sm leading-relaxed mb-6"
+                                    style={{ color: "rgba(0,0,0,0.5)", fontFamily: "Nunito Sans, sans-serif", fontWeight: 300 }}
+                                  >
+                                    {active.desc}
+                                  </p>
+                                  <button
+                                    onClick={() => handleNavClick(active.href)}
+                                    className="flex items-center gap-2 text-sm font-semibold transition-all hover:gap-3"
+                                    style={{ color: "#02f9ba", fontFamily: "Nunito Sans, sans-serif" }}
+                                  >
+                                    Explore Cluster <ArrowRight size={14} />
+                                  </button>
+                                </div>
+                              </div>
+                            );
+                          })()}
+
+                        </div>
                       </div>
                     </div>
                   )}
@@ -184,42 +249,15 @@ export default function Navbar({ fixed = true }: NavbarProps) {
                   key={item.label}
                   onClick={() => handleNavClick(item.href)}
                   className="px-3 py-2 text-lg transition-colors rounded-sm"
-                  style={{ ...navStyle, color: scrolled || isStatic ? "#1E1F1F" : "white" }}
+                  style={{ ...navStyle, color: textColor }}
                   onMouseEnter={e => (e.currentTarget.style.color = "#02d49e")}
-                  onMouseLeave={e => (e.currentTarget.style.color = scrolled || isStatic ? "#1E1F1F" : "white")}
+                  onMouseLeave={e => (e.currentTarget.style.color = textColor)}
                 >
                   {item.label}
                 </button>
               )
             )}
           </nav>
-
-          {/* Right side: Private Area CTA
-          <div className="hidden lg:flex items-center gap-3">
-            {isAuthenticated ? (
-              <Link
-                href="/reports"
-                className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-white rounded-sm transition-all hover:opacity-90"
-                style={{ background: "var(--eg-cyan)" }}
-              >
-                <Lock size={14} />
-                Reports Portal
-              </Link>
-            ) : (
-              <a
-                href={getLoginUrl()}
-                className="flex items-center gap-2 px-4 py-2 text-sm font-medium border transition-all rounded-sm"
-                style={{
-                  borderColor: scrolled ? "var(--eg-cyan)" : "rgba(255,255,255,0.6)",
-                  color: scrolled ? "var(--eg-cyan)" : "white",
-                }}
-              >
-                <Lock size={14} />
-                Investor Logins
-              </a>
-            )}
-          </div>
-          */}
 
           {/* Mobile menu button */}
           <button
@@ -228,6 +266,7 @@ export default function Navbar({ fixed = true }: NavbarProps) {
           >
             {mobileOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
+
         </div>
       </div>
 
@@ -280,33 +319,6 @@ export default function Navbar({ fixed = true }: NavbarProps) {
                 )}
               </div>
             ))}
-            <div className="pt-3 mt-2" style={{ borderTop: "1px solid rgba(255,255,255,0.07)" }}>
-              {/* CTA commentada porque não será utilizada no mobile */}
-              {false && (
-                <>
-                  {isAuthenticated ? (
-                    <Link
-                      href="/reports"
-                      className="flex items-center justify-center gap-2 w-full px-4 py-2.5 text-sm font-medium text-white rounded-sm"
-                      style={{ background: "var(--eg-cyan)" }}
-                      onClick={() => setMobileOpen(false)}
-                    >
-                      <Lock size={14} />
-                      Reports Portal
-                    </Link>
-                  ) : (
-                    <a
-                      href={getLoginUrl()}
-                      className="flex items-center justify-center gap-2 w-full px-4 py-2.5 text-sm font-medium text-white rounded-sm"
-                      style={{ background: "var(--eg-cyan)" }}
-                    >
-                      <Lock size={14} />
-                      Investor Loginn
-                    </a>
-                  )}
-                </>
-              )}
-            </div>
           </div>
         </div>
       )}

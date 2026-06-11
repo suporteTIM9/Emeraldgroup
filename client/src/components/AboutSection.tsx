@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from "react";
-import { ArrowRight } from "lucide-react";
 import ChairmanLetterModal from "./ChairmanLetterModal";
 
 function CountUp({ value, color }: { value: string; color: string }) {
@@ -114,11 +113,9 @@ export default function AboutSection() {
 
             <button
               onClick={() => setModalOpen(true)}
-              className="flex items-center gap-2 text-sm font-semibold transition-all hover:gap-3"
-              style={{ color: "var(--eg-cyan)" }}
+              className="neon-btn"
             >
-              Read More
-              <ArrowRight size={16} />
+              Chairman and CEO N'Gunu Tiny
             </button>
           </div>
 
@@ -142,39 +139,18 @@ export default function AboutSection() {
 
             {/* Visual accent block */}
             <div
-              className="mt-6 p-6 rounded-sm text-white"
+              className="mt-6 p-10 rounded-2xl text-white shadow-xl"
               style={{
-                background: `linear-gradient(135deg, oklch(0.10 0.02 165) 0%, oklch(0.33 0.14 158) 100%)`,
+                background: `linear-gradient(135deg, #1e1f1f 0%, #02f9ba 100%)`,
               }}
             >
-              <p className="text-xs tracking-widest uppercase opacity-80 mb-3 text-white">
+              <p className="tracking-widest uppercase mb-3" style={{ fontFamily: "Quantico, sans-serif", fontWeight: 700, fontSize: "0.85rem", color: "white" }}>
                 Headquarters
               </p>
-              <p className="text-sm font-medium leading-relaxed opacity-90">
+              <p className="opacity-90" style={{ fontFamily: "Nunito Sans, sans-serif", fontWeight: 300, fontSize: "0.95rem", lineHeight: "1.5", color: "white" }}>
                 Emerald Group operates from its principal offices with a presence across multiple African
                 markets and international financial centres.
               </p>
-              <a
-                href="https://emeraldgroup-inc.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group mt-3 inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-3 py-1.5 text-xs text-white/70 transition-all duration-200 hover:border-white/40 hover:bg-white/10 hover:text-white active:scale-[0.98] active:bg-white/15"
-              >
-                <span>Emeraldgroup-inc</span>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.8"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="h-3.5 w-3.5 text-white/60 transition-all duration-200 group-hover:text-white group-hover:-rotate-90"
-                >
-                  <path d="M12 5v14" />
-                  <path d="m6 11 6-6 6 6" />
-                </svg>
-              </a>
             </div>
           </div>
         </div>

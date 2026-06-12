@@ -27,8 +27,8 @@ const css = `
 
   .ms-wrapper {
     overflow: hidden;
-    -webkit-mask-image: linear-gradient(90deg, transparent 0%, black 6%, black 94%, transparent 100%);
-    mask-image:         linear-gradient(90deg, transparent 0%, black 6%, black 94%, transparent 100%);
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, black 5%, black 95%, transparent 100%);
+    mask-image:         linear-gradient(90deg, transparent 0%, black 5%, black 95%, transparent 100%);
   }
 
   .ms-inner {
@@ -44,18 +44,18 @@ const css = `
 
   .ms-slide {
     flex-shrink: 0;
-    aspect-ratio: 1 / 1;
+    aspect-ratio: 4 / 3;
     border-radius: 6px;
     overflow: hidden;
     cursor: pointer;
     position: relative;
-    width: 78vw;
+    width: 220px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     will-change: transform;
   }
-  @media (min-width: 480px)  { .ms-slide { width: 46vw; } }
-  @media (min-width: 768px)  { .ms-slide { width: 30vw; } }
-  @media (min-width: 1024px) { .ms-slide { width: 18vw; } }
+  @media (min-width: 480px)  { .ms-slide { width: 240px; } }
+  @media (min-width: 768px)  { .ms-slide { width: 260px; } }
+  @media (min-width: 1024px) { .ms-slide { width: 280px; } }
 
   .ms-slide:hover {
     transform: scale(1.04);
@@ -110,8 +110,8 @@ export default function MediaSlider() {
         </div>
       </div>
 
-      {/* Full-width slider — breaks out of container intentionally */}
-      <div className="ms-wrapper px-0">
+      <div className="container">
+      <div className="ms-wrapper">
         <div ref={innerRef} className="ms-inner">
           {loopSlides.map((slide, i) => (
             <div
@@ -148,6 +148,7 @@ export default function MediaSlider() {
             </div>
           ))}
         </div>
+      </div>
       </div>
     </section>
   );

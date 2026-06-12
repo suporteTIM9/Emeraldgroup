@@ -1,13 +1,15 @@
+import { lazy, Suspense } from "react";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
-import ClustersSection from "@/components/ClustersSection";
-import JourneySection from "@/components/JourneySection";
-import NewsSection from "@/components/NewsSection";
-import MediaSlider from "@/components/MediaSlider";
-import LogoMarquee from "@/components/LogoMarquee";
-import ContactSection from "@/components/ContactSection";
-import Footer from "@/components/Footer";
+
+const ClustersSection = lazy(() => import("@/components/ClustersSection"));
+const JourneySection = lazy(() => import("@/components/JourneySection"));
+const NewsSection = lazy(() => import("@/components/NewsSection"));
+const MediaSlider = lazy(() => import("@/components/MediaSlider"));
+const LogoMarquee = lazy(() => import("@/components/LogoMarquee"));
+const ContactSection = lazy(() => import("@/components/ContactSection"));
+const Footer = lazy(() => import("@/components/Footer"));
 
 export default function Home() {
   return (
@@ -15,13 +17,15 @@ export default function Home() {
       <Navbar />
       <HeroSection />
       <AboutSection />
-      <ClustersSection />
-      <JourneySection />
-      <NewsSection />
-      <MediaSlider />
-      <LogoMarquee />
-      <ContactSection />
-      <Footer />
+      <Suspense fallback={null}>
+        <ClustersSection />
+        <JourneySection />
+        <NewsSection />
+        <MediaSlider />
+        <LogoMarquee />
+        <ContactSection />
+        <Footer />
+      </Suspense>
     </div>
   );
 }

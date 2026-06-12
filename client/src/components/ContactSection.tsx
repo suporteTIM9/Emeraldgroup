@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Send, MapPin, Mail, Globe } from "lucide-react";
+import { Send, MapPin, Mail, Globe, Loader2 } from "lucide-react";
+import { trpc } from "@/lib/trpc";
 
 const ENQUIRY_TYPES = [
   "Investor Relations",
@@ -11,12 +12,24 @@ const ENQUIRY_TYPES = [
 export default function ContactSection() {
   const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
   const [submitted, setSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
+
+  const submitMutation = trpc.contact.submit.useMutation({
+    onSuccess: () => {
+      setSubmitted(true);
+      setSubmitError(null);
+      setForm({ name: "", email: "", subject: "", message: "" });
+      setTimeout(() => setSubmitted(false), 4000);
+    },
+    onError: (err) => {
+      setSubmitError(err.message || "Failed to send message. Please try again.");
+    },
+  });
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 4000);
-    setForm({ name: "", email: "", subject: "", message: "" });
+    setSubmitError(null);
+    submitMutation.mutate(form);
   };
 
   return (
@@ -258,12 +271,33 @@ export default function ContactSection() {
                   />
                 </div>
 
+                {/* Error message */}
+                {submitError && (
+                  <p className="text-sm" style={{ color: "#ef4444", fontFamily: "Nunito Sans, sans-serif" }}>
+                    {submitError}
+                  </p>
+                )}
+
                 {/* Submit */}
                 <div>
-                  <button type="submit" className="send-btn">
+                  <button
+                    type="submit"
+                    className="send-btn"
+                    disabled={submitMutation.isPending}
+                    style={{ opacity: submitMutation.isPending ? 0.7 : 1 }}
+                  >
                     <span className="btn-content">
-                      Send Enquiry
-                      <Send size={14} className="btn-icon" />
+                      {submitMutation.isPending ? (
+                        <>
+                          Sending…
+                          <Loader2 size={14} className="btn-icon" style={{ animation: "spin 1s linear infinite" }} />
+                        </>
+                      ) : (
+                        <>
+                          Send Enquiry
+                          <Send size={14} className="btn-icon" />
+                        </>
+                      )}
                     </span>
                   </button>
                 </div>

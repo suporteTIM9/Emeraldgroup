@@ -30,13 +30,19 @@ const heroContent = [
   {
     label: "01 — Our Purpose",
     heading: "Creating Markets With Purpose",
+    headingLines: null as null | { text: string; accent: boolean }[],
     sub: "Emerald Group invests in and develops diversified business platforms across Africa and beyond, creating long-term value through purposeful growth.",
     cta1: "Who We Are",     cta1Href: "#about",
     cta2: "Explore Our Business", cta2Href: "#clusters",
   },
   {
     label: "02 — Our Reach",
-    heading: "Seven Sectors. One Vision. Endless Potential.",
+    heading: "",
+    headingLines: [
+      { text: "Seven Sectors.",    accent: false },
+      { text: "One Vision.",       accent: true  },
+      { text: "Endless Potential.", accent: false },
+    ] as { text: string; accent: boolean }[],
     sub: "From banking to natural resources, from infrastructure to media — our portfolio spans the industries that shape economies and transform lives.",
     cta1: "Explore Our Business", cta1Href: "#clusters",
     cta2: "Who We Are",           cta2Href: "#about",
@@ -457,7 +463,7 @@ export default function HeroSection() {
       </div>
 
       {/* ── Main content ── */}
-      <div className="relative z-10 container pb-20 pt-40">
+      <div className="relative z-10 container pb-14 lg:pb-20 pt-28 lg:pt-40">
         <div className="max-w-3xl">
           <p
             className="section-label mb-6"
@@ -471,14 +477,31 @@ export default function HeroSection() {
             {content.label}
           </p>
 
-          <h1
-            className="font-bold text-white leading-tight mb-8"
-            style={{ fontSize: "6rem" }}
-          >
-            <SplitText key={content.heading} text={content.heading} animate={contentVisible} />
-          </h1>
+          {content.headingLines ? (
+            <h1
+              className="font-bold leading-tight mb-6 lg:mb-8"
+              style={{ fontSize: "clamp(1.6rem, 5.5vw, 4.5rem)", lineHeight: 1.15 }}
+            >
+              {content.headingLines.map((line, li) => (
+                <span
+                  key={li}
+                  className="block"
+                  style={{ color: line.accent ? "#02f9ba" : "white", whiteSpace: "nowrap" }}
+                >
+                  <SplitText key={line.text} text={line.text} animate={contentVisible} />
+                </span>
+              ))}
+            </h1>
+          ) : (
+            <h1
+              className="font-bold text-white leading-tight mb-6 lg:mb-8"
+              style={{ fontSize: "clamp(2.2rem, 7.5vw, 6rem)" }}
+            >
+              <SplitText key={content.heading} text={content.heading} animate={contentVisible} />
+            </h1>
+          )}
 
-          <p className="text-lg text-white/70 max-w-xl leading-relaxed mb-10" style={{ fontFamily: "Nunito Sans, sans-serif", fontWeight: 300, lineHeight: "1.5", color: "#02d49e" }}>
+          <p className="max-w-xl leading-relaxed mb-8 lg:mb-10" style={{ fontFamily: "Nunito Sans, sans-serif", fontWeight: 300, lineHeight: "1.5", color: "#02d49e", fontSize: "clamp(0.9rem, 2vw, 1.125rem)" }}>
             <SplitText key={content.sub} text={content.sub} animate={contentVisible} />
           </p>
 
@@ -512,9 +535,9 @@ export default function HeroSection() {
               { value: "5+",  label: "Countries"},
               { value: "30+", label: "Years of Excellence" },
             ].map((stat, i) => (
-              <div key={i} className="px-6 py-5">
+              <div key={i} className="px-4 lg:px-6 py-4 lg:py-5">
                 <CountUp value={stat.value} color="#02f9ba" />
-                <div className="text-xs text-white tracking-wide" style={{ fontFamily: "Nunito Sans, sans-serif", fontWeight: 300, lineHeight: "1.5" }}>{stat.label}</div>
+                <div className="text-xs text-white tracking-wide" style={{ fontFamily: "Nunito Sans, sans-serif", fontWeight: 300, lineHeight: "1.5", fontSize: "clamp(0.65rem, 1.5vw, 0.75rem)" }}>{stat.label}</div>
               </div>
             ))}
           </div>

@@ -20,24 +20,45 @@ export function registerOAuthRoutes(app: Express) {
     }
 
     try {
-      // ✅ AQUI é onde entra o código
       const sdk = getSdk();
 
-      const tokenResponse = await sdk.exchangeCodeForToken(code, state);
-      const userInfo = await sdk.getUserInfo(tokenResponse.accessToken);
+      let tokenResponse;
+      try {
+        tokenResponse = await sdk.exchangeCodeForToken(code, state);
+      } catch (err) {
+        console.error("[OAuth] Step 1 failed — token exchange:", err);
+        res.status(502).json({ error: "Token exchange failed" });
+        return;
+      }
+
+      let userInfo;
+      try {
+        userInfo = await sdk.getUserInfo(tokenResponse.accessToken);
+      } catch (err) {
+        console.error("[OAuth] Step 2 failed — getUserInfo:", err);
+        res.status(502).json({ error: "Failed to retrieve user info" });
+        return;
+      }
 
       if (!userInfo.openId) {
+        console.error("[OAuth] Step 2 failed — openId missing from user info");
         res.status(400).json({ error: "openId missing from user info" });
         return;
       }
 
-      await db.upsertUser({
-        openId: userInfo.openId,
-        name: userInfo.name || null,
-        email: userInfo.email ?? null,
-        loginMethod: userInfo.loginMethod ?? userInfo.platform ?? null,
-        lastSignedIn: new Date(),
-      });
+      try {
+        await db.upsertUser({
+          openId: userInfo.openId,
+          name: userInfo.name || null,
+          email: userInfo.email ?? null,
+          loginMethod: userInfo.loginMethod ?? userInfo.platform ?? null,
+          lastSignedIn: new Date(),
+        });
+      } catch (err) {
+        console.error("[OAuth] Step 3 failed — upsertUser:", err);
+        res.status(500).json({ error: "Failed to save user" });
+        return;
+      }
 
       const sessionToken = await sdk.createSessionToken(userInfo.openId, {
         name: userInfo.name || "",
@@ -52,7 +73,7 @@ export function registerOAuthRoutes(app: Express) {
 
       res.redirect(302, "/");
     } catch (error) {
-      console.error("[OAuth] Callback failed", error);
+      console.error("[OAuth] Callback unexpected error:", error);
       res.status(500).json({ error: "OAuth callback failed" });
     }
   });

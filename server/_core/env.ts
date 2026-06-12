@@ -8,3 +8,23 @@ export const ENV = {
   forgeApiUrl: process.env.BUILT_IN_FORGE_API_URL ?? "",
   forgeApiKey: process.env.BUILT_IN_FORGE_API_KEY ?? "",
 };
+
+const REQUIRED_IN_PRODUCTION: (keyof typeof ENV)[] = [
+  "cookieSecret",
+  "databaseUrl",
+  "oAuthServerUrl",
+];
+
+if (ENV.isProduction) {
+  const missing = REQUIRED_IN_PRODUCTION.filter(k => !ENV[k]);
+  if (missing.length) {
+    console.error(`[ENV] Missing required production env vars: ${missing.join(", ")}`);
+    process.exit(1);
+  }
+} else {
+  const RECOMMENDED: (keyof typeof ENV)[] = ["cookieSecret", "databaseUrl", "oAuthServerUrl"];
+  const missing = RECOMMENDED.filter(k => !ENV[k]);
+  if (missing.length) {
+    console.warn(`[ENV] Warning: missing recommended env vars: ${missing.join(", ")}`);
+  }
+}

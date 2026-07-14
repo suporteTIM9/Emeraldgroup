@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
 import { Menu, X, ChevronDown, Landmark, HardHat, Layers, Gem, Radio, Building2, GraduationCap, ArrowRight } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { useAuth } from "@/_core/hooks/useAuth";
@@ -25,6 +25,7 @@ const navItems: NavItem[] = [
   },
   { label: "Journey", href: "#journey" },
   { label: "News",    href: "#news"    },
+  { label: "Chairman's Talk", href: "/chairmans-talk" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -36,6 +37,7 @@ export default function Navbar({ fixed = true }: NavbarProps) {
   useAuth();
   const dropdownRef = useRef<HTMLDivElement>(null);
   const isStatic = !fixed;
+  const [, setLocation] = useLocation();
 
   useEffect(() => {
     if (!fixed) return;
@@ -69,6 +71,8 @@ export default function Navbar({ fixed = true }: NavbarProps) {
       } else {
         window.location.href = "/" + href;
       }
+    } else {
+      setLocation(href);
     }
   };
 

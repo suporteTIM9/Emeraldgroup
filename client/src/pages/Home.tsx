@@ -6,6 +6,7 @@ import AboutSection from "@/components/AboutSection";
 const ClustersSection = lazy(() => import("@/components/ClustersSection"));
 const JourneySection = lazy(() => import("@/components/JourneySection"));
 const NewsSection = lazy(() => import("@/components/NewsSection"));
+const ChairmanTalkSection = lazy(() => import("@/components/ChairmanTalkSection"));
 const MediaSlider = lazy(() => import("@/components/MediaSlider"));
 const LogoMarquee = lazy(() => import("@/components/LogoMarquee"));
 const ContactSection = lazy(() => import("@/components/ContactSection"));
@@ -21,6 +22,7 @@ export default function Home() {
         <ClustersSection />
         <JourneySection />
         <NewsSection />
+        <ChairmanTalkSection />
         <MediaSlider />
         <LogoMarquee />
         <ContactSection />

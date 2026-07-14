@@ -11,6 +11,8 @@ const TermsOfUse = lazy(() => import("./pages/TermsOfUse"));
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
 const BlogPage = lazy(() => import("./pages/BlogPage"));
 const ArticlePage = lazy(() => import("./pages/ArticlePage"));
+const ChairmansTalk = lazy(() => import("./pages/ChairmansTalk"));
+const ChairmanTalkArticle = lazy(() => import("./pages/ChairmanTalkArticle"));
 const LegalNotice = lazy(() => import("./pages/LegalNotice"));
 const AboutUs = lazy(() => import("./pages/AboutUs"));
 const MissionVision = lazy(() => import("./pages/MissionVision"));
@@ -23,6 +25,8 @@ function Router() {
         <Route path={"/"} component={Home} />
         <Route path={"/blog"} component={BlogPage} />
         <Route path={"/blog/:slug"} component={ArticlePage} />
+        <Route path={"/chairmans-talk"} component={ChairmansTalk} />
+        <Route path={"/chairmans-talk/:slug"} component={ChairmanTalkArticle} />
         <Route path={"/reports"} component={Reports} />
         <Route path={"/legal"} component={LegalNotice} />
         <Route path={"/about-us"} component={AboutUs} />

@@ -10,9 +10,8 @@ export interface ChairmanTalk {
   videoHref?: string;
 }
 
-// PLACEHOLDER DATA — replace title, date, excerpt, content and image with the
-// real Chairman's Talk material. Drop images into client/public/ChairmanTalk/
-// and reference them below as "/ChairmanTalk/your-file.jpg".
+// Add new talks here as they're published — the first entry is the featured
+// story, the rest stack in the "Other Talks" column/sidebar.
 export const chairmanTalks: ChairmanTalk[] = [
   {
     slug: "global-south-new-forum-for-debate",
@@ -27,39 +26,17 @@ export const chairmanTalks: ChairmanTalk[] = [
     videoHref: "https://www.youtube.com/channel/UCrnBL8q0JEbaoLKezzFn-mA",
   },
   {
-    slug: "placeholder-talk-two",
-    date: "Month Year",
-    category: "Keynote",
-    title: "[Placeholder] Replace with the talk's real title",
+    slug: "durao-barroso-new-global-balance-africa",
+    date: "27 May 2026",
+    category: "Press",
+    title: "Durão Barroso calls for a “new global balance” and sees Africa as the future centre of global dynamism",
     excerpt:
-      "[Placeholder] Short one- or two-sentence summary of this talk goes here — replace with the real description.",
-    image: "/ChairmanTalk/placeholder-2.jpg",
-    content: `[Placeholder] Full text of the talk goes here.
+      "Speaking in Luanda, the former President of the European Commission and former Portuguese Prime Minister stated that rebalancing international relations will be crucial to ensuring global stability and greater recognition of Africa’s role in the new geopolitical landscape.",
+    image: "/IMGBLOG/the-chairmans-talk.jpeg",
+    content: `Africa is of strategic importance for the future
 
-Replace this paragraph — and add as many more as needed — with the actual content, split into paragraphs.`,
-  },
-  {
-    slug: "placeholder-talk-three",
-    date: "Month Year",
-    category: "Op-Ed",
-    title: "[Placeholder] Replace with the talk's real title",
-    excerpt:
-      "[Placeholder] Short one- or two-sentence summary of this talk goes here — replace with the real description.",
-    image: "/ChairmanTalk/placeholder-3.jpg",
-    content: `[Placeholder] Full text of the talk goes here.
-
-Replace this paragraph — and add as many more as needed — with the actual content, split into paragraphs.`,
-  },
-  {
-    slug: "placeholder-talk-four",
-    date: "Month Year",
-    category: "Feature",
-    title: "[Placeholder] Replace with the talk's real title",
-    excerpt:
-      "[Placeholder] Short one- or two-sentence summary of this talk goes here — replace with the real description.",
-    image: "/ChairmanTalk/placeholder-4.jpg",
-    content: `[Placeholder] Full text of the talk goes here.
-
-Replace this paragraph — and add as many more as needed — with the actual content, split into paragraphs.`,
+When discussing the role of the African continent, Durão Barroso highlighted the region’s population growth and strategic potential, noting that Africa will play an increasingly significant role in international economic and political relations.`,
+    externalHref: "https://forbesafricalusofona.com/durao-barroso-defende-novo-equilibrio-global-e-ve-africa-como-futuro-centro-de-dinamismo-mundial/",
+    videoHref: "https://www.youtube.com/watch?v=h0amXOA7WgY&t=2754s",
   },
 ];

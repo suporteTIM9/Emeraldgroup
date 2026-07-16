@@ -1,6 +1,9 @@
+import { useEffect, useState } from "react";
 import { ArrowRight, Calendar, Quote } from "lucide-react";
 import { Link } from "wouter";
 import { chairmanTalks } from "@/data/chairmanTalks";
+
+const ROTATE_INTERVAL_MS = 7000;
 
 function TalkImage({ src, alt, compact = false }: { src?: string; alt: string; compact?: boolean }) {
   return (
@@ -41,11 +44,29 @@ function TalkImage({ src, alt, compact = false }: { src?: string; alt: string; c
 }
 
 export default function ChairmanTalkSection() {
-  const [featured, ...rest] = chairmanTalks;
+  const [index, setIndex] = useState(0);
+  const [paused, setPaused] = useState(false);
+
+  useEffect(() => {
+    if (chairmanTalks.length <= 1 || paused) return;
+    const id = setInterval(() => {
+      setIndex((i) => (i + 1) % chairmanTalks.length);
+    }, ROTATE_INTERVAL_MS);
+    return () => clearInterval(id);
+  }, [paused]);
+
+  const rotated = [...chairmanTalks.slice(index), ...chairmanTalks.slice(0, index)];
+  const [featured, ...rest] = rotated;
   if (!featured) return null;
 
   return (
-    <section id="chairman-talk" className="py-24 lg:py-32" style={{ background: "var(--eg-dark)" }}>
+    <section
+      id="chairman-talk"
+      className="py-24 lg:py-32"
+      style={{ background: "var(--eg-dark)" }}
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+    >
       <div className="container">
         {/* Section header */}
         <div className="flex items-center gap-4 mb-6">
@@ -69,11 +90,29 @@ export default function ChairmanTalkSection() {
           </Link>
         </div>
 
+        {chairmanTalks.length > 1 && (
+          <div className="flex items-center gap-2 mb-8">
+            {chairmanTalks.map((item, i) => (
+              <button
+                key={item.slug}
+                type="button"
+                aria-label={`Show ${item.title}`}
+                onClick={() => setIndex(i)}
+                className="h-1.5 rounded-full transition-all duration-300"
+                style={{
+                  width: i === index ? "28px" : "8px",
+                  background: i === index ? "var(--eg-orange)" : "rgba(255,255,255,0.15)",
+                }}
+              />
+            ))}
+          </div>
+        )}
+
         {/* Split layout: featured story pinned left, stacked talks scroll past on the right */}
         <div className="grid lg:grid-cols-12 gap-6 lg:gap-8 items-start">
           {/* Featured talk — sticky */}
           <div className="lg:col-span-7 lg:sticky lg:top-28">
-            <Link href={`/chairmans-talk/${featured.slug}`}>
+            <Link key={featured.slug} href={`/chairmans-talk/${featured.slug}`} className="block animate-in fade-in-0 duration-500">
               <div
                 className="rounded-xl overflow-hidden group cursor-pointer border transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl"
                 style={{ background: "var(--eg-mid)", borderColor: "rgba(255,255,255,0.06)" }}
@@ -137,7 +176,7 @@ export default function ChairmanTalkSection() {
           {rest.length > 0 && (
             <div className="lg:col-span-5 lg:self-stretch flex flex-col justify-between gap-5">
               {rest.map((item) => (
-                <Link key={item.slug} href={`/chairmans-talk/${item.slug}`}>
+                <Link key={item.slug} href={`/chairmans-talk/${item.slug}`} className="block animate-in fade-in-0 duration-500">
                   <article
                     className="rounded-xl overflow-hidden group cursor-pointer transition-all duration-300 border flex hover:-translate-y-1 hover:shadow-xl"
                     style={{ background: "var(--eg-mid)", borderColor: "rgba(255,255,255,0.06)" }}

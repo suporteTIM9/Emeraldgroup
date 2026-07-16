@@ -38,13 +38,16 @@ function getYouTubeEmbedUrl(url: string): string | null {
     const u = new URL(url);
     if (!u.hostname.includes("youtube.com") && !u.hostname.includes("youtu.be")) return null;
 
+    const startSeconds = (u.searchParams.get("t") ?? u.searchParams.get("start"))?.replace("s", "");
+    const startParam = startSeconds && /^\d+$/.test(startSeconds) ? `?start=${startSeconds}` : "";
+
     if (u.hostname.includes("youtu.be")) {
       const id = u.pathname.slice(1);
-      return id ? `https://www.youtube.com/embed/${id}` : null;
+      return id ? `https://www.youtube.com/embed/${id}${startParam}` : null;
     }
 
     const videoId = u.searchParams.get("v");
-    if (videoId) return `https://www.youtube.com/embed/${videoId}`;
+    if (videoId) return `https://www.youtube.com/embed/${videoId}${startParam}`;
 
     const channelId = u.pathname.match(/^\/channel\/(UC[\w-]+)/)?.[1];
     if (channelId) return `https://www.youtube.com/embed/videoseries?list=UU${channelId.slice(2)}`;

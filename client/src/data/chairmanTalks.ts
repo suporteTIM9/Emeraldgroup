@@ -49,4 +49,16 @@ Replace this paragraph — and add as many more as needed — with the actual co
 
 Replace this paragraph — and add as many more as needed — with the actual content, split into paragraphs.`,
   },
+  {
+    slug: "placeholder-talk-four",
+    date: "Month Year",
+    category: "Feature",
+    title: "[Placeholder] Replace with the talk's real title",
+    excerpt:
+      "[Placeholder] Short one- or two-sentence summary of this talk goes here — replace with the real description.",
+    image: "/ChairmanTalk/placeholder-4.jpg",
+    content: `[Placeholder] Full text of the talk goes here.
+
+Replace this paragraph — and add as many more as needed — with the actual content, split into paragraphs.`,
+  },
 ];

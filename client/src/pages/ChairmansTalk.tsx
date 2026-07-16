@@ -10,7 +10,7 @@ function TalkImage({ src, alt }: { src?: string; alt: string }) {
   return (
     <div
       className="relative w-full h-full overflow-hidden"
-      style={{ background: `linear-gradient(135deg, oklch(0.18 0.04 160) 0%, oklch(0.45 0.13 140) 100%)` }}
+      style={{ background: `radial-gradient(circle at 25% 15%, oklch(0.42 0.13 145) 0%, oklch(0.13 0.03 165) 75%)` }}
     >
       {src && (
         <img
@@ -20,8 +20,23 @@ function TalkImage({ src, alt }: { src?: string; alt: string }) {
           onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = "none"; }}
         />
       )}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <Quote size={22} style={{ color: "rgba(255,255,255,0.18)" }} />
+      {/* subtle dot texture so the placeholder state doesn't read as empty */}
+      <div
+        className="absolute inset-0 opacity-30 pointer-events-none"
+        style={{ backgroundImage: "radial-gradient(rgba(255,255,255,0.14) 1px, transparent 1px)", backgroundSize: "16px 16px" }}
+      />
+      <span
+        className="absolute -bottom-5 -left-1 leading-none select-none pointer-events-none"
+        style={{ fontFamily: "Playfair Display, serif", fontSize: "6rem", color: "rgba(255,255,255,0.08)" }}
+      >
+        &rdquo;
+      </span>
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{ background: "linear-gradient(180deg, transparent 45%, rgba(0,0,0,0.35) 100%)" }}
+      />
+      <div className="absolute top-3 right-3 pointer-events-none">
+        <Quote size={16} style={{ color: "rgba(255,255,255,0.25)" }} />
       </div>
     </div>
   );
@@ -64,14 +79,14 @@ export default function ChairmansTalk() {
             <div className="grid sm:grid-cols-2 gap-5">
               {chairmanTalks.map((talk) => (
                 <Link key={talk.slug} href={`/chairmans-talk/${talk.slug}`}>
-                  <article className="bg-white rounded-sm overflow-hidden group cursor-pointer hover:shadow-md transition-all border border-gray-100 h-full flex flex-col">
-                    <div className="w-full h-40">
+                  <article className="bg-white rounded-xl overflow-hidden group cursor-pointer transition-all duration-300 border border-gray-100 h-full flex flex-col hover:-translate-y-1 hover:shadow-lg">
+                    <div className="w-full h-44">
                       <TalkImage src={talk.image} alt={talk.title} />
                     </div>
                     <div className="p-6 flex flex-col flex-1">
                       <div className="flex items-center justify-between mb-3">
                         <span
-                          className="text-xs font-semibold tracking-widest uppercase px-2 py-0.5 rounded-sm"
+                          className="text-xs font-semibold tracking-widest uppercase px-2.5 py-0.5 rounded-full"
                           style={{ background: "rgba(198,166,100,0.15)", color: "var(--eg-orange-dark)" }}
                         >
                           {talk.category}
@@ -82,12 +97,12 @@ export default function ChairmansTalk() {
                         </span>
                       </div>
                       <h3
-                        className="text-base font-bold text-gray-900 mb-2 leading-snug flex-1"
+                        className="text-base font-bold text-gray-900 mb-2 leading-snug flex-1 line-clamp-2"
                         style={{ fontFamily: "Playfair Display, serif" }}
                       >
                         {talk.title}
                       </h3>
-                      <p className="text-xs text-gray-500 leading-relaxed mb-4">{talk.excerpt}</p>
+                      <p className="text-xs text-gray-500 leading-relaxed mb-4 line-clamp-2">{talk.excerpt}</p>
                       <span
                         className="flex items-center gap-1 text-xs font-semibold transition-all group-hover:gap-2 mt-auto"
                         style={{ color: "var(--eg-orange-dark)" }}

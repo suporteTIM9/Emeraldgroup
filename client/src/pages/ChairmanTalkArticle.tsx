@@ -1,5 +1,5 @@
 import { Link, useParams } from "wouter";
-import { ArrowLeft, Calendar, MessageCircle, Quote } from "lucide-react";
+import { ArrowLeft, BookOpen, Calendar, MessageCircle, Quote, Video } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
@@ -30,6 +30,31 @@ function IconX({ size = 16 }: { size?: number }) {
   );
 }
 
+// Turns a YouTube video, short (youtu.be) or channel URL into an embeddable
+// player src. Channel links embed the channel's uploads playlist, since a
+// channel has no single video ID (uploads playlist ID = "UC" -> "UU").
+function getYouTubeEmbedUrl(url: string): string | null {
+  try {
+    const u = new URL(url);
+    if (!u.hostname.includes("youtube.com") && !u.hostname.includes("youtu.be")) return null;
+
+    if (u.hostname.includes("youtu.be")) {
+      const id = u.pathname.slice(1);
+      return id ? `https://www.youtube.com/embed/${id}` : null;
+    }
+
+    const videoId = u.searchParams.get("v");
+    if (videoId) return `https://www.youtube.com/embed/${videoId}`;
+
+    const channelId = u.pathname.match(/^\/channel\/(UC[\w-]+)/)?.[1];
+    if (channelId) return `https://www.youtube.com/embed/videoseries?list=UU${channelId.slice(2)}`;
+
+    return null;
+  } catch {
+    return null;
+  }
+}
+
 export default function ChairmanTalkArticle() {
   const { slug } = useParams<{ slug: string }>();
   const talk = chairmanTalks.find((a) => a.slug === slug);
@@ -49,6 +74,7 @@ export default function ChairmanTalkArticle() {
   const otherTalks = chairmanTalks.filter((a) => a.slug !== slug).slice(0, 3);
   const accent = "var(--eg-orange-dark)";
   const paragraphs = (talk.content ?? talk.excerpt).split("\n\n").filter(Boolean);
+  const videoEmbedUrl = talk.videoHref ? getYouTubeEmbedUrl(talk.videoHref) : null;
 
   return (
     <div className="min-h-screen flex flex-col" style={{ background: "#f8f9fa" }}>
@@ -129,6 +155,42 @@ export default function ChairmanTalkArticle() {
                 </p>
               ))}
             </div>
+
+            {talk.externalHref && (
+              <a
+                href={talk.externalHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-white rounded-full px-5 py-2.5 transition-all hover:opacity-90 w-fit"
+                style={{ background: accent }}
+              >
+                <BookOpen size={14} />
+                Full edition – click here.
+              </a>
+            )}
+
+            {videoEmbedUrl && (
+              <div className="mt-6 w-full max-w-sm">
+                <div className="w-full rounded-sm overflow-hidden relative shadow-sm" style={{ paddingTop: "56.25%" }}>
+                  <iframe
+                    src={videoEmbedUrl}
+                    title={talk.title}
+                    className="absolute inset-0 w-full h-full border-0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                </div>
+                <a
+                  href={talk.videoHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-xs font-medium text-gray-400 hover:text-gray-700 transition-colors mt-2"
+                >
+                  <Video size={12} />
+                  Open channel on YouTube
+                </a>
+              </div>
+            )}
 
             {/* Social share — bottom */}
             <div className="flex items-center gap-2 mt-10 pt-8 border-t border-gray-100">

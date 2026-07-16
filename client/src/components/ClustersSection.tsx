@@ -172,7 +172,7 @@ const clusters = [
       {
         name: "Executive Education",
         desc: "Premium leadership and executive development programs delivered in collaboration with world-class academic institutions. These initiatives combine academic rigor with real-world business insights, preparing senior executives and high-potential leaders to operate effectively in global environments.",
-        href: "https://www.nyu.edu/",
+        href: "https://www.sps.nyu.edu/",
       },
       {
         name: "Academic Partnerships",

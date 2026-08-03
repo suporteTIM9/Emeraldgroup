@@ -39,7 +39,7 @@ const heroContent = [
     label: "02 — Our Reach",
     heading: "",
     headingLines: [
-      { text: "Seven Sectors.",    accent: false },
+      { text: "Seven Clusters.",   accent: false },
       { text: "One Vision.",       accent: true  },
       { text: "Endless Potential.", accent: false },
     ] as { text: string; accent: boolean }[],

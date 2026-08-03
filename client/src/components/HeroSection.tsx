@@ -43,7 +43,7 @@ const heroContent = [
       { text: "One Vision.",       accent: true  },
       { text: "Endless Potential.", accent: false },
     ] as { text: string; accent: boolean }[],
-    sub: "From banking to natural resources, from infrastructure to media — our portfolio spans the industries that shape economies and transform lives.",
+    sub: "From banking to resources, from infrastructure to media — our portfolio spans the industries that shape economies and transform lives.",
     cta1: "Explore Our Business", cta1Href: "#clusters",
     cta2: "Who We Are",           cta2Href: "#about",
   },

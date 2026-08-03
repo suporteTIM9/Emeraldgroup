@@ -2,7 +2,6 @@ import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "wouter";
 import { Menu, X, ChevronDown, Landmark, HardHat, Layers, Gem, Radio, Building2, GraduationCap, ArrowRight } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
-import { useAuth } from "@/_core/hooks/useAuth";
 
 type NavChild = { label: string; href: string; icon: LucideIcon; desc: string };
 type NavItem  = { label: string; href: string; children?: NavChild[] };
@@ -34,7 +33,6 @@ export default function Navbar({ fixed = true }: NavbarProps) {
   const [mobileOpen,   setMobileOpen]   = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [hoveredChild, setHoveredChild] = useState<string | null>(null);
-  useAuth();
   const dropdownRef = useRef<HTMLDivElement>(null);
   const isStatic = !fixed;
   const [, setLocation] = useLocation();

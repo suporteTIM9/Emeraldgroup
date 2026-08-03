@@ -1,6 +1,4 @@
-import { useAuth } from "@/_core/hooks/useAuth";
-import { getLoginUrl } from "@/const";
-import { Lock, FileText, Download, Calendar, ArrowRight, Shield } from "lucide-react";
+import { FileText, Download, Calendar, Shield } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
@@ -41,8 +39,6 @@ const reports = [
 ];
 
 function ReportsContent() {
-  const { user, logout } = useAuth();
-
   return (
     <div className="min-h-screen" style={{ background: "oklch(0.97 0.003 240)" }}>
       <Navbar />
@@ -77,23 +73,6 @@ function ReportsContent() {
               Access Emerald Group's financial reports, investor presentations, and portfolio updates.
               All documents are confidential and for authorised recipients only.
             </p>
-            <div className="flex items-center gap-3 mt-6">
-              <div
-                className="w-7 h-7 rounded-full flex items-center justify-center text-white text-xs font-bold"
-                style={{ background: "var(--eg-cyan)" }}
-              >
-                {user?.name?.charAt(0)?.toUpperCase() || "U"}
-              </div>
-              <span className="text-sm text-white/60">
-                Signed in as <span className="text-white/90 font-medium">{user?.name || user?.email || "Investor"}</span>
-              </span>
-              <button
-                onClick={logout}
-                className="ml-4 text-xs text-white/30 hover:text-white/60 transition-colors underline"
-              >
-                Sign out
-              </button>
-            </div>
           </div>
         </div>
 
@@ -168,70 +147,6 @@ function ReportsContent() {
   );
 }
 
-function LoginPrompt() {
-  return (
-    <div className="min-h-screen flex flex-col">
-      <Navbar />
-      <div
-        className="flex-1 flex items-center justify-center py-20"
-        style={{
-            background: `linear-gradient(135deg, oklch(0.08 0.03 165) 0%, oklch(0.18 0.10 155) 60%, oklch(0.25 0.12 140) 100%)`,
-        }}
-      >
-        <div className="container max-w-lg text-center">
-          <div
-            className="w-16 h-16 rounded-sm flex items-center justify-center mx-auto mb-6"
-            style={{ background: "rgba(255,255,255,0.08)" }}
-          >
-            <Lock size={28} style={{ color: "var(--eg-cyan)" }} />
-          </div>
-          <h1
-            className="text-3xl lg:text-4xl font-bold text-white mb-4"
-            style={{ fontFamily: "Playfair Display, serif" }}
-          >
-            Private Investor Portal
-          </h1>
-          <p className="text-sm text-white/50 leading-relaxed mb-8">
-            Access to Emerald Group's financial reports and investor documents is restricted to authorised
-            investors and stakeholders. Please sign in to continue.
-          </p>
-          <a
-            href={getLoginUrl()}
-            className="inline-flex items-center gap-2 px-8 py-3.5 text-sm font-semibold text-white rounded-sm transition-all hover:opacity-90"
-            style={{ background: "var(--eg-cyan)" }}
-          >
-            Sign In to Access Reports
-            <ArrowRight size={16} />
-          </a>
-          <p className="text-xs text-white/25 mt-6">
-            For access requests, contact{" "}
-            <a href="mailto:investors@emeraldgroup-inc.com" className="underline hover:text-white/50 transition-colors">
-              investors@emeraldgroup-inc.com
-            </a>
-          </p>
-        </div>
-      </div>
-      <Footer />
-    </div>
-  );
-}
-
 export default function Reports() {
-  const { isAuthenticated, loading } = useAuth();
-
-  if (loading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center" style={{ background: "var(--eg-dark)" }}>
-        <div className="flex flex-col items-center gap-4">
-          <div
-            className="w-8 h-8 rounded-full border-2 border-t-transparent animate-spin"
-            style={{ borderColor: "var(--eg-cyan)", borderTopColor: "transparent" }}
-          />
-          <span className="text-white/40 text-sm">Loading...</span>
-        </div>
-      </div>
-    );
-  }
-
-  return isAuthenticated ? <ReportsContent /> : <LoginPrompt />;
+  return <ReportsContent />;
 }

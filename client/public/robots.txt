@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://emeraldgroup-inc.com/sitemap.xml

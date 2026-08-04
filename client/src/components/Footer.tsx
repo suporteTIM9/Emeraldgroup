@@ -61,18 +61,7 @@ const socialLinks = [
 const tagline = "Building tomorrow's global business platforms with purpose, integrity, and a commitment to lasting impact.";
 
 export default function Footer() {
-  const [typedText, setTypedText] = useState("");
-  const [showTop, setShowTop]     = useState(false);
-
-  useEffect(() => {
-    let index = 0;
-    const interval = window.setInterval(() => {
-      setTypedText(tagline.slice(0, index + 1));
-      index += 1;
-      if (index >= tagline.length) window.clearInterval(interval);
-    }, 25);
-    return () => window.clearInterval(interval);
-  }, []);
+  const [showTop, setShowTop] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setShowTop(window.scrollY > 400);
@@ -183,7 +172,7 @@ export default function Footer() {
             className="text-sm max-w-lg leading-relaxed"
             style={{ color: "rgba(255,255,255,0.4)", fontFamily: "Nunito Sans, sans-serif", fontWeight: 300 }}
           >
-            <span>{typedText}</span>
+            {tagline}
           </p>
         </div>
       </div>

@@ -105,7 +105,7 @@ export default function AboutSection() {
                   Our Vision
                 </h4>
                 <p className="text-sm text-gray-600 leading-relaxed">
-                  To be the premier diversified investment group in Africa, recognised for excellence,
+                  To be a premier diversified investment group in Africa, recognised for excellence,
                   integrity, and purposeful impact.
                 </p>
               </div>

@@ -13,7 +13,7 @@ const navItems: NavItem[] = [
     label: "Our Business",
     href: "#clusters",
     children: [
-      { label: "Banking & Financial Services",   href: "#cluster-banking",        icon: Landmark,  desc: "Financial solutions driving economic growth across Africa." },
+      { label: "Banking & Financial Services",   href: "#cluster-banking",        icon: Landmark,  desc: "Financial solutions driving economic growth." },
       { label: "Construction & Engineering",      href: "#cluster-construction",   icon: HardHat,   desc: "Building world-class infrastructure for tomorrow." },
       { label: "Infrastructure",                  href: "#cluster-infrastructure", icon: Layers,    desc: "Developing essential networks that connect economies." },
       { label: "Natural Resources",               href: "#cluster-resources",      icon: Gem,       desc: "Sustainable extraction and value creation from Africa's wealth." },

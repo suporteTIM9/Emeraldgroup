@@ -120,7 +120,7 @@ export default function ContactSection() {
             className="text-4xl lg:text-5xl font-bold leading-tight"
             style={{ color: "var(--eg-dark)" }}
           >
-            Let's Build Something<br />Together
+            Let's Build<br />Together
           </h2>
           <p
             className="text-sm max-w-sm leading-relaxed"

@@ -247,7 +247,7 @@ export default function Footer() {
         <div className="container py-5">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
             <p className="text-xs" style={{ color: "rgba(255,255,255,0.3)", fontFamily: "Nunito Sans, sans-serif" }}>
-              © {new Date().getFullYear()} Emerald Group International. All rights reserved.
+              © {new Date().getFullYear()} Emerald Group. All rights reserved.
             </p>
             <div className="flex items-center gap-4">
               {[

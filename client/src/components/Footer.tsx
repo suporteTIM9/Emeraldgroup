@@ -184,16 +184,6 @@ export default function Footer() {
             style={{ color: "rgba(255,255,255,0.4)", fontFamily: "Nunito Sans, sans-serif", fontWeight: 300 }}
           >
             <span>{typedText}</span>
-            <span
-              aria-hidden="true"
-              style={{
-                display: "inline-block",
-                width: "0.5rem",
-                marginLeft: "0.2rem",
-                color: "rgba(255,255,255,0.4)",
-                animation: "footer-caret 0.9s steps(1) infinite",
-              }}
-            >|</span>
           </p>
         </div>
       </div>

@@ -12,7 +12,7 @@ interface LogoItem {
 const partners: LogoItem[] = [
   { name: "EY",         src: "/Logos_Partners/EY_Logo_Emerald_Group.png" },
   { name: "KPMG",       src: "/Logos_Partners/KPMG_Emerald_Group.png" },
-  { name: "Mstelecom",  src: "/Logos_Partners/Mstelecom_Emerald_Group.jpg" },
+  { name: "Mstelecom",  src: "/Logos_Partners/Mstelecom_Emerald_Group.png" },
   { name: "TAAG",       src: "/Logos_Partners/TAAG_Emerald_Group.png" },
   { name: "TV Cabo",    src: "/Logos_Partners/tvcabo_Emerald_Group.png" },
 ];

@@ -10,16 +10,16 @@ interface LogoItem {
 }
 
 const partners: LogoItem[] = [
-  { name: "Banco Millennium Atlântico",       src: "/Logos_Partners/Banco_Millennium_Atlântico.png" },
-  { name: "Diaar Imobiliária",                src: "/Logos_Partners/diaar-imobiliaria.png" },
-  { name: "IBG International Business Group", src: "/Logos_Partners/ibg-international-business-group.png" },
-  { name: "SONAIR",                           src: "/Logos_Partners/SONAIR.png" },
+  { name: "EY",         src: "/Logos_Partners/EY_Logo_Emerald_Group.png" },
+  { name: "KPMG",       src: "/Logos_Partners/KPMG_Emerald_Group.png" },
+  { name: "Mstelecom",  src: "/Logos_Partners/Mstelecom_Emerald_Group.jpg" },
+  { name: "TAAG",       src: "/Logos_Partners/TAAG_Emerald_Group.png" },
+  { name: "TV Cabo",    src: "/Logos_Partners/tvcabo_Emerald_Group.png" },
 ];
 
 const clients: LogoItem[] = [
   { name: "KPMG",      src: "/Logos_Clients/KPMG.png" },
   { name: "Mstelecom", src: "/Logos_Clients/Mstelecom.jpg" },
-  { name: "Paratus",   src: "/Logos_Clients/Paratus.png" },
   { name: "TAAG",      src: "/Logos_Clients/TAAG.png" },
   { name: "TV Cabo",   src: "/Logos_Clients/tvcabo.png" },
 ];

@@ -112,7 +112,7 @@ export default function ContactSection() {
 
         {/* ── Section header (padrão comum a todas as secções) ── */}
         <div className="flex items-center gap-4 mb-6">
-          <span className="section-label">05 — Get in Touch</span>
+          <span className="section-label">08 — Get in Touch</span>
           <div className="h-px flex-1 max-w-16" style={{ background: "var(--eg-cyan)" }} />
         </div>
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 mb-12">

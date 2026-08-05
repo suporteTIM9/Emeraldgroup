@@ -157,7 +157,7 @@ export default function LogoMarquee() {
       <div className="container">
         {/* Section header */}
         <div className="flex items-center gap-4 mb-12">
-          <span className="section-label">06 — Partners &amp; Clients</span>
+          <span className="section-label">07 — Partners &amp; Clients</span>
           <div className="h-px flex-1 max-w-16" style={{ background: "var(--eg-cyan)" }} />
         </div>
 

@@ -164,7 +164,7 @@ export default function JourneySection() {
       <div className="container" ref={sectionRef}>
         {/* Section header */}
         <div className="flex items-center gap-4 mb-6">
-          <span className="section-label">02 — Journey</span>
+          <span className="section-label">03 — Journey</span>
           <div className="h-px flex-1 max-w-16" style={{ background: "var(--eg-cyan)" }} />
         </div>
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-16">

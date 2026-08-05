@@ -8,7 +8,7 @@ const clusters = [
     icon: Building2,
     title: "Banking & Financial Services",
     anchorId: "cluster-banking",
-    tagline: "Mobilising capital. Enabling growth.",
+    tagline: "Empowering businesses and economies through innovative finance.",
     description:
       "Emerald Group's Banking & Financial Services cluster anchors the Group's ability to mobilise capital, structure complex transactions, and deliver financial solutions across the African continent and Portuguese-speaking markets. Through a diversified portfolio spanning commercial banking, digital finance, and strategic advisory, this cluster bridges institutional capital with the real economy — financing infrastructure, trade, and enterprise at scale.",
     companies: [

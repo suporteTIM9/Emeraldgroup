@@ -23,7 +23,7 @@ const milestones = [
   },
   {
     year: "2015",
-    title: "Natural Resources",
+    title: "Energy & Resources",
     desc: "Entry into the natural resources sector with Emerald Global Resources and Nino Oil, diversifying the group's energy portfolio.",
   },
   {

@@ -18,7 +18,7 @@ const footerLinks = [
       { label: "Banking & Financial Services", href: "#cluster-banking" },
       { label: "Construction & Engineering", href: "#cluster-construction" },
       { label: "Infrastructure", href: "#cluster-infrastructure" },
-      { label: "Natural Resources", href: "#cluster-resources" },
+      { label: "Energy & Resources", href: "#cluster-resources" },
       { label: "Telecom, Media & Technology", href: "#cluster-tmt" },
       { label: "Urban Development & Real Estate", href: "#cluster-urban" },
       { label: "Education & Leadership Dev.", href: "#cluster-education" },

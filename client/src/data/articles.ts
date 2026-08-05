@@ -77,8 +77,8 @@ ONE Luanda continues to redefine urban living standards in Luanda, setting new b
   {
     slug: "nino-oil-exploration-licence",
     date: "November 2024",
-    category: "Natural Resources",
-    tag: "Natural Resources",
+    category: "Energy & Resources",
+    tag: "Energy & Resources",
     title: "Nino Oil Secures New Exploration Licence",
     excerpt:
       "Nino Oil announces the award of a significant new exploration licence, expanding Emerald Group's footprint in the natural resources sector.",
@@ -111,6 +111,6 @@ export const tagColors: Record<string, string> = {
   "Media & Technology": "oklch(0.75 0.12 80)",
   "Infrastructure": "oklch(0.50 0.17 155)",
   "Urban Development": "oklch(0.75 0.12 80)",
-  "Natural Resources": "oklch(0.50 0.17 155)",
+  "Energy & Resources": "oklch(0.50 0.17 155)",
   "Telecom & Technology": "oklch(0.75 0.12 80)",
 };

@@ -83,7 +83,7 @@ const clusters = [
     icon: Leaf,
     title: "Energy & Resources",
     anchorId: "cluster-resources",
-    tagline: "Responsible stewardship of Africa's endowments.",
+    tagline: "Developing Africa's natural wealth for sustainable prosperity.",
     description:
       "Africa holds a disproportionate share of the world's natural wealth. Emerald Group's Energy & Resources cluster engages with this endowment responsibly — developing commodity and energy assets with a commitment to environmental stewardship, local value creation, and long-term sustainability. The cluster operates across the resource value chain, from exploration and extraction to trading and downstream processing.",
     companies: [

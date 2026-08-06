@@ -31,7 +31,7 @@ const heroContent = [
     label: "01 — Our Purpose",
     heading: "Connect. Create. Grow.",
     headingLines: null as null | { text: string; accent: boolean }[],
-    sub: "Emerald Group invests in and develops diversified business platforms across Africa and beyond, creating long-term value through purposeful growth.",
+    sub: "Connecting Africa to global financial centres — creating new markets that drive economic growth.",
     cta1: "Who We Are",     cta1Href: "#about",
     cta2: "Explore Our Business", cta2Href: "#clusters",
   },

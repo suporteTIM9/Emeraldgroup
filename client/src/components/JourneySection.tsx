@@ -286,7 +286,11 @@ export default function JourneySection() {
                     </h3>
 
                     {/* Description */}
-                    <div className="r-desc text-sm text-gray-500 leading-relaxed flex flex-col gap-3">
+                    <div
+                      className={`r-desc text-sm text-gray-500 leading-relaxed flex flex-col gap-3 ${
+                        isEven ? "" : "lg:text-justify"
+                      }`}
+                    >
                       {m.bullets.map((b, bi) => (
                         <p key={bi}>{b}</p>
                       ))}

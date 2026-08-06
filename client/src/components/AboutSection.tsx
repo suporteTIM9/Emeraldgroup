@@ -116,7 +116,7 @@ export default function AboutSection() {
               onClick={() => setModalOpen(true)}
               className="neon-btn"
             >
-              Chairman and CEO N'Gunu Tiny
+              Chairman &amp; CEO
             </button>
           </div>
 

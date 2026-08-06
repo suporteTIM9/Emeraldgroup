@@ -240,7 +240,6 @@ export default function JourneySection() {
                   {/* Content */}
                   <div className={`flex-1 pl-12 lg:pl-0 ${isEven ? "lg:pr-16" : "lg:pl-16"}`}>
                   <div
-                    className={isEven ? undefined : "lg:text-center"}
                     style={{
                       maxWidth: "420px",
                       marginLeft: isEven ? "auto" : undefined,

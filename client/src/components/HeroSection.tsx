@@ -465,18 +465,6 @@ export default function HeroSection() {
       {/* ── Main content ── */}
       <div className="relative z-10 container pb-14 lg:pb-20 pt-28 lg:pt-40">
         <div className="max-w-3xl">
-          <p
-            className="section-label mb-6"
-            style={{
-              opacity: contentVisible ? 1 : 0,
-              transform: contentVisible ? "translateY(0)" : "translateY(10px)",
-              transition: "opacity 0.5s ease 0.05s, transform 0.5s ease 0.05s",
-              color: "white",
-            }}
-          >
-            {content.label}
-          </p>
-
           {content.headingLines ? (
             <h1
               className="font-bold leading-tight mb-6 lg:mb-8"

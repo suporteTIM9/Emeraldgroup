@@ -278,20 +278,14 @@ export default function JourneySection() {
                     </h3>
 
                     {/* Description */}
-                    <ul
-                      className="r-desc list-none m-0 p-0 text-sm text-gray-500 leading-relaxed flex flex-col gap-2"
+                    <div
+                      className="r-desc text-sm text-gray-500 leading-relaxed flex flex-col gap-3 text-left"
                       style={{ maxWidth: "420px", marginLeft: isEven ? "auto" : undefined }}
                     >
                       {m.bullets.map((b, bi) => (
-                        <li key={bi} className="relative pl-4 text-left">
-                          <span
-                            className="absolute left-0 top-[0.6em] w-1.5 h-1.5 rounded-full"
-                            style={{ background: "var(--eg-cyan)" }}
-                          />
-                          {b}
-                        </li>
+                        <p key={bi}>{b}</p>
                       ))}
-                    </ul>
+                    </div>
                   </div>
 
                   {/* Center dot */}

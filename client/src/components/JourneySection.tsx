@@ -279,7 +279,7 @@ export default function JourneySection() {
 
                     {/* Description */}
                     <ul
-                      className="r-desc text-sm text-gray-500 leading-relaxed flex flex-col gap-2"
+                      className="r-desc list-none m-0 p-0 text-sm text-gray-500 leading-relaxed flex flex-col gap-2"
                       style={{ maxWidth: "420px", marginLeft: isEven ? "auto" : undefined }}
                     >
                       {m.bullets.map((b, bi) => (

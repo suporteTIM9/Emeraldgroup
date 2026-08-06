@@ -184,16 +184,16 @@ export default function Footer() {
             <div key={col.heading}>
               <h4
                 className="text-xs font-bold tracking-widest uppercase mb-5"
-                style={{ color: "rgba(255,255,255,0.25)", fontFamily: "Nunito Sans, sans-serif" }}
+                style={{ color: "#ffffff", fontFamily: "Nunito Sans, sans-serif" }}
               >
                 {col.heading}
               </h4>
               <ul className="flex flex-col gap-2.5">
                 {col.links.map((link) => {
                   const cls = "text-sm transition-colors";
-                  const sty = { color: "rgba(255,255,255,0.45)", fontFamily: "Nunito Sans, sans-serif" };
-                  const on  = (e: React.MouseEvent<HTMLElement>) => (e.currentTarget.style.color = "#02d49e");
-                  const off = (e: React.MouseEvent<HTMLElement>) => (e.currentTarget.style.color = "rgba(255,255,255,0.45)");
+                  const sty = { color: "#ffffff", fontFamily: "Nunito Sans, sans-serif" };
+                  const on  = (e: React.MouseEvent<HTMLElement>) => (e.currentTarget.style.color = "var(--eg-cyan)");
+                  const off = (e: React.MouseEvent<HTMLElement>) => (e.currentTarget.style.color = "#ffffff");
                   return (
                     <li key={link.label}>
                       {link.href.startsWith("#") ? (

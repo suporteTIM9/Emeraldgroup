@@ -93,8 +93,9 @@ export default function AboutSection() {
                   Our Mission
                 </h4>
                 <p className="text-sm text-gray-600 leading-relaxed">
-                  To build enduring business platforms that generate sustainable value and drive economic
-                  transformation across Africa and global markets.
+                  To systematically integrate African economies with global financial centres by unlocking
+                  high-growth opportunities and building scalable new markets — driving sustainable economic
+                  expansion, delivering measurable returns, and uplifting communities across the continent.
                 </p>
               </div>
               <div

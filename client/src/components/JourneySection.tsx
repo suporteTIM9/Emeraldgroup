@@ -238,7 +238,7 @@ export default function JourneySection() {
                   }`}
                 >
                   {/* Content */}
-                  <div className={`flex-1 pl-12 lg:pl-0 ${isEven ? "lg:pr-16" : "lg:pl-16"}`}>
+                  <div className={`flex-1 pl-12 lg:pl-0 ${isEven ? "lg:pr-16" : "lg:pl-16 lg:text-center"}`}>
 
                     {/* Year badge */}
                     <div className="r-badge">
@@ -279,8 +279,12 @@ export default function JourneySection() {
 
                     {/* Description */}
                     <div
-                      className="r-desc text-sm text-gray-500 leading-relaxed flex flex-col gap-3 text-left"
-                      style={{ maxWidth: "420px", marginLeft: isEven ? "auto" : undefined }}
+                      className="r-desc text-sm text-gray-500 leading-relaxed flex flex-col gap-3"
+                      style={{
+                        maxWidth: "420px",
+                        marginLeft: isEven ? undefined : "auto",
+                        marginRight: isEven ? undefined : "auto",
+                      }}
                     >
                       {m.bullets.map((b, bi) => (
                         <p key={bi}>{b}</p>

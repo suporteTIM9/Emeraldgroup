@@ -29,7 +29,7 @@ const slides: BackgroundSlide[] = [
 const heroContent = [
   {
     label: "01 — Our Purpose",
-    heading: "Creating Markets With Purpose",
+    heading: "Connect. Create. Grow.",
     headingLines: null as null | { text: string; accent: boolean }[],
     sub: "Emerald Group invests in and develops diversified business platforms across Africa and beyond, creating long-term value through purposeful growth.",
     cta1: "Who We Are",     cta1Href: "#about",

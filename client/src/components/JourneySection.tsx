@@ -2,44 +2,66 @@ import { useEffect, useRef } from "react";
 
 const milestones = [
   {
-    year: "1990s",
-    title: "Foundation",
-    desc: "Emerald Group is established with a vision to build a diversified business empire across Africa and beyond.",
-  },
-  {
-    year: "2000s",
-    title: "Financial Services Expansion",
-    desc: "Entry into banking and financial services, establishing key partnerships and acquiring strategic stakes in leading African financial institutions.",
-  },
-  {
     year: "2008",
-    title: "Media & Technology",
-    desc: "Launch of media operations, bringing world-class business journalism to African audiences through strategic media partnerships.",
+    title: "Foundation: A New Model for Emerging Markets",
+    bullets: [
+      "Emerald Group is founded in response to the global financial crisis and the recognition that traditional investment models were ill-suited for many emerging and frontier markets.",
+      "Core thesis: success in these markets requires local expertise, strong partnerships, and bespoke, executable strategies.",
+    ],
   },
   {
-    year: "2012",
-    title: "Infrastructure Push",
-    desc: "Emerald Infrastructure is established to develop critical infrastructure assets across Sub-Saharan Africa.",
+    year: "2009",
+    title: "Building the Platform",
+    bullets: [
+      "First advisory and investment mandates structured in selected African markets.",
+      "Early partnerships formed with local entrepreneurs, financial institutions, and sector operators in energy, financial services, and media.",
+      "Emerald begins to act as a connector between African opportunities and global capital.",
+    ],
   },
   {
-    year: "2015",
-    title: "Energy & Resources",
-    desc: "Entry into the natural resources sector with Emerald Global Resources and Nino Oil, diversifying the group's energy portfolio.",
+    year: "2013",
+    title: "Sector Diversification and Regional Expansion",
+    bullets: [
+      "Expansion into additional sectors: natural resources, property and urban development, and telecoms.",
+      "Geographic footprint extended across multiple African regions, leveraging a growing network of local partners and decision-makers.",
+      "Board composition strengthened with professionals from investment banking, law, and industry, representing four continents.",
+    ],
   },
   {
-    year: "2018",
-    title: "Urban Development",
-    desc: "Launch of ONE Luanda and ONE Hotéis, redefining premium urban living and hospitality in Angola.",
+    year: "2017",
+    title: "Institutionalisation and Governance",
+    bullets: [
+      "Formalisation of governance frameworks, risk management processes, and compliance functions.",
+      "Introduction of more structured investment vehicles and co-investment platforms with institutional and family office capital.",
+      "Enhanced focus on ESG considerations, local content, and sustainable socioeconomic impact as integral to investment decisions.",
+    ],
   },
   {
     year: "2020",
-    title: "Digital Transformation",
-    desc: "Accelerated digital strategy across all clusters, including the launch of Banko and expansion of Emerald Telecom's digital services.",
+    title: "Resilience Through Global Shocks",
+    bullets: [
+      "Active portfolio management and strategic repositioning in response to global macro shocks, commodity volatility, and shifting capital flows.",
+      "Continued deployment into resilient sectors such as essential financial services, digital infrastructure, and media.",
+      "Deepening of relationships with local stakeholders, including governments, regulators, and community partners.",
+    ],
   },
   {
-    year: "Today",
-    title: "Global Reach",
-    desc: "Emerald Group operates across 5+ countries with 20+ portfolio companies, continuing to build purposeful global business platforms.",
+    year: "2022",
+    title: "Strategic Consolidation and New Growth Themes",
+    bullets: [
+      "Consolidation of core sectors: energy, financial services, media & telecoms, property & urban development, and natural resources.",
+      "Launch or scaling of targeted initiatives around energy transition, critical minerals, and digital infrastructure in Africa.",
+      "Strengthening of the management committee and senior corporate officers across risk, investments, compliance, legal, and sector heads.",
+    ],
+  },
+  {
+    year: "2026",
+    title: "Next Chapter, the Future: Connect. Create. Grow.",
+    bullets: [
+      "Connect: Systematically integrate African economies with global financial centres by aligning capital, expertise, and distribution.",
+      "Create: Unlock high-growth opportunities and build scalable new markets in energy, financial services, digital infrastructure, and resources.",
+      "Grow: Drive sustainable economic expansion, deliver measurable returns, and uplift communities across the continent.",
+    ],
   },
 ];
 
@@ -256,16 +278,17 @@ export default function JourneySection() {
                     </h3>
 
                     {/* Description */}
-                    <p
-                      className="r-desc text-sm text-gray-500 leading-relaxed"
+                    <div
+                      className="r-desc text-sm text-gray-500 leading-relaxed flex flex-col gap-1.5"
                       style={{
-                        maxWidth: "260px",
-                        display: "block",
+                        maxWidth: "300px",
                         marginLeft: isEven ? "auto" : undefined,
                       }}
                     >
-                      {m.desc}
-                    </p>
+                      {m.bullets.map((b, bi) => (
+                        <p key={bi}>• {b}</p>
+                      ))}
+                    </div>
                   </div>
 
                   {/* Center dot */}

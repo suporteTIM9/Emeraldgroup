@@ -138,7 +138,7 @@ export default function ArticlePage() {
             {/* Body text */}
             <div>
               {paragraphs.map((para, i) => (
-                <p key={i} className="text-gray-700 leading-relaxed mb-5" style={{ fontSize: "1rem" }}>
+                <p key={i} className="leading-relaxed mb-5" style={{ fontSize: "1rem", color: "var(--eg-dark)" }}>
                   {para}
                 </p>
               ))}

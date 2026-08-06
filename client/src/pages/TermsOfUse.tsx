@@ -66,7 +66,7 @@ export default function TermsOfUse() {
             <h1 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
               Terms of Use
             </h1>
-            <p className="mt-4 max-w-2xl text-sm leading-7 text-slate-600 sm:text-base">
+            <p className="mt-4 max-w-2xl text-sm leading-7 sm:text-base" style={{ color: "var(--eg-dark)" }}>
               These Terms govern your use of the Emerald Group website. Please review them carefully.
             </p>
           </div>
@@ -80,7 +80,7 @@ export default function TermsOfUse() {
                 <h2 className="text-lg font-semibold text-slate-900 sm:text-xl">
                   {section.title}
                 </h2>
-                <p className="mt-3 text-sm leading-7 text-slate-700 sm:text-base">
+                <p className="mt-3 text-sm leading-7 sm:text-base" style={{ color: "var(--eg-dark)" }}>
                   {section.text}
                 </p>
               </section>

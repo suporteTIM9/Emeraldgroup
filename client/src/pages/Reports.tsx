@@ -132,10 +132,10 @@ function ReportsContent() {
 
           {/* Disclaimer */}
           <div
-            className="mt-8 p-5 rounded-sm border text-xs text-gray-500 leading-relaxed"
-            style={{ borderColor: "oklch(0.92 0.005 240)", background: "white" }}
+            className="mt-8 p-5 rounded-sm border text-xs leading-relaxed"
+            style={{ borderColor: "oklch(0.92 0.005 240)", background: "white", color: "var(--eg-dark)" }}
           >
-            <strong className="text-gray-700">Confidentiality Notice:</strong> The documents available in this
+            <strong>Confidentiality Notice:</strong> The documents available in this
             portal are strictly confidential and intended solely for authorised investors and stakeholders of
             Emerald Group. Unauthorised access, distribution, or reproduction of these materials is strictly
             prohibited. By accessing this portal, you confirm that you are an authorised recipient.

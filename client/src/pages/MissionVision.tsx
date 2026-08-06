@@ -47,7 +47,7 @@ export default function MissionVision() {
               </div>
               <h2 className="text-2xl font-bold text-slate-900">Mission</h2>
             </div>
-            <div className="pl-14 space-y-4 text-base leading-8 text-slate-700">
+            <div className="pl-14 space-y-4 text-base leading-8 text-slate-900">
               <p>
                 To invest, manage and grow its holdings with the intent to facilitate economic growth
                 and development in frontier and emerging markets.
@@ -76,7 +76,7 @@ export default function MissionVision() {
               </div>
               <h2 className="text-2xl font-bold text-slate-900">Vision</h2>
             </div>
-            <div className="pl-14 space-y-4 text-base leading-8 text-slate-700">
+            <div className="pl-14 space-y-4 text-base leading-8 text-slate-900">
               <p>
                 To become the strategic partner of choice to the global investment community.
               </p>

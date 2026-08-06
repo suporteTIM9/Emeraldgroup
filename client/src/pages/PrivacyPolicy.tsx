@@ -60,7 +60,7 @@ export default function PrivacyPolicy() {
             <div className="mb-4">
               <Link
                 href="/"
-                className="inline-flex items-center rounded-full bg-slate-100 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:bg-[#02d49e] hover:text-white"
+                className="inline-flex items-center rounded-full bg-slate-100 px-4 py-2 text-sm font-semibold text-slate-900 transition hover:bg-[#02d49e] hover:text-white"
               >
                 ← Back to homepage
               </Link>
@@ -71,7 +71,7 @@ export default function PrivacyPolicy() {
             <h1 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
               Privacy Policy
             </h1>
-            <p className="mt-4 max-w-2xl text-sm leading-7 text-slate-600 sm:text-base">
+            <p className="mt-4 max-w-2xl text-sm leading-7 text-slate-900 sm:text-base">
               This Privacy Policy explains how Emerald Group handles personal information and your rights regarding your data.
             </p>
           </div>
@@ -82,7 +82,7 @@ export default function PrivacyPolicy() {
                 <h2 className="text-lg font-semibold text-slate-900 sm:text-xl">
                   {section.title}
                 </h2>
-                <p className="mt-3 text-sm leading-7 text-slate-700 sm:text-base">
+                <p className="mt-3 text-sm leading-7 text-slate-900 sm:text-base">
                   {section.text}
                 </p>
               </section>

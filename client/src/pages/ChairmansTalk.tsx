@@ -102,7 +102,7 @@ export default function ChairmansTalk() {
                       >
                         {talk.title}
                       </h3>
-                      <p className="text-xs text-gray-500 leading-relaxed mb-4 line-clamp-2">{talk.excerpt}</p>
+                      <p className="text-xs leading-relaxed mb-4 line-clamp-2" style={{ color: "var(--eg-dark)" }}>{talk.excerpt}</p>
                       <span
                         className="flex items-center gap-1 text-xs font-semibold transition-all group-hover:gap-2 mt-auto"
                         style={{ color: "var(--eg-orange-dark)" }}

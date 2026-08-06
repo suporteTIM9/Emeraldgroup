@@ -76,7 +76,7 @@ export default function BlogPage() {
                     >
                       {article.title}
                     </h3>
-                    <p className="text-xs text-gray-500 leading-relaxed mb-4">{article.excerpt}</p>
+                    <p className="text-xs leading-relaxed mb-4" style={{ color: "var(--eg-dark)" }}>{article.excerpt}</p>
                     <span
                       className="flex items-center gap-1 text-xs font-semibold transition-all group-hover:gap-2 mt-auto"
                       style={{ color: tagColors[article.tag] }}

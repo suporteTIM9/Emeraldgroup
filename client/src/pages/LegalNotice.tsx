@@ -16,10 +16,10 @@ const sections: Section[] = [
     title: "Company Information",
     content: (
       <>
-        <p className="mt-3 text-sm leading-7 text-slate-700 sm:text-base">
+        <p className="mt-3 text-sm leading-7 text-slate-900 sm:text-base">
           This website is operated by:
         </p>
-        <div className="mt-3 space-y-1 text-sm leading-7 text-slate-700 sm:text-base">
+        <div className="mt-3 space-y-1 text-sm leading-7 text-slate-900 sm:text-base">
           <p><strong>Emerald Group Inc.</strong></p>
           <p>Registered Address: 707A, Al Fattan Currency Tower 2, Dubai International Financial Centre (DIFC), Dubai, UAE.</p>
           <p>Email:{" "}
@@ -35,7 +35,7 @@ const sections: Section[] = [
     number: "2.",
     title: "Website Ownership",
     content: (
-      <div className="mt-3 space-y-3 text-sm leading-7 text-slate-700 sm:text-base">
+      <div className="mt-3 space-y-3 text-sm leading-7 text-slate-900 sm:text-base">
         <p>
           This website (<a href="https://emeraldgroup-inc.com/" target="_blank" rel="noopener noreferrer" className="text-[#02d49e] hover:underline">https://emeraldgroup-inc.com/</a>) and all its content, including but not limited to text, images, graphics, logos, icons, videos, and design elements, are the exclusive property of Emerald Group Inc., unless otherwise stated.
         </p>
@@ -49,7 +49,7 @@ const sections: Section[] = [
     number: "3.",
     title: "Intellectual Property Rights",
     content: (
-      <div className="mt-3 space-y-3 text-sm leading-7 text-slate-700 sm:text-base">
+      <div className="mt-3 space-y-3 text-sm leading-7 text-slate-900 sm:text-base">
         <p>
           All intellectual property rights related to this website are protected under applicable copyright, trademark, and intellectual property laws.
         </p>
@@ -63,7 +63,7 @@ const sections: Section[] = [
     number: "4.",
     title: "Limitation of Liability",
     content: (
-      <div className="mt-3 space-y-3 text-sm leading-7 text-slate-700 sm:text-base">
+      <div className="mt-3 space-y-3 text-sm leading-7 text-slate-900 sm:text-base">
         <p>
           The information provided on this website is for general informational purposes only.
         </p>
@@ -71,7 +71,7 @@ const sections: Section[] = [
           Emerald Group Inc. makes every effort to ensure accuracy and completeness but does not guarantee that all content is up to date, error-free, or complete.
         </p>
         <p>We shall not be held liable for:</p>
-        <ul className="list-disc list-inside space-y-1 pl-2 text-slate-600">
+        <ul className="list-disc list-inside space-y-1 pl-2 text-slate-900">
           <li>Any direct or indirect damages resulting from the use of this website</li>
           <li>Temporary unavailability or interruption of the website</li>
           <li>Errors, inaccuracies, or omissions in the content</li>
@@ -83,7 +83,7 @@ const sections: Section[] = [
     number: "5.",
     title: "External Links",
     content: (
-      <div className="mt-3 space-y-3 text-sm leading-7 text-slate-700 sm:text-base">
+      <div className="mt-3 space-y-3 text-sm leading-7 text-slate-900 sm:text-base">
         <p>
           This website may contain links to third-party websites for convenience and informational purposes.
         </p>
@@ -97,7 +97,7 @@ const sections: Section[] = [
     number: "6.",
     title: "Data Protection",
     content: (
-      <div className="mt-3 space-y-3 text-sm leading-7 text-slate-700 sm:text-base">
+      <div className="mt-3 space-y-3 text-sm leading-7 text-slate-900 sm:text-base">
         <p>
           Any personal data collected through this website is processed in accordance with applicable data protection laws, including the General Data Protection Regulation (GDPR).
         </p>
@@ -114,7 +114,7 @@ const sections: Section[] = [
     number: "7.",
     title: "Cookies",
     content: (
-      <div className="mt-3 space-y-3 text-sm leading-7 text-slate-700 sm:text-base">
+      <div className="mt-3 space-y-3 text-sm leading-7 text-slate-900 sm:text-base">
         <p>
           This website uses cookies to enhance user experience and analyze website traffic.
         </p>
@@ -128,7 +128,7 @@ const sections: Section[] = [
     number: "8.",
     title: "Governing Law and Jurisdiction",
     content: (
-      <div className="mt-3 space-y-3 text-sm leading-7 text-slate-700 sm:text-base">
+      <div className="mt-3 space-y-3 text-sm leading-7 text-slate-900 sm:text-base">
         <p>
           This Legal Notice shall be governed by and interpreted in accordance with the laws of the UAE.
         </p>
@@ -142,7 +142,7 @@ const sections: Section[] = [
     number: "9.",
     title: "Updates to This Legal Notice",
     content: (
-      <div className="mt-3 space-y-3 text-sm leading-7 text-slate-700 sm:text-base">
+      <div className="mt-3 space-y-3 text-sm leading-7 text-slate-900 sm:text-base">
         <p>
           Emerald Group Inc. reserves the right to modify or update this Legal Notice at any time without prior notice.
         </p>
@@ -156,7 +156,7 @@ const sections: Section[] = [
     number: "10.",
     title: "Contact",
     content: (
-      <div className="mt-3 text-sm leading-7 text-slate-700 sm:text-base">
+      <div className="mt-3 text-sm leading-7 text-slate-900 sm:text-base">
         <p>For any questions regarding this Legal Notice, please contact us at:</p>
         <p className="mt-2">
           <a
@@ -184,7 +184,7 @@ export default function LegalNotice() {
             <div className="mb-16">
               <Link
                 href="/"
-                className="inline-flex items-center rounded-full bg-slate-100 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:bg-[#02d49e] hover:text-white"
+                className="inline-flex items-center rounded-full bg-slate-100 px-4 py-2 text-sm font-semibold text-slate-900 transition hover:bg-[#02d49e] hover:text-white"
               >
                 ← Back to homepage
               </Link>
@@ -198,7 +198,7 @@ export default function LegalNotice() {
             <p className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-[#02d49e]">
               Legal Notice
             </p>
-            <p className="mt-4 max-w-2xl text-sm leading-7 text-slate-600 sm:text-base">
+            <p className="mt-4 max-w-2xl text-sm leading-7 text-slate-900 sm:text-base">
               This Legal Notice governs your use of the Emerald Group website and outlines the terms, rights, and responsibilities applicable to all visitors.
             </p>
           </div>

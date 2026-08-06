@@ -206,7 +206,7 @@ export default function ContactSection() {
                   <Send size={22} color="#1e1f1f" />
                 </div>
                 <h3 className="text-xl font-bold mb-2" style={{ color: "#1e1f1f" }}>Message Sent</h3>
-                <p className="text-sm text-gray-500" style={{ fontFamily: "Nunito Sans, sans-serif" }}>
+                <p className="text-sm" style={{ fontFamily: "Nunito Sans, sans-serif", color: "var(--eg-dark)" }}>
                   Thank you for reaching out. Our team will respond to your enquiry shortly.
                 </p>
               </div>

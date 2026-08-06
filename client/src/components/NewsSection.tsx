@@ -115,7 +115,7 @@ export default function NewsSection() {
                               >
                 {item.title}
               </h3>
-              <p className="text-xs text-gray-500 leading-relaxed mb-4">{item.excerpt}</p>
+              <p className="text-xs leading-relaxed mb-4" style={{ color: "var(--eg-dark)" }}>{item.excerpt}</p>
               {item.externalHref && item.externalHref !== "#" && (
                 <a
                   href={item.externalHref}

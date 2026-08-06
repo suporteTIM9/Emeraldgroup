@@ -225,7 +225,7 @@ export default function ClustersSection() {
           >
             Seven Clusters.<br />One Vision.
           </h2>
-          <p className="text-sm text-gray-500 max-w-sm leading-relaxed">
+          <p className="text-sm max-w-sm leading-relaxed" style={{ color: "var(--eg-dark)" }}>
             Emerald Group organises its investments and operations into seven distinct business clusters — each
             strategically positioned to capture long-term value and contribute to Africa's economic transformation.
           </p>
@@ -305,7 +305,7 @@ export default function ClustersSection() {
                     {c.tagline}
                   </p>
 
-                  <p className="text-sm text-gray-600 leading-relaxed mb-8">{c.description}</p>
+                  <p className="text-sm leading-relaxed mb-8" style={{ color: "var(--eg-dark)" }}>{c.description}</p>
 
                   <div className="mb-4">
                     <h4 className="text-xs font-semibold tracking-widest uppercase text-gray-400 mb-4">

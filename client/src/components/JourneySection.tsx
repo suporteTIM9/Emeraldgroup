@@ -197,8 +197,8 @@ export default function JourneySection() {
             Charting Emerald Group's Journey
           </h2>
           <p
-            className="js-reveal text-sm text-gray-500 max-w-sm leading-relaxed"
-            style={{ transitionDelay: "0.15s" }}
+            className="js-reveal text-sm max-w-sm leading-relaxed"
+            style={{ transitionDelay: "0.15s", color: "var(--eg-dark)" }}
           >
             From our founding to today, our journey reflects a commitment to building enduring businesses
             that create value across generations.
@@ -286,9 +286,10 @@ export default function JourneySection() {
 
                     {/* Description */}
                     <div
-                      className={`r-desc text-sm text-gray-500 leading-relaxed flex flex-col gap-3 ${
+                      className={`r-desc text-sm leading-relaxed flex flex-col gap-3 ${
                         isEven ? "" : "lg:text-justify"
                       }`}
+                      style={{ color: "var(--eg-dark)" }}
                     >
                       {m.bullets.map((b, bi) => (
                         <p key={bi}>{b}</p>

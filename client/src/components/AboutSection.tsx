@@ -92,7 +92,7 @@ export default function AboutSection() {
                 <h4 className="text-xs font-semibold tracking-widest uppercase mb-2" style={{ color: "var(--eg-cyan)" }}>
                   Our Mission
                 </h4>
-                <p className="text-sm text-gray-600 leading-relaxed">
+                <p className="text-sm leading-relaxed" style={{ color: "var(--eg-dark)" }}>
                   To systematically integrate African economies with global financial centres by unlocking
                   high-growth opportunities and building scalable new markets — driving sustainable economic
                   expansion, delivering measurable returns, and uplifting communities across the continent.
@@ -105,7 +105,7 @@ export default function AboutSection() {
                 <h4 className="text-xs font-semibold tracking-widest uppercase mb-2" style={{ color: "var(--eg-orange)" }}>
                   Our Vision
                 </h4>
-                <p className="text-sm text-gray-600 leading-relaxed">
+                <p className="text-sm leading-relaxed" style={{ color: "var(--eg-dark)" }}>
                   To be a premier diversified investment group in Africa, recognised for excellence,
                   integrity, and purposeful impact.
                 </p>

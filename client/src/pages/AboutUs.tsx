@@ -38,7 +38,7 @@ export default function AboutUs() {
 
           {/* Content */}
           <div className="prose prose-slate max-w-none">
-            <p className="text-base leading-8 text-slate-700 sm:text-lg sm:leading-9">
+            <p className="text-base leading-8 sm:text-lg sm:leading-9" style={{ color: "var(--eg-dark)" }}>
               Emerald Group is a diversified holding company that invests in and develops strategic business
               platforms across key sectors of the economy. Our portfolio spans banking and financial services,
               construction, infrastructure, natural resources, technology, media, and real estate.

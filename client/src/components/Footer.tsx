@@ -170,7 +170,7 @@ export default function Footer() {
         <div className="container py-8">
           <p
             className="text-sm max-w-lg leading-relaxed"
-            style={{ color: "rgba(255,255,255,0.4)", fontFamily: "Nunito Sans, sans-serif", fontWeight: 300 }}
+            style={{ color: "#ffffff", fontFamily: "Nunito Sans, sans-serif", fontWeight: 300 }}
           >
             {tagline}
           </p>
@@ -225,7 +225,7 @@ export default function Footer() {
       <div className="border-t" style={{ borderColor: "rgba(255,255,255,0.06)" }}>
         <div className="container py-5">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-            <p className="text-xs" style={{ color: "rgba(255,255,255,0.3)", fontFamily: "Nunito Sans, sans-serif" }}>
+            <p className="text-xs" style={{ color: "#ffffff", fontFamily: "Nunito Sans, sans-serif" }}>
               © {new Date().getFullYear()} Emerald Group. All rights reserved.
             </p>
             <div className="flex items-center gap-4">
@@ -238,9 +238,9 @@ export default function Footer() {
                   key={item.label}
                   href={item.href}
                   className="text-xs transition-colors"
-                  style={{ color: "rgba(255,255,255,0.3)", fontFamily: "Nunito Sans, sans-serif" }}
-                  onMouseEnter={e => (e.currentTarget.style.color = "#02d49e")}
-                  onMouseLeave={e => (e.currentTarget.style.color = "rgba(255,255,255,0.3)")}
+                  style={{ color: "#ffffff", fontFamily: "Nunito Sans, sans-serif" }}
+                  onMouseEnter={e => (e.currentTarget.style.color = "var(--eg-cyan)")}
+                  onMouseLeave={e => (e.currentTarget.style.color = "#ffffff")}
                 >
                   {item.label}
                 </Link>

@@ -238,7 +238,7 @@ export default function JourneySection() {
                   }`}
                 >
                   {/* Content */}
-                  <div className={`flex-1 pl-12 lg:pl-0 ${isEven ? "lg:pr-16 lg:text-right" : "lg:pl-16"}`}>
+                  <div className={`flex-1 pl-12 lg:pl-0 ${isEven ? "lg:pr-16" : "lg:pl-16"}`}>
 
                     {/* Year badge */}
                     <div className="r-badge">
@@ -278,17 +278,20 @@ export default function JourneySection() {
                     </h3>
 
                     {/* Description */}
-                    <div
-                      className="r-desc text-sm text-gray-500 leading-relaxed flex flex-col gap-1.5"
-                      style={{
-                        maxWidth: "300px",
-                        marginLeft: isEven ? "auto" : undefined,
-                      }}
+                    <ul
+                      className="r-desc text-sm text-gray-500 leading-relaxed flex flex-col gap-2"
+                      style={{ maxWidth: "420px", marginLeft: isEven ? "auto" : undefined }}
                     >
                       {m.bullets.map((b, bi) => (
-                        <p key={bi}>• {b}</p>
+                        <li key={bi} className="relative pl-4 text-left">
+                          <span
+                            className="absolute left-0 top-[0.6em] w-1.5 h-1.5 rounded-full"
+                            style={{ background: "var(--eg-cyan)" }}
+                          />
+                          {b}
+                        </li>
                       ))}
-                    </div>
+                    </ul>
                   </div>
 
                   {/* Center dot */}

@@ -10,7 +10,7 @@ type NavbarProps = { fixed?: boolean };
 const navItems: NavItem[] = [
   { label: "About", href: "#about" },
   {
-    label: "Our Business",
+    label: "Our Business Clusters",
     href: "#clusters",
     children: [
       { label: "Banking & Financial Services",   href: "#cluster-banking",        icon: Landmark,  desc: "Empowering businesses and economies through innovative finance." },

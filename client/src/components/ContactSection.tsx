@@ -9,7 +9,7 @@ const ENQUIRY_TYPES = [
   "General Enquiries",
 ];
 
-export default function ContactSection() {
+export default function ContactSection({ showHeader = true }: { showHeader?: boolean } = {}) {
   const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
   const [submitted, setSubmitted] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
@@ -111,25 +111,29 @@ export default function ContactSection() {
       <div className="container">
 
         {/* ── Section header (padrão comum a todas as secções) ── */}
-        <div className="flex items-center gap-4 mb-6">
-          <span className="section-label">07 — Get in Touch</span>
-          <div className="h-px flex-1 max-w-16" style={{ background: "var(--eg-cyan)" }} />
-        </div>
-        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 mb-12">
-          <h2
-            className="text-4xl lg:text-5xl font-bold leading-tight"
-            style={{ color: "var(--eg-dark)" }}
-          >
-            Let's Build<br />Together
-          </h2>
-          <p
-            className="text-sm max-w-sm leading-relaxed"
-            style={{ color: "#6b7280", fontFamily: "Nunito Sans, sans-serif", fontWeight: 300 }}
-          >
-            Whether you're an investor, partner, or stakeholder — we welcome the opportunity
-            to connect and explore how we can create value together.
-          </p>
-        </div>
+        {showHeader && (
+          <>
+            <div className="flex items-center gap-4 mb-6">
+              <span className="section-label">07 — Get in Touch</span>
+              <div className="h-px flex-1 max-w-16" style={{ background: "var(--eg-cyan)" }} />
+            </div>
+            <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 mb-12">
+              <h2
+                className="text-4xl lg:text-5xl font-bold leading-tight"
+                style={{ color: "var(--eg-dark)" }}
+              >
+                Let's Build<br />Together
+              </h2>
+              <p
+                className="text-sm max-w-sm leading-relaxed"
+                style={{ color: "#6b7280", fontFamily: "Nunito Sans, sans-serif", fontWeight: 300 }}
+              >
+                Whether you're an investor, partner, or stakeholder — we welcome the opportunity
+                to connect and explore how we can create value together.
+              </p>
+            </div>
+          </>
+        )}
 
         {/* ── Two-panel card ── */}
         <div className="grid lg:grid-cols-5 rounded-2xl overflow-hidden shadow-lg">

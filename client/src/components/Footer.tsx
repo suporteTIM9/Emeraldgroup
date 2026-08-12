@@ -41,9 +41,9 @@ const footerLinks = [
     heading: "Resources",
     links: [
       { label: "Newsroom", href: "#news" },
-      { label: "Investor Relations", href: "#contact" },
+      { label: "Investor Relations", href: "/contact" },
       { label: "Reports Portal", href: "/reports" },
-      { label: "Contact Us", href: "#contact" },
+      { label: "Contact Us", href: "/contact" },
     ],
   },
 ];

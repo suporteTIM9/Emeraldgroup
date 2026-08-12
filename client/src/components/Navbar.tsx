@@ -25,7 +25,7 @@ const navItems: NavItem[] = [
   { label: "Journey", href: "#journey" },
   { label: "News",    href: "#news"    },
   { label: "Chairman's Talk", href: "/chairmans-talk" },
-  { label: "Contact", href: "#contact" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export default function Navbar({ fixed = true }: NavbarProps) {

@@ -1,13 +1,58 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "wouter";
 import { ArrowRight } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
-import { chapters, milestones } from "@/data/journey";
+import { milestones } from "@/data/journey";
+
+// ── Abstract connection map — Headquarters (Dubai) ↔ Core Operations (Angola) ──
+// Deliberately illustrative, not a to-scale geographic projection.
+function JourneyMap() {
+  return (
+    <div
+      className="relative overflow-hidden rounded-lg"
+      style={{ background: "oklch(0.08 0.02 165)", aspectRatio: "16 / 8" }}
+    >
+      <div
+        className="absolute inset-0 opacity-20 pointer-events-none"
+        style={{ backgroundImage: "radial-gradient(rgba(255,255,255,0.5) 1px, transparent 1px)", backgroundSize: "22px 22px" }}
+      />
+      <svg viewBox="0 0 800 400" className="absolute inset-0 h-full w-full" preserveAspectRatio="none">
+        <path
+          d="M 180 260 Q 400 70 610 128"
+          fill="none"
+          stroke="rgba(2,212,158,0.4)"
+          strokeWidth="1.5"
+          strokeDasharray="5 6"
+        />
+        <circle cx="180" cy="260" r="5" fill="#02d49e" />
+        <circle cx="180" cy="260" r="5" fill="#02d49e" opacity="0.5">
+          <animate attributeName="r" values="5;20;5" dur="2.6s" repeatCount="indefinite" />
+          <animate attributeName="opacity" values="0.5;0;0.5" dur="2.6s" repeatCount="indefinite" />
+        </circle>
+        <circle cx="610" cy="128" r="5" fill="#02d49e" />
+        <circle cx="610" cy="128" r="5" fill="#02d49e" opacity="0.5">
+          <animate attributeName="r" values="5;20;5" dur="2.6s" begin="1.3s" repeatCount="indefinite" />
+          <animate attributeName="opacity" values="0.5;0;0.5" dur="2.6s" begin="1.3s" repeatCount="indefinite" />
+        </circle>
+      </svg>
+      <div className="absolute" style={{ left: "20%", top: "62%" }}>
+        <div className="text-xs sm:text-sm font-bold text-white">Luanda, Angola</div>
+        <div className="text-[10px] sm:text-xs" style={{ color: "rgba(255,255,255,0.5)" }}>Core Operations</div>
+      </div>
+      <div className="absolute text-right" style={{ left: "62%", top: "24%" }}>
+        <div className="text-xs sm:text-sm font-bold text-white">Dubai, UAE</div>
+        <div className="text-[10px] sm:text-xs" style={{ color: "rgba(255,255,255,0.5)" }}>Headquarters (DIFC)</div>
+      </div>
+    </div>
+  );
+}
 
 export default function Journey() {
   useEffect(() => { window.scrollTo(0, 0); }, []);
+  const [active, setActive] = useState(0);
+  const current = milestones[active];
 
   return (
     <div className="min-h-screen bg-white">
@@ -32,93 +77,117 @@ export default function Journey() {
               className="text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl"
               style={{ fontFamily: "Playfair Display, serif" }}
             >
-              From a Bold Idea to a Global Platform
+              Connecting Markets Since 2008
             </h1>
             <div className="mt-4 h-1 w-16 rounded-full" style={{ background: "#02d49e" }} />
             <p className="mt-6 max-w-xl text-sm sm:text-base leading-7 sm:leading-8" style={{ color: "rgba(255,255,255,0.65)" }}>
-              Since 2008, Emerald Group has grown from a single advisory mandate into a diversified
-              platform spanning seven business clusters across Africa and beyond. This is the story of
-              how we got here — and where we're going next.
+              From a single advisory mandate to a diversified platform spanning seven business clusters —
+              explore the milestones that shaped Emerald Group, year by year.
             </p>
-          </div>
-
-          {/* Chapter quick-nav */}
-          <div className="mx-auto max-w-3xl mt-10 flex flex-wrap gap-3">
-            {chapters.map((c) => (
-              <a
-                key={c.numeral}
-                href={`#chapter-${c.numeral}`}
-                className="flex items-center gap-2 rounded-full px-4 py-2 text-xs font-semibold transition-colors hover:border-white/40"
-                style={{ border: "1px solid rgba(255,255,255,0.2)", color: "rgba(255,255,255,0.75)" }}
-              >
-                <span style={{ color: c.accent }}>{c.numeral}</span> {c.title}
-              </a>
-            ))}
           </div>
         </div>
       </div>
 
-      {/* ── Chapters ── */}
-      {chapters.map((chapter, ci) => {
-        const chapterMilestones = milestones.filter((m) => chapter.years.includes(m.year));
-        return (
-          <section
-            key={chapter.numeral}
-            id={`chapter-${chapter.numeral}`}
-            className="py-16 sm:py-20"
-            style={{ background: ci % 2 === 0 ? "#ffffff" : `color-mix(in srgb, ${chapter.accent} 4%, white)` }}
-          >
-            <div className="container">
-              <div className="mx-auto max-w-5xl">
-                <div className="flex items-start gap-5 mb-10">
-                  <div
-                    className="flex h-14 w-14 shrink-0 items-center justify-center rounded-sm text-xl font-bold"
-                    style={{ background: chapter.accent, color: "#ffffff", fontFamily: "Playfair Display, serif" }}
-                  >
-                    {chapter.numeral}
-                  </div>
-                  <div>
-                    <p className="text-xs font-bold uppercase tracking-widest mb-1" style={{ color: chapter.accent }}>
-                      {chapter.era}
-                    </p>
-                    <h2 className="text-2xl sm:text-3xl font-bold" style={{ color: "var(--eg-dark)" }}>
-                      {chapter.title}
-                    </h2>
-                    <p className="mt-1 text-sm sm:text-base" style={{ color: "var(--eg-dark)" }}>
-                      {chapter.tagline}
-                    </p>
-                  </div>
-                </div>
+      {/* ── Interactive map + year selector ── */}
+      <section className="py-16 sm:py-20" style={{ background: "var(--eg-dark)" }}>
+        <div className="container">
+          <div className="mx-auto max-w-4xl">
+            <JourneyMap />
+            <p className="mt-4 text-xs sm:text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.5)" }}>
+              Headquartered in Dubai's DIFC, with core operations in Angola — part of a growing footprint
+              across 5+ markets in Africa and Europe.
+            </p>
 
-                <div className="grid md:grid-cols-2 gap-6 md:pl-[76px]">
-                  {chapterMilestones.map((m) => (
-                    <div
-                      key={m.year}
-                      className="rounded-sm border-l-[3px] p-6"
-                      style={{ borderColor: chapter.accent, background: "white", boxShadow: "0 1px 3px rgba(0,0,0,0.05)" }}
+            {/* Year selector */}
+            <div className="relative mt-14 mb-10">
+              <div
+                className="absolute left-0 right-0 top-3.5 h-px"
+                style={{ background: "rgba(255,255,255,0.12)" }}
+              />
+              <div className="relative flex justify-between overflow-x-auto no-scrollbar gap-2">
+                {milestones.map((m, i) => (
+                  <button
+                    key={m.year}
+                    onClick={() => setActive(i)}
+                    className="flex flex-col items-center gap-3 shrink-0 px-1 group"
+                  >
+                    <span
+                      className="block w-3 h-3 rounded-full border-2 transition-all"
+                      style={{
+                        background: i === active ? "#02d49e" : "var(--eg-dark)",
+                        borderColor: i === active ? "#02d49e" : "rgba(255,255,255,0.3)",
+                        boxShadow: i === active ? "0 0 0 4px rgba(2,212,158,0.2)" : "none",
+                      }}
+                    />
+                    <span
+                      className="text-xs sm:text-sm font-bold transition-colors"
+                      style={{ color: i === active ? "#ffffff" : "rgba(255,255,255,0.4)" }}
                     >
-                      <div
-                        className="inline-block text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-sm mb-3"
-                        style={{ background: `color-mix(in srgb, ${chapter.accent} 12%, white)`, color: chapter.accent }}
-                      >
-                        {m.year}
-                      </div>
-                      <h3 className="text-base font-bold mb-3" style={{ color: "var(--eg-dark)" }}>
-                        {m.title}
-                      </h3>
-                      <div className="flex flex-col gap-2.5 text-sm leading-relaxed" style={{ color: "var(--eg-dark)" }}>
-                        {m.bullets.map((b, bi) => (
-                          <p key={bi}>{b}</p>
-                        ))}
-                      </div>
-                    </div>
-                  ))}
-                </div>
+                      {m.year}
+                    </span>
+                  </button>
+                ))}
               </div>
             </div>
-          </section>
-        );
-      })}
+
+            {/* Content panel */}
+            <div
+              className="rounded-sm p-6 sm:p-8"
+              style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)" }}
+            >
+              <div
+                className="inline-block text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-sm mb-4"
+                style={{ background: "rgba(2,212,158,0.15)", color: "#02d49e" }}
+              >
+                {current.year}
+              </div>
+              <h2 className="text-xl sm:text-2xl font-bold text-white mb-4" style={{ fontFamily: "Playfair Display, serif" }}>
+                {current.title}
+              </h2>
+              <div className="flex flex-col gap-3 text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.7)" }}>
+                {current.bullets.map((b, bi) => (
+                  <p key={bi}>{b}</p>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Full timeline (scannable list, all years) ── */}
+      <section className="py-16 sm:py-20 bg-white">
+        <div className="container">
+          <div className="mx-auto max-w-3xl">
+            <p className="mb-10 text-xs font-bold uppercase tracking-widest" style={{ color: "rgba(0,0,0,0.35)" }}>
+              The Full Story
+            </p>
+            <div className="flex flex-col">
+              {milestones.map((m, i) => (
+                <div
+                  key={m.year}
+                  className="grid grid-cols-[auto_1fr] gap-6 py-6"
+                  style={{ borderBottom: i === milestones.length - 1 ? "none" : "1px solid oklch(0.94 0.005 240)" }}
+                >
+                  <div
+                    className="text-sm font-bold pt-0.5"
+                    style={{ color: "var(--eg-cyan)", fontFamily: "Playfair Display, serif", minWidth: "3.5rem" }}
+                  >
+                    {m.year}
+                  </div>
+                  <div>
+                    <h3 className="text-base font-bold mb-2" style={{ color: "var(--eg-dark)" }}>{m.title}</h3>
+                    <div className="flex flex-col gap-2 text-sm leading-relaxed" style={{ color: "var(--eg-dark)" }}>
+                      {m.bullets.map((b, bi) => (
+                        <p key={bi}>{b}</p>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* ── Final CTA ── */}
       <section className="py-20 sm:py-28" style={{ background: "var(--eg-dark)" }}>

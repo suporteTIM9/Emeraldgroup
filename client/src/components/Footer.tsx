@@ -25,14 +25,16 @@ const footerLinks = [
     ],
   },
   {
-    heading: "Portfolio",
+    heading: "Portfolio, Emerald Clusters",
     links: [
-      { label: "54 Corp", href: "https://media54.africa/" },
-      { label: "Banco Millennium Atlântico", href: "https://www.atlantico.ao/en/retail/for-you/" },
+      { label: "Banko Financial Group", href: "https://www.linkedin.com/company/banko-financial-group/" },
+      { label: "IBG Africa", href: "https://www.linkedin.com/company/ibg-international-business-group/" },
+      { label: "Emerald Global Resources", href: "https://www.egr-ltd.com/" },
       { label: "Forbes Africa", href: "https://www.forbesafrica.com/" },
-      { label: "Emerald Infrastructure", href: "https://emeraldgroup-inc.com/" },
-      { label: "ONE Luanda", href: "https://oneluanda.com/" },
-      { label: "Nino Oil", href: "https://ninogas.com/" },
+      { label: "Forbes África Lusófona", href: "https://forbesafricalusofona.com/" },
+      { label: "Forbes Portugal", href: "https://www.forbespt.com/" },
+      { label: "Jornal Económico", href: "https://jornaleconomico.sapo.pt/" },
+      { label: "Polígrafo África", href: "https://poligrafo.sapo.pt/" },
     ],
   },
   {

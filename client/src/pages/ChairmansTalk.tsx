@@ -104,10 +104,10 @@ export default function ChairmansTalk() {
                       </h3>
                       <p className="text-xs leading-relaxed mb-4 line-clamp-2" style={{ color: "var(--eg-dark)" }}>{talk.excerpt}</p>
                       <span
-                        className="flex items-center gap-1 text-xs font-semibold transition-all group-hover:gap-2 mt-auto"
-                        style={{ color: "var(--eg-orange-dark)" }}
+                        className="inline-flex items-center gap-1.5 text-xs font-bold px-3.5 py-1.5 rounded-full transition-all duration-300 group-hover:gap-2.5 group-hover:shadow-[0_0_16px_rgba(198,166,100,0.5)] mt-auto self-start"
+                        style={{ background: "var(--eg-orange-dark)", color: "#ffffff" }}
                       >
-                        Read more
+                        Explore Talks
                         <ArrowRight size={12} />
                       </span>
                     </div>

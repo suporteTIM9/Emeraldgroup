@@ -64,7 +64,7 @@ export default function Journey() {
         <div className="container">
           <div className="mx-auto max-w-4xl">
             <JourneyMap />
-            <p className="mt-4 text-xs sm:text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.5)" }}>
+            <p className="mt-4 text-xs sm:text-sm leading-relaxed" style={{ color: "#ffffff" }}>
               Headquartered in Dubai's DIFC, with core operations in Angola — part of a growing footprint
               across 5+ markets in Africa and Europe.
             </p>
@@ -92,7 +92,7 @@ export default function Journey() {
                     />
                     <span
                       className="text-xs sm:text-sm font-bold transition-colors"
-                      style={{ color: i === active ? "#ffffff" : "rgba(255,255,255,0.4)" }}
+                      style={{ color: "#ffffff" }}
                     >
                       {m.year}
                     </span>
@@ -115,7 +115,7 @@ export default function Journey() {
               <h2 className="text-xl sm:text-2xl font-bold text-white mb-4" style={{ fontFamily: "Playfair Display, serif" }}>
                 {current.title}
               </h2>
-              <div className="flex flex-col gap-3 text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.7)" }}>
+              <div className="flex flex-col gap-3 text-sm leading-relaxed" style={{ color: "#ffffff" }}>
                 {current.bullets.map((b, bi) => (
                   <p key={bi}>{b}</p>
                 ))}

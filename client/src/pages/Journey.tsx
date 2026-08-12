@@ -31,14 +31,35 @@ function JourneyMap() {
   const [active, setActive] = useState<string | null>(null);
 
   return (
-    <div
-      className="relative overflow-hidden rounded-lg select-none"
-      style={{ aspectRatio: "1920 / 960" }}
-    >
+    <div className="relative overflow-hidden select-none group/map" style={{ aspectRatio: "1920 / 960" }}>
+      <style>{`
+        @keyframes map-kenburns {
+          0%   { transform: scale(1.02); }
+          50%  { transform: scale(1.08); }
+          100% { transform: scale(1.02); }
+        }
+        .map-bg { animation: map-kenburns 40s ease-in-out infinite; }
+        .group\\/map:hover .map-bg { animation-play-state: paused; transform: scale(1.1) !important; transition: transform 0.6s ease; }
+        @keyframes map-pulse-ring {
+          0%   { transform: scale(1); opacity: 0.55; }
+          70%  { transform: scale(3.2); opacity: 0; }
+          100% { transform: scale(1); opacity: 0; }
+        }
+        .map-pulse { position: relative; }
+        .map-pulse::before {
+          content: '';
+          position: absolute;
+          inset: 0;
+          border-radius: 50%;
+          background: #02d49e;
+          animation: map-pulse-ring 2.4s ease-out infinite;
+        }
+      `}</style>
       <img
         src="/imagens/world-night-lights.jpg"
         alt="Emerald Group global office network"
-        className="absolute inset-0 h-full w-full object-cover"
+        className="map-bg absolute inset-0 h-full w-full object-cover"
+        style={{ transition: "transform 0.6s ease" }}
         loading="lazy"
       />
       <div
@@ -46,7 +67,7 @@ function JourneyMap() {
         style={{ background: "linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.02) 35%, rgba(0,0,0,0.3) 100%)" }}
       />
 
-      {officeMarkers.map((city) => {
+      {officeMarkers.map((city, ci) => {
         const isActive = active === city.name;
         return (
           <button
@@ -55,7 +76,7 @@ function JourneyMap() {
             onMouseEnter={() => setActive(city.name)}
             onMouseLeave={() => setActive(null)}
             onClick={() => setActive(isActive ? null : city.name)}
-            className="absolute flex flex-col items-center"
+            className="absolute flex flex-col items-center z-10"
             style={{ left: `${city.x}%`, top: `${city.y}%`, transform: `translate(-50%, calc(-100% - ${city.lift ?? 0}px))` }}
           >
             <span
@@ -81,12 +102,13 @@ function JourneyMap() {
               style={{ width: "1.5px", height: isActive ? "18px" : "12px", background: isActive ? "#02d49e" : "rgba(2,212,158,0.65)" }}
             />
             <span
-              className="block rounded-full transition-all"
+              className={isActive ? "block rounded-full transition-all" : "map-pulse block rounded-full transition-all"}
               style={{
                 width: isActive ? "10px" : "6px",
                 height: isActive ? "10px" : "6px",
                 background: "#02d49e",
                 boxShadow: isActive ? "0 0 0 6px rgba(2,212,158,0.25)" : "0 0 0 2px rgba(2,212,158,0.18)",
+                animationDelay: `${ci * 0.3}s`,
               }}
             />
           </button>
@@ -123,13 +145,9 @@ export default function Journey() {
       <Navbar fixed={false} />
       <Breadcrumb items={[{ label: "Journey" }]} />
 
-      {/* ── Map ── */}
-      <section className="py-16 sm:py-20" style={{ background: "var(--eg-dark)" }}>
-        <div className="container">
-          <div className="mx-auto max-w-4xl">
-            <JourneyMap />
-          </div>
-        </div>
+      {/* ── Map (full-bleed, edge to edge) ── */}
+      <section style={{ background: "var(--eg-dark)" }}>
+        <JourneyMap />
       </section>
 
       {/* ── Full timeline (magazine-style, big year numerals) ── */}

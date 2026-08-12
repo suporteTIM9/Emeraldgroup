@@ -105,7 +105,7 @@ export default function MediaSlider() {
 
       <div className="container mb-6">
         <div className="flex items-center gap-4">
-          <span className="section-label">06 — Media</span>
+          <span className="section-label">06 — Our Signature Events &amp; Partners</span>
           <div className="h-px w-12" style={{ background: "var(--eg-cyan)" }} />
         </div>
       </div>

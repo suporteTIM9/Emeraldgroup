@@ -8,7 +8,7 @@ const JourneySection = lazy(() => import("@/components/JourneySection"));
 const NewsSection = lazy(() => import("@/components/NewsSection"));
 const ChairmanTalkSection = lazy(() => import("@/components/ChairmanTalkSection"));
 const MediaSlider = lazy(() => import("@/components/MediaSlider"));
-const LogoMarquee = lazy(() => import("@/components/LogoMarquee"));
+// const LogoMarquee = lazy(() => import("@/components/LogoMarquee")); // secção desativada temporariamente
 const ContactSection = lazy(() => import("@/components/ContactSection"));
 const Footer = lazy(() => import("@/components/Footer"));
 
@@ -24,7 +24,8 @@ export default function Home() {
         <NewsSection />
         <ChairmanTalkSection />
         <MediaSlider />
-        <LogoMarquee />
+        {/* Secção "Partners & Clients" desativada temporariamente — por confirmar se fica ou é removida. */}
+        {/* <LogoMarquee /> */}
         <ContactSection />
         <Footer />
       </Suspense>

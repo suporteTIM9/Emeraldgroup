@@ -1,69 +1,7 @@
 import { useEffect, useRef } from "react";
-
-const milestones = [
-  {
-    year: "2008",
-    title: "Foundation: A New Model for Emerging Markets",
-    bullets: [
-      "Emerald Group is founded in response to the global financial crisis and the recognition that traditional investment models were ill-suited for many emerging and frontier markets.",
-      "Core thesis: success in these markets requires local expertise, strong partnerships, and bespoke, executable strategies.",
-    ],
-  },
-  {
-    year: "2009",
-    title: "Building the Platform",
-    bullets: [
-      "First advisory and investment mandates structured in selected African markets.",
-      "Early partnerships formed with local entrepreneurs, financial institutions, and sector operators in energy, financial services, and media.",
-      "Emerald begins to act as a connector between African opportunities and global capital.",
-    ],
-  },
-  {
-    year: "2013",
-    title: "Sector Diversification and Regional Expansion",
-    bullets: [
-      "Expansion into additional sectors: natural resources, property and urban development, and telecoms.",
-      "Geographic footprint extended across multiple African regions, leveraging a growing network of local partners and decision-makers.",
-      "Board composition strengthened with professionals from investment banking, law, and industry, representing four continents.",
-    ],
-  },
-  {
-    year: "2017",
-    title: "Institutionalisation and Governance",
-    bullets: [
-      "Formalisation of governance frameworks, risk management processes, and compliance functions.",
-      "Introduction of more structured investment vehicles and co-investment platforms with institutional and family office capital.",
-      "Enhanced focus on ESG considerations, local content, and sustainable socioeconomic impact as integral to investment decisions.",
-    ],
-  },
-  {
-    year: "2020",
-    title: "Resilience Through Global Shocks",
-    bullets: [
-      "Active portfolio management and strategic repositioning in response to global macro shocks, commodity volatility, and shifting capital flows.",
-      "Continued deployment into resilient sectors such as essential financial services, digital infrastructure, and media.",
-      "Deepening of relationships with local stakeholders, including governments, regulators, and community partners.",
-    ],
-  },
-  {
-    year: "2022",
-    title: "Strategic Consolidation and New Growth Themes",
-    bullets: [
-      "Consolidation of core sectors: energy, financial services, media & telecoms, property & urban development, and natural resources.",
-      "Launch or scaling of targeted initiatives around energy transition, critical minerals, and digital infrastructure in Africa.",
-      "Strengthening of the management committee and senior corporate officers across risk, investments, compliance, legal, and sector heads.",
-    ],
-  },
-  {
-    year: "2026",
-    title: "Next Chapter, the Future: Connect. Create. Grow.",
-    bullets: [
-      "Connect: Systematically integrate African economies with global financial centres by aligning capital, expertise, and distribution.",
-      "Create: Unlock high-growth opportunities and build scalable new markets in energy, financial services, digital infrastructure, and resources.",
-      "Grow: Drive sustainable economic expansion, deliver measurable returns, and uplift communities across the continent.",
-    ],
-  },
-];
+import { Link } from "wouter";
+import { ArrowRight } from "lucide-react";
+import { milestones } from "@/data/journey";
 
 export default function JourneySection() {
   const sectionRef  = useRef<HTMLDivElement>(null);
@@ -196,13 +134,23 @@ export default function JourneySection() {
           >
             Charting Emerald Group's Journey
           </h2>
-          <p
-            className="js-reveal text-sm max-w-sm leading-relaxed"
-            style={{ transitionDelay: "0.15s", color: "var(--eg-dark)" }}
-          >
-            From our founding to today, our journey reflects a commitment to building enduring businesses
-            that create value across generations.
-          </p>
+          <div className="js-reveal" style={{ transitionDelay: "0.15s" }}>
+            <p
+              className="text-sm max-w-sm leading-relaxed"
+              style={{ color: "var(--eg-dark)" }}
+            >
+              From our founding to today, our journey reflects a commitment to building enduring businesses
+              that create value across generations.
+            </p>
+            <Link
+              href="/journey"
+              className="mt-4 inline-flex items-center gap-2 text-sm font-semibold transition-all hover:gap-3"
+              style={{ color: "var(--eg-cyan)" }}
+            >
+              Read the Full Story
+              <ArrowRight size={14} />
+            </Link>
+          </div>
         </div>
 
         {/* Timeline */}

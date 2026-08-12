@@ -22,7 +22,7 @@ const navItems: NavItem[] = [
       { label: "Education & Leadership Development", href: "#cluster-education",   icon: GraduationCap, desc: "Empowering future-ready leaders through knowledge and innovation." },
     ],
   },
-  { label: "Journey", href: "#journey" },
+  { label: "Journey", href: "/journey" },
   { label: "News",    href: "#news"    },
   { label: "Chairman's Talk", href: "/chairmans-talk" },
   { label: "Contact", href: "/contact" },

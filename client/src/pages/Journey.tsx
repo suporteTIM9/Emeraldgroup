@@ -59,35 +59,6 @@ export default function Journey() {
       <Navbar fixed={false} />
       <Breadcrumb items={[{ label: "Journey" }]} />
 
-      {/* ── Hero ── */}
-      <div
-        className="relative overflow-hidden"
-        style={{ background: `linear-gradient(135deg, oklch(0.10 0.02 165) 0%, oklch(0.20 0.10 155) 100%)` }}
-      >
-        <div
-          className="absolute inset-0 opacity-[0.06] pointer-events-none"
-          style={{ backgroundImage: "radial-gradient(rgba(255,255,255,0.6) 1px, transparent 1px)", backgroundSize: "18px 18px" }}
-        />
-        <div className="container relative py-16 sm:py-20 lg:py-24">
-          <div className="mx-auto max-w-3xl">
-            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.2em]" style={{ color: "#02d49e" }}>
-              Our Journey
-            </p>
-            <h1
-              className="text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl"
-              style={{ fontFamily: "Playfair Display, serif" }}
-            >
-              Connecting Markets Since 2008
-            </h1>
-            <div className="mt-4 h-1 w-16 rounded-full" style={{ background: "#02d49e" }} />
-            <p className="mt-6 max-w-xl text-sm sm:text-base leading-7 sm:leading-8" style={{ color: "rgba(255,255,255,0.65)" }}>
-              From a single advisory mandate to a diversified platform spanning seven business clusters —
-              explore the milestones that shaped Emerald Group, year by year.
-            </p>
-          </div>
-        </div>
-      </div>
-
       {/* ── Interactive map + year selector ── */}
       <section className="py-16 sm:py-20" style={{ background: "var(--eg-dark)" }}>
         <div className="container">

@@ -31,7 +31,10 @@ function JourneyMap() {
   const [active, setActive] = useState<string | null>(null);
 
   return (
-    <div className="relative overflow-hidden select-none group/map" style={{ aspectRatio: "1920 / 960" }}>
+    <div
+      className="relative overflow-hidden select-none group/map"
+      style={{ aspectRatio: "1920 / 960", maxHeight: "clamp(240px, 38vw, 440px)" }}
+    >
       <style>{`
         @keyframes map-kenburns {
           0%   { transform: scale(1.02); }

@@ -161,7 +161,7 @@ export default function ChairmanTalkSection() {
                     </div>
                     <span
                       className="inline-flex items-center gap-2 text-sm font-bold px-5 py-2.5 rounded-full transition-all duration-300 group-hover:gap-3 group-hover:shadow-[0_0_20px_rgba(198,166,100,0.5)]"
-                      style={{ background: "var(--eg-orange)", color: "#1e1f1f" }}
+                      style={{ background: "var(--eg-orange)", color: "#ffffff" }}
                     >
                       Explore Talks
                       <ArrowRight size={14} />
@@ -206,7 +206,7 @@ export default function ChairmanTalkSection() {
                       <p className="text-xs text-white/50 leading-relaxed line-clamp-2 mb-3 flex-1">{item.excerpt}</p>
                       <span
                         className="inline-flex items-center gap-1.5 text-xs font-bold px-3.5 py-1.5 rounded-full transition-all duration-300 group-hover:gap-2.5 group-hover:shadow-[0_0_16px_rgba(198,166,100,0.5)] mt-auto self-start"
-                        style={{ background: "var(--eg-orange)", color: "#1e1f1f" }}
+                        style={{ background: "var(--eg-orange)", color: "#ffffff" }}
                       >
                         Explore Talks
                         <ArrowRight size={12} />

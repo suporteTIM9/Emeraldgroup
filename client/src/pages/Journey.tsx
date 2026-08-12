@@ -126,20 +126,7 @@ export default function Journey() {
       {/* ── Map ── */}
       <section className="py-16 sm:py-20" style={{ background: "var(--eg-dark)" }}>
         <div className="container">
-          <div className="mx-auto max-w-6xl">
-            <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 mb-6">
-              <div>
-                <p className="text-xs font-bold uppercase tracking-widest mb-2" style={{ color: "#02d49e" }}>
-                  Global Footprint
-                </p>
-                <h2 className="text-xl sm:text-2xl font-bold text-white" style={{ fontFamily: "Playfair Display, serif" }}>
-                  8 Offices, 7 Countries, One Vision
-                </h2>
-              </div>
-              <p className="text-xs" style={{ color: "rgba(255,255,255,0.45)" }}>
-                Hover or tap a city to explore
-              </p>
-            </div>
+          <div className="mx-auto max-w-4xl">
             <JourneyMap />
           </div>
         </div>

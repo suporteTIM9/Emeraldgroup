@@ -121,10 +121,16 @@ export default function ChairmanTalkSection() {
                   <TalkImage src={featured.image} alt={featured.title} />
                   <span
                     className="absolute top-4 left-4 text-[10px] font-semibold tracking-widest uppercase px-2.5 py-1 rounded-full"
-                    style={{ background: "rgba(0,0,0,0.4)", color: "rgba(255,255,255,0.7)", backdropFilter: "blur(4px)" }}
+                    style={{
+                      background: "rgba(0,0,0,0.4)",
+                      color: "rgba(255,255,255,0.7)",
+                      backdropFilter: "blur(4px)",
+                      animation: "featuredBlink 1.4s ease-in-out infinite",
+                    }}
                   >
                     Featured
                   </span>
+                  <style>{`@keyframes featuredBlink { 0%,100%{opacity:1} 50%{opacity:0.25} }`}</style>
                 </div>
                 <div className="p-8 lg:p-10">
                   <div className="flex items-center gap-3 mb-6">

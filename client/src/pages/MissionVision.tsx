@@ -49,15 +49,9 @@ export default function MissionVision() {
             </div>
             <div className="pl-14 space-y-4 text-base leading-8 text-slate-900">
               <p>
-                To invest, manage and grow its holdings with the intent to facilitate economic growth
-                and development in frontier and emerging markets.
-              </p>
-              <p>
-                To build long term, mutually beneficial relationships with clients and partners.
-              </p>
-              <p>
-                To uphold the highest quality standards with respect to environmental preservation
-                and sustainable socioeconomic development.
+                To systematically integrate African economies with global financial centres by unlocking
+                high-growth opportunities, building scalable new markets, and managing holdings that drive
+                sustainable economic expansion and deliver measurable community impact.
               </p>
             </div>
           </div>
@@ -78,12 +72,31 @@ export default function MissionVision() {
             </div>
             <div className="pl-14 space-y-4 text-base leading-8 text-slate-900">
               <p>
-                To become the strategic partner of choice to the global investment community.
+                To be the Global Premium Business Partner of choice for the global investment
+                community—connecting capital to emerging markets across natural resources, financial
+                services, and innovation to lead Africa's sustainable economic growth.
               </p>
-              <p>
-                In addition, the Emerald Group intends to be the leading investment group in the
-                natural resources, financial and services sectors within emerging market countries.
-              </p>
+            </div>
+          </div>
+
+          {/* Divider */}
+          <div className="my-10 border-t border-slate-100" />
+
+          {/* Purpose Statement */}
+          <div className="mb-12">
+            <div className="flex items-center gap-4 mb-6">
+              <div
+                className="flex h-10 w-10 shrink-0 items-center justify-center rounded-sm text-white text-sm font-bold"
+                style={{ background: "var(--eg-orange)" }}
+              >
+                P
+              </div>
+              <h2 className="text-2xl font-bold text-slate-900">Purpose Statement</h2>
+            </div>
+            <div className="pl-14 space-y-4 text-base leading-8 text-slate-900">
+              <p><strong>Connect:</strong> Patient capital with transformative opportunities.</p>
+              <p><strong>Create:</strong> New markets where most see high risk and low value.</p>
+              <p><strong>Grow:</strong> Sustainably and inclusion are key assets for any just and thriving society.</p>
             </div>
           </div>
 

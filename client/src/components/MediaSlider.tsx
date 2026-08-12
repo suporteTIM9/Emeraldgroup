@@ -8,6 +8,20 @@ interface SlideItem {
   caption?: string;
 }
 
+interface EventHighlight {
+  brand: string;
+  title: string;
+  desc: string;
+}
+
+// ── TODO: substituir por eventos reais (nome, marca/empresa, descrição) ──
+const eventHighlights: EventHighlight[] = [
+  { brand: "Brand / Portfolio Company", title: "Event Title Here", desc: "Placeholder description — replace with real event details, date and location." },
+  { brand: "Brand / Portfolio Company", title: "Event Title Here", desc: "Placeholder description — replace with real event details, date and location." },
+  { brand: "Brand / Portfolio Company", title: "Event Title Here", desc: "Placeholder description — replace with real event details, date and location." },
+  { brand: "Brand / Portfolio Company", title: "Event Title Here", desc: "Placeholder description — replace with real event details, date and location." },
+];
+
 const slides: SlideItem[] = [
   { type: "video", src: "/videos/banner_video.mp4",       href: "#about",                                caption: "Emerald Group" },
   { type: "image", src: "/imagens/banner_01.jpg",         href: "#clusters",                             caption: "Our Business Clusters" },
@@ -103,11 +117,49 @@ export default function MediaSlider() {
     <section className="py-24 lg:py-32 bg-white">
       <style>{css}</style>
 
-      <div className="container mb-6">
+      <div className="container mb-10">
         <div className="flex items-center gap-4">
           <span className="section-label">06 — Our Signature Events &amp; Partners</span>
           <div className="h-px w-12" style={{ background: "var(--eg-cyan)" }} />
         </div>
+      </div>
+
+      {/* Top half — highlight cards */}
+      <div className="container mb-16">
+        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-10">
+          <h2
+            className="text-3xl lg:text-4xl font-bold leading-tight max-w-xl"
+            style={{ color: "var(--eg-dark)" }}
+          >
+            High-Impact Gatherings Across Our Brands
+          </h2>
+          <p className="text-sm max-w-sm leading-relaxed" style={{ color: "var(--eg-dark)" }}>
+            From investor summits to industry forums, our portfolio companies convene the leaders
+            shaping their sectors.
+          </p>
+        </div>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          {eventHighlights.map((event, i) => (
+            <div
+              key={i}
+              className="p-5 rounded-sm border-l-[1.5px]"
+              style={{ borderColor: "oklch(0.92 0.005 240)", borderLeftColor: "var(--eg-cyan)", background: "oklch(0.99 0.002 240)" }}
+            >
+              <div className="text-[10px] font-bold uppercase tracking-widest mb-2" style={{ color: "var(--eg-cyan)" }}>
+                {event.brand}
+              </div>
+              <h3 className="text-sm font-bold mb-2" style={{ color: "var(--eg-dark)" }}>{event.title}</h3>
+              <p className="text-xs leading-relaxed" style={{ color: "var(--eg-dark)" }}>{event.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Bottom half — pictures from those events */}
+      <div className="container mb-4">
+        <p className="text-xs font-bold uppercase tracking-widest" style={{ color: "rgba(0,0,0,0.35)" }}>
+          Moments From Our Events
+        </p>
       </div>
 
       <div className="container">

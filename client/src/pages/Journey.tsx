@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { Link } from "wouter";
 import { ArrowRight } from "lucide-react";
 import Navbar from "@/components/Navbar";
@@ -52,6 +52,25 @@ function JourneyMap() {
 export default function Journey() {
   useEffect(() => { window.scrollTo(0, 0); }, []);
 
+  const timelineRef = useRef<HTMLDivElement>(null);
+
+  /* ── Scroll-reveal cascade for timeline items ── */
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("in-view");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15, rootMargin: "0px 0px -60px 0px" }
+    );
+    timelineRef.current?.querySelectorAll(".timeline-item").forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div className="min-h-screen bg-white">
       <Navbar fixed={false} />
@@ -66,36 +85,113 @@ export default function Journey() {
         </div>
       </section>
 
-      {/* ── Full timeline (scannable list, all years) ── */}
-      <section className="py-16 sm:py-20 bg-white">
+      {/* ── Full timeline (premium vertical) ── */}
+      <section className="py-20 sm:py-28 bg-white overflow-hidden">
+        <style>{`
+          .timeline-item {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1),
+                        transform 0.8s cubic-bezier(0.16,1,0.3,1);
+          }
+          .timeline-item.in-view { opacity: 1; transform: translateY(0); }
+          .timeline-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+          }
+          .timeline-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 16px 40px rgba(0,0,0,0.08);
+            border-color: transparent !important;
+          }
+          @keyframes timeline-live-ring {
+            0%  { transform: scale(1); opacity: 0.7; }
+            70% { transform: scale(2.8); opacity: 0; }
+            100%{ transform: scale(1); opacity: 0; }
+          }
+          .timeline-live-dot { position: relative; }
+          .timeline-live-dot::before, .timeline-live-dot::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            background: #02d49e;
+            animation: timeline-live-ring 2s ease-out infinite;
+          }
+          .timeline-live-dot::after { animation-delay: 0.7s; }
+        `}</style>
         <div className="container">
-          <div className="mx-auto max-w-3xl">
-            <p className="mb-10 text-xs font-bold uppercase tracking-widest" style={{ color: "rgba(0,0,0,0.35)" }}>
+          <div className="mx-auto max-w-3xl" ref={timelineRef}>
+            <p className="mb-16 text-xs font-bold uppercase tracking-widest" style={{ color: "rgba(0,0,0,0.35)" }}>
               The Full Story
             </p>
-            <div className="flex flex-col">
-              {milestones.map((m, i) => (
-                <div
-                  key={m.year}
-                  className="grid grid-cols-[auto_1fr] gap-6 py-6"
-                  style={{ borderBottom: i === milestones.length - 1 ? "none" : "1px solid oklch(0.94 0.005 240)" }}
-                >
-                  <div
-                    className="text-sm font-bold pt-0.5"
-                    style={{ color: "var(--eg-cyan)", fontFamily: "Playfair Display, serif", minWidth: "3.5rem" }}
-                  >
-                    {m.year}
-                  </div>
-                  <div>
-                    <h3 className="text-base font-bold mb-2" style={{ color: "var(--eg-dark)" }}>{m.title}</h3>
-                    <div className="flex flex-col gap-2 text-sm leading-relaxed" style={{ color: "var(--eg-dark)" }}>
-                      {m.bullets.map((b, bi) => (
-                        <p key={bi}>{b}</p>
-                      ))}
+
+            <div className="relative">
+              {/* Track */}
+              <div
+                className="absolute top-2 bottom-2 w-px"
+                style={{ left: "23px", background: "oklch(0.93 0.005 240)" }}
+              />
+              {/* Gradient accent line */}
+              <div
+                className="absolute top-2 bottom-2 w-px"
+                style={{
+                  left: "23px",
+                  background: "linear-gradient(180deg, #02d49e 0%, var(--eg-cyan) 45%, var(--eg-orange) 100%)",
+                  opacity: 0.6,
+                }}
+              />
+
+              <div className="flex flex-col gap-12 sm:gap-14">
+                {milestones.map((m, i) => {
+                  const isLast = i === milestones.length - 1;
+                  return (
+                    <div key={m.year} className="timeline-item relative pl-16 sm:pl-20">
+                      {/* Marker */}
+                      <div className="absolute left-0 top-1 flex h-[47px] w-[47px] items-center justify-center">
+                        {isLast ? (
+                          <span className="timeline-live-dot flex h-3 w-3 rounded-full" style={{ background: "#02d49e" }} />
+                        ) : (
+                          <span
+                            className="block h-3 w-3 rounded-full border-2"
+                            style={{ background: "white", borderColor: "var(--eg-cyan)" }}
+                          />
+                        )}
+                      </div>
+
+                      {/* Card */}
+                      <div
+                        className="timeline-card rounded-lg p-6 sm:p-8"
+                        style={{ background: "white", border: "1px solid oklch(0.93 0.005 240)", boxShadow: "0 1px 2px rgba(0,0,0,0.03)" }}
+                      >
+                        <div className="flex items-center gap-3 mb-3">
+                          <span
+                            className="leading-none"
+                            style={{ fontFamily: "Playfair Display, serif", fontSize: "2.25rem", fontWeight: 700, color: "var(--eg-cyan)" }}
+                          >
+                            {m.year}
+                          </span>
+                          {isLast && (
+                            <span
+                              className="text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full"
+                              style={{ background: "rgba(2,212,158,0.12)", color: "var(--eg-cyan)" }}
+                            >
+                              What's Next
+                            </span>
+                          )}
+                        </div>
+                        <h3 className="text-lg sm:text-xl font-bold mb-4" style={{ color: "var(--eg-dark)" }}>
+                          {m.title}
+                        </h3>
+                        <div className="flex flex-col gap-3 text-sm leading-relaxed" style={{ color: "var(--eg-dark)" }}>
+                          {m.bullets.map((b, bi) => (
+                            <p key={bi}>{b}</p>
+                          ))}
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                </div>
-              ))}
+                  );
+                })}
+              </div>
             </div>
           </div>
         </div>

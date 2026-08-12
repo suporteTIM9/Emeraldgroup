@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "wouter";
 import { ArrowRight } from "lucide-react";
 import Navbar from "@/components/Navbar";
@@ -6,45 +6,92 @@ import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
 import { milestones } from "@/data/journey";
 
-// ── Abstract connection map — Headquarters (Dubai) ↔ Core Operations (Angola) ──
-// Deliberately illustrative, not a to-scale geographic projection.
+// ── Global office network — positions are approximate lat/long converted to
+//    percentage coordinates on an equirectangular world map (2:1 aspect). ──
+interface OfficeMarker {
+  name: string;
+  tag?: string;
+  x: number;
+  y: number;
+  lift?: number; // extra px to push the label up, to de-clutter close pairs
+}
+
+const officeMarkers: OfficeMarker[] = [
+  { name: "London",       x: 49.96, y: 21.4, lift: 34 },
+  { name: "Lisbon",       x: 47.46, y: 28.5 },
+  { name: "Dubai",        tag: "Headquarters", x: 65.35, y: 36.0, lift: 34 },
+  { name: "Abu Dhabi",    x: 65.11, y: 41.5 },
+  { name: "Shanghai",     x: 83.74, y: 32.7 },
+  { name: "Luanda",       tag: "Core Operations", x: 53.68, y: 54.9 },
+  { name: "São Paulo",    x: 37.05, y: 63.1 },
+  { name: "Johannesburg", x: 57.79, y: 64.6 },
+];
+
 function JourneyMap() {
+  const [active, setActive] = useState<string | null>(null);
+
   return (
     <div
-      className="relative overflow-hidden rounded-lg"
-      style={{ background: "oklch(0.08 0.02 165)", aspectRatio: "16 / 8" }}
+      className="relative overflow-hidden rounded-lg select-none"
+      style={{ aspectRatio: "1920 / 960" }}
     >
-      <div
-        className="absolute inset-0 opacity-20 pointer-events-none"
-        style={{ backgroundImage: "radial-gradient(rgba(255,255,255,0.5) 1px, transparent 1px)", backgroundSize: "22px 22px" }}
+      <img
+        src="/imagens/world-night-lights.jpg"
+        alt="Emerald Group global office network"
+        className="absolute inset-0 h-full w-full object-cover"
+        loading="lazy"
       />
-      <svg viewBox="0 0 800 400" className="absolute inset-0 h-full w-full" preserveAspectRatio="none">
-        <path
-          d="M 180 260 Q 400 70 610 128"
-          fill="none"
-          stroke="rgba(2,212,158,0.4)"
-          strokeWidth="1.5"
-          strokeDasharray="5 6"
-        />
-        <circle cx="180" cy="260" r="5" fill="#02d49e" />
-        <circle cx="180" cy="260" r="5" fill="#02d49e" opacity="0.5">
-          <animate attributeName="r" values="5;20;5" dur="2.6s" repeatCount="indefinite" />
-          <animate attributeName="opacity" values="0.5;0;0.5" dur="2.6s" repeatCount="indefinite" />
-        </circle>
-        <circle cx="610" cy="128" r="5" fill="#02d49e" />
-        <circle cx="610" cy="128" r="5" fill="#02d49e" opacity="0.5">
-          <animate attributeName="r" values="5;20;5" dur="2.6s" begin="1.3s" repeatCount="indefinite" />
-          <animate attributeName="opacity" values="0.5;0;0.5" dur="2.6s" begin="1.3s" repeatCount="indefinite" />
-        </circle>
-      </svg>
-      <div className="absolute" style={{ left: "20%", top: "62%" }}>
-        <div className="text-xs sm:text-sm font-bold text-white">Luanda, Angola</div>
-        <div className="text-[10px] sm:text-xs" style={{ color: "rgba(255,255,255,0.5)" }}>Core Operations</div>
-      </div>
-      <div className="absolute text-right" style={{ left: "62%", top: "24%" }}>
-        <div className="text-xs sm:text-sm font-bold text-white">Dubai, UAE</div>
-        <div className="text-[10px] sm:text-xs" style={{ color: "rgba(255,255,255,0.5)" }}>Headquarters</div>
-      </div>
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{ background: "linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.02) 35%, rgba(0,0,0,0.3) 100%)" }}
+      />
+
+      {officeMarkers.map((city) => {
+        const isActive = active === city.name;
+        return (
+          <button
+            key={city.name}
+            type="button"
+            onMouseEnter={() => setActive(city.name)}
+            onMouseLeave={() => setActive(null)}
+            onClick={() => setActive(isActive ? null : city.name)}
+            className="absolute flex flex-col items-center"
+            style={{ left: `${city.x}%`, top: `${city.y}%`, transform: `translate(-50%, calc(-100% - ${city.lift ?? 0}px))` }}
+          >
+            <span
+              className="whitespace-nowrap font-bold transition-colors"
+              style={{
+                fontSize: "clamp(8px, 1.3vw, 14px)",
+                color: isActive ? "#02d49e" : "#ffffff",
+                textShadow: "0 1px 5px rgba(0,0,0,0.85)",
+              }}
+            >
+              {city.name}
+            </span>
+            {city.tag && (
+              <span
+                className="whitespace-nowrap"
+                style={{ fontSize: "clamp(6.5px, 0.9vw, 10px)", color: "rgba(255,255,255,0.75)", textShadow: "0 1px 5px rgba(0,0,0,0.85)" }}
+              >
+                {city.tag}
+              </span>
+            )}
+            <span
+              className="block transition-all"
+              style={{ width: "1.5px", height: isActive ? "18px" : "12px", background: isActive ? "#02d49e" : "rgba(2,212,158,0.65)" }}
+            />
+            <span
+              className="block rounded-full transition-all"
+              style={{
+                width: isActive ? "10px" : "6px",
+                height: isActive ? "10px" : "6px",
+                background: "#02d49e",
+                boxShadow: isActive ? "0 0 0 6px rgba(2,212,158,0.25)" : "0 0 0 2px rgba(2,212,158,0.18)",
+              }}
+            />
+          </button>
+        );
+      })}
     </div>
   );
 }
@@ -80,6 +127,19 @@ export default function Journey() {
       <section className="py-16 sm:py-20" style={{ background: "var(--eg-dark)" }}>
         <div className="container">
           <div className="mx-auto max-w-6xl">
+            <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 mb-6">
+              <div>
+                <p className="text-xs font-bold uppercase tracking-widest mb-2" style={{ color: "#02d49e" }}>
+                  Global Footprint
+                </p>
+                <h2 className="text-xl sm:text-2xl font-bold text-white" style={{ fontFamily: "Playfair Display, serif" }}>
+                  8 Offices, 7 Countries, One Vision
+                </h2>
+              </div>
+              <p className="text-xs" style={{ color: "rgba(255,255,255,0.45)" }}>
+                Hover or tap a city to explore
+              </p>
+            </div>
             <JourneyMap />
           </div>
         </div>

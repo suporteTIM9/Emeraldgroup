@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Link } from "wouter";
 import { ArrowRight } from "lucide-react";
 import Navbar from "@/components/Navbar";
@@ -51,76 +51,17 @@ function JourneyMap() {
 
 export default function Journey() {
   useEffect(() => { window.scrollTo(0, 0); }, []);
-  const [active, setActive] = useState(0);
-  const current = milestones[active];
 
   return (
     <div className="min-h-screen bg-white">
       <Navbar fixed={false} />
       <Breadcrumb items={[{ label: "Journey" }]} />
 
-      {/* ── Interactive map + year selector ── */}
+      {/* ── Map ── */}
       <section className="py-16 sm:py-20" style={{ background: "var(--eg-dark)" }}>
         <div className="container">
-          <div className="mx-auto max-w-4xl">
+          <div className="mx-auto max-w-6xl">
             <JourneyMap />
-            <p className="mt-4 text-xs sm:text-sm leading-relaxed" style={{ color: "#ffffff" }}>
-              Headquartered in Dubai, UAE, with core operations in Angola — part of a growing footprint
-              across 5+ markets in Africa and Europe.
-            </p>
-
-            {/* Year selector */}
-            <div className="relative mt-14 mb-10">
-              <div
-                className="absolute left-0 right-0 top-3.5 h-px"
-                style={{ background: "rgba(255,255,255,0.12)" }}
-              />
-              <div className="relative flex justify-between overflow-x-auto no-scrollbar gap-2">
-                {milestones.map((m, i) => (
-                  <button
-                    key={m.year}
-                    onClick={() => setActive(i)}
-                    className="flex flex-col items-center gap-3 shrink-0 px-1 group"
-                  >
-                    <span
-                      className="block w-3 h-3 rounded-full border-2 transition-all"
-                      style={{
-                        background: i === active ? "#02d49e" : "var(--eg-dark)",
-                        borderColor: i === active ? "#02d49e" : "rgba(255,255,255,0.3)",
-                        boxShadow: i === active ? "0 0 0 4px rgba(2,212,158,0.2)" : "none",
-                      }}
-                    />
-                    <span
-                      className="text-xs sm:text-sm font-bold transition-colors"
-                      style={{ color: "#ffffff" }}
-                    >
-                      {m.year}
-                    </span>
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            {/* Content panel */}
-            <div
-              className="rounded-sm p-6 sm:p-8"
-              style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)" }}
-            >
-              <div
-                className="inline-block text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-sm mb-4"
-                style={{ background: "rgba(2,212,158,0.15)", color: "#02d49e" }}
-              >
-                {current.year}
-              </div>
-              <h2 className="text-xl sm:text-2xl font-bold text-white mb-4" style={{ fontFamily: "Playfair Display, serif" }}>
-                {current.title}
-              </h2>
-              <div className="flex flex-col gap-3 text-sm leading-relaxed" style={{ color: "#ffffff" }}>
-                {current.bullets.map((b, bi) => (
-                  <p key={bi}>{b}</p>
-                ))}
-              </div>
-            </div>
           </div>
         </div>
       </section>

@@ -69,7 +69,7 @@ export default function Contact() {
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-3 text-xs sm:text-sm" style={{ color: "rgba(255,255,255,0.5)" }}>
               <span className="flex items-center gap-2"><Clock size={14} style={{ color: "#02d49e" }} /> We typically respond within 2 business days</span>
-              <span className="flex items-center gap-2"><MapPin size={14} style={{ color: "#02d49e" }} /> Dubai International Financial Centre (DIFC), UAE</span>
+              <span className="flex items-center gap-2"><MapPin size={14} style={{ color: "#02d49e" }} /> Dubai, UAE</span>
             </div>
           </div>
         </div>

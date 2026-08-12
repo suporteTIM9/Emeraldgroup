@@ -43,7 +43,7 @@ function JourneyMap() {
       </div>
       <div className="absolute text-right" style={{ left: "62%", top: "24%" }}>
         <div className="text-xs sm:text-sm font-bold text-white">Dubai, UAE</div>
-        <div className="text-[10px] sm:text-xs" style={{ color: "rgba(255,255,255,0.5)" }}>Headquarters (DIFC)</div>
+        <div className="text-[10px] sm:text-xs" style={{ color: "rgba(255,255,255,0.5)" }}>Headquarters</div>
       </div>
     </div>
   );
@@ -65,7 +65,7 @@ export default function Journey() {
           <div className="mx-auto max-w-4xl">
             <JourneyMap />
             <p className="mt-4 text-xs sm:text-sm leading-relaxed" style={{ color: "#ffffff" }}>
-              Headquartered in Dubai's DIFC, with core operations in Angola — part of a growing footprint
+              Headquartered in Dubai, UAE, with core operations in Angola — part of a growing footprint
               across 5+ markets in Africa and Europe.
             </p>
 

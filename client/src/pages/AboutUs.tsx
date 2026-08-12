@@ -28,7 +28,7 @@ export default function AboutUs() {
               About Us
             </p>
             <h1 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
-              Who We Are
+              Your Global Premium Business Partner
             </h1>
             <div
               className="mt-4 h-1 w-16 rounded-full"
@@ -39,17 +39,18 @@ export default function AboutUs() {
           {/* Content */}
           <div className="prose prose-slate max-w-none">
             <p className="text-base leading-8 sm:text-lg sm:leading-9" style={{ color: "var(--eg-dark)" }}>
-              Emerald Group is a diversified holding company that invests in and develops strategic business
-              platforms across key sectors of the economy. Our portfolio spans banking and financial services,
-              construction, infrastructure, natural resources, technology, media, and real estate.
+              Emerald Group is a diversified holding company that connects African markets with global capital,
+              creates scalable business platforms across strategic sectors, and drives sustainable economic
+              growth. Our portfolio spans banking and financial services, construction, infrastructure, energy
+              and natural resources, technology, media, and real estate.
             </p>
 
             <div className="mt-10 grid sm:grid-cols-2 gap-6">
               {[
-                { label: "Portfolio Companies", value: "20+", desc: "Across six strategic sectors" },
+                { label: "Portfolio Companies", value: "20+", desc: "Across seven strategic sectors" },
                 { label: "Countries", value: "5+", desc: "Active presence across Africa and Europe" },
                 { label: "Years", value: "30+", desc: "Of business excellence and growth" },
-                { label: "Business Clusters", value: "6", desc: "Diversified business verticals" },
+                { label: "Business Clusters", value: "7", desc: "Diversified business verticals" },
               ].map((stat) => (
                 <div
                   key={stat.label}

@@ -146,7 +146,7 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <div className="text-[10px] font-bold tracking-widest uppercase mb-0.5" style={{ color: "rgba(255,255,255,0.35)" }}>Headquarters</div>
-                  <div className="text-sm" style={{ color: "rgba(255,255,255,0.75)", fontFamily: "Nunito Sans, sans-serif" }}>Emerald Group International</div>
+                  <div className="text-sm" style={{ color: "#ffffff", fontFamily: "Nunito Sans, sans-serif" }}>Emerald Group International</div>
                 </div>
               </div>
               <div className="flex items-center gap-3">
@@ -158,9 +158,9 @@ export default function ContactSection() {
                   <a
                     href="mailto:info@emeraldgroup-inc.com"
                     className="text-sm"
-                    style={{ color: "rgba(255,255,255,0.75)", fontFamily: "Nunito Sans, sans-serif", transition: "color 0.2s" }}
+                    style={{ color: "#ffffff", fontFamily: "Nunito Sans, sans-serif", transition: "color 0.2s" }}
                     onMouseEnter={e => (e.currentTarget.style.color = "#02f9ba")}
-                    onMouseLeave={e => (e.currentTarget.style.color = "rgba(255,255,255,0.75)")}
+                    onMouseLeave={e => (e.currentTarget.style.color = "#ffffff")}
                   >
                     info@emeraldgroup-inc.com
                   </a>
@@ -177,9 +177,9 @@ export default function ContactSection() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-sm"
-                    style={{ color: "rgba(255,255,255,0.75)", fontFamily: "Nunito Sans, sans-serif", transition: "color 0.2s" }}
+                    style={{ color: "#ffffff", fontFamily: "Nunito Sans, sans-serif", transition: "color 0.2s" }}
                     onMouseEnter={e => (e.currentTarget.style.color = "#02f9ba")}
-                    onMouseLeave={e => (e.currentTarget.style.color = "rgba(255,255,255,0.75)")}
+                    onMouseLeave={e => (e.currentTarget.style.color = "#ffffff")}
                   >
                     emeraldgroup-inc.com
                   </a>
@@ -189,7 +189,7 @@ export default function ContactSection() {
 
             {/* Decorative accent */}
             <div className="mt-10 pt-8" style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}>
-              <p className="text-xs leading-relaxed" style={{ color: "rgba(255,255,255,0.3)", fontFamily: "Nunito Sans, sans-serif" }}>
+              <p className="text-xs leading-relaxed" style={{ color: "#ffffff", fontFamily: "Nunito Sans, sans-serif" }}>
                 Operating across 5+ countries with 20+ portfolio companies.
               </p>
             </div>

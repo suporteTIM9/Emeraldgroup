@@ -150,7 +150,7 @@ export default function ContactSection({ showHeader = true }: { showHeader?: boo
                 </div>
                 <div>
                   <div className="text-[10px] font-bold tracking-widest uppercase mb-0.5" style={{ color: "rgba(255,255,255,0.35)" }}>Headquarters</div>
-                  <div className="text-sm" style={{ color: "#ffffff", fontFamily: "Nunito Sans, sans-serif" }}>Emerald Group International</div>
+                  <div className="text-sm" style={{ color: "#ffffff", fontFamily: "Nunito Sans, sans-serif" }}>Emerald Group</div>
                 </div>
               </div>
               <div className="flex items-center gap-3">
@@ -185,7 +185,7 @@ export default function ContactSection({ showHeader = true }: { showHeader?: boo
                     onMouseEnter={e => (e.currentTarget.style.color = "#02f9ba")}
                     onMouseLeave={e => (e.currentTarget.style.color = "#ffffff")}
                   >
-                    emeraldgroup-inc.com
+                    www.emeraldgroup-inc.com
                   </a>
                 </div>
               </div>

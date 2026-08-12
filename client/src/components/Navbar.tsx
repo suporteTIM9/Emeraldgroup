@@ -122,7 +122,7 @@ export default function Navbar({ fixed = true }: NavbarProps) {
                     onMouseEnter={e => (e.currentTarget.style.color = "#02d49e")}
                     onMouseLeave={e => (e.currentTarget.style.color = textColor)}
                   >
-                    {item.label}
+                    {item.label === "Our Business Clusters" ? "Business Clusters" : item.label}
                     <ChevronDown
                       size={14}
                       className={`transition-transform ${openDropdown === item.label ? "rotate-180" : ""}`}

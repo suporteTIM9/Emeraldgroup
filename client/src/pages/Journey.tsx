@@ -32,8 +32,8 @@ function JourneyMap() {
 
   return (
     <div
-      className="relative overflow-hidden select-none group/map"
-      style={{ aspectRatio: "1920 / 960", maxHeight: "clamp(240px, 38vw, 440px)" }}
+      className="relative overflow-hidden select-none group/map w-full"
+      style={{ height: "clamp(240px, 38vw, 440px)" }}
     >
       <style>{`
         @keyframes map-kenburns {

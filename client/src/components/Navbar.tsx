@@ -8,7 +8,7 @@ type NavItem  = { label: string; href: string; children?: NavChild[] };
 type NavbarProps = { fixed?: boolean };
 
 const navItems: NavItem[] = [
-  { label: "About", href: "#about" },
+  { label: "About", href: "/about-us" },
   {
     label: "Our Business Clusters",
     href: "#clusters",

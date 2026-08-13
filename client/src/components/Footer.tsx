@@ -12,18 +12,6 @@ const footerLinks = [
     ],
   },
   {
-    heading: "Our Business",
-    links: [
-      { label: "Banking & Financial Services", href: "#cluster-banking" },
-      { label: "Construction & Engineering", href: "#cluster-construction" },
-      { label: "Infrastructure", href: "#cluster-infrastructure" },
-      { label: "Energy & Resources", href: "#cluster-resources" },
-      { label: "Telecom, Media & Technology", href: "#cluster-tmt" },
-      { label: "Urban Development & Real Estate", href: "#cluster-urban" },
-      { label: "Education & Leadership Dev.", href: "#cluster-education" },
-    ],
-  },
-  {
     heading: "Portfolio, Emerald Clusters",
     links: [
       { label: "Banko Financial Group", href: "https://www.linkedin.com/company/banko-financial-group/" },
@@ -207,7 +195,7 @@ export default function Footer() {
 
       {/* Links grid */}
       <div className="container py-12">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-8">
           {footerLinks.map((col) => (
             <div key={col.heading}>
               <h4

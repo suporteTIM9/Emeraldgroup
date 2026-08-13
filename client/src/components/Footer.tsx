@@ -8,7 +8,7 @@ const footerLinks = [
     links: [
       { label: "Who We Are", href: "/about-us" },
       { label: "Our Mission & Vision", href: "/mission-vision" },
-      { label: "Leadership", href: "https://web.cvent.com/event/139e43a2-4b7f-4194-92e2-f6898ce0ad99/summary" },
+      { label: "Leadership Team", href: "https://web.cvent.com/event/139e43a2-4b7f-4194-92e2-f6898ce0ad99/summary" },
     ],
   },
   {

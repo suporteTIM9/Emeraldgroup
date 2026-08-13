@@ -17,10 +17,10 @@ interface OfficeMarker {
 }
 
 const officeMarkers: OfficeMarker[] = [
-  { name: "London",       x: 49.96, y: 21.4, lift: 34 },
+  { name: "London",       x: 49.96, y: 21.4, lift: 30 },
   { name: "Lisbon",       x: 47.46, y: 28.5 },
-  { name: "Dubai",        tag: "Headquarters", x: 65.35, y: 36.0, lift: 34 },
-  { name: "Abu Dhabi",    x: 65.11, y: 41.5 },
+  { name: "Dubai",        tag: "Headquarters", x: 65.35, y: 36.0, lift: 30 },
+  { name: "Abu Dhabi",    x: 65.11, y: 36.4 },
   { name: "Shanghai",     x: 83.74, y: 32.7 },
   { name: "Luanda",       tag: "Core Operations", x: 53.68, y: 54.9 },
   { name: "São Paulo",    x: 37.05, y: 63.1 },
@@ -72,6 +72,7 @@ function JourneyMap() {
 
       {officeMarkers.map((city, ci) => {
         const isActive = active === city.name;
+        const lineHeight = 10 + (city.lift ?? 0);
         return (
           <button
             key={city.name}
@@ -79,31 +80,44 @@ function JourneyMap() {
             onMouseEnter={() => setActive(city.name)}
             onMouseLeave={() => setActive(null)}
             onClick={() => setActive(isActive ? null : city.name)}
-            className="absolute flex flex-col items-center z-10"
-            style={{ left: `${city.x}%`, top: `${city.y}%`, transform: `translate(-50%, calc(-100% - ${city.lift ?? 0}px))` }}
+            className="absolute z-10"
+            style={{ left: `${city.x}%`, top: `${city.y}%`, transform: "translate(-50%, -50%)" }}
           >
-            <span
-              className="whitespace-nowrap font-bold transition-colors"
-              style={{
-                fontSize: "clamp(8px, 1.3vw, 14px)",
-                color: isActive ? "#02d49e" : "#ffffff",
-                textShadow: "0 1px 5px rgba(0,0,0,0.85)",
-              }}
+            {/* Label + connecting line — anchored to the dot below, lift only shifts this */}
+            <div
+              className="absolute left-1/2 flex flex-col items-center"
+              style={{ bottom: `calc(50% + ${lineHeight}px)`, transform: "translateX(-50%)" }}
             >
-              {city.name}
-            </span>
-            {city.tag && (
               <span
-                className="whitespace-nowrap"
-                style={{ fontSize: "clamp(6.5px, 0.9vw, 10px)", color: "rgba(255,255,255,0.75)", textShadow: "0 1px 5px rgba(0,0,0,0.85)" }}
+                className="whitespace-nowrap font-bold transition-colors"
+                style={{
+                  fontSize: "clamp(8px, 1.3vw, 14px)",
+                  color: isActive ? "#02d49e" : "#ffffff",
+                  textShadow: "0 1px 5px rgba(0,0,0,0.85)",
+                }}
               >
-                {city.tag}
+                {city.name}
               </span>
-            )}
+              {city.tag && (
+                <span
+                  className="whitespace-nowrap"
+                  style={{ fontSize: "clamp(6.5px, 0.9vw, 10px)", color: "rgba(255,255,255,0.75)", textShadow: "0 1px 5px rgba(0,0,0,0.85)" }}
+                >
+                  {city.tag}
+                </span>
+              )}
+            </div>
             <span
-              className="block transition-all"
-              style={{ width: "1.5px", height: isActive ? "18px" : "12px", background: isActive ? "#02d49e" : "rgba(2,212,158,0.65)" }}
+              className="absolute left-1/2 block transition-all"
+              style={{
+                bottom: "50%",
+                width: "1.5px",
+                height: `${lineHeight}px`,
+                background: isActive ? "#02d49e" : "rgba(2,212,158,0.65)",
+                transform: "translateX(-50%)",
+              }}
             />
+            {/* Dot — always exactly at the true geographic anchor */}
             <span
               className={isActive ? "block rounded-full transition-all" : "map-pulse block rounded-full transition-all"}
               style={{

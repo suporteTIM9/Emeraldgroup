@@ -18,6 +18,7 @@ const AboutUs = lazy(() => import("./pages/AboutUs"));
 const MissionVision = lazy(() => import("./pages/MissionVision"));
 const Contact = lazy(() => import("./pages/Contact"));
 const Journey = lazy(() => import("./pages/Journey"));
+const Leadership = lazy(() => import("./pages/Leadership"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 function Router() {
@@ -35,6 +36,7 @@ function Router() {
         <Route path={"/mission-vision"} component={MissionVision} />
         <Route path={"/contact"} component={Contact} />
         <Route path={"/journey"} component={Journey} />
+        <Route path={"/leadership"} component={Leadership} />
         <Route path={"/terms"} component={TermsOfUse} />
         <Route path={"/privacy"} component={PrivacyPolicy} />
         <Route path={"/404"} component={NotFound} />

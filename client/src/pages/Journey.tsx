@@ -219,9 +219,15 @@ export default function Journey() {
         `}</style>
         <div className="container">
           <div className="mx-auto max-w-4xl" ref={timelineRef}>
-            <p className="mb-16 text-xs font-bold uppercase tracking-widest" style={{ color: "rgba(0,0,0,0.35)" }}>
+            <p className="mb-4 text-xs font-bold uppercase tracking-widest" style={{ color: "rgba(0,0,0,0.35)" }}>
               The Full Story
             </p>
+            <h2
+              className="mb-16 text-3xl sm:text-4xl font-bold leading-tight"
+              style={{ fontFamily: "Playfair Display, serif", color: "var(--eg-dark)" }}
+            >
+              Every Chapter of Our Journey
+            </h2>
 
             <div className="flex flex-col">
               {milestones.map((m, i) => {

@@ -3,6 +3,10 @@ export interface LeadershipMember {
   role: string;
   spec?: string;
   note?: string;
+  /** Path under /public, e.g. "/leadership/ngunu-tiny.jpg". Omit to show initials. */
+  photo?: string;
+  /** Full LinkedIn profile URL. Omit to hide the icon. */
+  linkedin?: string;
 }
 
 export interface LeadershipGroup {

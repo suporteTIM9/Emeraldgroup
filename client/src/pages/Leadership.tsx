@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "wouter";
+import { ChevronDown, Linkedin } from "lucide-react";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import Breadcrumb from "@/components/Breadcrumb";
@@ -29,16 +30,36 @@ function PersonNode({
     <button
       type="button"
       onClick={() => member.spec && setOpen((o) => !o)}
-      className="group flex w-36 sm:w-40 flex-col items-center text-center"
+      className="group relative flex w-36 sm:w-40 flex-col items-center text-center"
     >
-      <div
-        className={`flex ${dims} items-center justify-center rounded-full font-bold text-white transition-all duration-300`}
-        style={{
-          background: accent,
-          boxShadow: open ? `0 0 0 5px color-mix(in srgb, ${accent} 25%, transparent)` : "none",
-        }}
-      >
-        {initialsOf(member.name)}
+      <div className="relative">
+        <div
+          className={`leader-avatar flex ${dims} items-center justify-center overflow-hidden rounded-full font-bold text-white transition-all duration-300 group-hover:-translate-y-1 group-hover:scale-110`}
+          style={{
+            background: accent,
+            ["--accent" as string]: accent,
+            boxShadow: open ? `0 0 0 5px color-mix(in srgb, ${accent} 25%, transparent)` : undefined,
+          }}
+        >
+          {member.photo ? (
+            <img src={member.photo} alt={member.name} className="h-full w-full object-cover" loading="lazy" />
+          ) : (
+            initialsOf(member.name)
+          )}
+        </div>
+        {member.linkedin && (
+          <a
+            href={member.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={(e) => e.stopPropagation()}
+            aria-label={`${member.name} on LinkedIn`}
+            className="absolute -right-1 -bottom-1 flex h-5 w-5 items-center justify-center rounded-full text-white shadow-sm transition-transform hover:scale-110"
+            style={{ background: "#0A66C2" }}
+          >
+            <Linkedin size={11} fill="white" />
+          </a>
+        )}
       </div>
       <div className={`mt-2.5 font-semibold ${nameSize}`} style={{ color: "var(--eg-dark)" }}>
         {member.name}
@@ -86,23 +107,38 @@ function TierBranch({
   accent: string;
   size: "md" | "sm";
 }) {
+  const [expanded, setExpanded] = useState(true);
+
   return (
-    <div>
+    <div className="leader-tier">
       <Connector accent={accent} />
       <div
         className="pt-8"
         style={{ borderTop: `2px solid color-mix(in srgb, ${accent} 45%, transparent)` }}
       >
-        <p
-          className="mb-7 text-center text-xs font-bold uppercase tracking-[0.2em]"
+        <button
+          type="button"
+          onClick={() => setExpanded((e) => !e)}
+          className="mx-auto mb-7 flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] transition-opacity hover:opacity-70"
           style={{ color: accent }}
         >
           {label}
-        </p>
-        <div className="flex flex-wrap justify-center gap-x-6 gap-y-8">
-          {members.map((m, i) => (
-            <PersonNode key={`${m.name}-${i}`} member={m} size={size} accent={accent} />
-          ))}
+          <span className="text-slate-400 font-normal normal-case tracking-normal">({members.length})</span>
+          <ChevronDown
+            size={14}
+            className="transition-transform duration-300"
+            style={{ transform: expanded ? "rotate(180deg)" : "rotate(0deg)" }}
+          />
+        </button>
+        <div
+          className="overflow-hidden transition-all duration-500 ease-out"
+          style={{ maxHeight: expanded ? "1200px" : "0px", opacity: expanded ? 1 : 0 }}
+        >
+          <div className="flex flex-wrap justify-center gap-x-6 gap-y-8 pb-2">
+            {members.map((m, i) => (
+              <PersonNode key={`${m.name}-${i}`} member={m} size={size} accent={accent} />
+            ))}
+          </div>
         </div>
       </div>
     </div>
@@ -111,6 +147,24 @@ function TierBranch({
 
 export default function Leadership() {
   useEffect(() => { window.scrollTo(0, 0); }, []);
+  const chartRef = useRef<HTMLDivElement>(null);
+
+  /* Scroll-reveal cascade for the chairman node and each tier */
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("in-view");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: "0px 0px -60px 0px" }
+    );
+    chartRef.current?.querySelectorAll(".leader-reveal").forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
 
   const boardGroup = leadershipGroups.find((g) => g.heading === "Board of Directors")!;
   const execGroup = leadershipGroups.find((g) => g.heading === "Group Executive Board")!;
@@ -122,6 +176,18 @@ export default function Leadership() {
 
   return (
     <div className="min-h-screen bg-white">
+      <style>{`
+        .leader-avatar:hover {
+          box-shadow: 0 10px 24px color-mix(in srgb, var(--accent) 45%, transparent) !important;
+        }
+        .leader-reveal {
+          opacity: 0;
+          transform: translateY(24px);
+          transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1),
+                      transform 0.7s cubic-bezier(0.16,1,0.3,1);
+        }
+        .leader-reveal.in-view { opacity: 1; transform: translateY(0); }
+      `}</style>
       <Navbar fixed={false} />
       <Breadcrumb items={[{ label: "Leadership Team" }]} />
 
@@ -148,7 +214,7 @@ export default function Leadership() {
             <div className="mt-4 h-1 w-16 rounded-full" style={{ background: "var(--eg-orange)" }} />
             <p className="mt-6 max-w-xl text-sm sm:text-base leading-7 sm:leading-8" style={{ color: "rgba(255,255,255,0.65)" }}>
               The people guiding Emerald Group's strategy, governance, and day-to-day operations —
-              tap any name to see their focus area.
+              tap any name for their focus area, or a tier heading to collapse it.
             </p>
           </div>
         </div>
@@ -156,10 +222,10 @@ export default function Leadership() {
 
       {/* Org chart */}
       <div className="container py-16 sm:py-20">
-        <div className="mx-auto max-w-5xl">
+        <div className="mx-auto max-w-5xl" ref={chartRef}>
 
           {/* Root — Chairman & CEO */}
-          <div className="flex justify-center">
+          <div className="leader-reveal flex justify-center">
             <PersonNode
               member={{ name: chairman.name, role: "Chairman & Chief Executive Officer" }}
               size="lg"
@@ -168,13 +234,19 @@ export default function Leadership() {
           </div>
 
           {/* Board branch */}
-          <TierBranch label="Board of Directors" members={boardRest} accent="var(--eg-cyan)" size="md" />
+          <div className="leader-reveal">
+            <TierBranch label="Board of Directors" members={boardRest} accent="var(--eg-cyan)" size="md" />
+          </div>
 
           {/* Executive branch */}
-          <TierBranch label="Group Executive Board" members={execRest} accent="var(--eg-cyan)" size="md" />
+          <div className="leader-reveal">
+            <TierBranch label="Group Executive Board" members={execRest} accent="var(--eg-cyan)" size="md" />
+          </div>
 
           {/* Senior Officers branch */}
-          <TierBranch label="Senior Officers" members={officersGroup.members} accent="oklch(0.55 0.14 75)" size="sm" />
+          <div className="leader-reveal">
+            <TierBranch label="Senior Officers" members={officersGroup.members} accent="oklch(0.55 0.14 75)" size="sm" />
+          </div>
 
           {boardGroup.footnote && (
             <p className="mt-14 text-center text-xs italic text-slate-400">{boardGroup.footnote}</p>

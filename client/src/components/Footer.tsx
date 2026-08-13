@@ -195,7 +195,7 @@ export default function Footer() {
 
       {/* Links grid */}
       <div className="container py-12">
-        <div className="grid grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-2 lg:grid-cols-[repeat(3,max-content)] gap-8 lg:gap-16">
           {footerLinks.map((col) => (
             <div key={col.heading}>
               <h4

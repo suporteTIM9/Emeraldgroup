@@ -227,7 +227,7 @@ export default function Leadership() {
           {/* Root — Chairman & CEO */}
           <div className="leader-reveal flex justify-center">
             <PersonNode
-              member={{ name: chairman.name, role: "Chairman & Chief Executive Officer" }}
+              member={{ name: chairman.name, role: "Chairman & Chief Executive Officer", photo: chairman.photo, linkedin: chairman.linkedin }}
               size="lg"
               accent="var(--eg-orange)"
             />

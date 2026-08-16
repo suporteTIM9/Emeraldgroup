@@ -30,11 +30,11 @@ function PersonNode({
     <button
       type="button"
       onClick={() => member.spec && setOpen((o) => !o)}
-      className="group relative flex w-36 sm:w-40 flex-col items-center text-center"
+      className="leader-node group relative z-0 flex w-36 sm:w-40 flex-col items-center text-center hover:z-20"
     >
-      <div className="relative">
+      <div className="relative transition-transform duration-300 ease-out group-hover:-translate-y-2 group-hover:scale-125">
         <div
-          className={`leader-avatar flex ${dims} items-center justify-center overflow-hidden rounded-full font-bold text-white transition-all duration-300 group-hover:-translate-y-1 group-hover:scale-110`}
+          className={`leader-avatar flex ${dims} items-center justify-center overflow-hidden rounded-full font-bold text-white transition-shadow duration-300`}
           style={{
             background: accent,
             ["--accent" as string]: accent,
@@ -54,18 +54,23 @@ function PersonNode({
             rel="noopener noreferrer"
             onClick={(e) => e.stopPropagation()}
             aria-label={`${member.name} on LinkedIn`}
-            className="absolute -right-1 -bottom-1 flex h-5 w-5 items-center justify-center rounded-full text-white shadow-sm transition-transform hover:scale-110"
+            className="absolute -right-1 -bottom-1 flex h-5 w-5 items-center justify-center rounded-full text-white shadow-sm transition-transform hover:scale-125"
             style={{ background: "#0A66C2" }}
           >
             <Linkedin size={11} fill="white" />
           </a>
         )}
       </div>
-      <div className={`mt-2.5 font-semibold ${nameSize}`} style={{ color: "var(--eg-dark)" }}>
+      <div
+        className={`mt-2.5 font-semibold transition-all duration-300 group-hover:scale-110 ${nameSize}`}
+        style={{ color: "var(--eg-dark)" }}
+      >
         {member.name}
         {member.note && <span style={{ color: accent }}>{member.note}</span>}
       </div>
-      <div className="mt-0.5 text-xs text-slate-500 leading-snug">{member.role}</div>
+      <div className="mt-0.5 text-xs text-slate-500 leading-snug transition-colors duration-300 group-hover:text-[var(--hover-accent)]" style={{ ["--hover-accent" as string]: accent }}>
+        {member.role}
+      </div>
       {member.spec && (
         <div
           className="overflow-hidden transition-all duration-300"

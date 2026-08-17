@@ -23,7 +23,7 @@ function PersonNode({
   accent?: string;
 }) {
   const [open, setOpen] = useState(false);
-  const dims = size === "lg" ? "h-20 w-20 text-xl" : size === "md" ? "h-14 w-14 text-base" : "h-12 w-12 text-sm";
+  const dims = size === "lg" ? "h-28 w-28 text-2xl" : size === "md" ? "h-20 w-20 text-lg" : "h-16 w-16 text-base";
   const nameSize = size === "lg" ? "text-base" : "text-sm";
   const badgeDims = size === "lg" ? "h-6 w-6" : "h-5 w-5";
   const badgeIcon = size === "lg" ? 12 : 10;

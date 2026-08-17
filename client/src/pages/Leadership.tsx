@@ -25,6 +25,8 @@ function PersonNode({
   const [open, setOpen] = useState(false);
   const dims = size === "lg" ? "h-16 w-16 text-lg" : size === "md" ? "h-12 w-12 text-sm" : "h-10 w-10 text-xs";
   const nameSize = size === "lg" ? "text-base" : "text-sm";
+  const badgeDims = size === "lg" ? "h-8 w-8" : size === "md" ? "h-7 w-7" : "h-6 w-6";
+  const badgeIcon = size === "lg" ? 16 : size === "md" ? 14 : 13;
 
   return (
     <button
@@ -54,10 +56,10 @@ function PersonNode({
             rel="noopener noreferrer"
             onClick={(e) => e.stopPropagation()}
             aria-label={`${member.name} on LinkedIn`}
-            className="absolute -right-1 -bottom-1 flex h-5 w-5 items-center justify-center rounded-full text-white shadow-sm transition-transform hover:scale-125"
+            className={`absolute -right-2 -bottom-2 z-10 flex ${badgeDims} items-center justify-center rounded-full border-[3px] border-white text-white shadow-md transition-transform hover:scale-125`}
             style={{ background: "#0A66C2" }}
           >
-            <Linkedin size={11} fill="white" />
+            <Linkedin size={badgeIcon} fill="white" />
           </a>
         )}
       </div>

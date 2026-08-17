@@ -14,6 +14,23 @@ export interface ChairmanTalk {
 // story, the rest stack in the "Other Talks" column/sidebar.
 export const chairmanTalks: ChairmanTalk[] = [
   {
+    slug: "diamantino-azevedo-from-academia-to-leadership",
+    date: "24 Jul 2026",
+    category: "Press",
+    title: "From academia to the leadership of one of Angola’s most strategic sectors",
+    excerpt:
+      "In the third episode of The Chairman’s Talk, recorded during the 4th edition of Doing Business Angola, Dr. N’Gunu Tiny welcomes H.E. Diamantino Pedro Azevedo, Angola’s Minister of Mineral Resources, Petroleum and Gas.",
+    image: "/IMGBLOG/chairmans-talk-diamantino-azevedo.jpeg",
+    content: `In the third episode of The Chairman’s Talk, recorded during the 4th edition of Doing Business Angola, Dr. N’Gunu Tiny welcomes H.E. Diamantino Pedro Azevedo, Angola’s Minister of Mineral Resources, Petroleum and Gas.
+
+In a personal and strategic conversation, the Minister reflects on his journey from academic and technical expert to political leader, and on the responsibility of guiding a sector that is central to Angola’s development.
+
+The episode also explores public leadership, the transformation of natural resources, the energy transition, investment attraction and Angola’s role in shaping a new global economic order.
+
+How can technical knowledge be transformed into political vision, leadership and legacy?`,
+    videoHref: "https://www.youtube.com/watch?v=rMy-ZaWhQSc&t=950s",
+  },
+  {
     slug: "global-south-new-forum-for-debate",
     date: "29 May 2026",
     category: "Press",

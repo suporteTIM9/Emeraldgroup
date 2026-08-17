@@ -25,8 +25,8 @@ function PersonNode({
   const [open, setOpen] = useState(false);
   const dims = size === "lg" ? "h-16 w-16 text-lg" : size === "md" ? "h-12 w-12 text-sm" : "h-10 w-10 text-xs";
   const nameSize = size === "lg" ? "text-base" : "text-sm";
-  const badgeDims = size === "lg" ? "h-8 w-8" : size === "md" ? "h-7 w-7" : "h-6 w-6";
-  const badgeIcon = size === "lg" ? 16 : size === "md" ? 14 : 13;
+  const badgeDims = size === "lg" ? "h-9 w-9" : size === "md" ? "h-8 w-8" : "h-7 w-7";
+  const badgeIcon = size === "lg" ? 18 : size === "md" ? 16 : 14;
 
   return (
     <button
@@ -141,7 +141,7 @@ function TierBranch({
           className="overflow-hidden transition-all duration-500 ease-out"
           style={{ maxHeight: expanded ? "1200px" : "0px", opacity: expanded ? 1 : 0 }}
         >
-          <div className="flex flex-wrap justify-center gap-x-6 gap-y-8 pb-2">
+          <div className="flex flex-wrap justify-center gap-x-6 gap-y-8 pt-5 pb-2">
             {members.map((m, i) => (
               <PersonNode key={`${m.name}-${i}`} member={m} size={size} accent={accent} />
             ))}

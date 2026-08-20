@@ -83,35 +83,6 @@ export default function AboutSection() {
               and creating positive, lasting impact for communities and stakeholders alike.
             </p>
 
-            {/* Mission & Vision */}
-            <div className="grid sm:grid-cols-2 gap-6 mb-10">
-              <div
-                className="p-5 rounded-sm border-l-[1.5px] bg-white/90 shadow-[0_0_0_1px_rgba(15,23,42,0.04)] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_0_0_1px_rgba(15,23,42,0.08),0_12px_30px_rgba(15,23,42,0.08)]"
-                style={{ borderColor: "color-mix(in srgb, var(--eg-cyan) 55%, rgba(255,255,255,0.85))" }}
-              >
-                <h4 className="text-xs font-semibold tracking-widest uppercase mb-2" style={{ color: "var(--eg-cyan)" }}>
-                  Our Mission
-                </h4>
-                <p className="text-sm leading-relaxed" style={{ color: "var(--eg-dark)" }}>
-                  To systematically integrate African economies with global financial centres by unlocking
-                  high-growth opportunities and building scalable new markets — driving sustainable economic
-                  expansion, delivering measurable returns, and uplifting communities across the continent.
-                </p>
-              </div>
-              <div
-                className="p-5 rounded-sm border-l-[1.5px] bg-white/90 shadow-[0_0_0_1px_rgba(15,23,42,0.04)] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_0_0_1px_rgba(15,23,42,0.08),0_12px_30px_rgba(15,23,42,0.08)]"
-                style={{ borderColor: "color-mix(in srgb, var(--eg-orange) 55%, rgba(255,255,255,0.85))" }}
-              >
-                <h4 className="text-xs font-semibold tracking-widest uppercase mb-2" style={{ color: "var(--eg-orange)" }}>
-                  Our Vision
-                </h4>
-                <p className="text-sm leading-relaxed" style={{ color: "var(--eg-dark)" }}>
-                  To be a premier diversified investment group in Africa, recognised for excellence,
-                  integrity, and purposeful impact.
-                </p>
-              </div>
-            </div>
-
             <button
               onClick={() => setModalOpen(true)}
               className="neon-btn"
@@ -136,32 +107,6 @@ export default function AboutSection() {
                   <div className="text-xs text-gray-400">{stat.desc}</div>
                 </div>
               ))}
-            </div>
-
-            {/* Visual accent — dark closing banner */}
-            <div
-              className="mt-6 flex items-center gap-5 rounded-lg px-7 py-5 text-white shadow-lg"
-              style={{
-                background: `linear-gradient(115deg, #14251f 0%, #0d3b30 45%, #02866a 100%)`,
-                boxShadow: "0 10px 30px rgba(2,134,106,0.22)",
-              }}
-            >
-              <div className="h-8 w-px shrink-0" style={{ background: "rgba(255,255,255,0.25)" }} />
-              <div>
-                <p
-                  className="tracking-[0.15em] uppercase mb-1.5"
-                  style={{ fontFamily: "Quantico, sans-serif", fontWeight: 700, fontSize: "0.72rem", color: "#02f9ba" }}
-                >
-                  Our Purpose
-                </p>
-                <p
-                  className="opacity-95"
-                  style={{ fontFamily: "Nunito Sans, sans-serif", fontWeight: 400, fontSize: "0.92rem", lineHeight: "1.5" }}
-                >
-                  Connecting Africa to global financial centres — creating new markets that drive
-                  economic growth.
-                </p>
-              </div>
             </div>
           </div>
         </div>

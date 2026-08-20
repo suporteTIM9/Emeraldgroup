@@ -258,7 +258,7 @@ export default function Leadership() {
 
           {/* Senior Officers branch */}
           <div className="leader-reveal">
-            <TierBranch label="Senior Officers" members={officersGroup.members} accent="oklch(0.55 0.14 75)" size="sm" />
+            <TierBranch label="Senior Officers" members={officersGroup.members} accent="oklch(0.55 0.14 75)" size="sm" breakAfter={3} />
           </div>
 
           {boardGroup.footnote && (

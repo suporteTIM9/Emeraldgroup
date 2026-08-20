@@ -23,7 +23,7 @@ export const articles: Article[] = [
       "Figures extracted from Banco Millennium Atlântico's (BMA) balance sheet for the first 90 days of the current year indicate a robust performance in the ongoing financial year, reflecting an absolute increase in profit of AOA 2.29 billion (US$ 2.51 million).",
     image: "/IMGBLOG/Millennium-Angola.png",
     ctaLabel: "Explore Banco Millennium Atlântico",
-    externalHref: "https://relatorioecontas.atlantico.ao/2024/en/start/#1",
+    externalHref: "https://360angola.com/economy/banking/banco-millennium-atlantico-increases-profit-by-80-60-in-q1-2026/",
     content: `Figures extracted from Banco Millennium Atlântico's (BMA) balance sheet for the first 90 days of the current year indicate a robust performance in the ongoing financial year, reflecting an absolute increase in profit of AOA 2.29 billion (US$ 2.51 million).`,
   },
   {

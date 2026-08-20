@@ -42,6 +42,15 @@ export default function NewsSection() {
             className="absolute inset-0"
             style={{ background: "linear-gradient(0deg, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.65) 45%, rgba(0,0,0,0.25) 75%, rgba(0,0,0,0.15) 100%)" }}
           />
+          {/* Vignette — softens the photo's hard edges so it dissolves into the card */}
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{ boxShadow: "inset 0 0 140px 40px rgba(0,0,0,0.55)" }}
+          />
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{ background: "radial-gradient(120% 100% at 15% 100%, rgba(0,0,0,0) 0%, rgba(0,0,0,0.5) 70%, rgba(0,0,0,0.75) 100%)" }}
+          />
           <div className="relative p-10 lg:p-16 max-w-3xl">
             <div className="flex items-center gap-3 mb-6">
               <span

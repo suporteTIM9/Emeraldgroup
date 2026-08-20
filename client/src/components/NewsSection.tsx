@@ -28,14 +28,19 @@ export default function NewsSection() {
           </Link> */}
         </div>
 
-        {/* Featured article — editorial cover */}
+        {/* Featured article — full-bleed news cover */}
         <div
-          className="relative overflow-hidden rounded-sm mb-6"
-          style={{ background: `linear-gradient(135deg, oklch(0.10 0.02 165) 0%, oklch(0.20 0.10 155) 100%)` }}
+          className="relative overflow-hidden rounded-sm mb-6 min-h-[420px] lg:min-h-[480px] flex items-end"
         >
+          <img
+            src="/imagens/world-night-lights.jpg"
+            alt=""
+            className="absolute inset-0 w-full h-full object-cover"
+            loading="lazy"
+          />
           <div
-            className="absolute inset-0 opacity-[0.06] pointer-events-none"
-            style={{ backgroundImage: "radial-gradient(rgba(255,255,255,0.6) 1px, transparent 1px)", backgroundSize: "18px 18px" }}
+            className="absolute inset-0"
+            style={{ background: "linear-gradient(0deg, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.65) 45%, rgba(0,0,0,0.25) 75%, rgba(0,0,0,0.15) 100%)" }}
           />
           <div className="relative p-10 lg:p-16 max-w-3xl">
             <div className="flex items-center gap-3 mb-6">
@@ -46,19 +51,19 @@ export default function NewsSection() {
                 Featured
               </span>
               <style>{`@keyframes featuredBlink { 0%,100%{opacity:1} 50%{opacity:0.25} }`}</style>
-              <span className="text-xs text-white/40 flex items-center gap-1">
+              <span className="text-xs text-white/50 flex items-center gap-1">
                 <Calendar size={10} />
                 March 2025
               </span>
             </div>
             <h3
-              className="text-3xl lg:text-4xl font-bold text-white mb-6 leading-tight"
-              style={{ fontFamily: "Playfair Display, serif" }}
+              className="text-3xl lg:text-5xl font-bold text-white mb-6 leading-[1.1] tracking-tight uppercase"
+              style={{ fontFamily: "Quantico, sans-serif", textShadow: "0 2px 16px rgba(0,0,0,0.5)" }}
             >
               Emerald Group has strategic presence and expansion across different regions.
             </h3>
             <div className="h-1 w-16 rounded-full mb-6" style={{ background: "var(--eg-orange)" }} />
-            <p className="text-sm text-white/60 leading-relaxed max-w-xl">
+            <p className="text-sm text-white/75 leading-relaxed max-w-xl" style={{ textShadow: "0 1px 8px rgba(0,0,0,0.6)" }}>
               Emerald Group unveils a comprehensive five-year strategic plan to deepen its presence
               across Sub-Saharan Africa, with targeted investments in infrastructure, financial services,
               and digital technology.

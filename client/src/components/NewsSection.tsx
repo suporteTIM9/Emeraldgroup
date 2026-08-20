@@ -1,6 +1,111 @@
+import { useEffect, useState } from "react";
 import { ArrowRight, Calendar } from "lucide-react";
 import { Link } from "wouter";
-import { articles, tagColors } from "@/data/articles";
+import { articles, tagColors, type Article } from "@/data/articles";
+
+const NEWS_ROTATE_MS = 6000;
+
+/** Groups consecutive-or-not articles sharing a slideGroup into one slot each. */
+function groupArticles(items: Article[]): Article[][] {
+  const groups: Article[][] = [];
+  const indexBySlideGroup = new Map<string, number>();
+  for (const item of items) {
+    if (item.slideGroup) {
+      const existing = indexBySlideGroup.get(item.slideGroup);
+      if (existing !== undefined) {
+        groups[existing].push(item);
+        continue;
+      }
+      indexBySlideGroup.set(item.slideGroup, groups.length);
+    }
+    groups.push([item]);
+  }
+  return groups;
+}
+
+function NewsCard({ items }: { items: Article[] }) {
+  const [index, setIndex] = useState(0);
+  const [paused, setPaused] = useState(false);
+
+  useEffect(() => {
+    if (items.length <= 1 || paused) return;
+    const id = setInterval(() => setIndex((i) => (i + 1) % items.length), NEWS_ROTATE_MS);
+    return () => clearInterval(id);
+  }, [paused, items.length]);
+
+  const item = items[index];
+  const color = tagColors[item.tag];
+
+  return (
+    <article
+      className="bg-white rounded-sm p-6 group cursor-pointer hover:shadow-md transition-all border border-gray-50 flex flex-col"
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+    >
+      <div className="flex items-center justify-between mb-4">
+        <span
+          className="text-xs font-semibold tracking-widest uppercase px-2 py-0.5 rounded-sm"
+          style={{ background: `${color}15`, color }}
+        >
+          {item.tag}
+        </span>
+        <span className="text-xs text-gray-400 flex items-center gap-1">
+          <Calendar size={10} />
+          {item.date}
+        </span>
+      </div>
+      <h3 className="text-base font-bold text-gray-900 mb-3 leading-snug flex-1">{item.title}</h3>
+      <p className="text-xs leading-relaxed mb-4" style={{ color: "var(--eg-dark)" }}>{item.excerpt}</p>
+
+      {item.externalHref && item.externalHref !== "#" && (
+        <a
+          href={item.externalHref}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-1 text-xs font-semibold transition-all group-hover:gap-2 mt-auto hover:text-white"
+          style={{ color }}
+        >
+          {item.ctaLabel ?? "Read more"}
+          <ArrowRight size={12} />
+        </a>
+      )}
+      {item.externalHref === "#" && (
+        <span
+          className="flex items-center gap-1 text-xs font-semibold mt-auto transition-colors hover:text-white"
+          style={{ color }}
+        >
+          {item.ctaLabel ?? "Read more"}
+          <ArrowRight size={12} />
+        </span>
+      )}
+      {!item.externalHref && (
+        <Link
+          href={`/blog/${item.slug}`}
+          className="flex items-center gap-1 text-xs font-semibold transition-all group-hover:gap-2 mt-auto hover:text-white"
+          style={{ color }}
+        >
+          {item.ctaLabel ?? "Read more"}
+          <ArrowRight size={12} />
+        </Link>
+      )}
+
+      {items.length > 1 && (
+        <div className="flex items-center gap-1.5 mt-4 pt-4 border-t border-gray-50">
+          {items.map((_, i) => (
+            <button
+              key={i}
+              type="button"
+              aria-label={`Show story ${i + 1}`}
+              onClick={(e) => { e.preventDefault(); setIndex(i); }}
+              className="h-1.5 rounded-full transition-all duration-300"
+              style={{ width: i === index ? "18px" : "6px", background: i === index ? color : "oklch(0.9 0.005 240)" }}
+            />
+          ))}
+        </div>
+      )}
+    </article>
+  );
+}
 
 export default function NewsSection() {
   return (
@@ -83,64 +188,8 @@ export default function NewsSection() {
 
         {/* News grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {articles.map((item) => (
-            <article
-              key={item.slug}
-              className="bg-white rounded-sm p-6 group cursor-pointer hover:shadow-md transition-all border border-gray-50 flex flex-col"
-            >
-              <div className="flex items-center justify-between mb-4">
-                <span
-                  className="text-xs font-semibold tracking-widest uppercase px-2 py-0.5 rounded-sm"
-                  style={{
-                    background: `${tagColors[item.tag]}15`,
-                    color: tagColors[item.tag],
-                  }}
-                >
-                  {item.tag}
-                </span>
-                <span className="text-xs text-gray-400 flex items-center gap-1">
-                  <Calendar size={10} />
-                  {item.date}
-                </span>
-              </div>
-              <h3
-                className="text-base font-bold text-gray-900 mb-3 leading-snug flex-1"
-                              >
-                {item.title}
-              </h3>
-              <p className="text-xs leading-relaxed mb-4" style={{ color: "var(--eg-dark)" }}>{item.excerpt}</p>
-              {item.externalHref && item.externalHref !== "#" && (
-                <a
-                  href={item.externalHref}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-1 text-xs font-semibold transition-all group-hover:gap-2 mt-auto hover:text-white"
-                  style={{ color: tagColors[item.tag] }}
-                >
-                  {item.ctaLabel ?? "Read more"}
-                  <ArrowRight size={12} />
-                </a>
-              )}
-              {item.externalHref === "#" && (
-                <span
-                  className="flex items-center gap-1 text-xs font-semibold mt-auto transition-colors hover:text-white"
-                  style={{ color: tagColors[item.tag] }}
-                >
-                  {item.ctaLabel ?? "Read more"}
-                  <ArrowRight size={12} />
-                </span>
-              )}
-              {!item.externalHref && (
-                <Link
-                  href={`/blog/${item.slug}`}
-                  className="flex items-center gap-1 text-xs font-semibold transition-all group-hover:gap-2 mt-auto hover:text-white"
-                  style={{ color: tagColors[item.tag] }}
-                >
-                  {item.ctaLabel ?? "Read more"}
-                  <ArrowRight size={12} />
-                </Link>
-              )}
-            </article>
+          {groupArticles(articles).map((group) => (
+            <NewsCard key={group[0].slug} items={group} />
           ))}
         </div>
       </div>

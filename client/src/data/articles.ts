@@ -10,6 +10,8 @@ export interface Article {
   externalHref?: string;
   /** Custom text for the card's CTA link. Defaults to "Read more". */
   ctaLabel?: string;
+  /** Articles sharing the same slideGroup render as one card that rotates between them. */
+  slideGroup?: string;
 }
 
 export const articles: Article[] = [
@@ -34,9 +36,49 @@ export const articles: Article[] = [
     title: "FORBES AFRICA Launches ‘The Durban Dialogues’ Ahead Of 15th Anniversary",
     externalHref: "https://www.forbesafrica.com/press/2026/08/06/forbes-africa-launches-the-durban-dialogues-ahead-of-15th-anniversary",
     ctaLabel: "Explore FORBES AFRICA",
+    slideGroup: "forbes-africa",
     excerpt:
       "As FORBES AFRICA prepares to celebrate its milestone 15th anniversary in October, the award-winning pan-African business magazine is launching The Dialogues series by FORBES AFRICA, a new live, in-person event platform designed to spark meaningful conversations around Africa's opportunities, ideas, innovations, and challenges.",
     content: `As FORBES AFRICA prepares to celebrate its milestone 15th anniversary in October, the award-winning pan-African business magazine is launching The Dialogues series by FORBES AFRICA, a new live, in-person event platform designed to spark meaningful conversations around Africa's opportunities, ideas, innovations, and challenges.`,
+  },
+  {
+    slug: "emerald-group-acquires-40-stake-forbes-africa",
+    date: "April 2024",
+    category: "Telecom, Media & Technology",
+    tag: "Telecom, Media & Technology",
+    title: "Emerald Group acquires 40% stake in Forbes Africa",
+    externalHref: "https://www.forbesafrica.com/press/2024/04/05/emerald-group-acquires-40-stake-in-forbes-africa2",
+    ctaLabel: "Explore Emerald Group",
+    slideGroup: "forbes-africa",
+    excerpt:
+      "Emerald Group expands African media footprint with strategic investment in Forbes Africa.",
+    content: `Emerald Group expands African media footprint with strategic investment in Forbes Africa.`,
+  },
+  {
+    slug: "hoti-hoteis-melia-luanda",
+    date: "March 2024",
+    category: "Urban Development & Real Estate",
+    tag: "Urban Development & Real Estate",
+    title: "Hoti Hotéis CEO announces opening of Meliá hotel in Luanda",
+    externalHref: "https://forbesafricalusofona.com/ceo-da-hoti-hoteis-anuncia-abertura-de-hotel-melia-em-luanda/",
+    ctaLabel: "Explore Hoti Hotéis",
+    slideGroup: "urban-development",
+    excerpt:
+      "With contracts already signed, the five-star hotel, which will feature 250 rooms, will be built in the Waterfalls Complex, near the Fortaleza de São Miguel de Luanda.",
+    content: `With contracts already signed, the five-star hotel, which will feature 250 rooms, will be built in the Waterfalls Complex, near the Fortaleza de São Miguel de Luanda.`,
+  },
+  {
+    slug: "ngunu-tiny-hoti-melia-angola",
+    date: "March 2024",
+    category: "Urban Development & Real Estate",
+    tag: "Urban Development & Real Estate",
+    title: "N'Gunu Tiny partners with Hoti Group on Meliá Angola",
+    externalHref: "https://www.jornaldenegocios.pt/empresas/detalhe/ngunu-tiny-e-parceiro-do-grupo-hoti-no-melia-angola",
+    ctaLabel: "Explore Hoti at Meliá Angola",
+    slideGroup: "urban-development",
+    excerpt:
+      "Portuguese group Hoti Hotéis will manage and hold a minority stake in Meliá Angola, which is set to open by 2028 at the latest. The majority shareholders are IBG Group and Emerald Group, owned by Angolan businessman N'Gunu Tiny.",
+    content: `Portuguese group Hoti Hotéis will manage and hold a minority stake in Meliá Angola, which is set to open by 2028 at the latest. The majority shareholders are IBG Group and Emerald Group, owned by Angolan businessman N'Gunu Tiny.`,
   },
   {
     slug: "ibg-grown-filda-2026",
@@ -58,6 +100,7 @@ export const articles: Article[] = [
     title: "Shaping Africa's Property Landscape",
     externalHref: "https://diaarproperties.com/",
     ctaLabel: "Explore Diaarproperties",
+    slideGroup: "urban-development",
     excerpt:
       "Striving to transform Diaar Limited, an Emerald Group Company, into one of the Sub-Saharan Africa's leading property firms, offering competitive returns to investors and tangible benefits for cities and communities.",
     content: `Striving to transform Diaar Limited, an Emerald Group Company, into one of the Sub-Saharan Africa's leading property firms, offering competitive returns to investors and tangible benefits for cities and communities.`,
@@ -72,6 +115,20 @@ export const articles: Article[] = [
       "Emerald Resources and LVC Global Holdings have come together to form Emerald Global Resources (EGR), launching a new Abu Dhabi–headquartered natural-resources platform designed to operate at scale across Africa and the wider Global South.",
     externalHref: "https://www.cnbcafrica.com/2026/emerald-resources-and-lvc-global-holdings-unite-to-form-emerald-global-resources",
     ctaLabel: "Explore cnbcafrica",
+    slideGroup: "emerald-global-resources",
+    content: `Emerald Resources and LVC Global Holdings have come together to form Emerald Global Resources (EGR), launching a new Abu Dhabi–headquartered natural-resources platform designed to operate at scale across Africa and the wider Global South.`,
+  },
+  {
+    slug: "emerald-global-resources-lvc-global-holdings-forbes",
+    date: "February 2026",
+    category: "Energy & Resources",
+    tag: "Energy & Resources",
+    title: "Emerald Resources and LVC Global Holdings Unite to Form Emerald Global Resources",
+    excerpt:
+      "Emerald Resources and LVC Global Holdings have come together to form Emerald Global Resources (EGR), launching a new Abu Dhabi–headquartered natural-resources platform designed to operate at scale across Africa and the wider Global South.",
+    externalHref: "https://www.forbesafrica.com/current-affairs/briefs/2026/02/02/emerald-resources-and-lvc-global-holdings-unite-to-form-emerald-global-resources",
+    ctaLabel: "Explore LVC Global Holdings Unite",
+    slideGroup: "emerald-global-resources",
     content: `Emerald Resources and LVC Global Holdings have come together to form Emerald Global Resources (EGR), launching a new Abu Dhabi–headquartered natural-resources platform designed to operate at scale across Africa and the wider Global South.`,
   },
   {

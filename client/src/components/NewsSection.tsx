@@ -28,51 +28,41 @@ export default function NewsSection() {
           </Link> */}
         </div>
 
-        {/* Featured article */}
+        {/* Featured article — editorial cover */}
         <div
-          className="rounded-sm overflow-hidden mb-6"
-          style={{ background: "var(--eg-dark)" }}
+          className="relative overflow-hidden rounded-sm mb-6"
+          style={{ background: `linear-gradient(135deg, oklch(0.10 0.02 165) 0%, oklch(0.20 0.10 155) 100%)` }}
         >
-          <div className="grid lg:grid-cols-2">
-            <div className="p-8 lg:p-12 flex flex-col justify-between">
-              <div>
-                <div className="flex items-center gap-3 mb-6">
-                  <span
-                    className="text-xs font-semibold tracking-widest uppercase px-2 py-1 rounded-sm"
-                    style={{ background: "#02d49e", color: "#1e1f1f", animation: "featuredBlink 1.4s ease-in-out infinite" }}
-                  >
-                    Featured
-                  </span>
-                  <style>{`@keyframes featuredBlink { 0%,100%{opacity:1} 50%{opacity:0.25} }`}</style>
-                  <span className="text-xs text-white/40 flex items-center gap-1">
-                    <Calendar size={10} />
-                    March 2025
-                  </span>
-                </div>
-                <h3
-                  className="text-2xl lg:text-3xl font-bold text-white mb-4 leading-tight"
-                                  >
-                  Emerald Group has strategic presence and expansion across different regions.
-                </h3>
-                <p className="text-sm text-white/60 leading-relaxed">
-                  Emerald Group unveils a comprehensive five-year strategic plan to deepen its presence
-                  across Sub-Saharan Africa, with targeted investments in infrastructure, financial services,
-                  and digital technology.
-                </p>
-              </div>
+          <div
+            className="absolute inset-0 opacity-[0.06] pointer-events-none"
+            style={{ backgroundImage: "radial-gradient(rgba(255,255,255,0.6) 1px, transparent 1px)", backgroundSize: "18px 18px" }}
+          />
+          <div className="relative p-10 lg:p-16 max-w-3xl">
+            <div className="flex items-center gap-3 mb-6">
+              <span
+                className="text-xs font-semibold tracking-widest uppercase px-2 py-1 rounded-sm"
+                style={{ background: "#02d49e", color: "#1e1f1f", animation: "featuredBlink 1.4s ease-in-out infinite" }}
+              >
+                Featured
+              </span>
+              <style>{`@keyframes featuredBlink { 0%,100%{opacity:1} 50%{opacity:0.25} }`}</style>
+              <span className="text-xs text-white/40 flex items-center gap-1">
+                <Calendar size={10} />
+                March 2025
+              </span>
             </div>
-            <div
-              className="hidden lg:block min-h-64 relative"
-              style={{ background: `linear-gradient(135deg, oklch(0.33 0.14 158) 0%, oklch(0.62 0.14 135) 100%)` }}
+            <h3
+              className="text-3xl lg:text-4xl font-bold text-white mb-6 leading-tight"
+              style={{ fontFamily: "Playfair Display, serif" }}
             >
-              <div className="absolute inset-0 flex items-center justify-center opacity-20 p-8">
-                <img
-                  src="https://d2xsxph8kpxj0f.cloudfront.net/310519663184082639/28Rt9uMprGDPTN4Qw2hwyo/emerald-logo-dark_23cb6a99.png"
-                  alt=""
-                  className="w-full max-w-xs object-contain"
-                />
-              </div>
-            </div>
+              Emerald Group has strategic presence and expansion across different regions.
+            </h3>
+            <div className="h-1 w-16 rounded-full mb-6" style={{ background: "var(--eg-orange)" }} />
+            <p className="text-sm text-white/60 leading-relaxed max-w-xl">
+              Emerald Group unveils a comprehensive five-year strategic plan to deepen its presence
+              across Sub-Saharan Africa, with targeted investments in infrastructure, financial services,
+              and digital technology.
+            </p>
           </div>
         </div>
 

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import { Link } from "wouter";
 import { ChevronDown, Linkedin } from "lucide-react";
 import Footer from "@/components/Footer";
@@ -108,11 +108,14 @@ function TierBranch({
   members,
   accent,
   size,
+  breakAfter,
 }: {
   label: string;
   members: LeadershipMember[];
   accent: string;
   size: "md" | "sm";
+  /** Force a row break after this many members, regardless of viewport width. */
+  breakAfter?: number;
 }) {
   const [expanded, setExpanded] = useState(true);
 
@@ -143,7 +146,10 @@ function TierBranch({
         >
           <div className="flex flex-wrap justify-center gap-x-6 gap-y-8 pt-5 pb-2">
             {members.map((m, i) => (
-              <PersonNode key={`${m.name}-${i}`} member={m} size={size} accent={accent} />
+              <Fragment key={m.name + i}>
+                <PersonNode member={m} size={size} accent={accent} />
+                {breakAfter && i === breakAfter - 1 && <div className="basis-full h-0" />}
+              </Fragment>
             ))}
           </div>
         </div>
@@ -247,7 +253,7 @@ export default function Leadership() {
 
           {/* Executive branch */}
           <div className="leader-reveal">
-            <TierBranch label="Group Executive Board" members={execRest} accent="var(--eg-cyan)" size="md" />
+            <TierBranch label="Group Executive Board" members={execRest} accent="var(--eg-cyan)" size="md" breakAfter={4} />
           </div>
 
           {/* Senior Officers branch */}

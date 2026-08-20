@@ -16,10 +16,10 @@ interface EventHighlight {
 
 // ── TODO: substituir title/desc por eventos reais (a marca já está definida) ──
 const eventHighlights: EventHighlight[] = [
-  { brand: "Jornal Económico & Forbes África Lusófona", title: "Doing Business Angola 2026", desc: "The 2026 edition of Doing Business Angola continues the analysis of Angola's key economic sectors, focusing on identifying investment opportunities and strengthening dialogue between international investors and the Angolan market." },
-  { brand: "Forbes África Lusófona", title: "Forbes Social Responsibility Awards 2026", desc: "Now in its 4th edition, the initiative recognises Angolan companies that stand out for the positive impact of their social projects, the integration of sustainability into their strategy, and their commitment to community development." },
-  { brand: "Forbes Portugal", title: "Event Title Here", desc: "Placeholder description — replace with real event details, date and location." },
-  { brand: "Jornal Económico", title: "Event Title Here", desc: "Placeholder description — replace with real event details, date and location." },
+  { brand: "Jornal Económico & Forbes África Lusófona", title: "Doing Business Angola", desc: "The event will continue to bring together participants from different geographies and investment profiles, establishing itself as a leading platform for knowledge sharing, partnership building and the generation of new business opportunities." },
+  { brand: "Forbes África Lusófona", title: "Forbes Social Responsibility Awards", desc: "The goal of the Forbes Social Responsibility Awards Angola is to contribute to the maintenance of peace, the development of the economy, and the building of a prosperous future." },
+  { brand: "Forbes Portugal", title: "Forbes Annual Summit", desc: "The event aims to foster the exchange of ideas and the creation of concrete solutions for the challenges facing the global and regional economy. More than a space for debate, it will be a platform for strategic action, where bridges are built, networks strengthened, and paths drawn towards a more inclusive, resilient and prosperous future." },
+  { brand: "Jornal Económico", title: "Banking Forum", desc: "The event stands out as one of the leading stages for reflection and decision-making on the future of banking amid rapid technological, regulatory and geopolitical transformation." },
 ];
 
 const slides: SlideItem[] = [

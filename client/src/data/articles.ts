@@ -8,26 +8,23 @@ export interface Article {
   image?: string;
   content?: string;
   externalHref?: string;
+  /** Custom text for the card's CTA link. Defaults to "Read more". */
+  ctaLabel?: string;
 }
 
 export const articles: Article[] = [
   {
     slug: "banco-millennium-atlantico-2024",
-    date: "March 2025",
-    category: "Banking & Finance",
-    tag: "Financial Services",
-    title: "Banco Millennium Atlântico Reports Record Growth in 2024",
+    date: "May 2026",
+    category: "Banking & FS",
+    tag: "Banking & FS",
+    title: "Banco Millennium Atlântico Increases Profit by 80.60% in Q1 2026",
     excerpt:
-      "Angola's leading commercial bank posts its strongest annual results, driven by digital transformation and expanded retail banking services.",
+      "Figures extracted from Banco Millennium Atlântico's (BMA) balance sheet for the first 90 days of the current year indicate a robust performance in the ongoing financial year, reflecting an absolute increase in profit of AOA 2.29 billion (US$ 2.51 million).",
     image: "/IMGBLOG/Millennium-Angola.png",
+    ctaLabel: "Explore Banco Millennium Atlântico",
     externalHref: "https://relatorioecontas.atlantico.ao/2024/en/start/#1",
-    content: `Banco Millennium Atlântico (BMA) ended 2024 with a net profit of 16.8 billion Angolan kwanzas (17.6 million euros), representing an 85% increase on the previous year's results, according to the local newspaper Telegrama.
-
-Despite the rise in profits, core revenues fell, according to the local newspaper.
-
-The Angolan bank, 22.5% owned by BCP África SGPS, has been reported to be up for sale, a claim the bank led by Miguel Raposo Alves has denied.
-
-Angolan newspapers have reported that there are parties interested in buying Millennium Atlântico and have mentioned negotiations with First Bank and interest from Access Bank Plc. The bank has denied that First Bank is in the running.`,
+    content: `Figures extracted from Banco Millennium Atlântico's (BMA) balance sheet for the first 90 days of the current year indicate a robust performance in the ongoing financial year, reflecting an absolute increase in profit of AOA 2.29 billion (US$ 2.51 million).`,
   },
   {
     slug: "forbes-africa-15-years",
@@ -45,19 +42,16 @@ Over the past 15 years, Forbes Africa has grown to become the continent's premie
 The anniversary edition features exclusive interviews with Africa's leading CEOs and a special retrospective on the continent's most transformative business moments of the past decade and a half.`,
   },
   {
-    slug: "emerald-infrastructure-logistics-hub",
-    date: "January 2025",
+    slug: "ibg-grown-filda-2026",
+    date: "July 2026",
     category: "Infrastructure",
     tag: "Infrastructure",
-    title: "Emerald Infrastructure Breaks Ground on New Logistics Hub",
-    externalHref: "#",
+    title: "IBG & Grown at FILDA",
+    externalHref: "https://www.linkedin.com/posts/ibg-na-filda-2026-ugcPost-7491470417300340736-08uX/",
+    ctaLabel: "Explore IBG",
     excerpt:
-      "Emerald Infrastructure announces the commencement of construction on a major logistics and distribution hub, set to transform supply chain capabilities.",
-    content: `Emerald Infrastructure announces the commencement of construction on a major logistics and distribution hub, set to transform supply chain capabilities across the region.
-
-The new facility, strategically located to serve as a regional gateway, will feature state-of-the-art warehousing, cold chain capabilities, and multimodal transport connections. The hub is expected to create over 500 direct jobs upon completion.
-
-The project represents a significant milestone in Emerald Group's infrastructure strategy, reinforcing its commitment to developing critical assets that underpin economic growth.`,
+      "Between meetings, exchanges and new opportunities, these were days of closeness and strengthened relationships, in a market where we continue to build with a vision for the future.",
+    content: `Between meetings, exchanges and new opportunities, these were days of closeness and strengthened relationships, in a market where we continue to build with a vision for the future.`,
   },
   {
     slug: "one-luanda-phase-ii",
@@ -107,7 +101,7 @@ The launch marks a significant step in Emerald Group's digital transformation st
 ];
 
 export const tagColors: Record<string, string> = {
-  "Financial Services": "oklch(0.50 0.17 155)",
+  "Banking & FS": "oklch(0.50 0.17 155)",
   "Media & Technology": "oklch(0.75 0.12 80)",
   "Infrastructure": "oklch(0.50 0.17 155)",
   "Urban Development": "oklch(0.75 0.12 80)",

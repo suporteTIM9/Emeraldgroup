@@ -124,7 +124,7 @@ export default function NewsSection() {
                   className="flex items-center gap-1 text-xs font-semibold transition-all group-hover:gap-2 mt-auto hover:text-white"
                   style={{ color: tagColors[item.tag] }}
                 >
-                  Read more
+                  {item.ctaLabel ?? "Read more"}
                   <ArrowRight size={12} />
                 </a>
               )}
@@ -133,7 +133,7 @@ export default function NewsSection() {
                   className="flex items-center gap-1 text-xs font-semibold mt-auto transition-colors hover:text-white"
                   style={{ color: tagColors[item.tag] }}
                 >
-                  Read more
+                  {item.ctaLabel ?? "Read more"}
                   <ArrowRight size={12} />
                 </span>
               )}
@@ -143,7 +143,7 @@ export default function NewsSection() {
                   className="flex items-center gap-1 text-xs font-semibold transition-all group-hover:gap-2 mt-auto hover:text-white"
                   style={{ color: tagColors[item.tag] }}
                 >
-                  Read more
+                  {item.ctaLabel ?? "Read more"}
                   <ArrowRight size={12} />
                 </Link>
               )}

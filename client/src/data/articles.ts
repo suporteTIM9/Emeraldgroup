@@ -63,19 +63,16 @@ export const articles: Article[] = [
     content: `Striving to transform Diaar Limited, an Emerald Group Company, into one of the Sub-Saharan Africa's leading property firms, offering competitive returns to investors and tangible benefits for cities and communities.`,
   },
   {
-    slug: "nino-oil-exploration-licence",
-    date: "November 2024",
+    slug: "emerald-global-resources-lvc-global-holdings",
+    date: "February 2026",
     category: "Energy & Resources",
     tag: "Energy & Resources",
-    title: "Nino Oil Secures New Exploration Licence",
+    title: "Emerald Resources and LVC Global Holdings Unite to Form Emerald Global Resources",
     excerpt:
-      "Nino Oil announces the award of a significant new exploration licence, expanding Emerald Group's footprint in the natural resources sector.",
-    externalHref: "https://ninogas.com/",
-    content: `Nino Oil announces the award of a significant new exploration licence, expanding Emerald Group's footprint in the natural resources sector.
-
-The newly awarded licence covers a prospective acreage with strong geological indicators, building on Nino Oil's track record of responsible resource development in Sub-Saharan Africa.
-
-The company remains committed to maximising local content, environmental stewardship, and sustainable value creation as it progresses its exploration programme.`,
+      "Emerald Resources and LVC Global Holdings have come together to form Emerald Global Resources (EGR), launching a new Abu Dhabi–headquartered natural-resources platform designed to operate at scale across Africa and the wider Global South.",
+    externalHref: "https://www.cnbcafrica.com/2026/emerald-resources-and-lvc-global-holdings-unite-to-form-emerald-global-resources",
+    ctaLabel: "Explore cnbcafrica",
+    content: `Emerald Resources and LVC Global Holdings have come together to form Emerald Global Resources (EGR), launching a new Abu Dhabi–headquartered natural-resources platform designed to operate at scale across Africa and the wider Global South.`,
   },
   {
     slug: "banko-digital-banking-three-markets",

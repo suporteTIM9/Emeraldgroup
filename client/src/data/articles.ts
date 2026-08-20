@@ -27,19 +27,16 @@ export const articles: Article[] = [
     content: `Figures extracted from Banco Millennium Atlântico's (BMA) balance sheet for the first 90 days of the current year indicate a robust performance in the ongoing financial year, reflecting an absolute increase in profit of AOA 2.29 billion (US$ 2.51 million).`,
   },
   {
-    slug: "forbes-africa-15-years",
-    date: "February 2025",
-    category: "Media",
-    tag: "Media & Technology",
-    title: "Forbes Africa Celebrates 15 Years of Business Journalism",
-    externalHref: "#",
+    slug: "forbes-africa-durban-dialogues",
+    date: "August 2026",
+    category: "Telecom, Media & Technology",
+    tag: "Telecom, Media & Technology",
+    title: "FORBES AFRICA Launches ‘The Durban Dialogues’ Ahead Of 15th Anniversary",
+    externalHref: "https://www.forbesafrica.com/press/2026/08/06/forbes-africa-launches-the-durban-dialogues-ahead-of-15th-anniversary",
+    ctaLabel: "Explore FORBES AFRICA",
     excerpt:
-      "Forbes Africa marks a milestone anniversary, reaffirming its commitment to showcasing Africa's most influential business leaders and entrepreneurs.",
-    content: `Forbes Africa marks a milestone anniversary, reaffirming its commitment to showcasing Africa's most influential business leaders and entrepreneurs.
-
-Over the past 15 years, Forbes Africa has grown to become the continent's premier business media platform, featuring the stories of entrepreneurs, investors, and innovators who are shaping Africa's economic future.
-
-The anniversary edition features exclusive interviews with Africa's leading CEOs and a special retrospective on the continent's most transformative business moments of the past decade and a half.`,
+      "As FORBES AFRICA prepares to celebrate its milestone 15th anniversary in October, the award-winning pan-African business magazine is launching The Dialogues series by FORBES AFRICA, a new live, in-person event platform designed to spark meaningful conversations around Africa's opportunities, ideas, innovations, and challenges.",
+    content: `As FORBES AFRICA prepares to celebrate its milestone 15th anniversary in October, the award-winning pan-African business magazine is launching The Dialogues series by FORBES AFRICA, a new live, in-person event platform designed to spark meaningful conversations around Africa's opportunities, ideas, innovations, and challenges.`,
   },
   {
     slug: "ibg-grown-filda-2026",
@@ -102,7 +99,7 @@ The launch marks a significant step in Emerald Group's digital transformation st
 
 export const tagColors: Record<string, string> = {
   "Banking & FS": "oklch(0.50 0.17 155)",
-  "Media & Technology": "oklch(0.75 0.12 80)",
+  "Telecom, Media & Technology": "oklch(0.75 0.12 80)",
   "Infrastructure": "oklch(0.50 0.17 155)",
   "Urban Development": "oklch(0.75 0.12 80)",
   "Energy & Resources": "oklch(0.50 0.17 155)",

@@ -16,7 +16,7 @@ interface EventHighlight {
 
 // ── TODO: substituir title/desc por eventos reais (a marca já está definida) ──
 const eventHighlights: EventHighlight[] = [
-  { brand: "Jornal Económico & Forbes África Lusófona", title: "Event Title Here", desc: "Placeholder description — replace with real event details, date and location." },
+  { brand: "Jornal Económico & Forbes África Lusófona", title: "Doing Business Angola 2026", desc: "A edição de 2026 do Doing Business Angola dará continuidade à análise dos principais setores da economia angolana, com foco na identificação de oportunidades de investimento e no reforço do diálogo entre investidores internacionais e o mercado angolano." },
   { brand: "Forbes África Lusófona", title: "Event Title Here", desc: "Placeholder description — replace with real event details, date and location." },
   { brand: "Forbes Portugal", title: "Event Title Here", desc: "Placeholder description — replace with real event details, date and location." },
   { brand: "Jornal Económico", title: "Event Title Here", desc: "Placeholder description — replace with real event details, date and location." },

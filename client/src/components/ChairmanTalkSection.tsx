@@ -180,7 +180,7 @@ export default function ChairmanTalkSection() {
 
           {/* Stacked talks — flow normally so they scroll past the sticky feature */}
           {rest.length > 0 && (
-            <div className="lg:col-span-5 lg:self-stretch flex flex-col justify-between gap-5">
+            <div className="lg:col-span-5 flex flex-col gap-5">
               {rest.map((item) => (
                 <Link key={item.slug} href={`/chairmans-talk/${item.slug}`} className="block animate-in fade-in-0 duration-500">
                   <article

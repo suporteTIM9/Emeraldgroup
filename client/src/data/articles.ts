@@ -75,19 +75,16 @@ export const articles: Article[] = [
     content: `Emerald Resources and LVC Global Holdings have come together to form Emerald Global Resources (EGR), launching a new Abu Dhabi–headquartered natural-resources platform designed to operate at scale across Africa and the wider Global South.`,
   },
   {
-    slug: "banko-digital-banking-three-markets",
-    date: "October 2024",
-    category: "Technology",
-    tag: "Telecom & Technology",
-    title: "Banko Launches Digital Banking Platform Across Three Markets",
+    slug: "nyu-executive-education",
+    date: "April 2025",
+    category: "Education & Leadership",
+    tag: "Education & Leadership",
+    title: "Executive Education",
     excerpt:
-      "Emerald Group's digital banking arm, Banko, expands its innovative platform to three new markets, accelerating financial inclusion across the region.",
-    externalHref: "https://www.retailbankerinternational.com/news/barko-plans-launch-digital-bank-south-africa/",
-    content: `Emerald Group's digital banking arm, Banko, expands its innovative platform to three new markets, accelerating financial inclusion across the region.
-
-The expansion brings Banko's mobile-first banking services to hundreds of thousands of previously underserved customers, offering payments, savings, and credit solutions through a seamless digital experience.
-
-The launch marks a significant step in Emerald Group's digital transformation strategy, demonstrating the Group's commitment to leveraging technology as a driver of inclusive economic growth.`,
+      "Join an exclusive cohort of executives at NYU in one of our week-long upcoming programs. Connect across industries through guided in-class collaboration, insightful discussions, and off-campus networking events.",
+    externalHref: "https://www.sps.nyu.edu/connect/custom-educational-programs/lab-for-transformative-leadership/executive-education.html#Upcoming-Events-48812",
+    ctaLabel: "Explore Education",
+    content: `Join an exclusive cohort of executives at NYU in one of our week-long upcoming programs. Connect across industries through guided in-class collaboration, insightful discussions, and off-campus networking events.`,
   },
 ];
 
@@ -97,5 +94,5 @@ export const tagColors: Record<string, string> = {
   "Infrastructure": "oklch(0.50 0.17 155)",
   "Urban Development & Real Estate": "oklch(0.75 0.12 80)",
   "Energy & Resources": "oklch(0.50 0.17 155)",
-  "Telecom & Technology": "oklch(0.75 0.12 80)",
+  "Education & Leadership": "oklch(0.75 0.12 80)",
 };

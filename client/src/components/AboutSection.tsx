@@ -138,20 +138,26 @@ export default function AboutSection() {
               ))}
             </div>
 
-            {/* Visual accent block */}
-            <div
-              className="mt-6 p-10 rounded-2xl text-white shadow-xl"
-              style={{
-                background: `linear-gradient(135deg, #1e1f1f 0%, #02f9ba 100%)`,
-              }}
-            >
-              <p className="tracking-widest uppercase mb-3" style={{ fontFamily: "Quantico, sans-serif", fontWeight: 700, fontSize: "0.85rem", color: "white" }}>
-                Our Purpose
-              </p>
-              <p className="opacity-90" style={{ fontFamily: "Nunito Sans, sans-serif", fontWeight: 300, fontSize: "0.95rem", lineHeight: "1.5", color: "white" }}>
-                Connecting Africa to global financial centres — creating new markets that drive
-                economic growth.
-              </p>
+            {/* Visual accent — compact institutional badge */}
+            <div className="mt-6 flex justify-center">
+              <div
+                className="inline-flex items-center gap-2.5 rounded-full px-8 py-3.5 text-white shadow-lg"
+                style={{
+                  background: `linear-gradient(135deg, #5c0f16 0%, #9c1c25 55%, #c0272f 100%)`,
+                  boxShadow: "0 10px 28px rgba(156,28,37,0.35)",
+                }}
+              >
+                <span
+                  className="h-1.5 w-1.5 rounded-full shrink-0"
+                  style={{ background: "#ffd7d9" }}
+                />
+                <span
+                  className="tracking-[0.15em] uppercase"
+                  style={{ fontFamily: "Quantico, sans-serif", fontWeight: 700, fontSize: "0.85rem" }}
+                >
+                  Our Purpose
+                </span>
+              </div>
             </div>
           </div>
         </div>

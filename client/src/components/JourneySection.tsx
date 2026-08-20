@@ -1,6 +1,4 @@
 import { useEffect, useRef } from "react";
-import { Link } from "wouter";
-import { ArrowRight } from "lucide-react";
 import { milestones } from "@/data/journey";
 
 export default function JourneySection() {
@@ -127,30 +125,13 @@ export default function JourneySection() {
           <span className="section-label">03 — Journey</span>
           <div className="h-px flex-1 max-w-16" style={{ background: "var(--eg-cyan)" }} />
         </div>
-        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-16">
+        <div className="mb-16">
           <h2
             className="js-reveal text-4xl lg:text-5xl font-bold leading-tight max-w-xl"
             style={{ color: "var(--eg-dark)" }}
           >
             Charting Emerald Group's Journey
           </h2>
-          <div className="js-reveal" style={{ transitionDelay: "0.15s" }}>
-            <p
-              className="text-sm max-w-sm leading-relaxed"
-              style={{ color: "var(--eg-dark)" }}
-            >
-              From our founding to today, our journey reflects a commitment to building enduring businesses
-              that create value across generations.
-            </p>
-            <Link
-              href="/journey"
-              className="mt-4 inline-flex items-center gap-2 text-sm font-semibold transition-all hover:gap-3"
-              style={{ color: "var(--eg-cyan)" }}
-            >
-              Read the Full Story
-              <ArrowRight size={14} />
-            </Link>
-          </div>
         </div>
 
         {/* Timeline */}

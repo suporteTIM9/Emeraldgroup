@@ -447,7 +447,7 @@ export default function HeroSection() {
               {latestItems.map((item, i) => (
                 <span
                   key={i}
-                  className={`absolute inset-0 text-base text-white whitespace-nowrap transition-opacity duration-700 ${i === tickerIndex ? "opacity-100" : "opacity-0"}`}
+                  className={`absolute inset-0 text-sm sm:text-base text-white whitespace-nowrap overflow-hidden text-ellipsis transition-opacity duration-700 ${i === tickerIndex ? "opacity-100" : "opacity-0"}`}
                 >
                   {item}
                 </span>

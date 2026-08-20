@@ -148,7 +148,7 @@ function TierBranch({
             {members.map((m, i) => (
               <Fragment key={m.name + i}>
                 <PersonNode member={m} size={size} accent={accent} />
-                {breakAfter && i === breakAfter - 1 && <div className="basis-full h-0" />}
+                {breakAfter && i === breakAfter - 1 && <div className="hidden lg:block lg:basis-full lg:h-0" />}
               </Fragment>
             ))}
           </div>

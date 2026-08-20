@@ -30,7 +30,7 @@ export default function NewsSection() {
 
         {/* Featured article */}
         <div
-          className="rounded-sm overflow-hidden mb-6 group cursor-pointer"
+          className="rounded-sm overflow-hidden mb-6"
           style={{ background: "var(--eg-dark)" }}
         >
           <div className="grid lg:grid-cols-2">
@@ -52,7 +52,7 @@ export default function NewsSection() {
                 <h3
                   className="text-2xl lg:text-3xl font-bold text-white mb-4 leading-tight"
                                   >
-                  Emerald Group Announces Strategic Expansion Across Sub-Saharan Africa
+                  Emerald Group has strategic presence and expansion across different regions.
                 </h3>
                 <p className="text-sm text-white/60 leading-relaxed">
                   Emerald Group unveils a comprehensive five-year strategic plan to deepen its presence
@@ -60,18 +60,6 @@ export default function NewsSection() {
                   and digital technology.
                 </p>
               </div>
-              <a
-                href="https://www.caason.com.au/caason-group-x-emerald-global-resources/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 text-sm font-semibold mt-8 transition-all hover:gap-3"
-                style={{ color: "#02f9ba" }}
-                onMouseEnter={e => (e.currentTarget.style.color = "#fff")}
-                onMouseLeave={e => (e.currentTarget.style.color = "#02f9ba")}
-              >
-                Read more
-                <ArrowRight size={14} />
-              </a>
             </div>
             <div
               className="hidden lg:block min-h-64 relative"

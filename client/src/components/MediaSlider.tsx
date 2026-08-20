@@ -17,7 +17,9 @@ interface EventHighlight {
 // ── TODO: substituir title/desc por eventos reais (a marca já está definida) ──
 const eventHighlights: EventHighlight[] = [
   { brand: "Jornal Económico & Forbes África Lusófona", title: "Event Title Here", desc: "Placeholder description — replace with real event details, date and location." },
-  { brand: "Forbes África Lusófona, Forbes Portugal, Jornal Económico", title: "Event Title Here", desc: "Placeholder description — replace with real event details, date and location." },
+  { brand: "Forbes África Lusófona", title: "Event Title Here", desc: "Placeholder description — replace with real event details, date and location." },
+  { brand: "Forbes Portugal", title: "Event Title Here", desc: "Placeholder description — replace with real event details, date and location." },
+  { brand: "Jornal Económico", title: "Event Title Here", desc: "Placeholder description — replace with real event details, date and location." },
 ];
 
 const slides: SlideItem[] = [
@@ -136,7 +138,7 @@ export default function MediaSlider() {
             shaping their sectors.
           </p>
         </div>
-        <div className="grid sm:grid-cols-2 gap-5">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {eventHighlights.map((event, i) => (
             <div
               key={i}

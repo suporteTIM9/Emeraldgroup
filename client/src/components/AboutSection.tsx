@@ -146,11 +146,11 @@ export default function AboutSection() {
               }}
             >
               <p className="tracking-widest uppercase mb-3" style={{ fontFamily: "Quantico, sans-serif", fontWeight: 700, fontSize: "0.85rem", color: "white" }}>
-                Headquarters
+                Our Purpose
               </p>
               <p className="opacity-90" style={{ fontFamily: "Nunito Sans, sans-serif", fontWeight: 300, fontSize: "0.95rem", lineHeight: "1.5", color: "white" }}>
-                Emerald Group operates from its principal offices with a presence across multiple African
-                markets and international financial centres.
+                Connecting Africa to global financial centres — creating new markets that drive
+                economic growth.
               </p>
             </div>
           </div>

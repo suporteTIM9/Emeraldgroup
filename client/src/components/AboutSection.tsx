@@ -138,25 +138,29 @@ export default function AboutSection() {
               ))}
             </div>
 
-            {/* Visual accent — compact institutional badge */}
-            <div className="mt-6 flex justify-center">
-              <div
-                className="inline-flex items-center gap-2.5 rounded-full px-8 py-3.5 text-white shadow-lg"
-                style={{
-                  background: `linear-gradient(135deg, #5c0f16 0%, #9c1c25 55%, #c0272f 100%)`,
-                  boxShadow: "0 10px 28px rgba(156,28,37,0.35)",
-                }}
-              >
-                <span
-                  className="h-1.5 w-1.5 rounded-full shrink-0"
-                  style={{ background: "#ffd7d9" }}
-                />
-                <span
-                  className="tracking-[0.15em] uppercase"
-                  style={{ fontFamily: "Quantico, sans-serif", fontWeight: 700, fontSize: "0.85rem" }}
+            {/* Visual accent — dark closing banner */}
+            <div
+              className="mt-6 flex items-center gap-5 rounded-lg px-7 py-5 text-white shadow-lg"
+              style={{
+                background: `linear-gradient(115deg, #14251f 0%, #0d3b30 45%, #02866a 100%)`,
+                boxShadow: "0 10px 30px rgba(2,134,106,0.22)",
+              }}
+            >
+              <div className="h-8 w-px shrink-0" style={{ background: "rgba(255,255,255,0.25)" }} />
+              <div>
+                <p
+                  className="tracking-[0.15em] uppercase mb-1.5"
+                  style={{ fontFamily: "Quantico, sans-serif", fontWeight: 700, fontSize: "0.72rem", color: "#02f9ba" }}
                 >
                   Our Purpose
-                </span>
+                </p>
+                <p
+                  className="opacity-95"
+                  style={{ fontFamily: "Nunito Sans, sans-serif", fontWeight: 400, fontSize: "0.92rem", lineHeight: "1.5" }}
+                >
+                  Connecting Africa to global financial centres — creating new markets that drive
+                  economic growth.
+                </p>
               </div>
             </div>
           </div>

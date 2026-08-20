@@ -51,18 +51,19 @@ export default function NewsSection() {
             className="absolute inset-0 pointer-events-none"
             style={{ background: "radial-gradient(120% 100% at 15% 100%, rgba(0,0,0,0) 0%, rgba(0,0,0,0.5) 70%, rgba(0,0,0,0.75) 100%)" }}
           />
-          <div className="relative p-10 lg:p-16 max-w-3xl">
+          <div className="relative p-10 lg:p-16 max-w-2xl lg:max-w-4xl">
             <div className="flex items-center gap-3 mb-6">
               <span
-                className="text-xs font-semibold tracking-widest uppercase px-2 py-1 rounded-sm"
-                style={{ background: "#02d49e", color: "#1e1f1f", animation: "featuredBlink 1.4s ease-in-out infinite" }}
+                className="inline-flex items-center gap-2 text-sm font-extrabold tracking-[0.15em] uppercase px-4 py-2 rounded-full"
+                style={{ background: "#02f9ba", color: "#0a1f1a", boxShadow: "0 0 24px rgba(2,249,186,0.55)" }}
               >
+                <span className="h-2 w-2 rounded-full" style={{ background: "#0a1f1a", animation: "featuredBlink 1.4s ease-in-out infinite" }} />
                 Featured
               </span>
               <style>{`@keyframes featuredBlink { 0%,100%{opacity:1} 50%{opacity:0.25} }`}</style>
               <span className="text-xs text-white/50 flex items-center gap-1">
                 <Calendar size={10} />
-                March 2025
+                March 2026
               </span>
             </div>
             <h3
@@ -72,7 +73,7 @@ export default function NewsSection() {
               Emerald Group has strategic presence and expansion across different regions.
             </h3>
             <div className="h-1 w-16 rounded-full mb-6" style={{ background: "var(--eg-orange)" }} />
-            <p className="text-sm text-white/75 leading-relaxed max-w-xl" style={{ textShadow: "0 1px 8px rgba(0,0,0,0.6)" }}>
+            <p className="text-sm text-white/75 leading-relaxed max-w-2xl" style={{ textShadow: "0 1px 8px rgba(0,0,0,0.6)" }}>
               Emerald Group unveils a comprehensive five-year strategic plan to deepen its presence
               across Sub-Saharan Africa, with targeted investments in infrastructure, financial services,
               and digital technology.

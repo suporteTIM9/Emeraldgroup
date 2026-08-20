@@ -45,7 +45,7 @@ export const leadershipGroups: LeadershipGroup[] = [
     members: [
       { name: "Joyce Nido", role: "Group Managing Director", spec: "UAE Office & Human Resources", photo: "/leadership/joyce-nido.png", linkedin: "https://www.linkedin.com/in/joyce-ann-nido-55198a47" },
       { name: "Eldine Zeferino", role: "Group Chief of Staff", photo: "/leadership/eldine-zeferino.png", linkedin: "https://www.linkedin.com/in/eldine-zeferino-8941b1239" },
-      { name: "Delfina Franco", role: "Executive Director", spec: "The Office of The Chairman & CEO" },
+      { name: "Delfina Franco", role: "Executive Director", spec: "The Office of The Chairman & CEO", linkedin: "https://www.linkedin.com/in/delfinafranco/" },
       { name: "Sílvia Mendes", role: "Group Managing Director", spec: "Risk & Capital Markets", photo: "/leadership/silvia-mendes.png", linkedin: "https://www.linkedin.com/in/silvia-vilarinho-morais-mendes-b304547a" },
       { name: "Temi Fernandes", role: "Group Managing Director", spec: "Investments", photo: "/leadership/temi-fernandes.png", linkedin: "https://www.linkedin.com/in/temi-tiny-rita-fernandes" },
       { name: "Rute Amorim", role: "Managing Director", spec: "Media9 Angola", photo: "/leadership/rute-amorim.png", linkedin: "https://www.linkedin.com/in/rute-amorim-50bb28a9" },

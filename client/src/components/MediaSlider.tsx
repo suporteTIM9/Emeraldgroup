@@ -20,6 +20,7 @@ const eventHighlights: EventHighlight[] = [
   { brand: "Forbes África Lusófona", title: "Forbes Social Responsibility Awards", desc: "The goal of the Forbes Social Responsibility Awards Angola is to contribute to the maintenance of peace, the development of the economy, and the building of a prosperous future." },
   { brand: "Forbes Portugal", title: "Forbes Annual Summit", desc: "The event aims to foster the exchange of ideas and the creation of concrete solutions for the challenges facing the global and regional economy. More than a space for debate, it will be a platform for strategic action, where bridges are built, networks strengthened, and paths drawn towards a more inclusive, resilient and prosperous future." },
   { brand: "Jornal Económico", title: "Banking Forum", desc: "The event stands out as one of the leading stages for reflection and decision-making on the future of banking amid rapid technological, regulatory and geopolitical transformation." },
+  { brand: "Forbes Africa", title: "Forbes Africa Day", desc: "Forbes Africa Day is a day hosted by Forbes Lusophone Africa, in collaboration between Forbes Africa and Forbes Afrique, in partnership with Forbes United States, to create a unique and powerful business experience." },
 ];
 
 const slides: SlideItem[] = [
@@ -139,10 +140,13 @@ export default function MediaSlider() {
           </p>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {eventHighlights.map((event, i) => (
+          {eventHighlights.map((event, i) => {
+            // If the last row would otherwise hold a single lonely card, let it span half the row instead.
+            const isLoneInLastRow = eventHighlights.length % 4 === 1 && i === eventHighlights.length - 1;
+            return (
             <div
               key={i}
-              className="p-5 rounded-sm border-l-[1.5px]"
+              className={`p-5 rounded-sm border-l-[1.5px] ${isLoneInLastRow ? "sm:col-span-2 lg:col-span-2" : ""}`}
               style={{ borderColor: "oklch(0.92 0.005 240)", borderLeftColor: "var(--eg-cyan)", background: "oklch(0.99 0.002 240)" }}
             >
               <div className="text-[10px] font-bold uppercase tracking-widest mb-2" style={{ color: "var(--eg-cyan)" }}>
@@ -151,7 +155,8 @@ export default function MediaSlider() {
               <h3 className="text-sm font-bold mb-2" style={{ color: "var(--eg-dark)" }}>{event.title}</h3>
               <p className="text-xs leading-relaxed" style={{ color: "var(--eg-dark)" }}>{event.desc}</p>
             </div>
-          ))}
+            );
+          })}
         </div>
       </div>
 

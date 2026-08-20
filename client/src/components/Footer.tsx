@@ -12,7 +12,7 @@ const footerLinks = [
     ],
   },
   {
-    heading: "Portfolio, Emerald Clusters",
+    heading: "Entities part of Emerald's clusters",
     links: [
       { label: "Banko Financial Group", href: "https://www.linkedin.com/company/banko-financial-group/" },
       { label: "IBG Africa", href: "https://www.linkedin.com/company/ibg-international-business-group/" },
@@ -22,6 +22,12 @@ const footerLinks = [
       { label: "Forbes Portugal", href: "https://www.forbespt.com/" },
       { label: "Jornal Económico", href: "https://jornaleconomico.sapo.pt/" },
       { label: "Polígrafo África", href: "https://poligrafo.sapo.pt/" },
+      { label: "Banco Millennium Atlântico", href: "https://www.atlantico.ao/" },
+      { label: "Grow Africa", href: "https://www.grow-eng.com/" },
+      { label: "TML", href: "https://www.linkedin.com/company/thaimocambiquelogistica/" },
+      { label: "Nino Oil", href: "https://ninogas.com" },
+      { label: "Diaar, ONE Luanda & ONE Hotéis", href: "https://diaarproperties.com" },
+      { label: "Emerald Education", href: "https://www.sps.nyu.edu/connect/custom-educational-programs/lab-for-transformative-leadership/executive-education.html" },
     ],
   },
   {

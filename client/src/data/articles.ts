@@ -51,19 +51,16 @@ export const articles: Article[] = [
     content: `Between meetings, exchanges and new opportunities, these were days of closeness and strengthened relationships, in a market where we continue to build with a vision for the future.`,
   },
   {
-    slug: "one-luanda-phase-ii",
-    date: "December 2024",
-    category: "Urban Development",
-    tag: "Urban Development",
-    title: "ONE Luanda Phase II Launches to Strong Demand",
-    externalHref: "#",
+    slug: "diaar-shaping-africa-property-landscape",
+    date: "June 2026",
+    category: "Urban Development & Real Estate",
+    tag: "Urban Development & Real Estate",
+    title: "Shaping Africa's Property Landscape",
+    externalHref: "https://diaarproperties.com/",
+    ctaLabel: "Explore Diaarproperties",
     excerpt:
-      "The second phase of the landmark ONE Luanda development is officially launched, responding to exceptional demand for premium urban living in Angola.",
-    content: `The second phase of the landmark ONE Luanda development is officially launched, responding to exceptional demand for premium urban living in Angola.
-
-Phase II introduces an additional 240 premium residential units across two new towers, along with expanded retail and leisure amenities. The launch saw overwhelming interest from both local and international buyers.
-
-ONE Luanda continues to redefine urban living standards in Luanda, setting new benchmarks for architecture, sustainability, and community living in Sub-Saharan Africa.`,
+      "Striving to transform Diaar Limited, an Emerald Group Company, into one of the Sub-Saharan Africa's leading property firms, offering competitive returns to investors and tangible benefits for cities and communities.",
+    content: `Striving to transform Diaar Limited, an Emerald Group Company, into one of the Sub-Saharan Africa's leading property firms, offering competitive returns to investors and tangible benefits for cities and communities.`,
   },
   {
     slug: "nino-oil-exploration-licence",
@@ -101,7 +98,7 @@ export const tagColors: Record<string, string> = {
   "Banking & FS": "oklch(0.50 0.17 155)",
   "Telecom, Media & Technology": "oklch(0.75 0.12 80)",
   "Infrastructure": "oklch(0.50 0.17 155)",
-  "Urban Development": "oklch(0.75 0.12 80)",
+  "Urban Development & Real Estate": "oklch(0.75 0.12 80)",
   "Energy & Resources": "oklch(0.50 0.17 155)",
   "Telecom & Technology": "oklch(0.75 0.12 80)",
 };

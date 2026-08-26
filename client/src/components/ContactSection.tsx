@@ -122,7 +122,7 @@ export default function ContactSection({ showHeader = true }: { showHeader?: boo
                 className="text-4xl lg:text-5xl font-bold leading-tight"
                 style={{ color: "var(--eg-dark)" }}
               >
-                Let's Build<br />Together
+                Let's Connect, Create. Grow Together.
               </h2>
               <p
                 className="text-sm max-w-sm leading-relaxed"

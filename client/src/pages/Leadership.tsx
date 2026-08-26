@@ -109,6 +109,7 @@ function TierBranch({
   accent,
   size,
   breakAfter,
+  showConnector = true,
 }: {
   label: string;
   members: LeadershipMember[];
@@ -116,12 +117,14 @@ function TierBranch({
   size: "md" | "sm";
   /** Force a row break after this many members, regardless of viewport width. */
   breakAfter?: number;
+  /** Hide the small vertical connector line above the tier (nothing above it to link to). */
+  showConnector?: boolean;
 }) {
   const [expanded, setExpanded] = useState(true);
 
   return (
     <div className="leader-tier">
-      <Connector accent={accent} />
+      {showConnector && <Connector accent={accent} />}
       <div
         className="pt-8"
         style={{ borderTop: `2px solid color-mix(in srgb, ${accent} 45%, transparent)` }}
@@ -183,10 +186,6 @@ export default function Leadership() {
   const execGroup = leadershipGroups.find((g) => g.heading === "Group Executive Board")!;
   const officersGroup = leadershipGroups.find((g) => g.heading === "Senior Officers")!;
 
-  const chairman = execGroup.members.find((m) => m.name === "N'Gunu Tiny")!;
-  const boardRest = boardGroup.members.filter((m) => m.name !== "N'Gunu Tiny");
-  const execRest = execGroup.members.filter((m) => m.name !== "N'Gunu Tiny");
-
   return (
     <div className="min-h-screen bg-white">
       <style>{`
@@ -237,23 +236,14 @@ export default function Leadership() {
       <div className="container py-16 sm:py-20">
         <div className="mx-auto max-w-5xl" ref={chartRef}>
 
-          {/* Root — Chairman & CEO */}
-          <div className="leader-reveal flex justify-center">
-            <PersonNode
-              member={{ name: chairman.name, role: "Chairman & Chief Executive Officer", photo: chairman.photo, linkedin: chairman.linkedin }}
-              size="lg"
-              accent="var(--eg-orange)"
-            />
-          </div>
-
           {/* Board branch */}
           <div className="leader-reveal">
-            <TierBranch label="Board of Directors" members={boardRest} accent="var(--eg-cyan)" size="md" />
+            <TierBranch label="Board of Directors" members={boardGroup.members} accent="var(--eg-cyan)" size="md" showConnector={false} />
           </div>
 
           {/* Executive branch */}
           <div className="leader-reveal">
-            <TierBranch label="Group Executive Board" members={execRest} accent="var(--eg-cyan)" size="md" breakAfter={4} />
+            <TierBranch label="Group Executive Board" members={execGroup.members} accent="var(--eg-cyan)" size="md" breakAfter={4} />
           </div>
 
           {/* Senior Officers branch */}

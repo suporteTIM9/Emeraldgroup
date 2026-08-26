@@ -14,6 +14,16 @@ const navItems: NavItem[] = [
   { label: "Contact", href: "/contact" },
 ];
 
+// Mobile hamburger menu: its own order/labels, independent of the desktop nav.
+const mobileNavItems: NavItem[] = [
+  { label: "About us", href: "/about-us" },
+  { label: "Our Journey", href: "/journey" },
+  { label: "Newsroom", href: "#news" },
+  { label: "Leadership Team", href: "/leadership" },
+  { label: "Chairman's Talk", href: "/chairmans-talk" },
+  { label: "Contact", href: "/contact" },
+];
+
 export default function Navbar({ fixed = true }: NavbarProps) {
   const [scrolled,   setScrolled]   = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -107,7 +117,7 @@ export default function Navbar({ fixed = true }: NavbarProps) {
       {mobileOpen && (
         <div className="lg:hidden border-t shadow-lg" style={{ background: "rgb(10,10,10)", borderColor: "rgba(255,255,255,0.08)" }}>
           <div className="container py-4 flex flex-col gap-1">
-            {navItems.map((item) => (
+            {mobileNavItems.map((item) => (
               <button
                 key={item.label}
                 onClick={() => handleNavClick(item.href)}

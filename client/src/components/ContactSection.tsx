@@ -149,8 +149,8 @@ export default function ContactSection({ showHeader = true }: { showHeader?: boo
                   <MapPin size={15} color="#02f9ba" />
                 </div>
                 <div>
-                  <div className="text-[10px] font-bold tracking-widest uppercase mb-0.5" style={{ color: "rgba(255,255,255,0.35)" }}>Headquarters</div>
-                  <div className="text-sm" style={{ color: "#ffffff", fontFamily: "Nunito Sans, sans-serif" }}>Emerald Group</div>
+                  <div className="text-[10px] font-bold tracking-widest uppercase mb-0.5" style={{ color: "rgba(255,255,255,0.35)" }}>Emerald Group</div>
+                  <div className="text-sm leading-snug" style={{ color: "#ffffff", fontFamily: "Nunito Sans, sans-serif" }}>7070, Al Fattan Currency House, Tower 2, Dubai International Financial Centre (DIFC), Dubai, UAE</div>
                 </div>
               </div>
               <div className="flex items-center gap-3">

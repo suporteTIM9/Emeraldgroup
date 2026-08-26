@@ -70,7 +70,7 @@ export default function ChairmanLetterModal({ isOpen, onClose }: Props) {
       style={{ background: "rgba(0,0,0,0.45)", backdropFilter: "blur(6px)" }}
       role="dialog"
       aria-modal="true"
-      aria-label="Chairman Letter"
+      aria-label="Chairman's Letter"
     >
       <style>{`
         .cl-reveal {
@@ -165,7 +165,7 @@ export default function ChairmanLetterModal({ isOpen, onClose }: Props) {
                   marginBottom: "clamp(20px, 4vw, 36px)",
                 }}
               >
-                Chairman Letter
+                Chairman's Letter
               </h1>
 
               {/* Paragraphs */}

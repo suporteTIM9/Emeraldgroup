@@ -80,7 +80,8 @@ const socialLinks = [
   { icon: IconInstagram, href: "https://www.instagram.com/thechairmanstalk/", label: "Instagram" },
 ];
 
-const tagline = "Building tomorrow's global business platforms with purpose, integrity, and a commitment to lasting impact.";
+const taglineHeadline = "Connect. Create. Grow.";
+const tagline = "Connecting Africa to global financial centres — creating new markets that drive economic growth.";
 
 export default function Footer() {
   const [showTop, setShowTop] = useState(false);
@@ -190,6 +191,12 @@ export default function Footer() {
       {/* Tagline strip */}
       <div className="border-b" style={{ borderColor: "rgba(255,255,255,0.06)" }}>
         <div className="container py-8">
+          <p
+            className="text-lg mb-1.5"
+            style={{ color: "#02f9ba", fontFamily: "Quantico, sans-serif", fontWeight: 700 }}
+          >
+            {taglineHeadline}
+          </p>
           <p
             className="text-sm max-w-lg leading-relaxed"
             style={{ color: "#ffffff", fontFamily: "Nunito Sans, sans-serif", fontWeight: 300 }}

@@ -4,14 +4,6 @@ import { ArrowUp } from "lucide-react";
 
 const footerLinks = [
   {
-    heading: "About",
-    links: [
-      { label: "Who We Are", href: "/about-us" },
-      { label: "Our Mission & Vision", href: "/mission-vision" },
-      { label: "Leadership Team", href: "/leadership" },
-    ],
-  },
-  {
     heading: "Entities part of Emerald's clusters",
     links: [
       { label: "Banko Financial Group", href: "https://www.linkedin.com/company/banko-financial-group/" },
@@ -28,6 +20,14 @@ const footerLinks = [
       { label: "Nino Oil", href: "https://ninogas.com" },
       { label: "Diaar, ONE Luanda & ONE Hotéis", href: "https://diaarproperties.com" },
       { label: "Emerald Education", href: "https://www.sps.nyu.edu/connect/custom-educational-programs/lab-for-transformative-leadership/executive-education.html" },
+    ],
+  },
+  {
+    heading: "About",
+    links: [
+      { label: "Who We Are", href: "/about-us" },
+      { label: "Our Mission & Vision", href: "/mission-vision" },
+      { label: "Leadership Team", href: "/leadership" },
     ],
   },
   {

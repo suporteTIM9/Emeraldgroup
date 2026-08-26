@@ -23,7 +23,7 @@ function groupArticles(items: Article[]): Article[][] {
   return groups;
 }
 
-function NewsCard({ items }: { items: Article[] }) {
+function NewsCard({ items, spanFull }: { items: Article[]; spanFull?: boolean }) {
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
 
@@ -38,7 +38,7 @@ function NewsCard({ items }: { items: Article[] }) {
 
   return (
     <article
-      className="bg-white rounded-sm p-6 group cursor-pointer hover:shadow-md transition-all border border-gray-50 flex flex-col"
+      className={`bg-white rounded-sm p-6 group cursor-pointer hover:shadow-md transition-all border border-gray-50 flex flex-col ${spanFull ? "sm:col-span-2" : ""}`}
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
@@ -188,9 +188,14 @@ export default function NewsSection() {
 
         {/* News grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {groupArticles(articles).map((group) => (
-            <NewsCard key={group[0].slug} items={group} />
-          ))}
+          {(() => {
+            const groups = groupArticles(articles);
+            // If the last row would otherwise hold a single lonely card, let it span wider instead.
+            const loneInLastRow = groups.length % 3 === 1;
+            return groups.map((group, i) => (
+              <NewsCard key={group[0].slug} items={group} spanFull={loneInLastRow && i === groups.length - 1} />
+            ));
+          })()}
         </div>
       </div>
     </section>

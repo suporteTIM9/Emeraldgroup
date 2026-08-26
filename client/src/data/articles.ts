@@ -18,8 +18,8 @@ export const articles: Article[] = [
   {
     slug: "banco-millennium-atlantico-2024",
     date: "May 2026",
-    category: "Banking & FS",
-    tag: "Banking & FS",
+    category: "Banking & Financial Services",
+    tag: "Banking & Financial Services",
     title: "Banco Millennium Atlântico Increases Profit by 80.60% in Q1 2026",
     excerpt:
       "Figures extracted from Banco Millennium Atlântico's (BMA) balance sheet for the first 90 days of the current year indicate a robust performance in the ongoing financial year, reflecting an absolute increase in profit of AOA 2.29 billion (US$ 2.51 million).",
@@ -100,7 +100,6 @@ export const articles: Article[] = [
     title: "Shaping Africa's Property Landscape",
     externalHref: "https://diaarproperties.com/",
     ctaLabel: "Explore Diaarproperties",
-    slideGroup: "urban-development",
     excerpt:
       "Striving to transform Diaar Limited, an Emerald Group Company, into one of the Sub-Saharan Africa's leading property firms, offering competitive returns to investors and tangible benefits for cities and communities.",
     content: `Striving to transform Diaar Limited, an Emerald Group Company, into one of the Sub-Saharan Africa's leading property firms, offering competitive returns to investors and tangible benefits for cities and communities.`,
@@ -146,10 +145,10 @@ export const articles: Article[] = [
 ];
 
 export const tagColors: Record<string, string> = {
-  "Banking & FS": "oklch(0.50 0.17 155)",
-  "Telecom, Media & Technology": "oklch(0.75 0.12 80)",
+  "Banking & Financial Services": "oklch(0.50 0.17 155)",
+  "Telecom, Media & Technology": "oklch(0.50 0.17 155)",
   "Infrastructure": "oklch(0.50 0.17 155)",
-  "Urban Development & Real Estate": "oklch(0.75 0.12 80)",
+  "Urban Development & Real Estate": "oklch(0.50 0.17 155)",
   "Energy & Resources": "oklch(0.50 0.17 155)",
-  "Education & Leadership": "oklch(0.75 0.12 80)",
+  "Education & Leadership": "oklch(0.50 0.17 155)",
 };

@@ -100,8 +100,9 @@ export default function Contact() {
                   <div className="text-sm font-semibold" style={{ color: "var(--eg-dark)" }}>{d.label}</div>
                   <p className="mt-1.5 text-xs leading-relaxed" style={{ color: "var(--eg-dark)" }}>{d.desc}</p>
                   <div
-                    className="mt-4 text-xs font-semibold break-all transition-colors"
-                    style={{ color: "#02d49e" }}
+                    className="mt-4 font-semibold whitespace-nowrap overflow-hidden text-ellipsis transition-colors"
+                    style={{ color: "#02d49e", fontSize: "clamp(0.6rem, 2.2vw, 0.75rem)" }}
+                    title={d.email}
                   >
                     {d.email}
                   </div>

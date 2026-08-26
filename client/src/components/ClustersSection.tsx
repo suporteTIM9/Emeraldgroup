@@ -56,8 +56,8 @@ const clusters = [
         desc: "A specialist engineering and technical services firm delivering precision solutions in structural, mechanical, and systems engineering. Tecton supports both Group projects and third-party clients requiring high-complexity technical execution.",
       },
     ],
-    color: "oklch(0.52 0.14 55)",
-    bgColor: "oklch(0.97 0.04 55)",
+    color: "oklch(0.42 0.16 155)",
+    bgColor: "oklch(0.97 0.04 155)",
   },
   {
     id: "infrastructure",
@@ -96,8 +96,8 @@ const clusters = [
         desc: "An oil exploration and production company focused on upstream hydrocarbon assets in Sub-Saharan Africa. Nino Oil combines technical expertise with local knowledge to develop energy resources that support regional energy security and generate long-term economic value.",
       },
     ],
-    color: "oklch(0.52 0.14 55)",
-    bgColor: "oklch(0.97 0.04 55)",
+    color: "oklch(0.42 0.16 155)",
+    bgColor: "oklch(0.97 0.04 155)",
   },
   {
     id: "tmt",
@@ -156,8 +156,8 @@ const clusters = [
         desc: "A luxury hospitality brand managing a portfolio of premium hotels and serviced residences across Africa. ONE Hotéis delivers exceptional guest experiences that reflect the richness of African culture while meeting the expectations of international travellers and business visitors.",
       },
     ],
-    color: "oklch(0.52 0.14 55)",
-    bgColor: "oklch(0.97 0.04 55)",
+    color: "oklch(0.42 0.16 155)",
+    bgColor: "oklch(0.97 0.04 155)",
   },
   {
     id: "education",

@@ -45,10 +45,10 @@ function CountUp({ value, color }: { value: string; color: string }) {
 }
 
 const stats = [
-  { value: "20+", label: "Portfolio Companies", desc: "Across six strategic sectors" },
-  { value: "5+", label: "Countries", desc: "Active presence across Africa and Europe" },
+  { value: "20+", label: "Portfolio Companies", desc: "Across 7 strategic Clusters" },
+  { value: "5+", label: "Countries", desc: "Active presence across Africa and Global Financial Centres" },
   { value: "30+", label: "Years", desc: "Of business excellence and growth" },
-  { value: "7", label: "Clusters", desc: "Diversified business verticals" },
+  { value: "7", label: "Clusters", desc: "Diversified business sectors" },
 ];
 
 export default function AboutSection() {

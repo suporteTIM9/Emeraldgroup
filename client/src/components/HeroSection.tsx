@@ -518,10 +518,10 @@ export default function HeroSection() {
         <div className="container">
           <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-white/10">
             {[
-              { value: "7",   label: "Business Clusters" },
               { value: "20+", label: "Portfolio Companies" },
               { value: "5+",  label: "Countries"},
               { value: "30+", label: "Years of Excellence" },
+              { value: "7",   label: "Business Clusters" },
             ].map((stat, i) => (
               <div key={i} className="px-4 lg:px-6 py-4 lg:py-5">
                 <CountUp value={stat.value} color="#02f9ba" />

@@ -84,7 +84,7 @@ export default function ChairmanTalkArticle() {
       <Navbar fixed={false} />
 
       <Breadcrumb items={[
-        { label: "Chairman's Talk", href: "/chairmans-talk" },
+        { label: "The Chairman's Talk", href: "/chairmans-talk" },
         { label: talk.title },
       ]} />
 
@@ -218,7 +218,7 @@ export default function ChairmanTalkArticle() {
               className="inline-flex items-center gap-2 text-xs font-medium text-gray-500 hover:text-gray-900 transition-colors mt-8"
             >
               <ArrowLeft size={14} />
-              Back to Chairman&apos;s Talk
+              Back to The Chairman&apos;s Talk
             </Link>
           </article>
 

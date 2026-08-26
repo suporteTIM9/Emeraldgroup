@@ -10,7 +10,7 @@ const navItems: NavItem[] = [
   { label: "Leadership Team", href: "/leadership" },
   { label: "Journey", href: "/journey" },
   { label: "News",    href: "#news"    },
-  { label: "Chairman's Talk", href: "/chairmans-talk" },
+  { label: "The Chairman's Talk", href: "/chairmans-talk" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -20,7 +20,7 @@ const mobileNavItems: NavItem[] = [
   { label: "Our Journey", href: "/journey" },
   { label: "Newsroom", href: "#news" },
   { label: "Leadership Team", href: "/leadership" },
-  { label: "Chairman's Talk", href: "/chairmans-talk" },
+  { label: "The Chairman's Talk", href: "/chairmans-talk" },
   { label: "Contact", href: "/contact" },
 ];
 

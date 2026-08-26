@@ -53,13 +53,13 @@ export default function ChairmansTalk() {
     <div className="min-h-screen flex flex-col" style={{ background: "#f8f9fa" }}>
       <Navbar fixed={false} />
 
-      <Breadcrumb items={[{ label: "Chairman's Talk" }]} />
+      <Breadcrumb items={[{ label: "The Chairman's Talk" }]} />
 
       {/* Page header */}
       <div style={{ background: "var(--eg-dark)" }} className="py-16 lg:py-20">
         <div className="container">
           <span className="text-xs font-semibold tracking-widest uppercase" style={{ color: "var(--eg-orange)" }}>
-            05 — Chairman&apos;s Talk
+            05 — The Chairman&apos;s Talk
           </span>
           <h1
             className="mt-3 text-4xl lg:text-5xl font-bold text-white leading-tight"

@@ -70,7 +70,7 @@ export default function ChairmanTalkSection() {
       <div className="container">
         {/* Section header */}
         <div className="flex items-center gap-4 mb-6">
-          <span className="section-label" style={{ color: "var(--eg-orange)" }}>05 — Chairman&apos;s Talk</span>
+          <span className="section-label" style={{ color: "var(--eg-orange)" }}>05 — The Chairman&apos;s Talk</span>
           <div className="h-px flex-1 max-w-16" style={{ background: "var(--eg-orange)" }} />
         </div>
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-12">

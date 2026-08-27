@@ -20,7 +20,7 @@ const sections: Section[] = [
           This website is operated by:
         </p>
         <div className="mt-3 space-y-1 text-sm leading-7 text-slate-900 sm:text-base">
-          <p><strong>Emerald Group Inc.</strong></p>
+          <p><strong>Emerald Group.</strong></p>
           <p>Registered Address: 707A, Al Fattan Currency Tower 2, Dubai International Financial Centre (DIFC), Dubai, UAE.</p>
           <p>Email:{" "}
             <a href="mailto:info@emeraldgroup-inc.com" className="text-[#02d49e] hover:underline">
@@ -37,7 +37,7 @@ const sections: Section[] = [
     content: (
       <div className="mt-3 space-y-3 text-sm leading-7 text-slate-900 sm:text-base">
         <p>
-          This website (<a href="https://emeraldgroup-inc.com/" target="_blank" rel="noopener noreferrer" className="text-[#02d49e] hover:underline">https://emeraldgroup-inc.com/</a>) and all its content, including but not limited to text, images, graphics, logos, icons, videos, and design elements, are the exclusive property of Emerald Group Inc., unless otherwise stated.
+          This website (<a href="https://emeraldgroup-inc.com/" target="_blank" rel="noopener noreferrer" className="text-[#02d49e] hover:underline">https://emeraldgroup-inc.com/</a>) and all its content, including but not limited to text, images, graphics, logos, icons, videos, and design elements, are the exclusive property of Emerald Group, unless otherwise stated.
         </p>
         <p>
           Unauthorized use, reproduction, or distribution of any materials is strictly prohibited without prior written consent.
@@ -68,7 +68,7 @@ const sections: Section[] = [
           The information provided on this website is for general informational purposes only.
         </p>
         <p>
-          Emerald Group Inc. makes every effort to ensure accuracy and completeness but does not guarantee that all content is up to date, error-free, or complete.
+          Emerald Group makes every effort to ensure accuracy and completeness but does not guarantee that all content is up to date, error-free, or complete.
         </p>
         <p>We shall not be held liable for:</p>
         <ul className="list-disc list-inside space-y-1 pl-2 text-slate-900">
@@ -88,7 +88,7 @@ const sections: Section[] = [
           This website may contain links to third-party websites for convenience and informational purposes.
         </p>
         <p>
-          Emerald Group Inc. has no control over external websites and assumes no responsibility for their content, policies, or availability.
+          Emerald Group has no control over external websites and assumes no responsibility for their content, policies, or availability.
         </p>
       </div>
     ),
@@ -144,7 +144,7 @@ const sections: Section[] = [
     content: (
       <div className="mt-3 space-y-3 text-sm leading-7 text-slate-900 sm:text-base">
         <p>
-          Emerald Group Inc. reserves the right to modify or update this Legal Notice at any time without prior notice.
+          Emerald Group reserves the right to modify or update this Legal Notice at any time without prior notice.
         </p>
         <p>
           Changes will be effective immediately upon publication on this page.
@@ -193,7 +193,7 @@ export default function LegalNotice() {
               className="mb-4 font-bold tracking-tight text-slate-900"
               style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)", lineHeight: 1.08, letterSpacing: "-0.02em" }}
             >
-              Emerald Group Inc.
+              Emerald Group
             </h1>
             <p className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-[#02d49e]">
               Legal Notice

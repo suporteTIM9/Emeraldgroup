@@ -85,10 +85,9 @@ export default function Contact() {
             {departments.map((d) => {
               const Icon = d.icon;
               return (
-                <a
+                <div
                   key={d.label}
-                  href={`mailto:${d.email}`}
-                  className="group flex flex-col rounded-sm border p-5 transition-all duration-200 hover:-translate-y-0.5"
+                  className="flex flex-col rounded-sm border p-5 transition-all duration-200 hover:-translate-y-0.5"
                   style={{ borderColor: "oklch(0.92 0.005 240)", background: "oklch(0.99 0.002 240)" }}
                 >
                   <div
@@ -97,26 +96,28 @@ export default function Contact() {
                   >
                     <Icon size={16} style={{ color: "#02d49e" }} />
                   </div>
-                  <div className="text-sm font-semibold" style={{ color: "var(--eg-dark)" }}>{d.label}</div>
-                  <p className="mt-1.5 text-xs leading-relaxed" style={{ color: "var(--eg-dark)" }}>{d.desc}</p>
-                  <div
-                    className="mt-4 font-semibold whitespace-nowrap overflow-hidden text-ellipsis transition-colors"
+                  <div className="text-xs font-semibold" style={{ color: "var(--eg-dark)" }}>{d.label}</div>
+                  <p className="mt-1.5 leading-relaxed" style={{ color: "var(--eg-dark)", fontSize: "11px" }}>{d.desc}</p>
+                  <a
+                    href={`mailto:${d.email}`}
+                    className="mt-4 font-semibold whitespace-nowrap overflow-hidden text-ellipsis transition-colors hover:underline"
                     style={{ color: "#02d49e", fontSize: "10px" }}
                     title={d.email}
                   >
                     {d.email}
-                  </div>
-                </a>
+                  </a>
+                  <a
+                    href="mailto:compliance@emeraldgroup-inc.com"
+                    className="mt-1 font-semibold whitespace-nowrap overflow-hidden text-ellipsis transition-colors hover:underline"
+                    style={{ color: "#02d49e", fontSize: "10px" }}
+                    title="compliance@emeraldgroup-inc.com"
+                  >
+                    compliance@emeraldgroup-inc.com
+                  </a>
+                </div>
               );
             })}
           </div>
-          <p className="mt-6 text-xs" style={{ color: "var(--eg-dark)" }}>
-            For compliance-related enquiries, contact{" "}
-            <a href="mailto:compliance@emeraldgroup-inc.com" className="font-semibold transition-colors" style={{ color: "#02d49e" }}>
-              compliance@emeraldgroup-inc.com
-            </a>
-            .
-          </p>
         </div>
       </div>
 

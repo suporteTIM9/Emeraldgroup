@@ -4,7 +4,7 @@ import { ArrowRight, ChevronLeft, ChevronRight, Play } from "lucide-react";
 interface SlideItem {
   type: "image" | "video";
   src: string;
-  href: string;
+  href?: string;
   caption?: string;
 }
 
@@ -29,6 +29,13 @@ const slides: SlideItem[] = [
   { type: "image", src: "/IMGBLOG/Millennium-Angola.png", href: "/blog/banco-millennium-atlantico-2024", caption: "Banco Millennium Atlântico" },
   { type: "image", src: "/imagens/banner_02.jpg",         href: "#journey",                              caption: "Our Journey" },
   { type: "image", src: "/imagens/banner_03.jpg",         href: "#contact",                              caption: "Get in Touch" },
+  { type: "image", src: "/imagens/evento_01_Doing_Business_Angola_2026.jpeg" },
+  { type: "image", src: "/imagens/evento_02_Doing_Business_Angola_2026.jpeg" },
+  { type: "image", src: "/imagens/evento_03.jpeg" },
+  { type: "image", src: "/imagens/evento_04_The_Chairmans_Talk.jpeg" },
+  { type: "image", src: "/imagens/evento_05_Forbes_Women_Summit.jpeg" },
+  { type: "image", src: "/imagens/evento_06_Forum_Banca_2026_Ngunu_Tiny.png" },
+  { type: "image", src: "/imagens/evento_07_Ngunu_Tiny_PRS_2026.jpeg" },
 ];
 
 /* 2 copies — animation translates -50% = exactly one set width */
@@ -142,6 +149,14 @@ export default function MediaSlider() {
   const eventsTrackRef = useRef<HTMLDivElement>(null);
   const [canScrollPrev, setCanScrollPrev] = useState(false);
   const [canScrollNext, setCanScrollNext] = useState(false);
+  const [lightboxSrc, setLightboxSrc] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (!lightboxSrc) return;
+    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") setLightboxSrc(null); };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [lightboxSrc]);
 
   const updateEventsArrows = () => {
     const el = eventsTrackRef.current;
@@ -167,13 +182,17 @@ export default function MediaSlider() {
     el.scrollBy({ left: dir * step, behavior: "smooth" });
   };
 
-  const handleClick = (href: string) => {
+  const handleClick = (slide: SlideItem) => {
     if (isDragging.current) return;
-    if (href.startsWith("#")) {
-      const el = document.querySelector(href);
-      if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 88, behavior: "smooth" });
-    } else {
-      window.location.href = href;
+    if (slide.href) {
+      if (slide.href.startsWith("#")) {
+        const el = document.querySelector(slide.href);
+        if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 88, behavior: "smooth" });
+      } else {
+        window.location.href = slide.href;
+      }
+    } else if (slide.type === "image") {
+      setLightboxSrc(slide.src);
     }
   };
 
@@ -269,7 +288,7 @@ export default function MediaSlider() {
             <div
               key={i}
               className="ms-slide"
-              onClick={() => handleClick(slide.href)}
+              onClick={() => handleClick(slide)}
             >
               {slide.type === "video" ? (
                 <video
@@ -302,6 +321,30 @@ export default function MediaSlider() {
         </div>
       </div>
       </div>
+
+      {lightboxSrc && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center p-6"
+          style={{ background: "rgba(0,0,0,0.85)" }}
+          onClick={() => setLightboxSrc(null)}
+        >
+          <button
+            type="button"
+            aria-label="Close"
+            onClick={() => setLightboxSrc(null)}
+            className="absolute top-5 right-5 flex h-10 w-10 items-center justify-center rounded-full text-white transition-colors hover:bg-white/10"
+            style={{ border: "1px solid rgba(255,255,255,0.4)" }}
+          >
+            ✕
+          </button>
+          <img
+            src={lightboxSrc}
+            alt=""
+            className="max-h-[88vh] max-w-[92vw] rounded-sm object-contain shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          />
+        </div>
+      )}
     </section>
   );
 }

@@ -118,11 +118,10 @@ function BorderButton({ onClick, children, primary }: { onClick: () => void; chi
   );
 }
 
-// ── Three-Panel Slice Section ────────────────────────────────────────────────
-// 3 panels side-by-side. Entry: slices fly IN (left panel first, L→R stagger).
-// Exit: slices fly OUT (right panel first, R→L stagger).
-// Double-rAF entry ensures the browser paints the off-screen reset before the
-// entry transition starts — same reliable pattern used in SplitText.
+// ── Three-Panel Fade Section ─────────────────────────────────────────────────
+// 3 panels side-by-side, cross-fading in/out as a single group via opacity —
+// a plain, always-clean transition (no in-between frame ever looks distorted,
+// unlike the flying-slice effect this replaced).
 
 function ThreePanelSliceSection({
   images,
@@ -131,91 +130,30 @@ function ThreePanelSliceSection({
   images: { src: string; alt: string }[];
   animate: boolean;
 }) {
-  const [visible, setVisible] = useState(false);
-  const [exiting, setExiting] = useState(false);
-  const hasPlayed = useRef(false);
-
-  const SLICES        = 12;
-  const SLICE_ANIM_MS = 900;   // each slice travel duration
-  const SLICE_STAGGER = 55;    // delay between consecutive slices
-  const PANEL_STAGGER = 130;   // extra delay per panel (left → right on entry)
-
-  useEffect(() => {
-    let raf1: number, raf2: number;
-
-    if (animate) {
-      hasPlayed.current = true;
-      // 1. Snap slices off-screen instantly (no transition)
-      setExiting(false);
-      setVisible(false);
-      // 2. Two rAFs: first lets React commit the off-screen state to the DOM,
-      //    second triggers the entry transition once the browser has painted it.
-      raf1 = requestAnimationFrame(() => {
-        raf2 = requestAnimationFrame(() => setVisible(true));
-      });
-    } else if (hasPlayed.current) {
-      // Exit: animate slices away (right panel first)
-      setExiting(true);
-      setVisible(false);
-    }
-    // First mount with animate=false: stay off-screen silently
-
-    return () => {
-      cancelAnimationFrame(raf1);
-      cancelAnimationFrame(raf2);
-    };
-  }, [animate]);
-
   return (
-    <div style={{ position: "absolute", inset: 0, display: "flex" }}>
+    <div
+      style={{
+        position: "absolute",
+        inset: 0,
+        display: "flex",
+        opacity: animate ? 1 : 0,
+        transition: "opacity 1s ease",
+      }}
+    >
       {images.map((image, panelIdx) => (
         <div
           key={panelIdx}
           style={{ flex: 1, position: "relative", overflow: "hidden" }}
         >
-          {Array.from({ length: SLICES }).map((_, i) => {
-            const dir = i % 2 === 0 ? -1 : 1; // alternating: up / down
-
-            // Entry: left panel first, slices left → right
-            const entryDelay = panelIdx * PANEL_STAGGER + i * SLICE_STAGGER;
-            // Exit: right panel first, slices right → left
-            const exitDelay = (images.length - 1 - panelIdx) * PANEL_STAGGER
-                            + (SLICES - 1 - i) * SLICE_STAGGER;
-
-            return (
-              <div
-                key={i}
-                style={{
-                  position: "absolute",
-                  top: 0,
-                  height: "100%",
-                  left: `${(i / SLICES) * 100}%`,
-                  width: `${100 / SLICES}%`,
-                  overflow: "hidden",
-                  transform: visible ? "translateY(0)" : `translateY(${dir * 105}%)`,
-                  transition: !visible && !exiting
-                    ? "none"
-                    : visible
-                      ? `transform ${SLICE_ANIM_MS}ms cubic-bezier(0.16,1,0.3,1) ${entryDelay}ms`
-                      : `transform ${SLICE_ANIM_MS}ms cubic-bezier(0.76,0,0.24,1) ${exitDelay}ms`,
-                }}
-              >
-                {/* Full-panel-width bg shifted so each slice shows the right crop */}
-                <div
-                  style={{
-                    position: "absolute",
-                    top: 0,
-                    height: "100%",
-                    left: `-${i * 100}%`,
-                    width: `${SLICES * 100}%`,
-                    backgroundImage: `url(${image.src})`,
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                  }}
-                />
-              </div>
-            );
-          })}
+          <div
+            style={{
+              position: "absolute",
+              inset: 0,
+              backgroundImage: `url(${image.src})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+          />
 
           {/* Thin divider between panels */}
           {panelIdx < images.length - 1 && (
@@ -316,25 +254,25 @@ export default function HeroSection() {
   const [tickerIndex,    setTickerIndex]    = useState(0);
   const [currentSlide,   setCurrentSlide]   = useState(0);
   const [contentVisible, setContentVisible] = useState(false);
+  const [videoReady,     setVideoReady]     = useState(false);
   const videoRef     = useRef<HTMLVideoElement | null>(null);
   const transitioning = useRef(false);
 
   // Advance to the next slide.
   // The slide switch is always immediate so the incoming slide (video) is
-  // already fading in while the outgoing slices are still flying out —
+  // already fading in while the outgoing images are still fading out —
   // this ensures no grey/blank background is ever exposed.
   const startTransition = () => {
     if (transitioning.current) return;
     transitioning.current = true;
     if (videoRef.current) videoRef.current.pause();
 
-    const leavingImages = slides[currentSlide].type === "images";
-    setContentVisible(false);                          // triggers slice exit
+    setContentVisible(false);                          // triggers fade-out
     setCurrentSlide((prev) => (prev + 1) % slides.length); // swap immediately
 
-    // images→video: wait for slices to fully exit (~1800 ms) before revealing text
-    // video→images: slices begin entering ~400 ms after video starts fading
-    const revealDelay = leavingImages ? 1900 : 400;
+    // Both directions now just wait for the 1s opacity fade to mostly settle
+    // before bringing the text back in.
+    const revealDelay = 500;
 
     window.setTimeout(() => {
       setContentVisible(true);
@@ -360,6 +298,7 @@ export default function HeroSection() {
     let timer: number | undefined;
 
     if (active.type === "video" && videoRef.current) {
+      setVideoReady(false); // show the poster again until playback truly resumes
       videoRef.current.currentTime = 0;
       videoRef.current.play().catch(() => null);
       timer = window.setTimeout(startTransition, active.duration);
@@ -380,7 +319,24 @@ export default function HeroSection() {
       {/* ── Slide backgrounds ── */}
       <div className="absolute inset-0 z-0 overflow-hidden">
 
-        {/* Layer 1 — video: always the base, fades with currentSlide */}
+        {/* Layer 1 — video: always the base, fades with currentSlide.
+            The poster stays fully opaque until the video is actually playing —
+            autoplaying MP4s can show a garbled/half-decoded first frame while
+            they buffer, and this guarantees that's never visible. */}
+        {slides.map((slide, index) =>
+          slide.type === "video" ? (
+            <img
+              key={`poster-${index}`}
+              src={slide.poster}
+              alt=""
+              className="absolute inset-0 h-full w-full object-cover"
+              style={{
+                opacity: currentSlide === index && !videoReady ? 1 : 0,
+                transition: "opacity 0.4s ease",
+              }}
+            />
+          ) : null
+        )}
         {slides.map((slide, index) =>
           slide.type === "video" ? (
             <video
@@ -394,8 +350,9 @@ export default function HeroSection() {
               playsInline
               loop={false}
               onEnded={startTransition}
+              onPlaying={() => setVideoReady(true)}
               style={{
-                opacity: currentSlide === index ? 1 : 0,
+                opacity: currentSlide === index && videoReady ? 1 : 0,
                 transition: "opacity 1.2s ease",
               }}
             />

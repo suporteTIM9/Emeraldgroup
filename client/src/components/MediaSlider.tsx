@@ -24,11 +24,6 @@ const eventHighlights: EventHighlight[] = [
 ];
 
 const slides: SlideItem[] = [
-  { type: "video", src: "/videos/banner_video.mp4",       href: "#about",                                caption: "Emerald Group" },
-  { type: "image", src: "/imagens/banner_01.jpg",         href: "#clusters",                             caption: "Our Business Clusters" },
-  { type: "image", src: "/IMGBLOG/Millennium-Angola.png", href: "/blog/banco-millennium-atlantico-2024", caption: "Banco Millennium Atlântico" },
-  { type: "image", src: "/imagens/banner_02.jpg",         href: "#journey",                              caption: "Our Journey" },
-  { type: "image", src: "/imagens/banner_03.jpg",         href: "#contact",                              caption: "Get in Touch" },
   { type: "image", src: "/imagens/evento_01_Doing_Business_Angola_2026.jpeg" },
   { type: "image", src: "/imagens/evento_02_Doing_Business_Angola_2026.jpeg" },
   { type: "image", src: "/imagens/evento_03.jpeg" },
@@ -57,7 +52,7 @@ const css = `
     display: flex;
     gap: 12px;
     width: max-content;
-    animation: ms-scroll 28s linear infinite;
+    animation: ms-scroll 55s linear infinite;
     will-change: transform;
   }
 

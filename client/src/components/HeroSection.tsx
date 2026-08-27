@@ -415,7 +415,7 @@ export default function HeroSection() {
         )}
 
         {/* Single dark overlay for text readability — always present */}
-        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 bg-black/55" />
       </div>
 
       {/* ── Geometric accent overlays ── */}

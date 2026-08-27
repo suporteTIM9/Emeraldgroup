@@ -37,19 +37,19 @@ const clusters = [
     id: "construction",
     number: "02",
     icon: HardHat,
-    title: "Construction & Engineering",
+    title: "Engineering & Construction",
     anchorId: "cluster-construction",
     tagline: "Building the foundations of tomorrow.",
     description:
-      "The Construction & Engineering cluster delivers the physical infrastructure that underpins economic development across Sub-Saharan Africa. From large-scale civil works and residential developments to agro-industrial facilities and specialist engineering, this cluster translates Emerald Group's investment thesis into tangible assets — creating jobs, building capacity, and transforming landscapes.",
+      "The Engineering & Construction cluster delivers the physical infrastructure that underpins economic development across Sub-Saharan Africa. From large-scale civil works and residential developments to agro-industrial facilities and specialist engineering, this cluster translates Emerald Group's investment thesis into tangible assets — creating jobs, building capacity, and transforming landscapes.",
     companies: [
       {
-        name: "IBG Africa",
-        desc: "A major construction and civil engineering company executing large-scale projects across Angola and the wider region, including roads, housing, public buildings, and industrial facilities. IBG Africa is a primary engine of the Group's physical development mandate.",
+        name: "IBG – International Business Group",
+        desc: "Unites diverse companies and brands across construction, real estate, services, and industry, leveraging group-wide synergies to deliver more complete and competitive solutions. With projects around the globe, IBG aspires to play a meaningful role in the social, economic, and human development of the countries where it operates.",
       },
       {
-        name: "Grow Africa",
-        desc: "Focused on agro-industrial infrastructure, Grow Africa develops and builds facilities that support agricultural value chains — from processing plants to storage and logistics — contributing to food security and rural economic development.",
+        name: "Grow Engineering",
+        desc: "A multinational construction and engineering firm that differentiates itself through cutting-edge production processes and superior quality. We guarantee meticulous attention to detail, on-time delivery, and a relentless focus on total customer satisfaction.",
       },
       {
         name: "Tecton",
@@ -153,7 +153,7 @@ const clusters = [
       },
       {
         name: "ONE Hotéis",
-        desc: "A luxury hospitality brand managing a portfolio of premium hotels and serviced residences across Africa. ONE Hotéis delivers exceptional guest experiences that reflect the richness of African culture while meeting the expectations of international travellers and business visitors.",
+        desc: "A premium hospitality brand managing a portfolio of premium hotels and serviced residences across Africa. ONE Hotéis delivers exceptional guest experiences that reflect the richness of African culture while meeting the expectations of international travellers and business visitors.",
       },
     ],
     color: "oklch(0.42 0.16 155)",
@@ -181,10 +181,6 @@ const clusters = [
       {
         name: "Knowledge & Media Platforms",
         desc: "Leveraging media assets and publishing platforms to expand access to economic, business, and leadership knowledge. These platforms contribute to informal education by informing, inspiring, and connecting entrepreneurial and professional communities across regions.",
-      },
-      {
-        name: "Digital & Future Learning",
-        desc: "Development of forward-looking education models that integrate technology, digital platforms, and AI-enabled learning systems. This area focuses on democratizing access to knowledge and addressing emerging challenges in global education systems.",
       },
     ],
     color: "oklch(0.42 0.16 155)",

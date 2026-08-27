@@ -13,8 +13,8 @@ const clusters = [
       "Emerald Group's Banking & Financial Services cluster anchors the Group's ability to mobilise capital, structure complex transactions, and deliver financial solutions across the African continent and emerging markets. Through a diversified portfolio spanning commercial banking, digital finance, and strategic advisory, this cluster bridges institutional capital with the real economy — financing infrastructure, trade, and enterprise at scale.",
     companies: [
       {
-        name: "54 Corp",
-        desc: "A pan-African investment holding and advisory platform that structures and deploys capital across high-growth sectors. Named for Africa's 54 nations, 54 Corp embodies the Group's conviction in the continent's economic potential.",
+        name: "54CF",
+        desc: "54CF is a growth equity fund dedicated to partnering and investing in thriving businesses across multiple sectors in Africa, with emphasis on opportunities in Sub-Saharan Africa. The fund seeks to support economic diversification, digital transformation, and infrastructure development in these markets.",
       },
       {
         name: "Banco Millennium Atlântico",
@@ -23,7 +23,7 @@ const clusters = [
       },
       {
         name: "Banko",
-        desc: "A digital banking and fintech platform designed to extend financial access to underserved populations and SMEs. Banko leverages mobile-first technology to deliver payments, savings, and credit solutions at scale.",
+        desc: "BANKO is a financial services provider building an inclusive African banking ecosystem through integrated operations, committed to advancing socioeconomic development by offering accessible, affordable, and reliable services to all customers and shareholders. Led by an experienced management team, it focuses on sustainable growth markets while maintaining resilience against the risks and challenges of Africa's financial sector.",
       },
       {
         name: "Emerald Advisors",

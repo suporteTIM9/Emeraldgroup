@@ -23,10 +23,11 @@ const officeMarkers: OfficeMarker[] = [
   { name: "Lisbon",       x: 47.46, y: 28.5 },
   { name: "Dubai",        tag: "Headquarters", x: 65.35, y: 36.0, lift: 30 },
   { name: "Abu Dhabi",    x: 65.11, y: 36.4 },
-  { name: "Shanghai",     x: 83.74, y: 32.7, labelPos: "left" },
+  { name: "Shanghai",     x: 83.74, y: 32.7 },
   { name: "Luanda",       tag: "Core Operations", x: 53.68, y: 54.9 },
   { name: "São Paulo",    x: 37.05, y: 63.1 },
   { name: "Johannesburg", x: 57.79, y: 64.6, labelPos: "bottom" },
+  { name: "Maputo",       x: 59.05, y: 64.43, labelPos: "right" },
 ];
 
 // Natural aspect ratio of /imagens/world-night-lights.jpg (2:1). The map box
@@ -44,8 +45,8 @@ function JourneyMap() {
 
   return (
     <div
-      className="relative mx-auto overflow-hidden select-none group/map w-full rounded-sm"
-      style={{ aspectRatio: "2 / 1", maxWidth: "1200px" }}
+      className="relative overflow-hidden select-none group/map w-full"
+      style={{ aspectRatio: "2 / 1" }}
     >
       <style>{`
         @keyframes map-kenburns {
@@ -146,7 +147,11 @@ function JourneyMap() {
                 width: isActive ? "10px" : "6px",
                 height: isActive ? "10px" : "6px",
                 background: "#02d49e",
-                boxShadow: isActive ? "0 0 0 6px rgba(2,212,158,0.25)" : "0 0 0 2px rgba(2,212,158,0.18)",
+                // A solid white ring first, so the dot reads clearly even over the map's
+                // brightest city-light clusters, then the usual soft teal glow on top.
+                boxShadow: isActive
+                  ? "0 0 0 1.5px white, 0 0 0 6px rgba(2,212,158,0.25)"
+                  : "0 0 0 1.5px white, 0 0 0 2px rgba(2,212,158,0.18)",
                 animationDelay: `${ci * 0.3}s`,
               }}
             />
@@ -184,11 +189,9 @@ export default function Journey() {
       <Navbar fixed={false} />
       <Breadcrumb items={[{ label: "Journey" }]} />
 
-      {/* ── Map (static, contained — every marker always fully visible) ── */}
-      <section className="py-8 sm:py-12" style={{ background: "var(--eg-dark)" }}>
-        <div className="container">
-          <JourneyMap />
-        </div>
+      {/* ── Map (full-bleed, edge to edge — aspect-ratio locked so every marker stays fully visible) ── */}
+      <section style={{ background: "var(--eg-dark)" }}>
+        <JourneyMap />
       </section>
 
       {/* ── Full timeline (magazine-style, big year numerals) ── */}

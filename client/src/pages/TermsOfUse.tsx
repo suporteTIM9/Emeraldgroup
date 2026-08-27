@@ -8,32 +8,32 @@ const sections = [
   {
     title: "Acceptance of Terms",
     text:
-      "Welcome to the Emerald Group website. Please read these Terms and Conditions carefully before using our website. If you continue to browse and use this website, you are agreeing to comply with and be bound by the following Terms, which together with our privacy policy govern the Emerald Group’s relationship with you in relation to this website.",
+      "By accessing or using the Emerald Group website, you agree to be bound by these Terms and Conditions and our Privacy Policy. If you do not agree to these terms, please stop using the website immediately.",
   },
   {
-    title: "Use of the Website",
+    title: "Use of Website",
     text:
-      "The content of the pages of this website is for your general information and use only. It is subject to change without notice. Your use of any information or materials on this website is entirely at your own risk, for which we shall not be liable. It shall be your own responsibility to ensure that any products, services or information available through this website meet your specific requirements.",
+      "The content on this website is for general informational purposes only and is subject to change without notice. Your use of any information or materials on this website is entirely at your own risk, for which we shall not be liable. It shall be your own responsibility to ensure that any products, services or information available through this website meet your specific requirements. You must not attempt unauthorized access to our systems, introduce viruses or malicious code, or disrupt website operations.",
   },
   {
     title: "Warranty Disclaimer",
     text:
-      "Neither the Emerald Group nor any third parties provide any warranty or guarantee as to the accuracy, timeliness, performance, completeness or suitability of the information and materials found or offered on this website for any particular purpose. You acknowledge that such information and materials may contain inaccuracies or errors and we expressly exclude liability for any such inaccuracies or errors to the fullest extent permitted by law.",
+      "This website and its contents are provided \"as is\" without warranties of any kind, express or implied. Emerald Group makes no guarantees regarding accuracy, completeness, or performance. To the fullest extent permitted by law, Emerald Group shall not be liable for any direct, indirect, or consequential damages arising from your use of this website.",
   },
   {
-    title: "Changes",
+    title: "Changes to Terms",
     text:
-      "We reserve the right, at our sole discretion, to modify or replace these Terms at any time. If a revision is material and consequential to privacy, we will try to provide at least 30 days’ notice prior to any new terms taking effect. What constitutes a material change will be determined at our sole discretion.",
+      "Emerald Group reserves the right to modify these Terms at any time. All updates take effect immediately upon being posted on this website without prior notice. Your continued use of the website after changes are posted constitutes acceptance of the updated Terms.",
   },
   {
     title: "Intellectual Property",
     text:
-      "This website contains material which is owned by or licensed to us. This material includes, but is not limited to, the design, layout, look, appearance and graphics. Reproduction is prohibited.",
+      "All material on this website, including but not limited to text, graphics, logos, layout, and software, is owned by or licensed to Emerald Group. Unauthorised reproduction, distribution, or commercial use of any content is strictly prohibited.",
   },
   {
-    title: "Links to Other Websites",
+    title: "Third-Party Links",
     text:
-      "From time to time, this website may also include links to other websites. These links are provided for your convenience to provide further information. They do not signify that we endorse the website(s). We have no responsibility for the content of the linked website(s).",
+      "This website may contain links to third-party websites for your convenience. Emerald Group does not control, endorse, or accept responsibility for the content, privacy policies, or practices of external sites.",
   },
   {
     title: "Governing Laws",

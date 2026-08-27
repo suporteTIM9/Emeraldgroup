@@ -99,7 +99,7 @@ const sections: Section[] = [
     content: (
       <div className="mt-3 space-y-3 text-sm leading-7 text-slate-900 sm:text-base">
         <p>
-          Any personal data collected through this website is processed in accordance with applicable data protection laws, including the General Data Protection Regulation (GDPR).
+          Personal data collected through this website is processed in accordance with DIFC Law No. 5 of 2020 (DP Law) and applicable regulations.
         </p>
         <p>
           For detailed information, please refer to our{" "}
@@ -130,10 +130,10 @@ const sections: Section[] = [
     content: (
       <div className="mt-3 space-y-3 text-sm leading-7 text-slate-900 sm:text-base">
         <p>
-          This Legal Notice shall be governed by and interpreted in accordance with the laws of the UAE.
+          This Legal Notice shall be governed by and construed in accordance with the laws of the Dubai International Financial Centre (DIFC) and applicable federal laws of the United Arab Emirates.
         </p>
         <p>
-          Any disputes arising in connection with this website shall be subject to the exclusive jurisdiction of the courts of Dubai.
+          Any disputes arising out of or in connection with this website shall be subject to the exclusive jurisdiction of the DIFC Courts.
         </p>
       </div>
     ),

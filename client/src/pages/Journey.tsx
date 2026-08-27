@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import type { CSSProperties } from "react";
 import { Link } from "wouter";
 import { ArrowRight } from "lucide-react";
 import Navbar from "@/components/Navbar";
@@ -13,18 +14,19 @@ interface OfficeMarker {
   tag?: string;
   x: number;
   y: number;
-  lift?: number; // extra px to push the label up, to de-clutter close pairs
+  lift?: number; // extra px to push the label away from the dot, to de-clutter close pairs
+  labelPos?: "top" | "bottom" | "left" | "right"; // which side of the dot the label sits on (default: top)
 }
 
 const officeMarkers: OfficeMarker[] = [
-  { name: "London",       x: 49.96, y: 21.4, lift: 30 },
+  { name: "London",       x: 49.96, y: 21.4, labelPos: "right" },
   { name: "Lisbon",       x: 47.46, y: 28.5 },
   { name: "Dubai",        tag: "Headquarters", x: 65.35, y: 36.0, lift: 30 },
   { name: "Abu Dhabi",    x: 65.11, y: 36.4 },
   { name: "Shanghai",     x: 83.74, y: 32.7 },
   { name: "Luanda",       tag: "Core Operations", x: 53.68, y: 54.9 },
   { name: "São Paulo",    x: 37.05, y: 63.1 },
-  { name: "Johannesburg", x: 57.79, y: 64.6 },
+  { name: "Johannesburg", x: 57.79, y: 64.6, labelPos: "bottom" },
 ];
 
 // Natural size of /imagens/world-night-lights.jpg
@@ -111,7 +113,23 @@ function JourneyMap() {
 
       {officeMarkers.map((city, ci) => {
         const isActive = active === city.name;
-        const lineHeight = 10 + (city.lift ?? 0);
+        const gap = 10 + (city.lift ?? 0);
+        const pos = city.labelPos ?? "top";
+        const isVertical = pos === "top" || pos === "bottom";
+
+        // Label container: offset away from the dot on the chosen side, cross-axis centred.
+        const labelStyle: CSSProperties = isVertical
+          ? { left: "50%", transform: "translateX(-50%)", [pos === "top" ? "bottom" : "top"]: `calc(50% + ${gap}px)` }
+          : { top: "50%", transform: "translateY(-50%)", [pos === "left" ? "right" : "left"]: `calc(50% + ${gap}px)` };
+        const labelClass = isVertical
+          ? "absolute flex flex-col items-center"
+          : `absolute flex flex-col ${pos === "left" ? "items-end" : "items-start"}`;
+
+        // Connecting line: vertical for top/bottom, horizontal for left/right.
+        const lineStyle: CSSProperties = isVertical
+          ? { left: "50%", [pos === "top" ? "bottom" : "top"]: "50%", width: "1.5px", height: `${gap}px`, transform: "translateX(-50%)" }
+          : { top: "50%", [pos === "left" ? "right" : "left"]: "50%", height: "1.5px", width: `${gap}px`, transform: "translateY(-50%)" };
+
         return (
           <button
             key={city.name}
@@ -122,11 +140,8 @@ function JourneyMap() {
             className="absolute z-10 transition-opacity duration-300"
             style={{ ...getMarkerStyle(city), transform: "translate(-50%, -50%)" }}
           >
-            {/* Label + connecting line — anchored to the dot below, lift only shifts this */}
-            <div
-              className="absolute left-1/2 flex flex-col items-center"
-              style={{ bottom: `calc(50% + ${lineHeight}px)`, transform: "translateX(-50%)" }}
-            >
+            {/* Label + connecting line — anchored to the dot, on whichever side labelPos picks */}
+            <div className={labelClass} style={labelStyle}>
               <span
                 className="whitespace-nowrap font-bold transition-colors"
                 style={{
@@ -147,13 +162,10 @@ function JourneyMap() {
               )}
             </div>
             <span
-              className="absolute left-1/2 block transition-all"
+              className="absolute block transition-all"
               style={{
-                bottom: "50%",
-                width: "1.5px",
-                height: `${lineHeight}px`,
+                ...lineStyle,
                 background: isActive ? "#02d49e" : "rgba(2,212,158,0.65)",
-                transform: "translateX(-50%)",
               }}
             />
             {/* Dot — always exactly at the true geographic anchor */}

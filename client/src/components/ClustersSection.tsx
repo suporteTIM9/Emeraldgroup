@@ -179,8 +179,8 @@ const clusters = [
         desc: "Strategic alliances with universities and research institutions to co-create educational programs, certifications, and learning experiences that blend theory, research, and applied business practice.",
       },
       {
-        name: "Knowledge & Media Platforms",
-        desc: "Leveraging media assets and publishing platforms to expand access to economic, business, and leadership knowledge. These platforms contribute to informal education by informing, inspiring, and connecting entrepreneurial and professional communities across regions.",
+        name: "Digital & Future Learning",
+        desc: "Development of forward-looking education models that integrate technology, digital platforms, and AI-enabled learning systems to democratize access to knowledge and address emerging challenges in global education.",
       },
     ],
     color: "oklch(0.42 0.16 155)",

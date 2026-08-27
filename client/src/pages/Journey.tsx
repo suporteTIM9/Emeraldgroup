@@ -30,23 +30,31 @@ const officeMarkers: OfficeMarker[] = [
   { name: "Maputo",       x: 59.05, y: 64.43, labelPos: "right" },
 ];
 
-// Natural aspect ratio of /imagens/world-night-lights.jpg (2:1). The map box
-// is locked to this ratio — rather than being cropped to fit an arbitrary
-// container height — so the full image, and every marker on it, is always
-// entirely visible. It reads as a smaller, static map rather than a
-// full-bleed cinematic crop, but nothing is ever clipped for anyone.
+// The map box is locked to a FIXED aspect ratio, wider than the source image's
+// native 2:1 — this crops off a constant slice of empty Arctic/Antarctic ocean
+// (no markers ever live there) so the map reads as shorter/less dominant, edge
+// to edge. Critically, because the ratio is fixed (not a max-height clamp tied
+// to viewport width), the visible vertical band is the same *proportion* of
+// the image at every screen width — unlike a height clamp, which shrinks that
+// band on wide screens and is what clipped Johannesburg before. Every marker's
+// y is comfortably inside [21%, 65%], well within the [15%, 72%] band below.
+const MAP_ASPECT = 3.5; // width / height of the visible map box
+const MAP_OBJECT_POS_Y = 35; // must match the <img>'s object-position Y below
+const MAP_VISIBLE_FRAC = 2 / MAP_ASPECT; // fraction of image height kept visible
+const MAP_TOP_CROP = (1 - MAP_VISIBLE_FRAC) * (MAP_OBJECT_POS_Y / 100); // fraction cropped off the top
+
 function JourneyMap() {
   const [active, setActive] = useState<string | null>(null);
 
   const getMarkerStyle = (city: OfficeMarker) => ({
     left: `${city.x}%`,
-    top: `${city.y}%`,
+    top: `${((city.y / 100 - MAP_TOP_CROP) / MAP_VISIBLE_FRAC) * 100}%`,
   });
 
   return (
     <div
       className="relative overflow-hidden select-none group/map w-full"
-      style={{ aspectRatio: "2 / 1" }}
+      style={{ aspectRatio: `${MAP_ASPECT} / 1`, minHeight: "260px" }}
     >
       <style>{`
         @keyframes map-kenburns {
@@ -75,7 +83,7 @@ function JourneyMap() {
         src="/imagens/world-night-lights.jpg"
         alt="Emerald Group global office network"
         className="map-bg absolute inset-0 h-full w-full object-cover"
-        style={{ transition: "transform 0.6s ease" }}
+        style={{ transition: "transform 0.6s ease", objectPosition: `50% ${MAP_OBJECT_POS_Y}%` }}
         loading="lazy"
       />
       <div

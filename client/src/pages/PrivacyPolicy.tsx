@@ -21,9 +21,9 @@ const sections = [
       "The Personal Data which you provide to us or we collect from you will be used to perform KYC and Due Diligence in case of any business synergy, to improve our website and services, and to protect our legal rights and interests.",
   },
   {
-    title: "Who do we share your information with?",
+    title: "International and Cross-Border Data Transfers",
     text:
-      "We will take all steps reasonably necessary to ensure that your Personal Data is processed fairly and lawfully, in accordance with the applicable laws. By sharing your Personal Data with the Emerald Group, you agree to such storing or processing in order for the Emerald Group to perform its business. The Emerald Group does not engage in automated processing. Your personal data could only be shared with affiliates, which include our parent company and any other subsidiaries, joint venture partners or other companies that we control or that are under common control with us; and third parties, if we are required to do so by law or if we believe that sharing is necessary to protect our legal rights or interests.",
+      "To support our global operations, Personal Data shared with affiliates or third parties may be transferred to, stored, or processed in jurisdictions outside the DIFC or the United Arab Emirates. Any cross-border transfer of Personal Data shall strictly comply with DIFC Law No. 5 of 2020. We ensure that recipients in third countries afford an adequate level of data protection or that standard data protection contractual clauses approved by the DIFC Commissioner of Data Protection are executed to safeguard your information.",
   },
   {
     title: "Retention of Your Personal Data",

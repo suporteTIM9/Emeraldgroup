@@ -23,58 +23,29 @@ const officeMarkers: OfficeMarker[] = [
   { name: "Lisbon",       x: 47.46, y: 28.5 },
   { name: "Dubai",        tag: "Headquarters", x: 65.35, y: 36.0, lift: 30 },
   { name: "Abu Dhabi",    x: 65.11, y: 36.4 },
-  { name: "Shanghai",     x: 83.74, y: 32.7 },
+  { name: "Shanghai",     x: 83.74, y: 32.7, labelPos: "left" },
   { name: "Luanda",       tag: "Core Operations", x: 53.68, y: 54.9 },
   { name: "São Paulo",    x: 37.05, y: 63.1 },
   { name: "Johannesburg", x: 57.79, y: 64.6, labelPos: "bottom" },
 ];
 
-// Natural size of /imagens/world-night-lights.jpg
-const MAP_IMG_W = 1920;
-const MAP_IMG_H = 960;
-// Vertical crop bias (object-position Y, in %). The container is much
-// shorter/wider than the image's native 2:1 ratio, so object-cover crops
-// the top/bottom. Biasing away from the default 50% (equator-centred) keeps
-// our northernmost (London, ~21%) and southernmost (Johannesburg, ~65%)
-// markers inside the visible band instead of centring on empty ocean.
-const MAP_OBJECT_POS_Y = 38;
-
+// Natural aspect ratio of /imagens/world-night-lights.jpg (2:1). The map box
+// is locked to this ratio — rather than being cropped to fit an arbitrary
+// container height — so the full image, and every marker on it, is always
+// entirely visible. It reads as a smaller, static map rather than a
+// full-bleed cinematic crop, but nothing is ever clipped for anyone.
 function JourneyMap() {
   const [active, setActive] = useState<string | null>(null);
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [box, setBox] = useState({ w: 0, h: 0 });
 
-  // Track the container's real rendered size so marker positions can be
-  // remapped to account for the object-cover crop (the container's aspect
-  // ratio rarely matches the image's native 2:1 ratio).
-  useEffect(() => {
-    const el = containerRef.current;
-    if (!el) return;
-    const observer = new ResizeObserver((entries) => {
-      const { width, height } = entries[0].contentRect;
-      setBox({ w: width, h: height });
-    });
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
-
-  const getMarkerStyle = (city: OfficeMarker) => {
-    if (!box.w || !box.h) return { left: "50%", top: "50%", opacity: 0 };
-    const scale = Math.max(box.w / MAP_IMG_W, box.h / MAP_IMG_H);
-    const displayedW = MAP_IMG_W * scale;
-    const displayedH = MAP_IMG_H * scale;
-    const offsetX = (displayedW - box.w) / 2;
-    const offsetY = (displayedH - box.h) * (MAP_OBJECT_POS_Y / 100);
-    const px = (city.x / 100) * MAP_IMG_W * scale - offsetX;
-    const py = (city.y / 100) * MAP_IMG_H * scale - offsetY;
-    return { left: `${(px / box.w) * 100}%`, top: `${(py / box.h) * 100}%` };
-  };
+  const getMarkerStyle = (city: OfficeMarker) => ({
+    left: `${city.x}%`,
+    top: `${city.y}%`,
+  });
 
   return (
     <div
-      ref={containerRef}
-      className="relative overflow-hidden select-none group/map w-full"
-      style={{ height: "clamp(240px, 38vw, 440px)" }}
+      className="relative mx-auto overflow-hidden select-none group/map w-full rounded-sm"
+      style={{ aspectRatio: "2 / 1", maxWidth: "1200px" }}
     >
       <style>{`
         @keyframes map-kenburns {
@@ -103,7 +74,7 @@ function JourneyMap() {
         src="/imagens/world-night-lights.jpg"
         alt="Emerald Group global office network"
         className="map-bg absolute inset-0 h-full w-full object-cover"
-        style={{ transition: "transform 0.6s ease", objectPosition: `50% ${MAP_OBJECT_POS_Y}%` }}
+        style={{ transition: "transform 0.6s ease" }}
         loading="lazy"
       />
       <div
@@ -213,9 +184,11 @@ export default function Journey() {
       <Navbar fixed={false} />
       <Breadcrumb items={[{ label: "Journey" }]} />
 
-      {/* ── Map (full-bleed, edge to edge) ── */}
-      <section style={{ background: "var(--eg-dark)" }}>
-        <JourneyMap />
+      {/* ── Map (static, contained — every marker always fully visible) ── */}
+      <section className="py-8 sm:py-12" style={{ background: "var(--eg-dark)" }}>
+        <div className="container">
+          <JourneyMap />
+        </div>
       </section>
 
       {/* ── Full timeline (magazine-style, big year numerals) ── */}

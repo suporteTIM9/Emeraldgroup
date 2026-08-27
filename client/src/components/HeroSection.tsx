@@ -70,7 +70,7 @@ function SplitText({ text, animate }: { text: string; animate: boolean }) {
   const words = text.split(" ");
 
   return (
-    <span aria-label={text}>
+    <span aria-label={text} translate="no" className="notranslate">
       {words.map((word, i) => (
         <span key={i} style={{ display: "inline-block", overflow: "hidden", verticalAlign: "bottom", marginRight: "0.26em" }}>
           <span style={{
@@ -235,7 +235,8 @@ function CountUp({ value, color }: { value: string; color: string }) {
   return (
     <div
       ref={containerRef}
-      className="text-3xl font-bold mb-1"
+      className="text-3xl font-bold mb-1 notranslate"
+      translate="no"
       style={{ fontFamily: "Playfair Display, serif", color }}
     >
       {count}{suffix}
@@ -314,7 +315,7 @@ export default function HeroSection() {
   const content = heroContent[currentSlide];
 
   return (
-    <section className="relative min-h-screen flex flex-col justify-end overflow-hidden bg-black" id="hero">
+    <section className="relative min-h-screen flex flex-col justify-end overflow-hidden bg-black notranslate" id="hero" translate="no">
 
       {/* ── Slide backgrounds ── */}
       <div className="absolute inset-0 z-0 overflow-hidden">

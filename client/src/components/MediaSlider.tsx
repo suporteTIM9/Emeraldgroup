@@ -146,26 +146,40 @@ export default function MediaSlider() {
             return (
             <div
               key={i}
-              className={`p-5 rounded-sm border-l-[1.5px] ${isLoneInLastRow ? "sm:col-span-2 lg:col-span-2" : ""}`}
-              style={{ borderColor: "oklch(0.92 0.005 240)", borderLeftColor: "var(--eg-cyan)", background: "oklch(0.99 0.002 240)" }}
+              className={`group flex flex-col rounded-xl overflow-hidden shadow-[0_2px_10px_rgba(0,0,0,0.06)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_36px_rgba(0,0,0,0.14)] ${isLoneInLastRow ? "sm:col-span-2 lg:col-span-2" : ""}`}
+              style={{ background: "oklch(0.99 0.002 240)" }}
             >
-              <div className="text-[10px] font-bold uppercase tracking-widest mb-2" style={{ color: "var(--eg-cyan)" }}>
-                {event.brand}
+              {/* Dark header strip — brand */}
+              <div
+                className="px-5 py-3"
+                style={{ background: `linear-gradient(120deg, #14251f 0%, #0d3b30 60%, #02866a 100%)` }}
+              >
+                <div className="text-[10px] font-bold uppercase tracking-widest" style={{ color: "#02f9ba" }}>
+                  {event.brand}
+                </div>
               </div>
-              <h3 className="text-sm font-bold mb-2" style={{ color: "var(--eg-dark)" }}>{event.title}</h3>
-              <p className="text-xs leading-relaxed" style={{ color: "var(--eg-dark)" }}>{event.desc}</p>
-              {event.href && (
-                <a
-                  href={event.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-3 inline-flex items-center gap-1 text-xs font-semibold transition-all hover:gap-2"
-                  style={{ color: "var(--eg-cyan)" }}
+
+              <div className="flex flex-col flex-1 p-5">
+                <h3
+                  className="text-base font-bold mb-2 leading-snug"
+                  style={{ color: "var(--eg-dark)", fontFamily: "Playfair Display, serif" }}
                 >
-                  Explore Event
-                  <ArrowRight size={12} />
-                </a>
-              )}
+                  {event.title}
+                </h3>
+                <p className="text-xs leading-relaxed flex-1" style={{ color: "var(--eg-dark)" }}>{event.desc}</p>
+                {event.href && (
+                  <a
+                    href={event.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-4 inline-flex items-center justify-center gap-1.5 self-start rounded-full px-4 py-2 text-xs font-bold uppercase tracking-wide text-white transition-all group-hover:gap-2.5"
+                    style={{ background: "var(--eg-cyan)" }}
+                  >
+                    Explore Event
+                    <ArrowRight size={12} />
+                  </a>
+                )}
+              </div>
             </div>
             );
           })}

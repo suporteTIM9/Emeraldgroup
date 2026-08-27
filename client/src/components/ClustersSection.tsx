@@ -27,7 +27,7 @@ const clusters = [
       },
       {
         name: "Emerald Advisors",
-        desc: "The Group's strategic financial advisory arm, providing M&A, capital markets, and transaction advisory services to corporates, governments, and institutional investors across Africa and Europe.",
+        desc: "The Group's strategic financial advisory arm, providing M&A, capital markets, and transaction advisory services to corporates, governments, and institutional investors across Africa and Emerging Markets.",
       },
     ],
     color: "oklch(0.42 0.16 155)",

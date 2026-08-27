@@ -5,6 +5,8 @@ export interface LeadershipMember {
   note?: string;
   /** Path under /public, e.g. "/leadership/ngunu-tiny.jpg". Omit to show initials. */
   photo?: string;
+  /** CSS object-position for the photo crop. Use when the source photo isn't a ~1:1 headshot. */
+  photoPosition?: string;
   /** Full LinkedIn profile URL. Omit to hide the icon. */
   linkedin?: string;
 }
@@ -49,7 +51,7 @@ export const leadershipGroups: LeadershipGroup[] = [
       { name: "Delfina Franco", role: "Executive Director", spec: "The Office of The Chairman & CEO", photo: "/leadership/delfina-franco.png", linkedin: "https://www.linkedin.com/in/delfinafranco/" },
       { name: "Sara Ferreira", role: "Group Managing Director", spec: "Investments", photo: "/leadership/sara-ferreira.png", linkedin: "https://www.linkedin.com/in/sara-ferreira-2a77a9162/" },
       { name: "Rute Amorim", role: "Managing Director", spec: "Media9 Angola", photo: "/leadership/rute-amorim.png", linkedin: "https://www.linkedin.com/in/rute-amorim-50bb28a9" },
-      { name: "Ana Teixeira", role: "Managing Director", spec: "Africa Office Manager", photo: "/leadership/ana-teixeira.png", linkedin: "https://www.linkedin.com/in/ana-teixeira-aa968578/" },
+      { name: "Ana Teixeira", role: "Managing Director", spec: "Africa Office Manager", photo: "/leadership/ana-teixeira.png", photoPosition: "top", linkedin: "https://www.linkedin.com/in/ana-teixeira-aa968578/" },
     ],
   },
 ];

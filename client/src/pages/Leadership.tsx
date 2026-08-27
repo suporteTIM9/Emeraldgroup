@@ -44,7 +44,13 @@ function PersonNode({
           }}
         >
           {member.photo ? (
-            <img src={member.photo} alt={member.name} className="h-full w-full object-cover" loading="lazy" />
+            <img
+              src={member.photo}
+              alt={member.name}
+              className="h-full w-full object-cover"
+              style={{ objectPosition: member.photoPosition ?? "center" }}
+              loading="lazy"
+            />
           ) : (
             initialsOf(member.name)
           )}

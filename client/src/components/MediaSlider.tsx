@@ -1,5 +1,5 @@
-import { useRef } from "react";
-import { ArrowRight, Play } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { ArrowRight, ChevronLeft, ChevronRight, Play } from "lucide-react";
 
 interface SlideItem {
   type: "image" | "video";
@@ -98,11 +98,74 @@ const css = `
     font-family: 'Nunito Sans', sans-serif;
   }
   .ms-slide:hover .ms-caption { opacity: 1; transform: translateY(0); }
+
+  /* ── Event cards carousel ── */
+  .eh-track {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    padding-bottom: 4px;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .eh-track::-webkit-scrollbar { display: none; }
+
+  .eh-card {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+    width: calc(100% - 40px);
+  }
+  @media (min-width: 640px)  { .eh-card { width: calc(50% - 10px); } }
+  @media (min-width: 1024px) { .eh-card { width: calc(33.333% - 14px); } }
+  @media (min-width: 1400px) { .eh-card { width: calc(25% - 15px); } }
+
+  .eh-arrow {
+    width: 40px; height: 40px;
+    border-radius: 999px;
+    display: flex; align-items: center; justify-content: center;
+    background: #fff;
+    border: 1px solid oklch(0.92 0.005 240);
+    box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+    color: var(--eg-dark);
+    transition: transform 0.2s, box-shadow 0.2s, opacity 0.2s;
+    cursor: pointer;
+  }
+  .eh-arrow:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.14); }
+  .eh-arrow:disabled { opacity: 0.35; cursor: default; transform: none; box-shadow: none; }
 `;
 
 export default function MediaSlider() {
   const isDragging = useRef(false);
   const innerRef   = useRef<HTMLDivElement>(null);
+  const eventsTrackRef = useRef<HTMLDivElement>(null);
+  const [canScrollPrev, setCanScrollPrev] = useState(false);
+  const [canScrollNext, setCanScrollNext] = useState(false);
+
+  const updateEventsArrows = () => {
+    const el = eventsTrackRef.current;
+    if (!el) return;
+    setCanScrollPrev(el.scrollLeft > 4);
+    setCanScrollNext(el.scrollLeft < el.scrollWidth - el.clientWidth - 24);
+  };
+
+  useEffect(() => {
+    updateEventsArrows();
+    const el = eventsTrackRef.current;
+    if (!el) return;
+    const onResize = () => updateEventsArrows();
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
+
+  const scrollEvents = (dir: 1 | -1) => {
+    const el = eventsTrackRef.current;
+    if (!el) return;
+    const card = el.querySelector<HTMLElement>(".eh-card");
+    const step = card ? card.getBoundingClientRect().width + 20 : el.clientWidth * 0.8;
+    el.scrollBy({ left: dir * step, behavior: "smooth" });
+  };
 
   const handleClick = (href: string) => {
     if (isDragging.current) return;
@@ -134,19 +197,26 @@ export default function MediaSlider() {
           >
             High-Impact Gatherings Across Our Brands
           </h2>
-          <p className="text-sm max-w-sm leading-relaxed" style={{ color: "var(--eg-dark)" }}>
-            From investor summits to industry forums, our portfolio companies convene the leaders
-            shaping their sectors.
-          </p>
+          <div className="flex items-end justify-between gap-6 lg:justify-end lg:gap-8 w-full lg:w-auto">
+            <p className="text-sm max-w-sm leading-relaxed" style={{ color: "var(--eg-dark)" }}>
+              From investor summits to industry forums, our portfolio companies convene the leaders
+              shaping their sectors.
+            </p>
+            <div className="flex gap-2 shrink-0">
+              <button type="button" className="eh-arrow" aria-label="Previous event" disabled={!canScrollPrev} onClick={() => scrollEvents(-1)}>
+                <ChevronLeft size={18} />
+              </button>
+              <button type="button" className="eh-arrow" aria-label="Next event" disabled={!canScrollNext} onClick={() => scrollEvents(1)}>
+                <ChevronRight size={18} />
+              </button>
+            </div>
+          </div>
         </div>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {eventHighlights.map((event, i) => {
-            // If the last row would otherwise hold a single lonely card, let it span half the row instead.
-            const isLoneInLastRow = eventHighlights.length % 4 === 1 && i === eventHighlights.length - 1;
-            return (
+        <div className="eh-track" ref={eventsTrackRef} onScroll={updateEventsArrows}>
+          {eventHighlights.map((event, i) => (
             <div
               key={i}
-              className={`group flex flex-col rounded-xl overflow-hidden shadow-[0_2px_10px_rgba(0,0,0,0.06)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_36px_rgba(0,0,0,0.14)] ${isLoneInLastRow ? "sm:col-span-2 lg:col-span-2" : ""}`}
+              className="eh-card group flex flex-col rounded-xl overflow-hidden shadow-[0_2px_10px_rgba(0,0,0,0.06)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_36px_rgba(0,0,0,0.14)]"
               style={{ background: "oklch(0.99 0.002 240)" }}
             >
               {/* Dark header strip — brand */}
@@ -181,8 +251,7 @@ export default function MediaSlider() {
                 )}
               </div>
             </div>
-            );
-          })}
+          ))}
         </div>
       </div>
 

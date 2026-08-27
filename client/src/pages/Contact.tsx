@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { Link } from "wouter";
-import { Mail, Landmark, Megaphone, Handshake, Clock, MapPin } from "lucide-react";
+import { Mail, Landmark, Megaphone, Handshake, Clock, MapPin, ShieldCheck } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
@@ -30,6 +30,12 @@ const departments = [
     label: "Business Partnerships",
     email: "partnerships@emeraldgroup-inc.com",
     desc: "Strategic partnerships, joint ventures and portfolio collaboration.",
+  },
+  {
+    icon: ShieldCheck,
+    label: "Compliance",
+    email: "compliance@emeraldgroup-inc.com",
+    desc: "Regulatory, compliance and governance-related enquiries.",
   },
 ];
 
@@ -101,7 +107,7 @@ export default function Contact() {
                   <p className="mt-1.5 text-xs leading-relaxed" style={{ color: "var(--eg-dark)" }}>{d.desc}</p>
                   <div
                     className="mt-4 font-semibold whitespace-nowrap overflow-hidden text-ellipsis transition-colors"
-                    style={{ color: "#02d49e", fontSize: "10.5px" }}
+                    style={{ color: "#02d49e", fontSize: "10px" }}
                     title={d.email}
                   >
                     {d.email}

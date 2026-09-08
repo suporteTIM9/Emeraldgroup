@@ -177,7 +177,7 @@ export default function NewsSection() {
               </span>
             </div>
             <h3
-              className="text-3xl lg:text-5xl font-bold text-white mb-6 leading-[1.1] tracking-tight uppercase"
+              className="text-xl lg:text-3xl font-bold text-white mb-6 leading-[1.2] tracking-tight uppercase"
               style={{ fontFamily: "Quantico, sans-serif", textShadow: "0 2px 16px rgba(0,0,0,0.5)" }}
             >
               {featured.title}

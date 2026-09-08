@@ -13,6 +13,20 @@ interface Section {
 const sections: Section[] = [
   {
     number: "1.",
+    title: "Acceptance of Terms",
+    content: (
+      <div className="mt-3 space-y-3 text-sm leading-7 text-slate-900 sm:text-base">
+        <p>
+          By accessing or using the Emerald Group website, you agree to be bound by these Terms and Conditions and our{" "}
+          <Link href="/privacy" className="text-[#02d49e] hover:underline font-medium">
+            Privacy Policy
+          </Link>. If you do not agree to these terms, please stop using the website immediately.
+        </p>
+      </div>
+    ),
+  },
+  {
+    number: "2.",
     title: "Company Information",
     content: (
       <>
@@ -32,69 +46,54 @@ const sections: Section[] = [
     ),
   },
   {
-    number: "2.",
-    title: "Website Ownership",
-    content: (
-      <div className="mt-3 space-y-3 text-sm leading-7 text-slate-900 sm:text-base">
-        <p>
-          This website (<a href="https://emeraldgroup-inc.com/" target="_blank" rel="noopener noreferrer" className="text-[#02d49e] hover:underline">https://emeraldgroup-inc.com/</a>) and all its content, including but not limited to text, images, graphics, logos, icons, videos, and design elements, are the exclusive property of Emerald Group, unless otherwise stated.
-        </p>
-        <p>
-          Unauthorized use, reproduction, or distribution of any materials is strictly prohibited without prior written consent.
-        </p>
-      </div>
-    ),
-  },
-  {
     number: "3.",
-    title: "Intellectual Property Rights",
+    title: "Use of Website",
     content: (
       <div className="mt-3 space-y-3 text-sm leading-7 text-slate-900 sm:text-base">
         <p>
-          All intellectual property rights related to this website are protected under applicable copyright, trademark, and intellectual property laws.
+          The content on this website is for general informational purposes only and is subject to change without notice. Your use of any information or materials on this website is entirely at your own risk, for which we shall not be liable. It shall be your own responsibility to ensure that any products, services or information available through this website meet your specific requirements.
         </p>
         <p>
-          Users may view and use content for personal and non-commercial purposes only. Any other use, including modification, reproduction, or commercial use, requires explicit authorization.
+          You must not attempt unauthorized access to our systems, introduce viruses or malicious code, or disrupt website operations.
         </p>
       </div>
     ),
   },
   {
     number: "4.",
-    title: "Limitation of Liability",
+    title: "Intellectual Property",
     content: (
       <div className="mt-3 space-y-3 text-sm leading-7 text-slate-900 sm:text-base">
         <p>
-          The information provided on this website is for general informational purposes only.
+          All material on this website, including but not limited to text, graphics, logos, layout, and software, is owned by or licensed to Emerald Group. Unauthorised reproduction, distribution, or commercial use of any content is strictly prohibited.
         </p>
-        <p>
-          Emerald Group makes every effort to ensure accuracy and completeness but does not guarantee that all content is up to date, error-free, or complete.
-        </p>
-        <p>We shall not be held liable for:</p>
-        <ul className="list-disc list-inside space-y-1 pl-2 text-slate-900">
-          <li>Any direct or indirect damages resulting from the use of this website</li>
-          <li>Temporary unavailability or interruption of the website</li>
-          <li>Errors, inaccuracies, or omissions in the content</li>
-        </ul>
       </div>
     ),
   },
   {
     number: "5.",
-    title: "External Links",
+    title: "Warranty Disclaimer",
     content: (
       <div className="mt-3 space-y-3 text-sm leading-7 text-slate-900 sm:text-base">
         <p>
-          This website may contain links to third-party websites for convenience and informational purposes.
-        </p>
-        <p>
-          Emerald Group has no control over external websites and assumes no responsibility for their content, policies, or availability.
+          This website and its contents are provided "as is" without warranties of any kind, express or implied. Emerald Group makes no guarantees regarding accuracy, completeness, or performance. To the fullest extent permitted by law, Emerald Group shall not be liable for any direct, indirect, or consequential damages arising from your use of this website.
         </p>
       </div>
     ),
   },
   {
     number: "6.",
+    title: "Third-Party Links",
+    content: (
+      <div className="mt-3 space-y-3 text-sm leading-7 text-slate-900 sm:text-base">
+        <p>
+          This website may contain links to third-party websites for your convenience. Emerald Group does not control, endorse, or accept responsibility for the content, privacy policies, or practices of external sites.
+        </p>
+      </div>
+    ),
+  },
+  {
+    number: "7.",
     title: "Data Protection",
     content: (
       <div className="mt-3 space-y-3 text-sm leading-7 text-slate-900 sm:text-base">
@@ -111,7 +110,7 @@ const sections: Section[] = [
     ),
   },
   {
-    number: "7.",
+    number: "8.",
     title: "Cookies",
     content: (
       <div className="mt-3 space-y-3 text-sm leading-7 text-slate-900 sm:text-base">
@@ -125,7 +124,7 @@ const sections: Section[] = [
     ),
   },
   {
-    number: "8.",
+    number: "9.",
     title: "Governing Law and Jurisdiction",
     content: (
       <div className="mt-3 space-y-3 text-sm leading-7 text-slate-900 sm:text-base">
@@ -139,21 +138,18 @@ const sections: Section[] = [
     ),
   },
   {
-    number: "9.",
-    title: "Updates to This Legal Notice",
+    number: "10.",
+    title: "Changes to Terms",
     content: (
       <div className="mt-3 space-y-3 text-sm leading-7 text-slate-900 sm:text-base">
         <p>
-          Emerald Group reserves the right to modify or update this Legal Notice at any time without prior notice.
-        </p>
-        <p>
-          Changes will be effective immediately upon publication on this page.
+          Emerald Group reserves the right to modify these Terms at any time. All updates take effect immediately upon being posted on this website without prior notice. Your continued use of the website after changes are posted constitutes acceptance of the updated Terms.
         </p>
       </div>
     ),
   },
   {
-    number: "10.",
+    number: "11.",
     title: "Contact",
     content: (
       <div className="mt-3 text-sm leading-7 text-slate-900 sm:text-base">

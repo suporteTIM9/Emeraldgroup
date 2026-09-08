@@ -26,7 +26,7 @@ export default function Navbar({ fixed = true }: NavbarProps) {
   const [scrolled,   setScrolled]   = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const isStatic = !fixed;
-  const [, setLocation] = useLocation();
+  const [location, setLocation] = useLocation();
 
   useEffect(() => {
     if (!fixed) return;
@@ -35,16 +35,29 @@ export default function Navbar({ fixed = true }: NavbarProps) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [fixed]);
 
+  // Homepage sections (Clusters, News, etc.) are lazy-loaded, so their DOM
+  // nodes may not exist yet the instant a nav link is clicked. Retry for up
+  // to ~3s instead of giving up on the first miss.
+  const scrollToHash = (href: string, attemptsLeft = 30) => {
+    const el = document.querySelector(href);
+    if (el) {
+      const top = el.getBoundingClientRect().top + window.scrollY - 88;
+      window.scrollTo({ top, behavior: "smooth" });
+      setTimeout(() => (el as HTMLElement).click(), 400);
+    } else if (attemptsLeft > 0) {
+      setTimeout(() => scrollToHash(href, attemptsLeft - 1), 100);
+    }
+  };
+
   const handleNavClick = (href: string) => {
     setMobileOpen(false);
     if (href.startsWith("#")) {
-      const el = document.querySelector(href);
-      if (el) {
-        const top = el.getBoundingClientRect().top + window.scrollY - 88;
-        window.scrollTo({ top, behavior: "smooth" });
-        setTimeout(() => (el as HTMLElement).click(), 400);
+      if (location !== "/") {
+        // Navigate home first, then wait for the lazy section to mount.
+        setLocation("/");
+        setTimeout(() => scrollToHash(href), 200);
       } else {
-        window.location.href = "/" + href;
+        scrollToHash(href);
       }
     } else {
       setLocation(href);

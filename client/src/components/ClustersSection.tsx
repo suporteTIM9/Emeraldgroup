@@ -109,22 +109,6 @@ const clusters = [
         name: "Emerald Telecom",
         desc: "A telecommunications infrastructure and services company delivering connectivity solutions across underserved markets. Emerald Telecom builds and operates the networks that enable digital inclusion, mobile commerce, and enterprise communications.",
       },
-      {
-        name: "Forbes Africa",
-        desc: "The pan-African edition of the world's most recognised business media brand. Forbes Africa covers the continent's most influential entrepreneurs, investors, and innovators, inspiring the next generation of African business leaders.",
-      },
-      {
-        name: "Forbes África Lusófona",
-        desc: "The Portuguese-language African edition of Forbes, serving the business communities of Angola, Mozambique, Cape Verde, and other Lusophone markets with authoritative business journalism and thought leadership.",
-      },
-      {
-        name: "Forbes Portugal",
-        desc: "The leading Portuguese edition of Forbes, covering the country's most dynamic companies, entrepreneurs, and economic trends. A bridge between Portugal's business community and the broader Lusophone world.",
-      },
-      {
-        name: "Jornal Económico",
-        desc: "Portugal's premier economic and financial newspaper, providing in-depth analysis of macroeconomic trends, capital markets, and corporate strategy. A trusted reference for business decision-makers in Portugal and the Portuguese-speaking world.",
-      },
     ],
     color: "oklch(0.42 0.16 155)",
     bgColor: "oklch(0.97 0.04 155)",

@@ -9,7 +9,7 @@ export default function AboutUs() {
   return (
     <div className="min-h-screen bg-white text-slate-900">
       <Navbar fixed={false} />
-      <Breadcrumb items={[{ label: "Who We Are" }]} />
+      <Breadcrumb items={[{ label: "About Us" }]} />
 
       <main className="container py-8 sm:py-10 lg:py-12">
         <div className="mx-auto max-w-4xl">
@@ -43,6 +43,57 @@ export default function AboutUs() {
               creates scalable business platforms across strategic sectors, and drives sustainable economic
               growth. Our portfolio spans banking and financial services, construction, infrastructure, energy
               and natural resources, technology, media, and real estate.
+            </p>
+
+            <h2 className="mt-14 text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
+              The Emerald Group | Organization and Structure
+            </h2>
+
+            <h3 className="mt-10 text-lg font-semibold text-slate-900 sm:text-xl">
+              Shareholders
+            </h3>
+            <p className="text-base leading-8 sm:text-lg sm:leading-9" style={{ color: "var(--eg-dark)" }}>
+              The General Meeting of Shareholders constitutes the supreme corporate body of The Emerald Group.
+              All shareholders with registered voting rights are entitled to attend, participate in, and vote
+              at General Meetings in accordance with the Company's constitutional documents and applicable law.
+            </p>
+
+            <h3 className="mt-10 text-lg font-semibold text-slate-900 sm:text-xl">
+              Board of Directors
+            </h3>
+            <p className="text-base leading-8 sm:text-lg sm:leading-9" style={{ color: "var(--eg-dark)" }}>
+              The Board of Directors (BoD) is responsible for determining the Group's strategy and for the
+              overall direction, supervision, and control of The Emerald Group and its management. The Board
+              delegates the day-to-day management of the business to the Group Executive Board, while
+              retaining ultimate accountability for governance and performance.
+            </p>
+
+            <h3 className="mt-10 text-lg font-semibold text-slate-900 sm:text-xl">
+              Governance Structure
+            </h3>
+            <p className="text-base leading-8 sm:text-lg sm:leading-9" style={{ color: "var(--eg-dark)" }}>
+              The Board is supported by specialized committees, including the Governance Structure
+              Committee (GSC) and Risk Management and Control Committee (RMC) — all committees will be
+              reporting directly to the Board of Directors.
+            </p>
+
+            <h3 className="mt-10 text-lg font-semibold text-slate-900 sm:text-xl">
+              Group Executive Board
+            </h3>
+            <p className="text-base leading-8 sm:text-lg sm:leading-9" style={{ color: "var(--eg-dark)" }}>
+              The Group Executive Board (GEB, or simply EB) holds executive management responsibility for
+              steering the Group and its business activities. It implements the strategies, policies, and
+              risk frameworks approved by the Board of Directors and ensures effective operational execution
+              across the Group.
+            </p>
+
+            <h3 className="mt-10 text-lg font-semibold text-slate-900 sm:text-xl">
+              Senior Officers and Directors
+            </h3>
+            <p className="text-base leading-8 sm:text-lg sm:leading-9" style={{ color: "var(--eg-dark)" }}>
+              At the Emerald Group, the career path beyond analyst goes from analyst, to associate director,
+              director, executive director, managing director, group managing director and group executive
+              board member.
             </p>
           </div>
 

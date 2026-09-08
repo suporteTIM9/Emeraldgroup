@@ -194,7 +194,7 @@ export default function ContactSection({ showHeader = true }: { showHeader?: boo
             {/* Decorative accent */}
             <div className="mt-10 pt-8" style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}>
               <p className="text-xs leading-relaxed" style={{ color: "#ffffff", fontFamily: "Nunito Sans, sans-serif" }}>
-                Operating across 5+ countries with 20+ portfolio companies.
+                Connecting Africa to global financial centres — creating new markets that drive economic growth.
               </p>
             </div>
           </div>

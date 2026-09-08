@@ -59,7 +59,7 @@ export default function Contact() {
               className="text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl"
               style={{ fontFamily: "Playfair Display, serif" }}
             >
-              Let's Build Something Together
+              Let's Connect. Create. Grow.
             </h1>
             <div className="mt-4 h-1 w-16 rounded-full" style={{ background: "#02d49e" }} />
             <p className="mt-6 max-w-xl text-sm sm:text-base leading-7 sm:leading-8" style={{ color: "rgba(255,255,255,0.65)" }}>
@@ -69,7 +69,7 @@ export default function Contact() {
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-3 text-xs sm:text-sm" style={{ color: "rgba(255,255,255,0.5)" }}>
               <span className="flex items-center gap-2"><Clock size={14} style={{ color: "#02d49e" }} /> We typically respond within 2 business days</span>
-              <span className="flex items-center gap-2"><MapPin size={14} style={{ color: "#02d49e" }} /> Dubai, UAE</span>
+              <span className="flex items-center gap-2"><MapPin size={14} style={{ color: "#02d49e" }} /> 707A, Al Fattan Currency Tower 2, Dubai International Financial Centre (DIFC), Dubai, UAE</span>
             </div>
           </div>
         </div>

@@ -14,10 +14,12 @@ const navItems: NavItem[] = [
 
 // Mobile hamburger menu: its own order/labels, independent of the desktop nav.
 const mobileNavItems: NavItem[] = [
-  { label: "About Us", href: "/about-us" },
+  { label: "About", href: "/about-us" },
   { label: "Leadership Team", href: "/leadership" },
+  { label: "Our Business Clusters", href: "#clusters" },
   { label: "The Chairman's Talk", href: "/chairmans-talk" },
-  { label: "Contact", href: "/contact" },
+  { label: "Investors Relations", href: "/contact" },
+  { label: "Contact Us", href: "/contact" },
 ];
 
 export default function Navbar({ fixed = true }: NavbarProps) {

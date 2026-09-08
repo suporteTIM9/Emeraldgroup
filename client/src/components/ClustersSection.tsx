@@ -159,33 +159,38 @@ const clusters = [
     color: "oklch(0.42 0.16 155)",
     bgColor: "oklch(0.97 0.04 155)",
   },
-  {
-    id: "education",
-    number: "07",
-    icon: GraduationCap,
-    title: "Education & Leadership Development",
-    anchorId: "cluster-education",
-    tagline: "Empowering minds. Shaping futures.",
-    description:
-      "Emerald Group's Education & Leadership Development cluster reflects the Group's commitment to building human capital as a foundation for long-term economic and social progress. Positioned at the intersection of academia, technology, and global investment, this cluster focuses on developing future-ready leaders, promoting knowledge access, and fostering transformative learning experiences across international markets. Through strategic partnerships with leading academic institutions, executive education programs, and knowledge platforms, Emerald Group bridges theory and practice — equipping decision-makers with the tools, insights, and global perspective required to navigate increasingly complex and fast-evolving environments. The cluster places particular emphasis on leadership, innovation, and the responsible use of emerging technologies such as artificial intelligence in education.",
-    companies: [
-      {
-        name: "Executive Education",
-        desc: "Premium leadership and executive development programs delivered in collaboration with world-class academic institutions. These initiatives combine academic rigor with real-world business insights, preparing senior executives and high-potential leaders to operate effectively in global environments.",
-        href: "https://www.sps.nyu.edu/",
-      },
-      {
-        name: "Academic Partnerships",
-        desc: "Strategic alliances with universities and research institutions to co-create educational programs, certifications, and learning experiences that blend theory, research, and applied business practice.",
-      },
-      {
-        name: "Digital & Future Learning",
-        desc: "Development of forward-looking education models that integrate technology, digital platforms, and AI-enabled learning systems to democratize access to knowledge and address emerging challenges in global education.",
-      },
-    ],
-    color: "oklch(0.42 0.16 155)",
-    bgColor: "oklch(0.97 0.04 155)",
-  },
+  // Cluster 07 "Education & Leadership Development" — temporarily hidden at the
+  // user's request (2026-09-08). NOT a deletion: the user is undecided whether
+  // this cluster stays out permanently. Ask them about it when finalizing the
+  // site, and restore this block (plus the "Seven Clusters" / "seven distinct
+  // business clusters" copy below, currently reading "Six"/"six") if it returns.
+  // {
+  //   id: "education",
+  //   number: "07",
+  //   icon: GraduationCap,
+  //   title: "Education & Leadership Development",
+  //   anchorId: "cluster-education",
+  //   tagline: "Empowering minds. Shaping futures.",
+  //   description:
+  //     "Emerald Group's Education & Leadership Development cluster reflects the Group's commitment to building human capital as a foundation for long-term economic and social progress. Positioned at the intersection of academia, technology, and global investment, this cluster focuses on developing future-ready leaders, promoting knowledge access, and fostering transformative learning experiences across international markets. Through strategic partnerships with leading academic institutions, executive education programs, and knowledge platforms, Emerald Group bridges theory and practice — equipping decision-makers with the tools, insights, and global perspective required to navigate increasingly complex and fast-evolving environments. The cluster places particular emphasis on leadership, innovation, and the responsible use of emerging technologies such as artificial intelligence in education.",
+  //   companies: [
+  //     {
+  //       name: "Executive Education",
+  //       desc: "Premium leadership and executive development programs delivered in collaboration with world-class academic institutions. These initiatives combine academic rigor with real-world business insights, preparing senior executives and high-potential leaders to operate effectively in global environments.",
+  //       href: "https://www.sps.nyu.edu/",
+  //     },
+  //     {
+  //       name: "Academic Partnerships",
+  //       desc: "Strategic alliances with universities and research institutions to co-create educational programs, certifications, and learning experiences that blend theory, research, and applied business practice.",
+  //     },
+  //     {
+  //       name: "Digital & Future Learning",
+  //       desc: "Development of forward-looking education models that integrate technology, digital platforms, and AI-enabled learning systems to democratize access to knowledge and address emerging challenges in global education.",
+  //     },
+  //   ],
+  //   color: "oklch(0.42 0.16 155)",
+  //   bgColor: "oklch(0.97 0.04 155)",
+  // },
 ];
 
 export default function ClustersSection() {
@@ -219,10 +224,10 @@ export default function ClustersSection() {
             className="text-4xl lg:text-5xl font-bold leading-tight max-w-xl"
             style={{ color: "var(--eg-dark)" }}
           >
-            Seven Clusters.<br />One Vision.
+            Six Clusters.<br />One Vision.
           </h2>
           <p className="text-sm max-w-sm leading-relaxed" style={{ color: "var(--eg-dark)" }}>
-            Emerald Group organises its investments and operations into seven distinct business clusters — each
+            Emerald Group organises its investments and operations into six distinct business clusters — each
             strategically positioned to capture long-term value and contribute to Africa's economic transformation.
           </p>
         </div>

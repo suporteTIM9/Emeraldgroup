@@ -25,6 +25,7 @@ const footerLinks = [
       { label: "About Us", href: "/about-us" },
       { label: "Our Mission & Vision", href: "/mission-vision" },
       { label: "Leadership Team", href: "/leadership" },
+      { label: "Journey", href: "/journey" },
       { label: "Emerald Education", href: "https://www.sps.nyu.edu/connect/custom-educational-programs/lab-for-transformative-leadership/executive-education.html" },
     ],
   },

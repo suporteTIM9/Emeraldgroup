@@ -305,7 +305,7 @@ export default function ClustersSection() {
 
                   <div className="mb-4">
                     <h4 className="text-xs font-semibold tracking-widest uppercase text-gray-400 mb-4">
-                      Portfolio Companies — {c.companies.length} {c.companies.length === 1 ? "entity" : "entities"}
+                      Portfolio Companies
                     </h4>
                     <div className="grid sm:grid-cols-2 gap-3">
                       {c.companies.map((company, j) => (

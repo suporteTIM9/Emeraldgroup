@@ -4,7 +4,7 @@ import Navbar from "@/components/Navbar";
 import Breadcrumb from "@/components/Breadcrumb";
 import { Link } from "wouter";
 
-const sections = [
+const sections: { title: string; subheading?: string; text: string }[] = [
   {
     title: "Personal data protection",
     text:
@@ -34,6 +34,12 @@ const sections = [
     title: "How do we protect your information?",
     text:
       "The Emerald Group makes every effort to ensure that your Personal Data is secure on its system. The Emerald Group has staff dedicated to maintaining its data protection and security policies, periodically reviewing them and making sure that the Emerald Group employees are aware of its data protection and security practices. The Emerald Group uses industry-standard security measures and has established policies and procedures for securely managing information and protecting Personal Data against unauthorized access. We continually assess our data privacy, information management and security practices. Emerald will only share your information with third parties who have agreed to protect your information in accordance with this privacy policy. The security of your Personal Data is important to us, but remember that no method of transmission over the internet, or method of electronic storage is 100% secure. While we strive to use commercially acceptable means to protect your Personal Data, we cannot guarantee its absolute security.",
+  },
+  {
+    title: "Who do we share your information with?",
+    subheading: "International and Cross-Border Data Transfers",
+    text:
+      "To support our global operations, Personal Data shared with affiliates or third parties may be transferred to, stored, or processed in jurisdictions outside the DIFC or the United Arab Emirates. Any cross-border transfer of Personal Data shall strictly comply with DIFC Law No. 5 of 2020. We ensure that recipients in third countries afford an adequate level of data protection or that standard data protection contractual clauses approved by the DIFC Commissioner of Data Protection are executed to safeguard your information.",
   },
   {
     title: "Your rights",
@@ -82,6 +88,11 @@ export default function PrivacyPolicy() {
                 <h2 className="text-lg font-semibold text-slate-900 sm:text-xl">
                   {section.title}
                 </h2>
+                {section.subheading && (
+                  <p className="mt-3 text-sm font-semibold text-slate-900 sm:text-base">
+                    {section.subheading}
+                  </p>
+                )}
                 <p className="mt-3 text-sm leading-7 text-slate-900 sm:text-base">
                   {section.text}
                 </p>

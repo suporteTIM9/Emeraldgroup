@@ -1,55 +1,5 @@
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 import ChairmanLetterModal from "./ChairmanLetterModal";
-
-function CountUp({ value, color }: { value: string; color: string }) {
-  const num = parseInt(value, 10);
-  const suffix = value.replace(/\d/g, "");
-  const [count, setCount] = useState(0);
-  const [started, setStarted] = useState(false);
-  const [completed, setCompleted] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) setStarted(true); },
-      { threshold: 0.6 }
-    );
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
-
-  useEffect(() => {
-    if (!started || completed) return;
-    const DURATION = 2000;
-    const startTime = performance.now();
-    let raf: number;
-    const tick = (now: number) => {
-      const t = Math.min((now - startTime) / DURATION, 1);
-      const eased = 1 - Math.pow(1 - t, 4);
-      setCount(Math.round(eased * num));
-      if (t < 1) { raf = requestAnimationFrame(tick); return; }
-      setCount(num);
-      setCompleted(true);
-    };
-    raf = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(raf);
-  }, [started, completed, num]);
-
-  return (
-    <div ref={ref} className="text-4xl lg:text-5xl font-bold mb-2 transition-colors" style={{ fontFamily: "Playfair Display, serif", color }}>
-      {count}{suffix}
-    </div>
-  );
-}
-
-const stats = [
-  { value: "20+", label: "Portfolio Companies", desc: "Across 7 strategic Clusters" },
-  { value: "5+", label: "Countries", desc: "Active presence across Africa and Global Financial Centres" },
-  { value: "30+", label: "Years", desc: "Of business excellence and growth" },
-  { value: "7", label: "Clusters", desc: "Diversified business sectors" },
-];
 
 export default function AboutSection() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -63,8 +13,7 @@ export default function AboutSection() {
           <div className="h-px flex-1 max-w-16" style={{ background: "var(--eg-cyan)" }} />
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-16 items-start">
-          {/* Left: Text content */}
+        <div className="max-w-3xl">
           <div>
             <h2
               className="text-4xl lg:text-5xl font-bold mb-8"
@@ -87,27 +36,8 @@ export default function AboutSection() {
               onClick={() => setModalOpen(true)}
               className="neon-btn"
             >
-              Chairman &amp; CEO
+              Our Chairman &amp; CEO
             </button>
-          </div>
-
-          {/* Right: Stats grid */}
-          <div>
-            <div className="grid grid-cols-2 gap-px bg-gray-100 rounded-sm overflow-hidden">
-              {stats.map((stat, i) => (
-                <div
-                  key={i}
-                  className="bg-white p-8 group hover:bg-gray-50 transition-colors"
-                >
-                  <CountUp
-                    value={stat.value}
-                    color={i % 2 === 0 ? "oklch(0.50 0.17 155)" : "oklch(0.75 0.12 80)"}
-                  />
-                  <div className="text-sm font-semibold text-gray-800 mb-1">{stat.label}</div>
-                  <div className="text-xs text-gray-400">{stat.desc}</div>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
       </div>

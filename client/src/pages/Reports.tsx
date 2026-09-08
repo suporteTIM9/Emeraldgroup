@@ -43,7 +43,7 @@ function ReportsContent() {
     <div className="min-h-screen" style={{ background: "oklch(0.97 0.003 240)" }}>
       <Navbar />
       <div className="pt-24">
-        <Breadcrumb items={[{ label: "Reports Portal" }]} />
+        <Breadcrumb items={[{ label: "Documents & Reports" }]} />
       </div>
       <div className="pb-20">
         {/* Header */}

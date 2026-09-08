@@ -6,7 +6,7 @@ type NavItem = { label: string; href: string };
 type NavbarProps = { fixed?: boolean };
 
 const navItems: NavItem[] = [
-  { label: "About Us", href: "/about-us" },
+  { label: "About", href: "/about-us" },
   { label: "Leadership Team", href: "/leadership" },
   { label: "The Chairman's Talk", href: "/chairmans-talk" },
   { label: "Contact Us", href: "/contact" },

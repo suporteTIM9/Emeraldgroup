@@ -13,12 +13,12 @@ const clusters = [
       "Emerald Group's Banking & Financial Services cluster anchors the Group's ability to mobilise capital, structure complex transactions, and deliver financial solutions across the African continent and emerging markets. Through a diversified portfolio spanning commercial banking, digital finance, and strategic advisory, this cluster bridges institutional capital with the real economy — financing infrastructure, trade, and enterprise at scale.",
     companies: [
       {
-        name: "54CF",
-        desc: "54CF is a growth equity fund dedicated to partnering and investing in thriving businesses across multiple sectors in Africa, with emphasis on opportunities in Sub-Saharan Africa. The fund seeks to support economic diversification, digital transformation, and infrastructure development in these markets.",
+        name: "54 Corp",
+        desc: "Advisor to the 54 Capital Fund, a leading Africa-focused fund registered in the Abu Dhabi Global Market (ADGM). The fund is focused on supporting economic diversification, digital transformation, and infrastructure development across its target markets.",
       },
       {
         name: "Banco Millennium Atlântico",
-        desc: "One of Angola's leading commercial banks, providing corporate banking, trade finance, and retail services to individuals and institutions. A cornerstone of Angola's financial infrastructure and a key enabler of the Group's regional strategy.",
+        desc: "One of Angola's leading commercial banks, providing corporate banking, trade finance, and retail services to individuals and institutions. It is a cornerstone of Angola's financial infrastructure and a key enabler of the Group's regional strategy. Emerald Group holds a minority equity stake in the bank.",
         href: "https://www.atlantico.ao/en/retail/for-you/",
       },
       {

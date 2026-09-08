@@ -19,7 +19,6 @@ const footerLinks = [
       { label: "TML", href: "https://www.linkedin.com/company/thaimocambiquelogistica/" },
       { label: "Nino Oil", href: "https://ninogas.com" },
       { label: "Diaar, ONE Luanda & ONE Hotéis", href: "https://diaarproperties.com" },
-      { label: "Emerald Education", href: "https://www.sps.nyu.edu/connect/custom-educational-programs/lab-for-transformative-leadership/executive-education.html" },
     ],
   },
   {
@@ -28,6 +27,7 @@ const footerLinks = [
       { label: "Who We Are", href: "/about-us" },
       { label: "Our Mission & Vision", href: "/mission-vision" },
       { label: "Leadership Team", href: "/leadership" },
+      { label: "Emerald Education", href: "https://www.sps.nyu.edu/connect/custom-educational-programs/lab-for-transformative-leadership/executive-education.html" },
     ],
   },
   {

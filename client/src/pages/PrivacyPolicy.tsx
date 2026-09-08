@@ -4,7 +4,7 @@ import Navbar from "@/components/Navbar";
 import Breadcrumb from "@/components/Breadcrumb";
 import { Link } from "wouter";
 
-const sections = [
+const sections: { title: string; subheading?: string; text: string }[] = [
   {
     title: "Personal data protection",
     text:
@@ -21,7 +21,8 @@ const sections = [
       "The Personal Data which you provide to us or we collect from you will be used to perform KYC and Due Diligence in case of any business synergy, to improve our website and services, and to protect our legal rights and interests.",
   },
   {
-    title: "International and Cross-Border Data Transfers",
+    title: "Who do we share your information with?",
+    subheading: "International and Cross-Border Data Transfers",
     text:
       "To support our global operations, Personal Data shared with affiliates or third parties may be transferred to, stored, or processed in jurisdictions outside the DIFC or the United Arab Emirates. Any cross-border transfer of Personal Data shall strictly comply with DIFC Law No. 5 of 2020. We ensure that recipients in third countries afford an adequate level of data protection or that standard data protection contractual clauses approved by the DIFC Commissioner of Data Protection are executed to safeguard your information.",
   },
@@ -82,6 +83,11 @@ export default function PrivacyPolicy() {
                 <h2 className="text-lg font-semibold text-slate-900 sm:text-xl">
                   {section.title}
                 </h2>
+                {section.subheading && (
+                  <p className="mt-3 text-sm font-semibold text-slate-900 sm:text-base">
+                    {section.subheading}
+                  </p>
+                )}
                 <p className="mt-3 text-sm leading-7 text-slate-900 sm:text-base">
                   {section.text}
                 </p>

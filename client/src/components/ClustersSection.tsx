@@ -109,6 +109,18 @@ const clusters = [
         name: "Emerald Telecom",
         desc: "A telecommunications infrastructure and services company delivering connectivity solutions across underserved markets. Emerald Telecom builds and operates the networks that enable digital inclusion, mobile commerce, and enterprise communications.",
       },
+      {
+        name: "Inevitável e Fundamental",
+        desc: "A media subsidiary built around a fact-checking journalism project focused on establishing truth in the public sphere through the scrutiny of influential actors and narratives. Its portfolio includes Polígrafo, the first Portuguese digital, award-winning fact-checking newspaper, and Viral Check, a digital publication dedicated to combating health misinformation.",
+      },
+      {
+        name: "Media N9ve",
+        desc: "A premium Lusophone media group, established to inform and deepen connections across Portuguese-speaking markets, anchored by flagship titles such as Jornal Económico, Forbes Portugal and Forbes África Lusófona.",
+      },
+      {
+        name: "Media54",
+        desc: "A pan-African media platform focused on business intelligence, with Forbes Africa as its anchor title and a mandate to build scale across the continent. Focused on business and market intelligence, aims to shape a sharper view of the African continent while creating synergies across different regions.",
+      },
     ],
     color: "oklch(0.42 0.16 155)",
     bgColor: "oklch(0.97 0.04 155)",

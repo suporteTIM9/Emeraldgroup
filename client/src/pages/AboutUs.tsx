@@ -44,29 +44,6 @@ export default function AboutUs() {
               growth. Our portfolio spans banking and financial services, construction, infrastructure, energy
               and natural resources, technology, media, and real estate.
             </p>
-
-            <div className="mt-10 grid sm:grid-cols-2 gap-6">
-              {[
-                { label: "Portfolio Companies", value: "20+", desc: "Across seven strategic sectors" },
-                { label: "Countries", value: "5+", desc: "Active presence across Africa and Europe" },
-                { label: "Years", value: "30+", desc: "Of business excellence and growth" },
-                { label: "Business Clusters", value: "7", desc: "Diversified business verticals" },
-              ].map((stat) => (
-                <div
-                  key={stat.label}
-                  className="rounded-sm border border-slate-100 bg-slate-50 p-6"
-                >
-                  <div
-                    className="text-4xl font-bold"
-                    style={{ fontFamily: "Playfair Display, serif", color: "#02d49e" }}
-                  >
-                    {stat.value}
-                  </div>
-                  <div className="mt-1 text-sm font-semibold text-slate-800">{stat.label}</div>
-                  <div className="mt-0.5 text-xs text-slate-500">{stat.desc}</div>
-                </div>
-              ))}
-            </div>
           </div>
 
           {/* Back link bottom */}

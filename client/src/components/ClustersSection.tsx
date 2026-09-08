@@ -25,10 +25,6 @@ const clusters = [
         name: "Banko",
         desc: "BANKO is a financial services provider building an inclusive African banking ecosystem through integrated operations, committed to advancing socioeconomic development by offering accessible, affordable, and reliable services to all customers and shareholders. Led by an experienced management team, it focuses on sustainable growth markets while maintaining resilience against the risks and challenges of Africa's financial sector.",
       },
-      {
-        name: "Emerald Advisors",
-        desc: "The Group's strategic financial advisory arm, providing M&A, capital markets, and transaction advisory services to corporates, governments, and institutional investors across Africa and Emerging Markets.",
-      },
     ],
     color: "oklch(0.42 0.16 155)",
     bgColor: "oklch(0.97 0.04 155)",

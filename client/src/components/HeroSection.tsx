@@ -32,8 +32,7 @@ const heroContent = [
     heading: "Connect. Create. Grow.",
     headingLines: null as null | { text: string; accent: boolean }[],
     sub: "Connecting Africa to global financial centres — creating new markets that drive economic growth.",
-    cta1: "Who We Are",     cta1Href: "#about",
-    cta2: "Explore Our Business", cta2Href: "#clusters",
+    cta1: "Who We Are", cta1Href: "#about",
   },
   {
     label: "02 — Our Reach",
@@ -44,15 +43,8 @@ const heroContent = [
       { text: "Endless Potential.", accent: false },
     ] as { text: string; accent: boolean }[],
     sub: "From banking to resources, from infrastructure to urban development — our portfolio spans the industries that shape economies and transform lives.",
-    cta1: "Explore Our Business", cta1Href: "#clusters",
-    cta2: "Who We Are",           cta2Href: "#about",
+    cta1: "Who We Are", cta1Href: "#about",
   },
-];
-
-const latestItems = [
-  "Emerald Group expands infrastructure portfolio in Sub-Saharan Africa",
-  "Forbes Africa celebrates 15 years of business journalism",
-  "Banco Millennium Atlântico reports record growth in 2024",
 ];
 
 // ── Animated Split Text ───────────────────────────────────────────────────────
@@ -252,7 +244,6 @@ export default function HeroSection() {
     if (el) el.scrollIntoView({ behavior: "smooth" });
   };
 
-  const [tickerIndex,    setTickerIndex]    = useState(0);
   const [currentSlide,   setCurrentSlide]   = useState(0);
   const [contentVisible, setContentVisible] = useState(false);
   const [videoReady,     setVideoReady]     = useState(false);
@@ -285,12 +276,6 @@ export default function HeroSection() {
   useEffect(() => {
     const t = window.setTimeout(() => setContentVisible(true), 600);
     return () => window.clearTimeout(t);
-  }, []);
-
-  // Ticker
-  useEffect(() => {
-    const t = window.setInterval(() => setTickerIndex((p) => (p + 1) % latestItems.length), 4500);
-    return () => window.clearInterval(t);
   }, []);
 
   // Auto-advance timer
@@ -396,30 +381,6 @@ export default function HeroSection() {
         </svg>
       </div>
 
-      {/* ── Ticker ── */}
-      <div className="absolute top-20 left-0 right-0 z-10 border-b" style={{ borderColor: "rgba(255,255,255,0.08)" }}>
-        <div className="container">
-          <div className="flex items-center gap-6 py-3 overflow-hidden">
-            <span className="section-label shrink-0 px-2 py-0.5 rounded-sm font-bold" style={{ background: "#02f9ba", color: "#1e1f1f" }}>Latest</span>
-            <div className="relative flex-1 min-h-5 overflow-hidden">
-              {latestItems.map((item, i) => (
-                <span
-                  key={i}
-                  className={`absolute inset-0 text-sm sm:text-base text-white whitespace-nowrap overflow-hidden text-ellipsis transition-opacity duration-700 ${i === tickerIndex ? "opacity-100" : "opacity-0"}`}
-                >
-                  {item}
-                </span>
-              ))}
-            </div>
-            <div className="hidden sm:flex items-center gap-2">
-              {latestItems.map((_, i) => (
-                <span key={i} className={`h-1.5 w-1.5 rounded-full transition-colors ${i === tickerIndex ? "bg-white" : "bg-white/30"}`} />
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-
       {/* ── Main content ── */}
       <div className="relative z-10 container pb-14 lg:pb-20 pt-28 lg:pt-40">
         <div className="max-w-3xl">
@@ -458,9 +419,6 @@ export default function HeroSection() {
             <BorderButton onClick={() => handleScroll(content.cta1Href)} primary>
               {content.cta1} <ArrowRight size={16} />
             </BorderButton>
-            <BorderButton onClick={() => handleScroll(content.cta2Href)}>
-              {content.cta2}
-            </BorderButton>
           </div>
         </div>
 
@@ -474,12 +432,11 @@ export default function HeroSection() {
       {/* ── Stats bar ── */}
       <div className="relative z-10 border-t" style={{ borderColor: "rgba(255,255,255,0.1)", background: "rgba(0,0,0,0.3)" }}>
         <div className="container">
-          <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-white/10">
+          <div className="grid grid-cols-3 divide-x divide-white/10">
             {[
-              { value: "20+", label: "Portfolio Companies" },
-              { value: "5+",  label: "Countries"},
-              { value: "30+", label: "Years of Excellence" },
-              { value: "7",   label: "Business Clusters" },
+              { value: "15+", label: "Portfolio Companies" },
+              { value: "6",   label: "Global Financial Centres" },
+              { value: "6",   label: "Business Clusters" },
             ].map((stat, i) => (
               <div key={i} className="px-4 lg:px-6 py-4 lg:py-5">
                 <CountUp value={stat.value} color="#02f9ba" />

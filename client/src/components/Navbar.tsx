@@ -8,8 +8,6 @@ type NavbarProps = { fixed?: boolean };
 const navItems: NavItem[] = [
   { label: "About", href: "/about-us" },
   { label: "Leadership Team", href: "/leadership" },
-  { label: "Journey", href: "/journey" },
-  { label: "News",    href: "#news"    },
   { label: "The Chairman's Talk", href: "/chairmans-talk" },
   { label: "Contact", href: "/contact" },
 ];
@@ -17,8 +15,6 @@ const navItems: NavItem[] = [
 // Mobile hamburger menu: its own order/labels, independent of the desktop nav.
 const mobileNavItems: NavItem[] = [
   { label: "About us", href: "/about-us" },
-  { label: "Our Journey", href: "/journey" },
-  { label: "Newsroom", href: "#news" },
   { label: "Leadership Team", href: "/leadership" },
   { label: "The Chairman's Talk", href: "/chairmans-talk" },
   { label: "Contact", href: "/contact" },

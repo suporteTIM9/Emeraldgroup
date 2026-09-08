@@ -130,6 +130,18 @@ export const articles: Article[] = [
       "Portuguese group Hoti Hotéis will manage and hold a minority stake in Meliá Angola, which is set to open by 2028 at the latest. The majority shareholders are IBG Group and Emerald Group, owned by Angolan businessman N'Gunu Tiny.",
     content: `Portuguese group Hoti Hotéis will manage and hold a minority stake in Meliá Angola, which is set to open by 2028 at the latest. The majority shareholders are IBG Group and Emerald Group, owned by Angolan businessman N'Gunu Tiny.`,
   },
+  {
+    slug: "nyu-certified-executive-leadership-program",
+    date: "August 2026",
+    category: "Education & Leadership",
+    tag: "Education & Leadership",
+    title: "The Emerald Group launched a landmark partnership with the New York University School of Professional Studies' Lab for Transformative Leadership to introduce the Certified Executive Leadership Program.",
+    excerpt:
+      "An exclusive two-day executive program is designed to help leaders navigate complexity, rapid change, and evolving organizational dynamics through advanced frameworks and practical, discussion-based learning.",
+    externalHref: "https://lnkd.in/p/dxaiV92F",
+    ctaLabel: "Explore the Program",
+    content: `An exclusive two-day executive program is designed to help leaders navigate complexity, rapid change, and evolving organizational dynamics through advanced frameworks and practical, discussion-based learning.`,
+  },
 ];
 
 export const tagColors: Record<string, string> = {
@@ -138,4 +150,5 @@ export const tagColors: Record<string, string> = {
   "Infrastructure": "oklch(0.50 0.17 155)",
   "Urban Development & Real Estate": "oklch(0.50 0.17 155)",
   "Energy & Resources": "oklch(0.50 0.17 155)",
+  "Education & Leadership": "oklch(0.50 0.17 155)",
 };

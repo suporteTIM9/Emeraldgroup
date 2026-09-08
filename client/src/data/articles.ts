@@ -60,7 +60,7 @@ export const articles: Article[] = [
     tag: "Urban Development & Real Estate",
     title: "Shaping Africa's Property Landscape",
     externalHref: "https://diaarproperties.com/",
-    ctaLabel: "Explore Diaarproperties",
+    ctaLabel: "Explore DIAAR Properties",
     excerpt:
       "Striving to transform Diaar Limited, an Emerald Group Company, into one of the Sub-Saharan Africa's leading property firms, offering competitive returns to investors and tangible benefits for cities and communities.",
     content: `Striving to transform Diaar Limited, an Emerald Group Company, into one of the Sub-Saharan Africa's leading property firms, offering competitive returns to investors and tangible benefits for cities and communities.`,
@@ -87,7 +87,7 @@ export const articles: Article[] = [
     excerpt:
       "Emerald Resources and LVC Global Holdings have come together to form Emerald Global Resources (EGR), launching a new Abu Dhabi–headquartered natural-resources platform designed to operate at scale across Africa and the wider Global South.",
     externalHref: "https://www.cnbcafrica.com/2026/emerald-resources-and-lvc-global-holdings-unite-to-form-emerald-global-resources",
-    ctaLabel: "Explore cnbcafrica",
+    ctaLabel: "Explore CNBC Africa",
     slideGroup: "emerald-global-resources",
     content: `Emerald Resources and LVC Global Holdings have come together to form Emerald Global Resources (EGR), launching a new Abu Dhabi–headquartered natural-resources platform designed to operate at scale across Africa and the wider Global South.`,
   },

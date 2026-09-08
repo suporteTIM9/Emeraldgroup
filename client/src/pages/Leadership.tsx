@@ -231,6 +231,11 @@ export default function Leadership() {
             </h1>
             <div className="mt-4 h-1 w-16 rounded-full" style={{ background: "var(--eg-orange)" }} />
             <p className="mt-6 max-w-xl text-sm sm:text-base leading-7 sm:leading-8" style={{ color: "rgba(255,255,255,0.65)" }}>
+              Emerald Group is 100% privately owned by Founder, Chairman &amp; CEO N'Gunu Tiny, ensuring
+              full balance sheet independence, agile capital deployment, and total long-term alignment
+              across all portfolio investments.
+            </p>
+            <p className="mt-4 max-w-xl text-sm sm:text-base leading-7 sm:leading-8" style={{ color: "rgba(255,255,255,0.65)" }}>
               The people guiding Emerald Group's strategy, governance, and day-to-day operations —
               tap any name for their focus area, or a tier heading to collapse it.
             </p>

@@ -6,10 +6,10 @@ type NavItem = { label: string; href: string };
 type NavbarProps = { fixed?: boolean };
 
 const navItems: NavItem[] = [
-  { label: "About", href: "/about-us" },
+  { label: "Who We Are", href: "/about-us" },
   { label: "Leadership Team", href: "/leadership" },
   { label: "The Chairman's Talk", href: "/chairmans-talk" },
-  { label: "Contact", href: "/contact" },
+  { label: "Contact Us", href: "/contact" },
 ];
 
 // Mobile hamburger menu: its own order/labels, independent of the desktop nav.

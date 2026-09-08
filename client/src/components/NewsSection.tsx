@@ -107,7 +107,12 @@ function NewsCard({ items, spanFull }: { items: Article[]; spanFull?: boolean })
   );
 }
 
+const FEATURED_SLUG = "nyu-certified-executive-leadership-program";
+
 export default function NewsSection() {
+  const featured = articles.find((a) => a.slug === FEATURED_SLUG) ?? articles[0];
+  const gridArticles = articles.filter((a) => a.slug !== featured.slug);
+
   return (
     <section id="news" className="py-24 lg:py-32" style={{ background: "oklch(0.97 0.003 240)" }}>
       <div className="container">
@@ -168,20 +173,18 @@ export default function NewsSection() {
               <style>{`@keyframes featuredBlink { 0%,100%{opacity:1} 50%{opacity:0.25} }`}</style>
               <span className="text-xs text-white/50 flex items-center gap-1">
                 <Calendar size={10} />
-                March 2026
+                {featured.date}
               </span>
             </div>
             <h3
               className="text-3xl lg:text-5xl font-bold text-white mb-6 leading-[1.1] tracking-tight uppercase"
               style={{ fontFamily: "Quantico, sans-serif", textShadow: "0 2px 16px rgba(0,0,0,0.5)" }}
             >
-              Emerald Group has strategic presence and expansion across different regions.
+              {featured.title}
             </h3>
             <div className="h-1 w-16 rounded-full mb-6" style={{ background: "var(--eg-orange)" }} />
             <p className="text-sm text-white/75 leading-relaxed max-w-2xl" style={{ textShadow: "0 1px 8px rgba(0,0,0,0.6)" }}>
-              Emerald Group unveils a comprehensive five-year strategic plan to deepen its presence
-              across Sub-Saharan Africa, with targeted investments in infrastructure, financial services,
-              and digital technology.
+              {featured.excerpt}
             </p>
           </div>
         </div>
@@ -189,7 +192,7 @@ export default function NewsSection() {
         {/* News grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {(() => {
-            const groups = groupArticles(articles);
+            const groups = groupArticles(gridArticles);
             // If the last row would otherwise hold a single lonely card, let it span wider instead.
             const loneInLastRow = groups.length % 3 === 1;
             return groups.map((group, i) => (

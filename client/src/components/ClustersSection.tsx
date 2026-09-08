@@ -34,8 +34,30 @@ const clusters = [
     bgColor: "oklch(0.97 0.04 155)",
   },
   {
-    id: "construction",
+    id: "resources",
     number: "02",
+    icon: Leaf,
+    title: "Energy & Resources",
+    anchorId: "cluster-resources",
+    tagline: "Developing Africa's natural wealth for sustainable prosperity.",
+    description:
+      "Africa holds a disproportionate share of the world's natural wealth. Emerald Group's Energy & Resources cluster engages with this endowment responsibly — developing commodity and energy assets with a commitment to environmental stewardship, local value creation, and long-term sustainability. The cluster operates across the resource value chain, from exploration and extraction to trading and downstream processing.",
+    companies: [
+      {
+        name: "Emerald Global Resources",
+        desc: "A diversified natural resources and commodities platform with interests spanning minerals, metals, and agricultural commodities. Emerald Global Resources operates across the value chain, from sourcing and trading to processing and export, with a focus on African-origin commodities and global market access.",
+      },
+      {
+        name: "Nino Oil",
+        desc: "An oil exploration and production company focused on upstream hydrocarbon assets in Sub-Saharan Africa. Nino Oil combines technical expertise with local knowledge to develop energy resources that support regional energy security and generate long-term economic value.",
+      },
+    ],
+    color: "oklch(0.42 0.16 155)",
+    bgColor: "oklch(0.97 0.04 155)",
+  },
+  {
+    id: "construction",
+    number: "03",
     icon: HardHat,
     title: "Engineering & Construction",
     anchorId: "cluster-construction",
@@ -61,7 +83,7 @@ const clusters = [
   },
   {
     id: "infrastructure",
-    number: "03",
+    number: "04",
     icon: Zap,
     title: "Infrastructure",
     anchorId: "cluster-infrastructure",
@@ -72,28 +94,6 @@ const clusters = [
       {
         name: "Emerald Infrastructure",
         desc: "The Group's dedicated infrastructure development and asset management vehicle. Emerald Infrastructure identifies, structures, and manages long-life infrastructure projects across energy, water, logistics, and transport — partnering with governments, development finance institutions, and private co-investors to deliver assets of national significance.",
-      },
-    ],
-    color: "oklch(0.42 0.16 155)",
-    bgColor: "oklch(0.97 0.04 155)",
-  },
-  {
-    id: "resources",
-    number: "04",
-    icon: Leaf,
-    title: "Energy & Resources",
-    anchorId: "cluster-resources",
-    tagline: "Developing Africa's natural wealth for sustainable prosperity.",
-    description:
-      "Africa holds a disproportionate share of the world's natural wealth. Emerald Group's Energy & Resources cluster engages with this endowment responsibly — developing commodity and energy assets with a commitment to environmental stewardship, local value creation, and long-term sustainability. The cluster operates across the resource value chain, from exploration and extraction to trading and downstream processing.",
-    companies: [
-      {
-        name: "Emerald Global Resources",
-        desc: "A diversified natural resources and commodities platform with interests spanning minerals, metals, and agricultural commodities. Emerald Global Resources operates across the value chain, from sourcing and trading to processing and export, with a focus on African-origin commodities and global market access.",
-      },
-      {
-        name: "Nino Oil",
-        desc: "An oil exploration and production company focused on upstream hydrocarbon assets in Sub-Saharan Africa. Nino Oil combines technical expertise with local knowledge to develop energy resources that support regional energy security and generate long-term economic value.",
       },
     ],
     color: "oklch(0.42 0.16 155)",

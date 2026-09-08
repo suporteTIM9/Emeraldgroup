@@ -16,19 +16,6 @@ export interface Article {
 
 export const articles: Article[] = [
   {
-    slug: "banco-millennium-atlantico-2024",
-    date: "May 2026",
-    category: "Banking & Financial Services",
-    tag: "Banking & Financial Services",
-    title: "Banco Millennium Atlântico Increases Profit by 80.60% in Q1 2026",
-    excerpt:
-      "Figures extracted from Banco Millennium Atlântico's (BMA) balance sheet for the first 90 days of the current year indicate a robust performance in the ongoing financial year, reflecting an absolute increase in profit of AOA 2.29 billion (US$ 2.51 million).",
-    image: "/IMGBLOG/Millennium-Angola.png",
-    ctaLabel: "Explore Banco Millennium Atlântico",
-    externalHref: "https://360angola.com/economy/banking/banco-millennium-atlantico-increases-profit-by-80-60-in-q1-2026/",
-    content: `Figures extracted from Banco Millennium Atlântico's (BMA) balance sheet for the first 90 days of the current year indicate a robust performance in the ongoing financial year, reflecting an absolute increase in profit of AOA 2.29 billion (US$ 2.51 million).`,
-  },
-  {
     slug: "forbes-africa-durban-dialogues",
     date: "August 2026",
     category: "Telecom, Media & Technology",
@@ -55,32 +42,6 @@ export const articles: Article[] = [
     content: `Emerald Group expands African media footprint with strategic investment in Forbes Africa.`,
   },
   {
-    slug: "hoti-hoteis-melia-luanda",
-    date: "March 2024",
-    category: "Urban Development & Real Estate",
-    tag: "Urban Development & Real Estate",
-    title: "Hoti Hotéis CEO announces opening of Meliá hotel in Luanda",
-    externalHref: "https://forbesafricalusofona.com/ceo-da-hoti-hoteis-anuncia-abertura-de-hotel-melia-em-luanda/",
-    ctaLabel: "Explore Hoti Hotéis",
-    slideGroup: "urban-development",
-    excerpt:
-      "With contracts already signed, the five-star hotel, which will feature 250 rooms, will be built in the Waterfalls Complex, near the Fortaleza de São Miguel de Luanda.",
-    content: `With contracts already signed, the five-star hotel, which will feature 250 rooms, will be built in the Waterfalls Complex, near the Fortaleza de São Miguel de Luanda.`,
-  },
-  {
-    slug: "ngunu-tiny-hoti-melia-angola",
-    date: "March 2024",
-    category: "Urban Development & Real Estate",
-    tag: "Urban Development & Real Estate",
-    title: "N'Gunu Tiny partners with Hoti Group on Meliá Angola",
-    externalHref: "https://www.jornaldenegocios.pt/empresas/detalhe/ngunu-tiny-e-parceiro-do-grupo-hoti-no-melia-angola",
-    ctaLabel: "Explore Hoti at Meliá Angola",
-    slideGroup: "urban-development",
-    excerpt:
-      "Portuguese group Hoti Hotéis will manage and hold a minority stake in Meliá Angola, which is set to open by 2028 at the latest. The majority shareholders are IBG Group and Emerald Group, owned by Angolan businessman N'Gunu Tiny.",
-    content: `Portuguese group Hoti Hotéis will manage and hold a minority stake in Meliá Angola, which is set to open by 2028 at the latest. The majority shareholders are IBG Group and Emerald Group, owned by Angolan businessman N'Gunu Tiny.`,
-  },
-  {
     slug: "ibg-grown-filda-2026",
     date: "July 2026",
     category: "Infrastructure",
@@ -103,6 +64,19 @@ export const articles: Article[] = [
     excerpt:
       "Striving to transform Diaar Limited, an Emerald Group Company, into one of the Sub-Saharan Africa's leading property firms, offering competitive returns to investors and tangible benefits for cities and communities.",
     content: `Striving to transform Diaar Limited, an Emerald Group Company, into one of the Sub-Saharan Africa's leading property firms, offering competitive returns to investors and tangible benefits for cities and communities.`,
+  },
+  {
+    slug: "banco-millennium-atlantico-2024",
+    date: "May 2026",
+    category: "Banking & Financial Services",
+    tag: "Banking & Financial Services",
+    title: "Banco Millennium Atlântico Increases Profit by 80.60% in Q1 2026",
+    excerpt:
+      "Figures extracted from Banco Millennium Atlântico's (BMA) balance sheet for the first 90 days of the current year indicate a robust performance in the ongoing financial year, reflecting an absolute increase in profit of AOA 2.29 billion (US$ 2.51 million).",
+    image: "/IMGBLOG/Millennium-Angola.png",
+    ctaLabel: "Explore Banco Millennium Atlântico",
+    externalHref: "https://360angola.com/economy/banking/banco-millennium-atlantico-increases-profit-by-80-60-in-q1-2026/",
+    content: `Figures extracted from Banco Millennium Atlântico's (BMA) balance sheet for the first 90 days of the current year indicate a robust performance in the ongoing financial year, reflecting an absolute increase in profit of AOA 2.29 billion (US$ 2.51 million).`,
   },
   {
     slug: "emerald-global-resources-lvc-global-holdings",
@@ -131,16 +105,30 @@ export const articles: Article[] = [
     content: `Emerald Resources and LVC Global Holdings have come together to form Emerald Global Resources (EGR), launching a new Abu Dhabi–headquartered natural-resources platform designed to operate at scale across Africa and the wider Global South.`,
   },
   {
-    slug: "nyu-executive-education",
-    date: "April 2025",
-    category: "Education & Leadership",
-    tag: "Education & Leadership",
-    title: "Executive Education",
+    slug: "hoti-hoteis-melia-luanda",
+    date: "March 2024",
+    category: "Urban Development & Real Estate",
+    tag: "Urban Development & Real Estate",
+    title: "Hoti Hotéis CEO announces opening of Meliá hotel in Luanda",
+    externalHref: "https://forbesafricalusofona.com/ceo-da-hoti-hoteis-anuncia-abertura-de-hotel-melia-em-luanda/",
+    ctaLabel: "Explore Hoti Hotéis",
+    slideGroup: "urban-development",
     excerpt:
-      "Join an exclusive cohort of executives at NYU in one of our week-long upcoming programs. Connect across industries through guided in-class collaboration, insightful discussions, and off-campus networking events.",
-    externalHref: "https://www.sps.nyu.edu/connect/custom-educational-programs/lab-for-transformative-leadership/executive-education.html#Upcoming-Events-48812",
-    ctaLabel: "Explore Education",
-    content: `Join an exclusive cohort of executives at NYU in one of our week-long upcoming programs. Connect across industries through guided in-class collaboration, insightful discussions, and off-campus networking events.`,
+      "With contracts already signed, the five-star hotel, which will feature 250 rooms, will be built in the Waterfalls Complex, near the Fortaleza de São Miguel de Luanda.",
+    content: `With contracts already signed, the five-star hotel, which will feature 250 rooms, will be built in the Waterfalls Complex, near the Fortaleza de São Miguel de Luanda.`,
+  },
+  {
+    slug: "ngunu-tiny-hoti-melia-angola",
+    date: "March 2024",
+    category: "Urban Development & Real Estate",
+    tag: "Urban Development & Real Estate",
+    title: "N'Gunu Tiny partners with Hoti Group on Meliá Angola",
+    externalHref: "https://www.jornaldenegocios.pt/empresas/detalhe/ngunu-tiny-e-parceiro-do-grupo-hoti-no-melia-angola",
+    ctaLabel: "Explore Hoti at Meliá Angola",
+    slideGroup: "urban-development",
+    excerpt:
+      "Portuguese group Hoti Hotéis will manage and hold a minority stake in Meliá Angola, which is set to open by 2028 at the latest. The majority shareholders are IBG Group and Emerald Group, owned by Angolan businessman N'Gunu Tiny.",
+    content: `Portuguese group Hoti Hotéis will manage and hold a minority stake in Meliá Angola, which is set to open by 2028 at the latest. The majority shareholders are IBG Group and Emerald Group, owned by Angolan businessman N'Gunu Tiny.`,
   },
 ];
 
@@ -150,5 +138,4 @@ export const tagColors: Record<string, string> = {
   "Infrastructure": "oklch(0.50 0.17 155)",
   "Urban Development & Real Estate": "oklch(0.50 0.17 155)",
   "Energy & Resources": "oklch(0.50 0.17 155)",
-  "Education & Leadership": "oklch(0.50 0.17 155)",
 };

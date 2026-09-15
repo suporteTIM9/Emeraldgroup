@@ -34,7 +34,6 @@ const slides: SlideItem[] = [
   { type: "image", src: "/imagens/evento_07_Ngunu_Tiny_PRS_2026.jpeg" },
   { type: "image", src: "/imagens/Eventos.jpeg" },
   { type: "image", src: "/imagens/eventos_Forbes_Annual_summit_2025.jpeg" },
-  { type: "image", src: "/imagens/Forbes_Awards_2024.jpeg" },
   { type: "image", src: "/imagens/Forbes_Graça_M.jpeg" },
   { type: "image", src: "/imagens/Forbes_Nilza_Raul.jpeg" },
   { type: "image", src: "/imagens/Forbes_Raul.jpeg" },

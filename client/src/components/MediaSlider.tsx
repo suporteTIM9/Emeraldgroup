@@ -2,7 +2,8 @@ import { useEffect, useRef, useState } from "react";
 import { ArrowRight, ChevronLeft, ChevronRight, Play } from "lucide-react";
 
 interface SlideItem {
-  type: "image" | "video";
+  type: "image" | "video" | "youtube";
+  /** Image path, local video path, or — for type "youtube" — the video ID. */
   src: string;
   href?: string;
   caption?: string;
@@ -31,6 +32,9 @@ const slides: SlideItem[] = [
   { type: "image", src: "/imagens/evento_05_Forbes_Women_Summit.jpeg" },
   { type: "image", src: "/imagens/evento_06_Forum_Banca_2026_Ngunu_Tiny.png" },
   { type: "image", src: "/imagens/evento_07_Ngunu_Tiny_PRS_2026.jpeg" },
+  { type: "youtube", src: "ZCB8D7e1aU8" },
+  { type: "youtube", src: "FUAC_e5_i8g" },
+  { type: "youtube", src: "Phg843hCbSI" },
 ];
 
 /* 2 copies — animation translates -50% = exactly one set width */
@@ -145,13 +149,16 @@ export default function MediaSlider() {
   const [canScrollPrev, setCanScrollPrev] = useState(false);
   const [canScrollNext, setCanScrollNext] = useState(false);
   const [lightboxSrc, setLightboxSrc] = useState<string | null>(null);
+  const [lightboxYoutubeId, setLightboxYoutubeId] = useState<string | null>(null);
 
   useEffect(() => {
-    if (!lightboxSrc) return;
-    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") setLightboxSrc(null); };
+    if (!lightboxSrc && !lightboxYoutubeId) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") { setLightboxSrc(null); setLightboxYoutubeId(null); }
+    };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [lightboxSrc]);
+  }, [lightboxSrc, lightboxYoutubeId]);
 
   const updateEventsArrows = () => {
     const el = eventsTrackRef.current;
@@ -188,6 +195,8 @@ export default function MediaSlider() {
       }
     } else if (slide.type === "image") {
       setLightboxSrc(slide.src);
+    } else if (slide.type === "youtube") {
+      setLightboxYoutubeId(slide.src);
     }
   };
 
@@ -293,6 +302,15 @@ export default function MediaSlider() {
                   className="w-full h-full object-cover"
                   style={{ pointerEvents: "none" }}
                 />
+              ) : slide.type === "youtube" ? (
+                <img
+                  src={`https://img.youtube.com/vi/${slide.src}/hqdefault.jpg`}
+                  alt={slide.caption ?? ""}
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-full object-cover"
+                  draggable={false}
+                />
               ) : (
                 <img
                   src={slide.src}
@@ -304,9 +322,11 @@ export default function MediaSlider() {
                 />
               )}
 
-              {slide.type === "video" && (
-                <div className="absolute top-2 right-2 z-10 w-6 h-6 rounded-full bg-black/40 flex items-center justify-center">
-                  <Play size={10} fill="white" color="white" />
+              {(slide.type === "video" || slide.type === "youtube") && (
+                <div className="absolute inset-0 z-10 flex items-center justify-center">
+                  <div className="w-10 h-10 rounded-full bg-black/50 flex items-center justify-center">
+                    <Play size={16} fill="white" color="white" />
+                  </div>
                 </div>
               )}
               <div className="ms-overlay" />
@@ -338,6 +358,37 @@ export default function MediaSlider() {
             className="max-h-[88vh] max-w-[92vw] rounded-sm object-contain shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           />
+        </div>
+      )}
+
+      {lightboxYoutubeId && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center p-6"
+          style={{ background: "rgba(0,0,0,0.85)" }}
+          onClick={() => setLightboxYoutubeId(null)}
+        >
+          <button
+            type="button"
+            aria-label="Close"
+            onClick={() => setLightboxYoutubeId(null)}
+            className="absolute top-5 right-5 flex h-10 w-10 items-center justify-center rounded-full text-white transition-colors hover:bg-white/10"
+            style={{ border: "1px solid rgba(255,255,255,0.4)" }}
+          >
+            ✕
+          </button>
+          <div
+            className="w-full max-w-3xl shadow-2xl"
+            style={{ aspectRatio: "16 / 9" }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <iframe
+              src={`https://www.youtube.com/embed/${lightboxYoutubeId}?autoplay=1`}
+              title="YouTube video"
+              className="h-full w-full rounded-sm"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          </div>
         </div>
       )}
     </section>

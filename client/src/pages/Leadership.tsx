@@ -245,7 +245,7 @@ export default function Leadership() {
 
       {/* Org chart */}
       <div className="container py-16 sm:py-20">
-        <div className="mx-auto max-w-5xl" ref={chartRef}>
+        <div ref={chartRef}>
 
           {/* Board branch */}
           <div className="leader-reveal">

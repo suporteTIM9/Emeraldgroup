@@ -31,10 +31,10 @@ const footerLinks = [
   {
     heading: "Resources",
     links: [
-      { label: "Newsroom", href: "#news" },
-      { label: "Investor Relations", href: "/contact" },
-      { label: "Documents & Reports", href: "/reports" },
       { label: "Contact Us", href: "/contact" },
+      { label: "Documents & Reports", href: "/reports" },
+      { label: "Investor Relations", href: "/contact" },
+      { label: "Newsroom", href: "#news" },
     ],
   },
 ];

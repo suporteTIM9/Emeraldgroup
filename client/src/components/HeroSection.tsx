@@ -18,9 +18,9 @@ const slides: BackgroundSlide[] = [
   {
     type: "images",
     images: [
-      { src: "/imagens/banner_01.jpg", alt: "Emerald Group infrastructure" },
+      { src: "/imagens/Dubai_Emerald.jpeg", alt: "Emerald Group infrastructure" },
       { src: "/imagens/banner_02.jpg", alt: "Emerald Group business portfolio" },
-      { src: "/imagens/banner_03.jpg", alt: "Emerald Group global reach" },
+      { src: "/imagens/Luanda_Emerald_.jpeg", alt: "Emerald Group global reach" },
     ],
     duration: 14000,
   },

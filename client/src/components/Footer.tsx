@@ -15,7 +15,7 @@ const footerLinks = [
       { label: "Grow Engineering", href: "https://www.grow-eng.com/" },
       { label: "TML", href: "https://www.linkedin.com/company/thaimocambiquelogistica/" },
       { label: "Nino Oil", href: "https://ninogas.com/" },
-      { label: "Diaar, ONE Luanda & ONE Hotéis", href: "https://diaarproperties.com/" },
+      { label: "Diaar Properties", href: "https://diaarproperties.com/" },
     ],
   },
   {

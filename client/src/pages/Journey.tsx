@@ -62,7 +62,7 @@ const markerColor: Record<MarkerKind, string> = {
 // vertical band is the same *proportion* at every screen width — unlike a
 // height clamp, which shrinks that band on wide screens. Every marker's y is
 // comfortably inside [21%, 65%], well within the [15%, 74%] band below.
-const MAP_ASPECT = 2.6; // width / height of the visible map box
+const MAP_ASPECT = 3.4; // width / height of the visible map box
 const MAP_OBJECT_POS_Y = 35; // vertical anchor of the visible band, 0-100
 const MAP_VISIBLE_FRAC = 2 / MAP_ASPECT; // fraction of the full globe height kept visible
 const MAP_TOP_CROP = (1 - MAP_VISIBLE_FRAC) * (MAP_OBJECT_POS_Y / 100); // fraction cropped off the top

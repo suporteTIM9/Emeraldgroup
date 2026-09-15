@@ -90,9 +90,9 @@ export default function JourneySection() {
                       box-shadow 0.5s ease;
         }
         .dot-lit {
-          background: #02f9ba !important;
+          background: #007d33 !important;
           transform: scale(1.5) !important;
-          box-shadow: 0 0 0 5px rgba(2,249,186,0.18), 0 0 14px rgba(2,249,186,0.45) !important;
+          box-shadow: 0 0 0 5px rgba(0,125,51,0.18), 0 0 14px rgba(0,125,51,0.45) !important;
         }
 
         /* Today — pulsing rings */
@@ -105,7 +105,7 @@ export default function JourneySection() {
           position: relative;
           width: 10px; height: 10px;
           border-radius: 50%;
-          background: #02f9ba;
+          background: #007d33;
           flex-shrink: 0;
         }
         .live-dot::before, .live-dot::after {
@@ -113,7 +113,7 @@ export default function JourneySection() {
           position: absolute;
           inset: 0;
           border-radius: 50%;
-          background: #02f9ba;
+          background: #007d33;
           animation: live-ring 1.8s ease-out infinite;
         }
         .live-dot::after { animation-delay: 0.65s; }
@@ -123,7 +123,7 @@ export default function JourneySection() {
         {/* Section header */}
         <div className="flex items-center gap-4 mb-6">
           <span className="section-label">03 — Journey</span>
-          <div className="h-px flex-1 max-w-16" style={{ background: "var(--eg-cyan)" }} />
+          <div className="h-px flex-1 max-w-16" style={{ background: "#007d33" }} />
         </div>
         <div className="mb-16">
           <h2
@@ -149,8 +149,8 @@ export default function JourneySection() {
             ref={progressRef}
             style={{
               height: "0%",
-              background: "linear-gradient(180deg, #02f9ba 0%, #02d49e 60%, oklch(0.75 0.12 80) 100%)",
-              boxShadow: "0 0 8px rgba(2,249,186,0.5)",
+              background: "linear-gradient(180deg, #007d33 0%, #005f27 60%, oklch(0.75 0.12 80) 100%)",
+              boxShadow: "0 0 8px rgba(0,125,51,0.5)",
               transition: "height 0.1s linear",
             }}
           />
@@ -182,18 +182,18 @@ export default function JourneySection() {
                         <div
                           className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-3"
                           style={{
-                            background: "rgba(2,249,186,0.12)",
-                            border: "1.5px solid #02f9ba",
-                            boxShadow: "0 0 12px rgba(2,249,186,0.3)",
+                            background: "rgba(0,125,51,0.12)",
+                            border: "1.5px solid #007d33",
+                            boxShadow: "0 0 12px rgba(0,125,51,0.3)",
                           }}
                         >
                           <span className="live-dot" />
-                          <span className="text-xs font-bold tracking-widest uppercase" style={{ color: "#02f9ba" }}>
+                          <span className="text-xs font-bold tracking-widest uppercase" style={{ color: "#007d33" }}>
                             Today
                           </span>
                           <span
                             className="text-[10px] font-bold tracking-widest uppercase px-1.5 py-0.5 rounded-full"
-                            style={{ background: "#02f9ba", color: "#1e1f1f" }}
+                            style={{ background: "#007d33", color: "#ffffff" }}
                           >
                             2026
                           </span>
@@ -201,7 +201,7 @@ export default function JourneySection() {
                       ) : (
                         <div
                           className="inline-block text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-sm mb-3"
-                          style={{ background: "oklch(0.95 0.008 200)", color: "var(--eg-cyan)" }}
+                          style={{ background: "oklch(0.95 0.008 200)", color: "#007d33" }}
                         >
                           {m.year}
                         </div>

@@ -15,7 +15,6 @@ const footerLinks = [
       { label: "Media 54", href: "https://media54.africa/" },
       { label: "Media N9ve", href: "https://medianove.com/" },
       { label: "Nino Oil", href: "https://ninogas.com/" },
-      { label: "TML", href: "https://www.linkedin.com/company/thaimocambiquelogistica/" },
     ],
   },
   {

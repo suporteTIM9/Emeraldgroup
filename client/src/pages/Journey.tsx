@@ -39,7 +39,6 @@ const officeMarkers: OfficeMarker[] = [
   { name: "Luanda",       tag: "Core Operations", x: 53.68, y: 54.9 },
   { name: "São Paulo",    x: 37.05, y: 63.1 },
   { name: "Johannesburg", x: 57.79, y: 64.6, labelPos: "bottom" },
-  { name: "Maputo",       x: 59.05, y: 64.43, labelPos: "right" },
 ];
 
 // Headquarters / core-operations / regular-office each get their own accent so
@@ -279,7 +278,7 @@ export default function Journey() {
             {[
               { n: milestones[0]?.year ?? "2008", l: "Founded" },
               { n: String(officeMarkers.length), l: "Cities" },
-              { n: "6", l: "Core Sectors" },
+              { n: "5", l: "Core Sectors" },
             ].map((s) => (
               <div key={s.l} className="text-right">
                 <div style={{ fontFamily: "Playfair Display, serif", fontWeight: 700, fontSize: "22px", color: "white" }}>{s.n}</div>

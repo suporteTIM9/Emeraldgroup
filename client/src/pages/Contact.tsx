@@ -83,7 +83,7 @@ export default function Contact() {
 
       {/* ── Department quick-contact cards ── */}
       <div className="container py-14 sm:py-16">
-        <div className="mx-auto max-w-5xl">
+        <div>
           <p className="mb-8 text-xs font-bold uppercase tracking-widest" style={{ color: "rgba(0,0,0,0.35)" }}>
             Reach the Right Team
           </p>
@@ -106,7 +106,7 @@ export default function Contact() {
                   <p className="mt-1.5 leading-relaxed" style={{ color: "var(--eg-dark)", fontSize: "11px" }}>{d.desc}</p>
                   <a
                     href={`mailto:${d.email}`}
-                    className="mt-4 font-semibold break-all transition-colors hover:underline"
+                    className="mt-4 font-semibold whitespace-nowrap transition-colors hover:underline"
                     style={{ color: "#02d49e", fontSize: "10px" }}
                     title={d.email}
                   >

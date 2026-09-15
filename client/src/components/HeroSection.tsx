@@ -12,7 +12,7 @@ const slides: BackgroundSlide[] = [
   {
     type: "video",
     src: "/videos/banner_video.mp4",
-    poster: "/imagens/banner_01.jpg",
+    poster: "/imagens/Dubai_Emerald.jpeg",
     duration: 12000,
   },
   {

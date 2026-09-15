@@ -87,7 +87,7 @@ export default function Contact() {
           <p className="mb-8 text-xs font-bold uppercase tracking-widest" style={{ color: "rgba(0,0,0,0.35)" }}>
             Reach the Right Team
           </p>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-5">
             {departments.map((d) => {
               const Icon = d.icon;
               return (
@@ -106,7 +106,7 @@ export default function Contact() {
                   <p className="mt-1.5 leading-relaxed" style={{ color: "var(--eg-dark)", fontSize: "11px" }}>{d.desc}</p>
                   <a
                     href={`mailto:${d.email}`}
-                    className="mt-4 font-semibold whitespace-nowrap overflow-hidden text-ellipsis transition-colors hover:underline"
+                    className="mt-4 font-semibold break-all transition-colors hover:underline"
                     style={{ color: "#02d49e", fontSize: "10px" }}
                     title={d.email}
                   >

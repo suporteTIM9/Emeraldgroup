@@ -56,40 +56,51 @@ const markerColor: Record<MarkerKind, string> = {
   office: "#8fa79c",
 };
 
-// The map box is locked to a FIXED aspect ratio, wider than the source image's
-// native 2:1 — this crops off a constant slice of empty Arctic/Antarctic ocean
-// (no markers ever live there) so the map reads as shorter/less dominant, edge
-// to edge. Critically, because the ratio is fixed (not a max-height clamp tied
-// to viewport width), the visible vertical band is the same *proportion* of
-// the image at every screen width — unlike a height clamp, which shrinks that
-// band on wide screens and is what clipped Johannesburg before. Every marker's
-// y is comfortably inside [21%, 65%], well within the [15%, 72%] band below.
-const MAP_ASPECT = 3.5; // width / height of the visible map box
-const MAP_OBJECT_POS_Y = 35; // must match the <img>'s object-position Y below
-const MAP_VISIBLE_FRAC = 2 / MAP_ASPECT; // fraction of image height kept visible
+// The map box is locked to a FIXED aspect ratio — this crops off a constant
+// slice of empty Arctic/Antarctic space (no markers ever live there) so the
+// map reads as shorter/less dominant, edge to edge. Critically, because the
+// ratio is fixed (not a max-height clamp tied to viewport width), the visible
+// vertical band is the same *proportion* at every screen width — unlike a
+// height clamp, which shrinks that band on wide screens. Every marker's y is
+// comfortably inside [21%, 65%], well within the [15%, 74%] band below.
+const MAP_ASPECT = 2.6; // width / height of the visible map box
+const MAP_OBJECT_POS_Y = 35; // vertical anchor of the visible band, 0-100
+const MAP_VISIBLE_FRAC = 2 / MAP_ASPECT; // fraction of the full globe height kept visible
 const MAP_TOP_CROP = (1 - MAP_VISIBLE_FRAC) * (MAP_OBJECT_POS_Y / 100); // fraction cropped off the top
+
+// Converts a marker's raw geographic y (0-100) into its position within the
+// cropped, visible band — shared by the HTML label/dot overlay and the SVG
+// arcs beneath it, so both systems always agree on where a city sits.
+function markerY(city: OfficeMarker) {
+  return ((city.y / 100 - MAP_TOP_CROP) / MAP_VISIBLE_FRAC) * 100;
+}
+
+// A gentle upward-bulging quadratic curve between two points on the 0-100
+// percentage grid — longer hops arc higher, echoing how flight paths bow
+// on a flat projection.
+function arcPath(from: { x: number; y: number }, to: { x: number; y: number }) {
+  const mx = (from.x + to.x) / 2;
+  const my = (from.y + to.y) / 2 - Math.abs(from.x - to.x) * 0.16 - 6;
+  return `M ${from.x} ${from.y} Q ${mx} ${my} ${to.x} ${to.y}`;
+}
 
 function JourneyMap() {
   const [active, setActive] = useState<string | null>(null);
 
   const getMarkerStyle = (city: OfficeMarker) => ({
     left: `${city.x}%`,
-    top: `${((city.y / 100 - MAP_TOP_CROP) / MAP_VISIBLE_FRAC) * 100}%`,
+    top: `${markerY(city)}%`,
   });
+
+  const hq = officeMarkers.find((c) => c.tag === "Headquarters")!;
+  const hqPoint = { x: hq.x, y: markerY(hq) };
 
   return (
     <div
       className="relative overflow-hidden select-none group/map w-full"
-      style={{ aspectRatio: `${MAP_ASPECT} / 1`, minHeight: "260px" }}
+      style={{ aspectRatio: `${MAP_ASPECT} / 1`, minHeight: "260px", background: "radial-gradient(120% 140% at 15% 0%, #0f1e17 0%, #070a09 55%, #050605 100%)" }}
     >
       <style>{`
-        @keyframes map-kenburns {
-          0%   { transform: scale(1.02); }
-          50%  { transform: scale(1.08); }
-          100% { transform: scale(1.02); }
-        }
-        .map-bg { animation: map-kenburns 40s ease-in-out infinite; }
-        .group\\/map:hover .map-bg { animation-play-state: paused; transform: scale(1.1) !important; transition: transform 0.6s ease; }
         @keyframes map-pulse-ring {
           0%   { transform: scale(1); opacity: 0.55; }
           70%  { transform: scale(3.2); opacity: 0; }
@@ -105,17 +116,25 @@ function JourneyMap() {
           animation: map-pulse-ring 2.4s ease-out infinite;
         }
       `}</style>
-      <img
-        src="/imagens/world-night-lights.jpg"
-        alt="Emerald Group global office network"
-        className="map-bg absolute inset-0 h-full w-full object-cover"
-        style={{ transition: "transform 0.6s ease", objectPosition: `50% ${MAP_OBJECT_POS_Y}%` }}
-        loading="lazy"
-      />
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{ background: "linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.02) 35%, rgba(0,0,0,0.3) 100%)" }}
-      />
+
+      {/* Schematic backdrop — faint graticule + connection arcs radiating from HQ */}
+      <svg className="absolute inset-0 h-full w-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+        <g stroke="#16241d" strokeWidth="0.15" opacity="0.7">
+          <line x1="0" y1="22" x2="100" y2="22" />
+          <line x1="0" y1="48" x2="100" y2="48" />
+          <line x1="0" y1="74" x2="100" y2="74" />
+          <line x1="20" y1="0" x2="20" y2="100" />
+          <line x1="50" y1="0" x2="50" y2="100" />
+          <line x1="80" y1="0" x2="80" y2="100" />
+        </g>
+        <g fill="none" stroke="#1f6b4c" strokeWidth="0.18" opacity="0.55">
+          {officeMarkers
+            .filter((c) => c.name !== hq.name)
+            .map((city) => (
+              <path key={city.name} d={arcPath(hqPoint, { x: city.x, y: markerY(city) })} />
+            ))}
+        </g>
+      </svg>
 
       {officeMarkers.map((city, ci) => {
         const isActive = active === city.name;

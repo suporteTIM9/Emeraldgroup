@@ -106,14 +106,6 @@ export default function Contact() {
                   >
                     {d.email}
                   </a>
-                  <a
-                    href="mailto:compliance@emeraldgroup-inc.com"
-                    className="mt-1 font-semibold whitespace-nowrap overflow-hidden text-ellipsis transition-colors hover:underline"
-                    style={{ color: "#02d49e", fontSize: "10px" }}
-                    title="compliance@emeraldgroup-inc.com"
-                  >
-                    compliance@emeraldgroup-inc.com
-                  </a>
                 </div>
               );
             })}

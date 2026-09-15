@@ -11,7 +11,6 @@ const footerLinks = [
       { label: "Emerald Global Resources", href: "https://www.egr-ltd.com/" },
       { label: "Media N9ve", href: "https://medianove.com/" },
       { label: "Media 54", href: "https://media54.africa/" },
-      { label: "Polígrafo", href: "https://poligrafo.sapo.pt/" },
       { label: "Banco Millennium Atlântico", href: "https://www.atlantico.ao/" },
       { label: "Grow Engineering", href: "https://www.grow-eng.com/" },
       { label: "TML", href: "https://www.linkedin.com/company/thaimocambiquelogistica/" },

@@ -120,7 +120,7 @@ function TierBranch({
   label: string;
   members: LeadershipMember[];
   accent: string;
-  size: "md" | "sm";
+  size: "lg" | "md" | "sm";
   /** Force a row break after this many members, regardless of viewport width. */
   breakAfter?: number;
   /** Hide the small vertical connector line above the tier (nothing above it to link to). */
@@ -249,17 +249,17 @@ export default function Leadership() {
 
           {/* Board branch */}
           <div className="leader-reveal">
-            <TierBranch label="Board of Directors" members={boardGroup.members} accent="#007d33" size="md" showConnector={false} />
+            <TierBranch label="Board of Directors" members={boardGroup.members} accent="#007d33" size="lg" showConnector={false} />
           </div>
 
           {/* Executive branch */}
           <div className="leader-reveal">
-            <TierBranch label="Group Executive Board" members={execGroup.members} accent="#007d33" size="md" breakAfter={4} />
+            <TierBranch label="Group Executive Board" members={execGroup.members} accent="#007d33" size="lg" breakAfter={4} />
           </div>
 
           {/* Senior Officers branch */}
           <div className="leader-reveal">
-            <TierBranch label="Senior Officers" members={officersGroup.members} accent="#007d33" size="sm" breakAfter={4} />
+            <TierBranch label="Senior Officers" members={officersGroup.members} accent="#007d33" size="md" breakAfter={4} />
           </div>
 
           {boardGroup.footnote && (

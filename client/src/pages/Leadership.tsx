@@ -219,7 +219,7 @@ export default function Leadership() {
           style={{ backgroundImage: "radial-gradient(rgba(255,255,255,0.6) 1px, transparent 1px)", backgroundSize: "18px 18px" }}
         />
         <div className="container relative py-16 sm:py-20 lg:py-24">
-          <div className="max-w-3xl">
+          <div className="max-w-5xl">
             <p className="mb-4 text-sm font-semibold uppercase tracking-[0.2em]" style={{ color: "var(--eg-orange)" }}>
               Governance
             </p>
@@ -230,12 +230,12 @@ export default function Leadership() {
               Leadership Team
             </h1>
             <div className="mt-4 h-1 w-16 rounded-full" style={{ background: "var(--eg-orange)" }} />
-            <p className="mt-6 max-w-xl text-sm sm:text-base leading-7 sm:leading-8" style={{ color: "rgba(255,255,255,0.65)" }}>
+            <p className="mt-6 max-w-3xl text-sm sm:text-base leading-7 sm:leading-8" style={{ color: "rgba(255,255,255,0.65)" }}>
               Emerald Group is 100% privately owned by Founder, Chairman &amp; CEO N'Gunu Tiny, ensuring
               full balance sheet independence, agile capital deployment, and total long-term alignment
               across all portfolio investments.
             </p>
-            <p className="mt-4 max-w-xl text-sm sm:text-base leading-7 sm:leading-8" style={{ color: "rgba(255,255,255,0.65)" }}>
+            <p className="mt-4 max-w-3xl text-sm sm:text-base leading-7 sm:leading-8" style={{ color: "rgba(255,255,255,0.65)" }}>
               The people guiding Emerald Group's strategy, governance, and day-to-day operations —
               tap any name for their focus area, or a tier heading to collapse it.
             </p>

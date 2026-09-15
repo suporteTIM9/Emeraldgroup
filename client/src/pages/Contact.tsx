@@ -57,7 +57,7 @@ export default function Contact() {
           style={{ backgroundImage: "radial-gradient(rgba(255,255,255,0.6) 1px, transparent 1px)", backgroundSize: "18px 18px" }}
         />
         <div className="container relative py-16 sm:py-20 lg:py-24">
-          <div className="max-w-3xl">
+          <div className="max-w-5xl">
             <p className="mb-4 text-sm font-semibold uppercase tracking-[0.2em]" style={{ color: "#02d49e" }}>
               Get in Touch
             </p>
@@ -68,7 +68,7 @@ export default function Contact() {
               Let's Connect. Create. Grow.
             </h1>
             <div className="mt-4 h-1 w-16 rounded-full" style={{ background: "#02d49e" }} />
-            <p className="mt-6 max-w-xl text-sm sm:text-base leading-7 sm:leading-8" style={{ color: "rgba(255,255,255,0.65)" }}>
+            <p className="mt-6 max-w-3xl text-sm sm:text-base leading-7 sm:leading-8" style={{ color: "rgba(255,255,255,0.65)" }}>
               Whether you're an investor, a strategic partner, part of the press, or simply curious about
               what we do — our team is ready to listen. Reach a department directly below, or use the form
               further down the page.

@@ -37,7 +37,7 @@ How can technical knowledge be transformed into political vision, leadership and
     title: "“Chairman’s Talk”: The Global South gains a new forum for debate",
     excerpt:
       "The platform, created by the founder and CEO of the Emerald Group, N’Gunu Tiny, presents itself as a premier forum for discussing concrete strategies in the fields of energy, finance and impact investment in emerging markets.",
-    image: "/IMGBLOG/Emerald-Group_Graca-Machel-e-NGunu-Tiny_.png",
+    image: "/IMGBLOG/Emerald-Group_Graca-Machel-e-NGunu-Tiny_.jpg",
     content: `The aim of the “Chairman’s Talk” – a concept devised by N’Gunu Tiny, founder of the Emerald Group – is to deepen the debate on leadership within the context of the transformation of the Global South, taking the form of conversations with prominent figures from the political and business worlds.`,
     externalHref: "https://jornaleconomico.sapo.pt/noticias/chairmans-talk-sul-global-ganha-novo-espaco-de-debate/",
     videoHref: "https://www.youtube.com/channel/UCrnBL8q0JEbaoLKezzFn-mA",

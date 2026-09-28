@@ -31,6 +31,7 @@ interface OfficeMarker {
 }
 
 const officeMarkers: OfficeMarker[] = [
+  { name: "New York",     x: 29.44, y: 27.38 },
   { name: "London",       x: 49.96, y: 21.4, labelPos: "right" },
   { name: "Lisbon",       x: 47.46, y: 28.5 },
   { name: "Dubai",        tag: "Headquarters", x: 65.35, y: 36.0, lift: 30 },
@@ -39,6 +40,7 @@ const officeMarkers: OfficeMarker[] = [
   { name: "Luanda",       tag: "Core Operations", x: 53.68, y: 54.9 },
   { name: "São Paulo",    x: 37.05, y: 63.1 },
   { name: "Johannesburg", x: 57.79, y: 64.6, labelPos: "bottom" },
+  { name: "Maputo",       x: 59.05, y: 64.43, labelPos: "right" },
 ];
 
 // Headquarters / core-operations / regular-office each get their own accent so

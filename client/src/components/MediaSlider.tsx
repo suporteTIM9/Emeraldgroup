@@ -26,7 +26,6 @@ const eventHighlights: EventHighlight[] = [
 
 const slides: SlideItem[] = [
   { type: "image", src: "/imagens/evento_01_Doing_Business_Angola_2026.jpeg" },
-  { type: "image", src: "/imagens/evento_02_Doing_Business_Angola_2026.jpeg" },
   { type: "image", src: "/imagens/evento_03.jpeg" },
   { type: "image", src: "/imagens/evento_04_The_Chairmans_Talk.jpeg" },
   { type: "image", src: "/imagens/evento_05_Forbes_Women_Summit.jpeg" },
@@ -35,10 +34,12 @@ const slides: SlideItem[] = [
   { type: "image", src: "/imagens/Eventos.jpeg" },
   { type: "image", src: "/imagens/eventos_Forbes_Annual_summit_2025.jpeg" },
   { type: "image", src: "/imagens/Forbes_Graça_M.jpeg" },
-  { type: "image", src: "/imagens/Forbes_Nilza_Raul.jpeg" },
-  { type: "image", src: "/imagens/Forbes_Raul.jpeg" },
   { type: "image", src: "/imagens/Forbes_mencoes_honrosas.jpeg" },
   { type: "image", src: "/imagens/The_chairmans Graça.jpeg" },
+  { type: "image", src: "/imagens/Forbes_Africa.jpeg" },
+  { type: "image", src: "/imagens/Forbes_Africa_01.jpeg" },
+  { type: "image", src: "/imagens/Forbes_Africa_02.jpeg" },
+  { type: "image", src: "/imagens/Forbes_Africa_03.jpeg" },
   { type: "youtube", src: "ZCB8D7e1aU8" },
   { type: "youtube", src: "FUAC_e5_i8g" },
   { type: "youtube", src: "Phg843hCbSI" },

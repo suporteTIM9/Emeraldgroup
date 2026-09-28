@@ -128,7 +128,7 @@ export default function ContactSection({ showHeader = true }: { showHeader?: boo
                 className="text-sm max-w-sm leading-relaxed"
                 style={{ color: "#6b7280", fontFamily: "Nunito Sans, sans-serif", fontWeight: 300 }}
               >
-                Whether you're an investor, partner, or stakeholder — we welcome the opportunity
+                Whether you are an investor, partner, or stakeholder — we welcome the opportunity
                 to connect and explore how we can create value together.
               </p>
             </div>

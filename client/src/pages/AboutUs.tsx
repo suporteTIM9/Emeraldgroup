@@ -28,7 +28,7 @@ export default function AboutUs() {
               About Us
             </p>
             <h1 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
-              Your Global Premium Business Partner
+              Your Premium Global Business Partner
             </h1>
             <div
               className="mt-4 h-1 w-16 rounded-full"

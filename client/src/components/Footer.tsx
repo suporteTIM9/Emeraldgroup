@@ -4,7 +4,7 @@ import { ArrowUp } from "lucide-react";
 
 const footerLinks = [
   {
-    heading: "Entities part of Emerald's clusters",
+    heading: "Our Portfolio Companies",
     links: [
       { label: "Banco Millennium Atlântico", href: "https://www.atlantico.ao/" },
       { label: "Banko Financial Group", href: "https://www.linkedin.com/company/banko-financial-group/" },

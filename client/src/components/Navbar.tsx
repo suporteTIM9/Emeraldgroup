@@ -10,7 +10,6 @@ const navItems: NavItem[] = [
   { label: "Leadership Team", href: "/leadership" },
   { label: "Our Business Clusters", href: "#clusters" },
   { label: "Investors Relations", href: "/contact" },
-  { label: "Contact Us", href: "/contact" },
 ];
 
 // Mobile hamburger menu: its own order/labels, independent of the desktop nav.

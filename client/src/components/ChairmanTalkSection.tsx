@@ -27,7 +27,7 @@ function TalkImage({ src, alt, compact = false }: { src?: string; alt: string; c
       {!compact && (
         <span
           className="absolute -bottom-6 -left-1 leading-none select-none pointer-events-none"
-          style={{ fontFamily: "Playfair Display, serif", fontSize: "7rem", color: "rgba(255,255,255,0.08)" }}
+          style={{ fontFamily: "Quantico, sans-serif", fontSize: "7rem", color: "rgba(255,255,255,0.08)" }}
         >
           &rdquo;
         </span>

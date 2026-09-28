@@ -283,7 +283,7 @@ export default function Journey() {
               { n: "5", l: "Core Sectors" },
             ].map((s) => (
               <div key={s.l} className="text-right">
-                <div style={{ fontFamily: "Playfair Display, serif", fontWeight: 700, fontSize: "22px", color: "white" }}>{s.n}</div>
+                <div style={{ fontFamily: "Quantico, sans-serif", fontWeight: 700, fontSize: "22px", color: "white" }}>{s.n}</div>
                 <div className="text-[11px] mt-0.5" style={{ color: "rgba(255,255,255,0.55)" }}>{s.l}</div>
               </div>
             ))}
@@ -344,7 +344,7 @@ export default function Journey() {
                         />
                         <div
                           className="leading-none select-none"
-                          style={{ fontFamily: "Playfair Display, serif", fontWeight: 700, fontSize: "clamp(2.4rem, 6vw, 3.4rem)", color: "oklch(0.32 0.03 165)", letterSpacing: "-0.02em" }}
+                          style={{ fontFamily: "Quantico, sans-serif", fontWeight: 700, fontSize: "clamp(2.4rem, 6vw, 3.4rem)", color: "oklch(0.32 0.03 165)", letterSpacing: "-0.02em" }}
                         >
                           {m.year}
                         </div>
@@ -385,7 +385,7 @@ export default function Journey() {
                       />
                       <div
                         className="leading-none select-none"
-                        style={{ fontFamily: "Playfair Display, serif", fontWeight: 700, fontSize: "clamp(2.4rem, 6vw, 3.4rem)", color: "oklch(0.93 0.015 165)", letterSpacing: "-0.02em" }}
+                        style={{ fontFamily: "Quantico, sans-serif", fontWeight: 700, fontSize: "clamp(2.4rem, 6vw, 3.4rem)", color: "oklch(0.93 0.015 165)", letterSpacing: "-0.02em" }}
                       >
                         {m.year}
                       </div>

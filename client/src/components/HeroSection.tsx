@@ -229,7 +229,7 @@ function CountUp({ value, color }: { value: string; color: string }) {
       ref={containerRef}
       className="text-3xl font-bold mb-1 notranslate"
       translate="no"
-      style={{ fontFamily: "Playfair Display, serif", color }}
+      style={{ fontFamily: "Quantico, sans-serif", color }}
     >
       {count}{suffix}
     </div>

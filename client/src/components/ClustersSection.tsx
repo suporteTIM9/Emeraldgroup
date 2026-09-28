@@ -23,7 +23,7 @@ const clusters = [
       },
       {
         name: "Banko",
-        desc: "BANKO is a financial services provider building an inclusive African banking ecosystem through integrated operations, committed to advancing socioeconomic development by offering accessible, affordable, and reliable services to all customers and shareholders. Led by an experienced management team, it focuses on sustainable growth markets while maintaining resilience against the risks and challenges of Africa's financial sector.",
+        desc: "BANKO is a financial services provider building an inclusive African banking ecosystem through integrated operations, committed to advancing socioeconomic development by offering accessible, affordable, and reliable services to all customers and shareholders.",
       },
     ],
     color: "oklch(0.42 0.16 155)",

@@ -19,7 +19,7 @@ export default function AboutSection() {
               className="text-4xl lg:text-5xl font-bold mb-8"
               style={{ fontFamily: "Quantico, sans-serif", fontWeight: 700, lineHeight: "1.2", color: "#1e1f1e" }}
             >
-              Your Global Premium Business Partner
+              Your Premium Global Business Partner
             </h2>
             <p className="text-base leading-relaxed mb-6" style={{ fontFamily: "Nunito Sans, sans-serif", fontWeight: 500, lineHeight: "1.5", color: "#1e1f1f" }}>
               Emerald Group is a global, diversified holding company that deploys its own balance sheet—alongside

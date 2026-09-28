@@ -142,7 +142,6 @@ function TierBranch({
           style={{ color: accent }}
         >
           {label}
-          <span className="text-slate-400 font-normal normal-case tracking-normal">({members.length})</span>
           <ChevronDown
             size={14}
             className="transition-transform duration-300"

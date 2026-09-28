@@ -18,20 +18,15 @@ const footerLinks = [
     ],
   },
   {
-    heading: "About",
+    heading: "Resources",
     links: [
       { label: "About Us", href: "/about-us" },
       { label: "Our Mission & Vision", href: "/mission-vision" },
-      { label: "Leadership Team", href: "/leadership" },
-      { label: "Journey", href: "/journey" },
-    ],
-  },
-  {
-    heading: "Resources",
-    links: [
-      { label: "Contact Us", href: "/contact" },
+      { label: "Our Journey", href: "/journey" },
+      { label: "Our Leadership Team", href: "/leadership" },
       { label: "Investor Relations", href: "/contact" },
       { label: "Newsroom", href: "#news" },
+      { label: "Contact Us", href: "/contact" },
     ],
   },
 ];
@@ -203,7 +198,7 @@ export default function Footer() {
 
       {/* Links grid */}
       <div className="container py-12">
-        <div className="grid grid-cols-2 lg:grid-cols-[repeat(3,max-content)] gap-8 lg:gap-28">
+        <div className="grid grid-cols-2 lg:grid-cols-[repeat(2,max-content)] gap-8 lg:gap-28">
           {footerLinks.map((col) => (
             <div key={col.heading}>
               <h4

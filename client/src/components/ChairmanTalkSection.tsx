@@ -76,7 +76,6 @@ export default function ChairmanTalkSection() {
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-12">
           <h2
             className="text-4xl lg:text-5xl leading-tight text-white"
-            style={{ fontFamily: "Playfair Display, serif", fontWeight: 700 }}
           >
             Insights from the<br />Chairman
           </h2>
@@ -147,7 +146,6 @@ export default function ChairmanTalkSection() {
                   </div>
                   <h3
                     className="text-2xl lg:text-3xl font-bold text-white mb-4 leading-tight line-clamp-3"
-                    style={{ fontFamily: "Playfair Display, serif" }}
                   >
                     {featured.title}
                   </h3>
@@ -205,7 +203,6 @@ export default function ChairmanTalkSection() {
                       </div>
                       <h3
                         className="text-sm font-bold text-white mb-2 leading-snug line-clamp-2"
-                        style={{ fontFamily: "Playfair Display, serif" }}
                       >
                         {item.title}
                       </h3>

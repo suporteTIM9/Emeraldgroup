@@ -63,7 +63,6 @@ export default function ChairmansTalk() {
           </span>
           <h1
             className="mt-3 text-4xl lg:text-5xl font-bold text-white leading-tight"
-            style={{ fontFamily: "Playfair Display, serif" }}
           >
             Insights from the Chairman
           </h1>
@@ -98,7 +97,6 @@ export default function ChairmansTalk() {
                       </div>
                       <h3
                         className="text-base font-bold text-gray-900 mb-2 leading-snug flex-1 line-clamp-2"
-                        style={{ fontFamily: "Playfair Display, serif" }}
                       >
                         {talk.title}
                       </h3>

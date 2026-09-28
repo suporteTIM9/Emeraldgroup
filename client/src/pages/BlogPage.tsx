@@ -29,7 +29,6 @@ export default function BlogPage() {
           </span>
           <h1
             className="mt-3 text-4xl lg:text-5xl font-bold text-white leading-tight"
-            style={{ fontFamily: "Nunito Sans, sans-serif", fontWeight: 800 }}
           >
             Latest News &<br />Announcements
           </h1>
@@ -72,7 +71,6 @@ export default function BlogPage() {
                     </div>
                     <h3
                       className="text-base font-bold text-gray-900 mb-2 leading-snug flex-1"
-                      style={{ fontFamily: "Playfair Display, serif" }}
                     >
                       {article.title}
                     </h3>

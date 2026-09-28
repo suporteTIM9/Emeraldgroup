@@ -30,7 +30,7 @@ const heroContent = [
   {
     label: "01 — Our Purpose",
     heading: "Connect. Create. Grow.",
-    headingLines: null as null | { text: string; accent: boolean }[],
+    headingLines: null as null | { text: string }[],
     sub: "Connecting Africa to global financial centres — creating new markets that drive economic growth.",
     cta1: "Who We Are", cta1Href: "#about",
   },
@@ -38,10 +38,10 @@ const heroContent = [
     label: "02 — Our Reach",
     heading: "",
     headingLines: [
-      { text: "Six Clusters.",   accent: false },
-      { text: "One Vision.",       accent: true  },
-      { text: "Endless Potential.", accent: false },
-    ] as { text: string; accent: boolean }[],
+      { text: "Six Clusters." },
+      { text: "One Vision." },
+      { text: "Endless Potential." },
+    ] as { text: string }[],
     sub: "From banking to resources, from infrastructure to urban development — our portfolio spans the industries that shape economies and transform lives.",
     cta1: "Who We Are", cta1Href: "#about",
   },
@@ -393,7 +393,7 @@ export default function HeroSection() {
                 <span
                   key={li}
                   className="block"
-                  style={{ color: line.accent ? "#02f9ba" : "white", whiteSpace: "nowrap" }}
+                  style={{ color: "white", whiteSpace: "nowrap" }}
                 >
                   <SplitText key={line.text} text={line.text} animate={contentVisible} />
                 </span>

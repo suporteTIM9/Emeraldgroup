@@ -109,7 +109,6 @@ export default function ChairmanTalkArticle() {
             {/* Title */}
             <h1
               className="text-3xl lg:text-4xl font-bold leading-tight text-gray-900 mb-6"
-              style={{ fontFamily: "Playfair Display, serif" }}
             >
               {talk.title}
             </h1>
@@ -248,7 +247,7 @@ export default function ChairmanTalkArticle() {
                       <span className="text-xs font-semibold tracking-widest uppercase" style={{ color: accent }}>
                         {a.category}
                       </span>
-                      <h3 className="text-sm font-bold text-gray-800 mt-1 leading-snug group-hover:text-[#8a7233] transition-colors" style={{ fontFamily: "Playfair Display, serif" }}>
+                      <h3 className="text-sm font-bold text-gray-800 mt-1 leading-snug group-hover:text-[#8a7233] transition-colors">
                         {a.title}
                       </h3>
                       <span className="text-xs text-gray-400 mt-1 flex items-center gap-1">

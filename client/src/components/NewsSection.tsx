@@ -124,7 +124,7 @@ export default function NewsSection() {
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-12">
           <h2
             className="text-4xl lg:text-5xl leading-tight"
-            style={{ color: "var(--eg-dark)", fontFamily: "Nunito Sans, sans-serif", fontWeight: 800 }}
+            style={{ color: "var(--eg-dark)" }}
           >
             Latest News &<br />Announcements
           </h2>

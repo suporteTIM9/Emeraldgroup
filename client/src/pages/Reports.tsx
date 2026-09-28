@@ -65,7 +65,6 @@ function ReportsContent() {
             </div>
             <h1
               className="text-4xl lg:text-5xl font-bold text-white mb-4"
-              style={{ fontFamily: "Playfair Display, serif" }}
             >
               Reports & Documents
             </h1>

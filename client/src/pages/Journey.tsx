@@ -314,7 +314,7 @@ export default function Journey() {
           <div className="mx-auto max-w-3xl" ref={timelineRef}>
             <h2
               className="mb-5 text-3xl sm:text-4xl font-bold leading-tight text-center"
-              style={{ fontFamily: "Playfair Display, serif", color: "var(--eg-dark)" }}
+              style={{ color: "var(--eg-dark)" }}
             >
               Every Chapter of Our Journey
             </h2>
@@ -355,7 +355,7 @@ export default function Journey() {
                           >
                             {tag}
                           </span>
-                          <h3 className="text-xl sm:text-2xl font-bold text-white mb-3" style={{ fontFamily: "Playfair Display, serif" }}>
+                          <h3 className="text-xl sm:text-2xl font-bold text-white mb-3">
                             {m.title.split(": ").pop()}
                           </h3>
                           <p className="text-sm leading-relaxed mb-8 max-w-xl" style={{ color: "rgba(255,255,255,0.65)" }}>
@@ -365,7 +365,7 @@ export default function Journey() {
                           <div className="grid sm:grid-cols-3 gap-6">
                             {cols.map((c) => (
                               <div key={c.label} className="pt-4" style={{ borderTop: "1px solid rgba(255,255,255,0.14)" }}>
-                                <h4 className="text-base font-semibold mb-1.5" style={{ fontFamily: "Playfair Display, serif", color: "#02f9ba" }}>
+                                <h4 className="text-base font-semibold mb-1.5" style={{ color: "white" }}>
                                   {c.label}
                                 </h4>
                                 <p className="text-xs leading-relaxed" style={{ color: "rgba(255,255,255,0.6)" }}>{c.text}</p>
@@ -425,7 +425,6 @@ export default function Journey() {
             </p>
             <h2
               className="text-3xl sm:text-4xl font-bold text-white mb-6"
-              style={{ fontFamily: "Playfair Display, serif" }}
             >
               Be Part of the Next Chapter
             </h2>

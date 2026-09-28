@@ -158,7 +158,7 @@ export default function ChairmanLetterModal({ isOpen, onClose }: Props) {
                   fontFamily: "Quantico, sans-serif",
                   fontSize: "clamp(1.5rem, 4.5vw, 2.4rem)",
                   fontWeight: 700,
-                  color: "#02d49e",
+                  color: "var(--eg-dark)",
                   textTransform: "uppercase",
                   letterSpacing: "0.04em",
                   lineHeight: 1.1,

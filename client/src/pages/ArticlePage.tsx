@@ -100,7 +100,6 @@ export default function ArticlePage() {
             {/* Title */}
             <h1
               className="text-3xl lg:text-4xl font-bold leading-tight text-gray-900 mb-6"
-              style={{ fontFamily: "Playfair Display, serif" }}
             >
               {article.title}
             </h1>

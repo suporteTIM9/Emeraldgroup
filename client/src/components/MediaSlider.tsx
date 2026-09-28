@@ -263,7 +263,7 @@ export default function MediaSlider() {
               <div className="flex flex-col flex-1 p-5">
                 <h3
                   className="text-base font-bold mb-2 leading-snug"
-                  style={{ color: "var(--eg-dark)", fontFamily: "Playfair Display, serif" }}
+                  style={{ color: "var(--eg-dark)" }}
                 >
                   {event.title}
                 </h3>

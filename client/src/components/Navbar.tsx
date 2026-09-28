@@ -19,7 +19,6 @@ const mobileNavItems: NavItem[] = [
   { label: "Leadership Team", href: "/leadership" },
   { label: "Our Business Clusters", href: "#clusters" },
   { label: "Investors Relations", href: "/contact" },
-  { label: "Contact Us", href: "/contact" },
 ];
 
 export default function Navbar({ fixed = true }: NavbarProps) {

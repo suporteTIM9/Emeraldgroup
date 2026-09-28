@@ -43,6 +43,7 @@ const slides: SlideItem[] = [
   { type: "youtube", src: "ZCB8D7e1aU8" },
   { type: "youtube", src: "FUAC_e5_i8g" },
   { type: "youtube", src: "Phg843hCbSI" },
+  { type: "youtube", src: "aIjVi_YtcyU" },
 ];
 
 /* 2 copies — animation translates -50% = exactly one set width */

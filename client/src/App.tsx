@@ -6,7 +6,6 @@ import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
 
-const Reports = lazy(() => import("./pages/Reports"));
 const TermsOfUse = lazy(() => import("./pages/TermsOfUse"));
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
 const BlogPage = lazy(() => import("./pages/BlogPage"));
@@ -30,7 +29,6 @@ function Router() {
         <Route path={"/blog/:slug"} component={ArticlePage} />
         <Route path={"/chairmans-talk"} component={ChairmansTalk} />
         <Route path={"/chairmans-talk/:slug"} component={ChairmanTalkArticle} />
-        <Route path={"/reports"} component={Reports} />
         <Route path={"/legal"} component={LegalNotice} />
         <Route path={"/about-us"} component={AboutUs} />
         <Route path={"/mission-vision"} component={MissionVision} />

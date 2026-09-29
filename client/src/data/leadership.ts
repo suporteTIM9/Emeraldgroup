@@ -25,9 +25,7 @@ export const leadershipGroups: LeadershipGroup[] = [
       { name: "Afzal Munshi", role: "Executive Board Member", photo: "/leadership/afzal-munshi.png", linkedin: "https://www.linkedin.com/in/afzal-munshi-05967017a" },
       { name: "Khalid Al Almiri", role: "Independent Director", photo: "/leadership/khalid-al-almiri.png" },
       { name: "Nathalie Poirier", role: "Independent Director & Chair of Board Committees", photo: "/leadership/nathalie-poirier.png", linkedin: "https://www.linkedin.com/in/nathalie-poirier-ramakanth-43985546" },
-      { name: "Virgílio Mendes", role: "Group Company Secretary", note: "*", photo: "/leadership/virgilio-mendes.png", linkedin: "https://www.linkedin.com/in/virgílio-mendes-38a66872" },
     ],
-    footnote: "*Appointed by the Board of Directors, not a Board Member.",
   },
   {
     heading: "Group Executive Board",

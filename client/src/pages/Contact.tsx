@@ -80,7 +80,7 @@ export default function Contact() {
   return (
     <div className="min-h-screen bg-white">
       <Navbar fixed={false} />
-      <Breadcrumb items={[{ label: "Contact" }]} />
+      <Breadcrumb items={[{ label: "Investor Relations" }]} />
 
       {/* ── Documents & Reports header ── */}
       <div

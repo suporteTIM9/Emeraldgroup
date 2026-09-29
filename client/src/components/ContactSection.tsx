@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Send, MapPin, Mail, Globe, Loader2 } from "lucide-react";
+import { Send, MapPin, Mail, Globe, Loader2, ShieldCheck } from "lucide-react";
 import { trpc } from "@/lib/trpc";
 
 const ENQUIRY_TYPES = [
@@ -167,6 +167,23 @@ export default function ContactSection({ showHeader = true }: { showHeader?: boo
                     onMouseLeave={e => (e.currentTarget.style.color = "#ffffff")}
                   >
                     info@emeraldgroup-inc.com
+                  </a>
+                </div>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0" style={{ background: "rgba(2,249,186,0.1)" }}>
+                  <ShieldCheck size={15} color="#02f9ba" />
+                </div>
+                <div>
+                  <div className="text-[10px] font-bold tracking-widest uppercase mb-0.5" style={{ color: "rgba(255,255,255,0.35)" }}>Compliance</div>
+                  <a
+                    href="mailto:compliance@emeraldgroup-inc.com"
+                    className="text-sm"
+                    style={{ color: "#ffffff", fontFamily: "Nunito Sans, sans-serif", transition: "color 0.2s" }}
+                    onMouseEnter={e => (e.currentTarget.style.color = "#02f9ba")}
+                    onMouseLeave={e => (e.currentTarget.style.color = "#ffffff")}
+                  >
+                    compliance@emeraldgroup-inc.com
                   </a>
                 </div>
               </div>

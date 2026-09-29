@@ -24,7 +24,7 @@ const footerLinks = [
       { label: "Our Mission & Vision", href: "/mission-vision" },
       { label: "Our Journey", href: "/journey" },
       { label: "Our Leadership Team", href: "/leadership" },
-      { label: "Investor Relations", href: "/contact" },
+      { label: "Investor Relations", href: "/investor-relations" },
       { label: "Newsroom", href: "#news" },
       { label: "Contact Us", href: "/contact" },
     ],

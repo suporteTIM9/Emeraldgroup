@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { FileText, Download, Calendar, Shield } from "lucide-react";
+import { FileText, Lock, Calendar, Shield } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
@@ -111,14 +111,14 @@ export default function InvestorRelations() {
                         <span className="text-xs text-gray-400">{doc.size}</span>
                       </div>
                     </div>
-                    <button
-                      className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-sm transition-all opacity-0 group-hover:opacity-100"
-                      style={{ background: "var(--eg-cyan)", color: "white" }}
-                      onClick={() => alert("Download feature coming soon. Documents will be available in the live portal.")}
+                    <div
+                      className="flex shrink-0 items-center gap-1.5 rounded-sm border px-3 py-1.5 text-xs font-semibold"
+                      style={{ borderColor: "oklch(0.9 0.005 240)", color: "#9ca3af", background: "oklch(0.98 0.002 240)", cursor: "not-allowed" }}
+                      title="Available once the investor portal launches"
                     >
-                      <Download size={12} />
-                      Download
-                    </button>
+                      <Lock size={12} />
+                      Locked
+                    </div>
                   </div>
                 ))}
               </div>

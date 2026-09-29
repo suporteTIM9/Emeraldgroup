@@ -63,10 +63,10 @@ export default function Navbar({ fixed = true }: NavbarProps) {
   };
 
   const logoSrc = isStatic
-    ? "https://d2xsxph8kpxj0f.cloudfront.net/310519663184082639/28Rt9uMprGDPTN4Qw2hwyo/emerald-logo-transparent_aa2bef6f.png"
+    ? "/logo/emerald-logo-transparent.png"
     : scrolled
-      ? "https://d2xsxph8kpxj0f.cloudfront.net/310519663184082639/28Rt9uMprGDPTN4Qw2hwyo/emerald-logo-transparent_aa2bef6f.png"
-      : "https://d2xsxph8kpxj0f.cloudfront.net/310519663184082639/28Rt9uMprGDPTN4Qw2hwyo/emerald-logo-dark_23cb6a99.png";
+      ? "/logo/emerald-logo-transparent.png"
+      : "/logo/emerald-logo-dark.png";
 
   const navStyle = { fontFamily: "Nunito Sans, sans-serif", fontWeight: 700, lineHeight: "1.4" };
   const textColor = scrolled || isStatic ? "#1E1F1F" : "white";

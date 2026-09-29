@@ -150,7 +150,7 @@ export default function Footer() {
         <div className="container py-8">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
             <img
-              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663184082639/28Rt9uMprGDPTN4Qw2hwyo/emerald-logo-dark_23cb6a99.png"
+              src="/logo/emerald-logo-dark.png"
               alt="Emerald Group"
               className="w-auto object-contain"
               style={{ height: "clamp(40px, 5vw, 60px)", filter: "brightness(1.15) drop-shadow(0 0 12px rgba(2,212,158,0.25))" }}

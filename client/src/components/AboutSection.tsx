@@ -49,18 +49,21 @@ export default function AboutSection() {
               </p>
             </div>
 
-            <button
-              type="button"
-              onClick={() => setExpanded((e) => !e)}
-              aria-label={expanded ? "Show less" : "Read more"}
-              className="mb-8 flex h-8 w-8 items-center justify-center rounded-full border transition-colors"
-              style={{ borderColor: "oklch(0.9 0.005 240)", color: "#9ca3af" }}
-            >
-              <ChevronDown
-                size={16}
-                style={{ transform: expanded ? "rotate(180deg)" : "none", transition: "transform 0.3s ease" }}
-              />
-            </button>
+            <div className="flex justify-end mb-8">
+              <button
+                type="button"
+                onClick={() => setExpanded((e) => !e)}
+                aria-label={expanded ? "Show less" : "Read more"}
+                className="flex h-9 w-9 items-center justify-center rounded-full transition-transform hover:scale-110"
+                style={{ background: "#02d49e" }}
+              >
+                <ChevronDown
+                  size={18}
+                  color="#1e1f1f"
+                  style={{ transform: expanded ? "rotate(180deg)" : "none", transition: "transform 0.3s ease" }}
+                />
+              </button>
+            </div>
 
             <div>
               <button

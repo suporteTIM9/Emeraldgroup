@@ -63,11 +63,11 @@ const clusters = [
     companies: [
       {
         name: "IBG – International Business Group",
-        desc: "Unites a diversified portfolio of companies and brands across construction, real estate, services, and industry, leveraging group-wide synergies to deliver more complete and competitive solutions. With projects across multiple geographies, IBG aims to contribute meaningfully to the social, economic, and human development of the countries in which it operates. Emerald holds a 30% stake through IBG Middle Africa.",
+        desc: "Unites a diversified portfolio of companies and brands across construction, real estate, services, and industry, leveraging group-wide synergies to deliver more complete and competitive solutions. With projects across multiple geographies, IBG aims to contribute meaningfully to the social, economic, and human development of the countries in which it operates. Emerald is among the key shareholders of IBG Middle Africa.",
       },
       {
         name: "Grow Engineering",
-        desc: "A multinational construction and engineering firm distinguished by its use of modern production processes and a strong commitment to quality. The company emphasizes meticulous attention to detail, on-time delivery, and total customer satisfaction. Emerald holds a 30% stake through Grow Middle Africa.",
+        desc: "A multinational construction and engineering firm distinguished by its use of modern production processes and a strong commitment to quality. The company emphasizes meticulous attention to detail, on-time delivery, and total customer satisfaction. Emerald maintains a strategic equity position in Grow Middle Africa.",
       },
       {
         name: "Tecton",

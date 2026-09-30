@@ -76,7 +76,7 @@ function PersonNode({
         {member.name}
         {member.note && <span style={{ color: accent }}>{member.note}</span>}
       </div>
-      <div className="mt-0.5 text-xs text-slate-500 leading-snug transition-colors duration-300 group-hover:text-[var(--hover-accent)]" style={{ ["--hover-accent" as string]: accent }}>
+      <div className="mt-0.5 text-xs text-slate-500 leading-snug transition-colors duration-300 group-hover:text-(--hover-accent)" style={{ ["--hover-accent" as string]: accent }}>
         {member.role}
       </div>
       {member.spec && (

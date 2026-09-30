@@ -140,7 +140,7 @@ export default function NewsSection() {
 
         {/* Featured article — full-bleed news cover */}
         <div
-          className="relative overflow-hidden rounded-sm mb-6 min-h-[420px] lg:min-h-[480px] flex items-end"
+          className="relative overflow-hidden rounded-sm mb-6 min-h-105 lg:min-h-120 flex items-end"
         >
           <img
             src="/imagens/world-night-lights.jpg"

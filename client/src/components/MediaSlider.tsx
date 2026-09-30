@@ -352,7 +352,7 @@ export default function MediaSlider() {
 
       {lightboxSrc && (
         <div
-          className="fixed inset-0 z-[100] flex items-center justify-center p-6"
+          className="fixed inset-0 z-100 flex items-center justify-center p-6"
           style={{ background: "rgba(0,0,0,0.85)" }}
           onClick={() => setLightboxSrc(null)}
         >
@@ -376,7 +376,7 @@ export default function MediaSlider() {
 
       {lightboxYoutubeId && (
         <div
-          className="fixed inset-0 z-[100] flex items-center justify-center p-6"
+          className="fixed inset-0 z-100 flex items-center justify-center p-6"
           style={{ background: "rgba(0,0,0,0.85)" }}
           onClick={() => setLightboxYoutubeId(null)}
         >

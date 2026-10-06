@@ -7,6 +7,8 @@ export interface LeadershipMember {
   photo?: string;
   /** CSS object-position for the photo crop. Use when the source photo isn't a ~1:1 headshot. */
   photoPosition?: string;
+  /** CSS transform applied to the photo (origin top-left), e.g. "scale(1.45)" to re-centre an off-centre subject. */
+  photoTransform?: string;
   /** Full LinkedIn profile URL. Omit to hide the icon. */
   linkedin?: string;
 }
@@ -34,7 +36,7 @@ export const leadershipGroups: LeadershipGroup[] = [
       { name: "Afzal Munshi", role: "President and Chief Operating Officer", photo: "/leadership/afzal-munshi.png", linkedin: "https://www.linkedin.com/in/afzal-munshi-05967017a" },
       { name: "Cristiana Nóbrega", role: "Chief Financial Officer", photo: "/leadership/cristiana-nobrega.png", linkedin: "https://www.linkedin.com/in/cristiana-nóbrega-963b9519" },
       { name: "Raúl Bragança Neto", role: "Executive Board Member", spec: "Strategy & Investor Relations", photo: "/leadership/raul-braganca-neto.png", linkedin: "https://www.linkedin.com/in/raúl-bragança-neto-bb4b0838" },
-      { name: "Nicholas Khan-Roper", role: "Executive Board Member", spec: "Banking & M&A", photo: "/leadership/nicolas-khan-roper.png", linkedin: "https://uk.linkedin.com/in/nicholaskhanroper" },
+      { name: "Nicholas Khan-Roper", role: "Executive Board Member", spec: "Banking & M&A", photo: "/leadership/nicolas-khan-roper.png", photoPosition: "center top", photoTransform: "scale(1.45)", linkedin: "https://uk.linkedin.com/in/nicholaskhanroper" },
       { name: "José Carlos Lourenço", role: "Executive Board Member", spec: "Media & Telecom", photo: "/leadership/jose-carlos-lourenco.png", linkedin: "https://www.linkedin.com/in/josé-carlos-lourenço-598172b" },
       { name: "Américo Reis", role: "Executive Board Member", spec: "Property & Urban Development", photo: "/leadership/americo-reis.png", linkedin: "https://www.linkedin.com/in/américo-reis-494ab355" },
       { name: "Virgílio Mendes", note: "*", role: "Group Company Secretary", spec: "Legal & Advisory Business", photo: "/leadership/virgilio-mendes.png", linkedin: "https://www.linkedin.com/in/virgílio-mendes-38a66872" },

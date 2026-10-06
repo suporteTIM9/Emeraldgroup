@@ -48,7 +48,7 @@ function PersonNode({
               src={member.photo}
               alt={member.name}
               className="h-full w-full object-cover"
-              style={{ objectPosition: member.photoPosition ?? "center" }}
+              style={{ objectPosition: member.photoPosition ?? "center", transform: member.photoTransform, transformOrigin: "left top" }}
               loading="lazy"
             />
           ) : (

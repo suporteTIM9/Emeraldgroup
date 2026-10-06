@@ -1,30 +1,19 @@
 export const ENV = {
-  appId: process.env.VITE_APP_ID ?? "",
-  cookieSecret: process.env.JWT_SECRET ?? "",
-  databaseUrl: process.env.DATABASE_URL ?? "",
-  oAuthServerUrl: process.env.OAUTH_SERVER_URL ?? "",
-  ownerOpenId: process.env.OWNER_OPEN_ID ?? "",
   isProduction: process.env.NODE_ENV === "production",
-  forgeApiUrl: process.env.BUILT_IN_FORGE_API_URL ?? "",
-  forgeApiKey: process.env.BUILT_IN_FORGE_API_KEY ?? "",
+  port: parseInt(process.env.PORT || "3000"),
+  smtp: {
+    host: process.env.SMTP_HOST ?? "",
+    port: parseInt(process.env.SMTP_PORT || "587"),
+    secure: process.env.SMTP_SECURE === "true",
+    user: process.env.SMTP_USER ?? "",
+    pass: process.env.SMTP_PASS ?? "",
+    from: process.env.SMTP_FROM ?? "Emerald Group Website <no-reply@emeraldgroup-inc.com>",
+  },
+  contactToEmail: process.env.CONTACT_TO_EMAIL ?? "info@emeraldgroup-inc.com",
 };
 
-const REQUIRED_IN_PRODUCTION: (keyof typeof ENV)[] = [
-  "cookieSecret",
-  "databaseUrl",
-  "oAuthServerUrl",
-];
-
-if (ENV.isProduction) {
-  const missing = REQUIRED_IN_PRODUCTION.filter(k => !ENV[k]);
-  if (missing.length) {
-    console.error(`[ENV] Missing required production env vars: ${missing.join(", ")}`);
-    process.exit(1);
-  }
-} else {
-  const RECOMMENDED: (keyof typeof ENV)[] = ["cookieSecret", "databaseUrl", "oAuthServerUrl"];
-  const missing = RECOMMENDED.filter(k => !ENV[k]);
-  if (missing.length) {
-    console.warn(`[ENV] Warning: missing recommended env vars: ${missing.join(", ")}`);
-  }
+if (ENV.isProduction && (!ENV.smtp.host || !ENV.smtp.user || !ENV.smtp.pass)) {
+  console.warn(
+    "[ENV] SMTP is not fully configured (SMTP_HOST/SMTP_USER/SMTP_PASS) — the contact form will fail to send email."
+  );
 }

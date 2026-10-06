@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Send, MapPin, Mail, Globe, Loader2, ShieldCheck } from "lucide-react";
-import { trpc } from "@/lib/trpc";
 
 const ENQUIRY_TYPES = [
   "Investor Relations",
@@ -13,23 +12,33 @@ export default function ContactSection({ showHeader = true }: { showHeader?: boo
   const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
   const [submitted, setSubmitted] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
+  const [isPending, setIsPending] = useState(false);
 
-  const submitMutation = trpc.contact.submit.useMutation({
-    onSuccess: () => {
-      setSubmitted(true);
-      setSubmitError(null);
-      setForm({ name: "", email: "", subject: "", message: "" });
-      setTimeout(() => setSubmitted(false), 4000);
-    },
-    onError: (err) => {
-      setSubmitError(err.message || "Failed to send message. Please try again.");
-    },
-  });
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setSubmitError(null);
-    submitMutation.mutate(form);
+    setIsPending(true);
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+
+      if (!res.ok) {
+        const data = await res.json().catch(() => null);
+        throw new Error(data?.error || "Failed to send message. Please try again.");
+      }
+
+      setSubmitted(true);
+      setForm({ name: "", email: "", subject: "", message: "" });
+      setTimeout(() => setSubmitted(false), 4000);
+    } catch (err) {
+      setSubmitError(err instanceof Error ? err.message : "Failed to send message. Please try again.");
+    } finally {
+      setIsPending(false);
+    }
   };
 
   return (
@@ -304,11 +313,11 @@ export default function ContactSection({ showHeader = true }: { showHeader?: boo
                   <button
                     type="submit"
                     className="send-btn"
-                    disabled={submitMutation.isPending}
-                    style={{ opacity: submitMutation.isPending ? 0.7 : 1 }}
+                    disabled={isPending}
+                    style={{ opacity: isPending ? 0.7 : 1 }}
                   >
                     <span className="btn-content">
-                      {submitMutation.isPending ? (
+                      {isPending ? (
                         <>
                           Sending…
                           <Loader2 size={14} className="btn-icon" style={{ animation: "spin 1s linear infinite" }} />

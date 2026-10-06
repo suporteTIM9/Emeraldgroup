@@ -44,6 +44,8 @@ const slides: SlideItem[] = [
   { type: "image", src: "/imagens/Forbes_Africa_05.jpeg" },
   { type: "image", src: "/imagens/Forbes_Africa_06.jpeg" },
   { type: "image", src: "/imagens/Forbes_Africa_07.jpeg" },
+  { type: "image", src: "/imagens/Forbes_Africa_08.jpeg" },
+  { type: "image", src: "/imagens/Forbes_Africa_09.jpeg" },
   { type: "youtube", src: "ZCB8D7e1aU8" },
   { type: "youtube", src: "FUAC_e5_i8g" },
   { type: "youtube", src: "Phg843hCbSI" },

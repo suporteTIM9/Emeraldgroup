@@ -37,7 +37,7 @@ export const leadershipGroups: LeadershipGroup[] = [
       { name: "Nicholas Khan-Roper", role: "Executive Board Member", spec: "Banking & M&A", photo: "/leadership/nicolas-khan-roper.png", linkedin: "https://uk.linkedin.com/in/nicholaskhanroper" },
       { name: "José Carlos Lourenço", role: "Executive Board Member", spec: "Media & Telecom", photo: "/leadership/jose-carlos-lourenco.png", linkedin: "https://www.linkedin.com/in/josé-carlos-lourenço-598172b" },
       { name: "Américo Reis", role: "Executive Board Member", spec: "Property & Urban Development", photo: "/leadership/americo-reis.png", linkedin: "https://www.linkedin.com/in/américo-reis-494ab355" },
-      { name: "Virgílio Mendes", role: "Executive Board Member", spec: "Legal & Advisory Business", photo: "/leadership/virgilio-mendes.png", linkedin: "https://www.linkedin.com/in/virgílio-mendes-38a66872" },
+      { name: "Virgílio Mendes", note: "*", role: "Group Company Secretary", spec: "Legal & Advisory Business", photo: "/leadership/virgilio-mendes.png", linkedin: "https://www.linkedin.com/in/virgílio-mendes-38a66872" },
     ],
   },
   {

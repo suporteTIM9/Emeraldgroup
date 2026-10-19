@@ -1,10 +1,12 @@
 import { useEffect } from "react";
-import { FileText, Lock, Calendar, Shield } from "lucide-react";
+import { FileText, Lock, Calendar, Shield, Download } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
 
-const reports = [
+type ReportDoc = { title: string; date: string; type: string; size: string; file?: string };
+
+const reports: { category: string; items: ReportDoc[] }[] = [
   {
     category: "Annual Reports",
     items: [
@@ -35,6 +37,12 @@ const reports = [
       { title: "Investor Day Presentation 2024", date: "October 2024", type: "PDF", size: "5.7 MB" },
       { title: "Strategy Briefing – Africa Growth Markets", date: "June 2024", type: "PDF", size: "3.2 MB" },
       { title: "ESG & Sustainability Report 2024", date: "April 2024", type: "PDF", size: "2.8 MB" },
+    ],
+  },
+  {
+    category: "Corporate Presentation",
+    items: [
+      { title: "Emerald Group Corporate Presentation 2026", date: "September 2026", type: "PDF", size: "2.84 MB", file: "/documents/Emerald_Group_Corporate_Presentation_September2026.pdf" },
     ],
   },
 ];
@@ -87,7 +95,7 @@ export default function InvestorRelations() {
                   className="ml-auto text-xs px-2 py-0.5 rounded-sm font-medium"
                   style={{ background: "oklch(0.97 0.008 200)", color: "var(--eg-cyan)" }}
                 >
-                  {section.items.length} files
+                  {section.items.length} {section.items.length === 1 ? "file" : "files"}
                 </span>
               </div>
               <div className="divide-y divide-gray-50">
@@ -111,14 +119,26 @@ export default function InvestorRelations() {
                         <span className="text-xs text-gray-400">{doc.size}</span>
                       </div>
                     </div>
-                    <div
-                      className="flex shrink-0 items-center gap-1.5 rounded-sm border px-3 py-1.5 text-xs font-semibold"
-                      style={{ borderColor: "oklch(0.9 0.005 240)", color: "#9ca3af", background: "oklch(0.98 0.002 240)", cursor: "not-allowed" }}
-                      title="Available once the investor portal launches"
-                    >
-                      <Lock size={12} />
-                      Locked
-                    </div>
+                    {doc.file ? (
+                      <a
+                        href={doc.file}
+                        download
+                        className="flex shrink-0 items-center gap-1.5 rounded-sm border px-3 py-1.5 text-xs font-semibold transition-colors"
+                        style={{ borderColor: "var(--eg-cyan)", color: "var(--eg-dark)", background: "white" }}
+                      >
+                        <Download size={12} />
+                        Download
+                      </a>
+                    ) : (
+                      <div
+                        className="flex shrink-0 items-center gap-1.5 rounded-sm border px-3 py-1.5 text-xs font-semibold"
+                        style={{ borderColor: "oklch(0.9 0.005 240)", color: "#9ca3af", background: "oklch(0.98 0.002 240)", cursor: "not-allowed" }}
+                        title="Available once the investor portal launches"
+                      >
+                        <Lock size={12} />
+                        Locked
+                      </div>
+                    )}
                   </div>
                 ))}
               </div>

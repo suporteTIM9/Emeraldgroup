@@ -6,7 +6,14 @@ import Breadcrumb from "@/components/Breadcrumb";
 
 type ReportDoc = { title: string; date: string; type: string; size: string; file?: string };
 
-const reports: { category: string; items: ReportDoc[] }[] = [
+const reports: { category: string; items: ReportDoc[]; featured?: boolean }[] = [
+  {
+    category: "Corporate Presentation",
+    featured: true,
+    items: [
+      { title: "Emerald Group Corporate Presentation 2026", date: "September 2026", type: "PDF", size: "2.84 MB", file: "/documents/Emerald_Group_Corporate_Presentation_September2026.pdf" },
+    ],
+  },
   {
     category: "Annual Reports",
     items: [
@@ -37,12 +44,6 @@ const reports: { category: string; items: ReportDoc[] }[] = [
       { title: "Investor Day Presentation 2024", date: "October 2024", type: "PDF", size: "5.7 MB" },
       { title: "Strategy Briefing – Africa Growth Markets", date: "June 2024", type: "PDF", size: "3.2 MB" },
       { title: "ESG & Sustainability Report 2024", date: "April 2024", type: "PDF", size: "2.8 MB" },
-    ],
-  },
-  {
-    category: "Corporate Presentation",
-    items: [
-      { title: "Emerald Group Corporate Presentation 2026", date: "September 2026", type: "PDF", size: "2.84 MB", file: "/documents/Emerald_Group_Corporate_Presentation_September2026.pdf" },
     ],
   },
 ];
@@ -84,13 +85,25 @@ export default function InvestorRelations() {
       <div className="container py-12" style={{ background: "oklch(0.97 0.003 240)" }}>
         <div className="grid lg:grid-cols-2 gap-8">
           {reports.map((section) => (
-            <div key={section.category} className="bg-white rounded-sm shadow-sm overflow-hidden border border-gray-100">
+            <div
+              key={section.category}
+              className={`bg-white rounded-sm overflow-hidden ${section.featured ? "lg:col-span-2 shadow-md" : "shadow-sm border border-gray-100"}`}
+              style={section.featured ? { border: "1.5px solid var(--eg-cyan)", boxShadow: "0 0 0 4px color-mix(in srgb, var(--eg-cyan) 12%, transparent)" } : undefined}
+            >
               <div
                 className="px-6 py-4 border-b border-gray-50 flex items-center gap-3"
-                style={{ background: "oklch(0.99 0.003 240)" }}
+                style={{ background: section.featured ? "color-mix(in srgb, var(--eg-cyan) 8%, white)" : "oklch(0.99 0.003 240)" }}
               >
                 <FileText size={16} style={{ color: "var(--eg-cyan)" }} />
                 <h2 className="text-sm font-semibold text-gray-800">{section.category}</h2>
+                {section.featured && (
+                  <span
+                    className="text-[10px] font-bold tracking-widest uppercase px-2 py-0.5 rounded-sm text-white"
+                    style={{ background: "var(--eg-cyan)" }}
+                  >
+                    New
+                  </span>
+                )}
                 <span
                   className="ml-auto text-xs px-2 py-0.5 rounded-sm font-medium"
                   style={{ background: "oklch(0.97 0.008 200)", color: "var(--eg-cyan)" }}
@@ -123,8 +136,8 @@ export default function InvestorRelations() {
                       <a
                         href={doc.file}
                         download
-                        className="flex shrink-0 items-center gap-1.5 rounded-sm border px-3 py-1.5 text-xs font-semibold transition-colors"
-                        style={{ borderColor: "var(--eg-cyan)", color: "var(--eg-dark)", background: "white" }}
+                        className="flex shrink-0 items-center gap-1.5 rounded-sm px-4 py-2 text-xs font-bold transition-transform hover:scale-105"
+                        style={{ background: "var(--eg-cyan)", color: "var(--eg-dark)", boxShadow: "0 2px 10px color-mix(in srgb, var(--eg-cyan) 40%, transparent)" }}
                       >
                         <Download size={12} />
                         Download

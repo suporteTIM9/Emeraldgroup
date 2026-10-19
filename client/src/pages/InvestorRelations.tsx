@@ -96,14 +96,6 @@ export default function InvestorRelations() {
               >
                 <FileText size={16} style={{ color: "var(--eg-cyan)" }} />
                 <h2 className="text-sm font-semibold text-gray-800">{section.category}</h2>
-                {section.featured && (
-                  <span
-                    className="text-[10px] font-bold tracking-widest uppercase px-2 py-0.5 rounded-sm text-white"
-                    style={{ background: "var(--eg-cyan)" }}
-                  >
-                    New
-                  </span>
-                )}
                 <span
                   className="ml-auto text-xs px-2 py-0.5 rounded-sm font-medium"
                   style={{ background: "oklch(0.97 0.008 200)", color: "var(--eg-cyan)" }}
@@ -136,8 +128,8 @@ export default function InvestorRelations() {
                       <a
                         href={doc.file}
                         download
-                        className="flex shrink-0 items-center gap-1.5 rounded-sm px-4 py-2 text-xs font-bold transition-transform hover:scale-105"
-                        style={{ background: "var(--eg-cyan)", color: "var(--eg-dark)", boxShadow: "0 2px 10px color-mix(in srgb, var(--eg-cyan) 40%, transparent)" }}
+                        className="download-pulse flex shrink-0 items-center gap-1.5 rounded-sm px-4 py-2 text-xs font-bold text-white transition-transform hover:scale-105"
+                        style={{ background: "var(--eg-cyan)" }}
                       >
                         <Download size={12} />
                         Download

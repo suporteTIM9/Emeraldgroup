@@ -427,6 +427,13 @@ export default function HeroSection() {
           <div className="w-px h-16" style={{ background: "linear-gradient(180deg, transparent, white)" }} />
           <span className="text-white text-xs tracking-widest" style={{ writingMode: "vertical-rl" }}>SCROLL</span>
         </div>
+
+        {/* Image credit */}
+        <div className="absolute bottom-8 left-8 opacity-40 hidden sm:block">
+          <span className="text-white text-[10px] tracking-widest uppercase">
+            Images for illustrative purposes only
+          </span>
+        </div>
       </div>
 
       {/* ── Stats bar ── */}

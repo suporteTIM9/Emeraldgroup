@@ -184,6 +184,15 @@
   50%       { box-shadow: 0 0 20px #02f9ba, 0 0 50px #02f9ba, 0 0 100px #02f9bacc, 0 0 140px #02f9ba88; }
 }
 
+@keyframes soft-pulse {
+  0%, 100% { box-shadow: 0 2px 10px color-mix(in srgb, var(--eg-cyan) 35%, transparent); }
+  50%       { box-shadow: 0 2px 16px color-mix(in srgb, var(--eg-cyan) 70%, transparent); }
+}
+
+.download-pulse {
+  animation: soft-pulse 2.4s ease-in-out infinite;
+}
+
 .neon-btn {
   position: relative;
   display: inline-flex;

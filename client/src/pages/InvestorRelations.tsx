@@ -11,7 +11,7 @@ const reports: { category: string; items: ReportDoc[]; featured?: boolean }[] = 
     category: "Corporate Presentation",
     featured: true,
     items: [
-      { title: "Emerald Group Corporate Presentation 2026", date: "September 2026", type: "PDF", size: "2.84 MB", file: "/documents/Emerald_Group_Corporate_Presentation_September2026.pdf" },
+      { title: "Emerald Group Corporate Presentation 2026", date: "October 2026", type: "PDF", size: "0.74 MB", file: "/documents/Emerald_Group_Corporate_Presentation_October2026.pdf" },
     ],
   },
   {

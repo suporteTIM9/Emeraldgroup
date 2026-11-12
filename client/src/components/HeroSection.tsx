@@ -6,21 +6,21 @@ import { ArrowRight } from "lucide-react";
 
 type BackgroundSlide =
   | { type: "video"; src: string; poster?: string; duration: number }
-  | { type: "images"; images: { src: string; alt: string }[]; duration: number };
+  | { type: "images"; images: { src: string; alt: string; credit: string }[]; duration: number };
 
 const slides: BackgroundSlide[] = [
   {
     type: "video",
     src: "/videos/banner_video.mp4",
-    poster: "/imagens/Dubai_Emerald.jpeg",
+    poster: "/imagens/Dubai,%20UAE-Emerald%20Group.jpeg",
     duration: 12000,
   },
   {
     type: "images",
     images: [
-      { src: "/imagens/Dubai_Emerald.jpeg", alt: "Emerald Group infrastructure" },
-      { src: "/imagens/banner_02.jpg", alt: "Emerald Group business portfolio" },
-      { src: "/imagens/Luanda_Emerald_.jpeg", alt: "Emerald Group global reach" },
+      { src: "/imagens/Dubai,%20UAE-Emerald%20Group.jpeg", alt: "Dubai, UAE", credit: "Dubai, UAE" },
+      { src: "/imagens/Global%20Partnerships%20-%20Emerald%20Group.jpg", alt: "Global Partnerships", credit: "Global Partnerships" },
+      { src: "/imagens/Luanda,%20Angola%20-%20Emerald%20Group.jpeg", alt: "Luanda, Angola", credit: "Luanda, Angola" },
     ],
     duration: 14000,
   },
@@ -119,7 +119,7 @@ function ThreePanelSliceSection({
   images,
   animate,
 }: {
-  images: { src: string; alt: string }[];
+  images: { src: string; alt: string; credit: string }[];
   animate: boolean;
 }) {
   return (
@@ -159,6 +159,26 @@ function ThreePanelSliceSection({
               }}
             />
           )}
+
+          {/* Per-image credit */}
+          <div
+            style={{
+              position: "absolute",
+              bottom: "0.75rem",
+              left: 0,
+              right: 0,
+              textAlign: "center",
+              zIndex: 2,
+              opacity: 0.6,
+            }}
+          >
+            <span
+              className="text-white text-[10px] tracking-widest uppercase"
+              style={{ textShadow: "0 1px 3px rgba(0,0,0,0.8)" }}
+            >
+              {image.credit}
+            </span>
+          </div>
         </div>
       ))}
     </div>
@@ -426,13 +446,6 @@ export default function HeroSection() {
         <div className="absolute bottom-8 right-8 flex flex-col items-center gap-2 opacity-40">
           <div className="w-px h-16" style={{ background: "linear-gradient(180deg, transparent, white)" }} />
           <span className="text-white text-xs tracking-widest" style={{ writingMode: "vertical-rl" }}>SCROLL</span>
-        </div>
-
-        {/* Image credit */}
-        <div className="absolute bottom-8 left-8 opacity-40 hidden sm:block">
-          <span className="text-white text-[10px] tracking-widest uppercase">
-            Images for illustrative purposes only
-          </span>
         </div>
       </div>
 
